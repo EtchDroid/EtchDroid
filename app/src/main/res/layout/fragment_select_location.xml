@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.FlashMethodFragment"
+    tools:showIn="@layout/activity_main">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/use_local_img_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/use_local_image"/>
+
+        <Button
+            android:id="@+id/pick_file_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:onClick="onButtonClicked"
+            android:text="@string/pick_a_file"/>
+
+        <RadioButton
+            android:id="@+id/download_img_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/download_image_from_url"/>
+
+        <EditText
+            android:id="@+id/img_url_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri"
+            android:enabled="false"
+            android:hint="@string/image_url_hint"/>
+
+        <CheckBox
+            android:id="@+id/streaming_write_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:enabled="false"
+            android:onClick="onCheckBoxClicked"
+            android:text="@string/download_streaming"/>
+    </RadioGroup>
+
+</LinearLayout>

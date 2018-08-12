@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DDroid</string>
+    <string name="action_settings">Settings</string>
+    <string name="download_image_from_url">Download image from URL</string>
+    <string name="use_local_image">Use local image</string>
+    <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
+    <string name="flash_dd_root">Write using dd (requires root)</string>
+    <string name="flash_unetbootin">Unetbootin-style flash (MBR only, requires root)</string>
+    <string name="flash_woeusb">Write Windows image (using WoeUSB, requires root)</string>
+    <string name="download_streaming">Stream directly to USB drive</string>
+    <string name="pick_a_file">Pick a file</string>
+    <string name="image_url_hint">Image URL</string>
+    <string name="provided_url_invalid">Provided URL is invalid</string>
+    <string name="select_image_location">Please select image location</string>
+    <string name="provide_image_file">Please provide an image file</string>
+    <string name="storage_perm_required_explaination">Storage permission required to download images</string>
+</resources>
