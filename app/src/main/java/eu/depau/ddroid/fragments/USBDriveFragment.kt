@@ -1,25 +1,17 @@
 package eu.depau.ddroid.fragments
 
+import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.Snackbar
+import android.support.annotation.RequiresApi
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import eu.depau.ddroid.*
-import eu.depau.ddroid.abc.WizardActivity
-import eu.depau.ddroid.abc.WizardFragment
-import eu.depau.ddroid.values.FlashMethod
-import eu.depau.ddroid.values.WizardStep
-import java.nio.file.FileSystems.getFileSystem
 import com.github.mjdev.libaums.UsbMassStorageDevice
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
-import android.hardware.usb.UsbManager
-import android.os.Build
-import android.support.annotation.RequiresApi
-import android.support.v4.content.ContextCompat.getSystemService
+import eu.depau.ddroid.R
+import eu.depau.ddroid.StateKeeper
+import eu.depau.ddroid.abc.WizardFragment
+import eu.depau.ddroid.values.WizardStep
 
 
 /**

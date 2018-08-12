@@ -5,7 +5,8 @@ import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import eu.depau.ddroid.*
+import eu.depau.ddroid.R
+import eu.depau.ddroid.StateKeeper
 import eu.depau.ddroid.abc.WizardActivity
 import eu.depau.ddroid.abc.WizardFragment
 import eu.depau.ddroid.values.FlashMethod

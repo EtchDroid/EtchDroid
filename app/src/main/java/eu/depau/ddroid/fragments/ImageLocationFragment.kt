@@ -17,7 +17,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import eu.depau.ddroid.*
+import eu.depau.ddroid.R
+import eu.depau.ddroid.StateKeeper
 import eu.depau.ddroid.abc.WizardActivity
 import eu.depau.ddroid.abc.WizardFragment
 import eu.depau.ddroid.values.FlashMethod
