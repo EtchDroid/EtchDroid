@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.OpenableColumns
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -14,16 +13,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
 import eu.depau.ddroid.R
 import eu.depau.ddroid.StateKeeper
 import eu.depau.ddroid.abc.WizardActivity
 import eu.depau.ddroid.abc.WizardFragment
+import eu.depau.ddroid.utils.getFileName
+import eu.depau.ddroid.utils.snackbar
 import eu.depau.ddroid.values.FlashMethod
 import eu.depau.ddroid.values.ImageLocation
 import eu.depau.ddroid.values.WizardStep
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_select_location.*
+import kotlinx.android.synthetic.main.wizard_fragment_layout.*
 
 
 /**
@@ -43,7 +44,7 @@ class ImageLocationFragment : WizardFragment() {
     }
 
     fun setStreamingCheckBoxAvailability(context: WizardActivity) {
-        val checkBox = context.findViewById<CheckBox>(R.id.streaming_write_checkbox)
+        val checkBox = streaming_write_checkbox
 
         if (checkBox == null)
             return
@@ -71,8 +72,10 @@ class ImageLocationFragment : WizardFragment() {
             else -> null
         }
 
-        activity?.findViewById<Button>(R.id.pick_file_btn)?.isEnabled = StateKeeper.imageLocation == ImageLocation.LOCAL
-        activity?.findViewById<EditText>(R.id.img_url_textview)?.isEnabled = StateKeeper.imageLocation == ImageLocation.REMOTE
+        fab?.show()
+
+        pick_file_btn?.isEnabled = StateKeeper.imageLocation == ImageLocation.LOCAL
+        img_url_textview?.isEnabled = StateKeeper.imageLocation == ImageLocation.REMOTE
 
         setStreamingCheckBoxAvailability(activity as WizardActivity)
         updateFileButtonLabel(activity as WizardActivity)
@@ -87,9 +90,9 @@ class ImageLocationFragment : WizardFragment() {
         }
     }
 
-    override fun nextStep(view: View) {
+    override fun nextStep(view: View?) {
         if (StateKeeper.imageLocation == null) {
-            Snackbar.make(view, getString(R.string.select_image_location), Snackbar.LENGTH_LONG).show()
+            view?.snackbar(getString(R.string.select_image_location))
             return
         }
 
@@ -98,13 +101,13 @@ class ImageLocationFragment : WizardFragment() {
                 StateKeeper.imageFile = getRemoteImageUri(activity as WizardActivity)
             } catch (e: RuntimeException) {
                 Log.e(TAG, "Invalid URI specified", e)
-                Snackbar.make(view, getString(R.string.provided_url_invalid), Snackbar.LENGTH_LONG).show()
+                view?.snackbar(getString(R.string.provided_url_invalid))
                 return
             }
         }
 
         if (StateKeeper.imageFile == null) {
-            Snackbar.make(view, getString(R.string.provide_image_file), Snackbar.LENGTH_LONG).show()
+            view?.snackbar(getString(R.string.provide_image_file))
             return
         }
 
@@ -122,7 +125,7 @@ class ImageLocationFragment : WizardFragment() {
 
 
         }
-        (activity as WizardActivity).goToNewFragment(USBDriveFragment())
+        (activity as WizardActivity).goToNewFragment(UsbDriveFragment())
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -130,9 +133,9 @@ class ImageLocationFragment : WizardFragment() {
             MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE -> {
                 // If request is cancelled, the result arrays are empty.
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    nextStep(activity!!.findViewById(R.id.fragment_layout))
+                    nextStep(fragment_layout)
                 } else {
-                    Snackbar.make(activity!!.findViewById(R.id.fragment_layout), getString(R.string.storage_perm_required_explaination), Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(fragment_layout, getString(R.string.storage_perm_required_explaination), Snackbar.LENGTH_LONG).show()
                 }
                 return
             }
@@ -157,31 +160,20 @@ class ImageLocationFragment : WizardFragment() {
     }
 
     fun getRemoteImageUri(context: WizardActivity): Uri {
-        val text = context.findViewById<EditText>(R.id.img_url_textview).text.toString()
+        val text = img_url_textview.text.toString()
         return Uri.parse(text)
     }
 
     fun updateFileButtonLabel(context: WizardActivity) {
-        val button = context.findViewById<Button>(R.id.pick_file_btn)
+        val button = pick_file_btn
         val uri = StateKeeper.imageFile
 
-        if (uri != null && uri.scheme != null && !uri.scheme!!.startsWith("http")) {
-            val cursor = context.contentResolver.query(uri, null, null, null, null, null)
+        val text = uri?.getFileName(context)
 
-            try {
-                if (cursor != null && cursor.moveToFirst()) {
-                    button.text = cursor.getString(
-                            cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
-                }
-                return
-            } catch (e: RuntimeException) {
-                Log.e(TAG, "Error retrieving file name", e)
-            } finally {
-                cursor?.close()
-            }
-        }
-
-        button.text = getString(R.string.pick_a_file)
+        if (text != null)
+            button.text = text
+        else
+            button.text = getString(R.string.pick_a_file)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

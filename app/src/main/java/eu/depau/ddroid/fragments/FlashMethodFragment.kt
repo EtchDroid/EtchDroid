@@ -1,7 +1,6 @@
 package eu.depau.ddroid.fragments
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,7 @@ import eu.depau.ddroid.R
 import eu.depau.ddroid.StateKeeper
 import eu.depau.ddroid.abc.WizardActivity
 import eu.depau.ddroid.abc.WizardFragment
+import eu.depau.ddroid.utils.snackbar
 import eu.depau.ddroid.values.FlashMethod
 import eu.depau.ddroid.values.WizardStep
 
@@ -16,9 +16,9 @@ import eu.depau.ddroid.values.WizardStep
  * A placeholder fragment containing a simple view.
  */
 class FlashMethodFragment : WizardFragment() {
-    override fun nextStep(view: View) {
+    override fun nextStep(view: View?) {
         if (StateKeeper.flashMethod == null)
-            Snackbar.make(view, "Please select writing method", Snackbar.LENGTH_LONG).show()
+            view?.snackbar(getString(R.string.please_select_writing_method))
         else
             (activity as WizardActivity).goToNewFragment(ImageLocationFragment())
     }

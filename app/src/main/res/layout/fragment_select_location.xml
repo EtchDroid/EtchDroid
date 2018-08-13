@@ -31,6 +31,7 @@
             android:id="@+id/download_img_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:onClick="onRadioButtonClicked"
             android:text="@string/download_image_from_url"/>
 

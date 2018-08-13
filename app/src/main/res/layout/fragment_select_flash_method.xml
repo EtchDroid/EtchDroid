@@ -24,6 +24,7 @@
             android:id="@+id/flash_dd_root_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="@string/flash_dd_root"
             android:onClick="onRadioButtonClicked"/>
 
@@ -31,6 +32,7 @@
             android:id="@+id/flash_unetbootin_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="@string/flash_unetbootin"
             android:onClick="onRadioButtonClicked"/>
 
@@ -38,6 +40,7 @@
             android:id="@+id/flash_woeusb_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="@string/flash_woeusb"
             android:onClick="onRadioButtonClicked"/>
 
