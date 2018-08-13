@@ -1,15 +1,49 @@
 package eu.depau.ddroid.activities
 
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.hardware.usb.UsbDevice
+import android.hardware.usb.UsbManager
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import eu.depau.ddroid.R
+import eu.depau.ddroid.StateKeeper
 import eu.depau.ddroid.abc.WizardActivity
 import eu.depau.ddroid.abc.WizardFragment
 import eu.depau.ddroid.fragments.FlashMethodFragment
+import eu.depau.ddroid.fragments.UsbDriveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : WizardActivity() {
+    val TAG = "MainActivity"
+    val ACTION_USB_PERMISSION = "eu.depau.ddroid.USB_PERMISSION"
+    lateinit var mUsbPermissionIntent: PendingIntent
+
+    private val mUsbReceiver = object : BroadcastReceiver() {
+
+        override fun onReceive(context: Context, intent: Intent) {
+            if (intent.action == ACTION_USB_PERMISSION) {
+                synchronized(this) {
+                    val device: UsbDevice? = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE)
+
+                    val result = intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)
+                    if (result)
+                        device?.apply {
+                            StateKeeper.usbDevice = this
+                        }
+
+                    if (StateKeeper.currentFragment is UsbDriveFragment)
+                        (StateKeeper.currentFragment as UsbDriveFragment).onUsbPermissionResult(device, result)
+                }
+            }
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,14 +56,22 @@ class MainActivity : WizardActivity() {
         transaction.replace(R.id.fragment_layout, fragment)
         transaction.commit()
         fragment.onFragmentAdded(this)
+
+        val usbManager = getSystemService(Context.USB_SERVICE) as UsbManager
+        mUsbPermissionIntent = PendingIntent.getBroadcast(this, 0, Intent(ACTION_USB_PERMISSION), 0)
+        val filter = IntentFilter(ACTION_USB_PERMISSION)
+        registerReceiver(mUsbReceiver, filter)
     }
 
     override fun goToNewFragment(fragment: WizardFragment) {
+        StateKeeper.currentFragment?.onFragmentRemoving(this)
+
         val transaction = supportFragmentManager.beginTransaction()
         transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
         transaction.replace(R.id.fragment_layout, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+
         fragment.onFragmentAdded(this)
     }
 

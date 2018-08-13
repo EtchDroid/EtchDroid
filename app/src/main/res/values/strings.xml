@@ -14,4 +14,15 @@
     <string name="select_image_location">Please select image location</string>
     <string name="provide_image_file">Please provide an image file</string>
     <string name="storage_perm_required_explaination">Storage permission required to download images</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="usb_perm_denied">Permission denied for</string>
+    <string name="usb_perm_denied_noname">Permission denied for USB device</string>
+    <string name="selected_image">Selected image:</string>
+    <string name="selected_method">Selected writing method:</string>
+    <string name="selected_usbdev">Selected USB device:</string>
+    <string name="unknown_filename">Unknown filename</string>
+    <string name="please_select_writing_method">Please select writing method</string>
+    <string name="image_bigger_than_usb">Image is bigger than the USB drive, so it can\'t be written</string>
+    <string name="cant_read_usbdev">Cannot read USB device</string>
+    <string name="tap_next_to_write">Tap Next to write the image to the USB drive</string>
 </resources>
