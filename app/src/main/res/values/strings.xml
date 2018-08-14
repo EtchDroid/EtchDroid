@@ -25,4 +25,8 @@
     <string name="image_bigger_than_usb">Image is bigger than the USB drive, so it can\'t be written</string>
     <string name="cant_read_usbdev">Cannot read USB device</string>
     <string name="tap_next_to_write">Tap Next to write the image to the USB drive</string>
+    <string name="notchan_writestatus_title">USB write status</string>
+    <string name="notchan_writestatus_desc">Used to display the status of images being written to USB drives</string>
+    <string name="notif_initializing">Initializing...</string>
+    <string name="notif_writing_img">Writing image</string>
 </resources>
