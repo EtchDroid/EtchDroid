@@ -12,7 +12,8 @@ import eu.depau.ddroid.utils.name
 import java.nio.ByteBuffer
 
 class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
-    val DD_BLOCKSIZE = 4096
+    // 512 * 32 bytes = USB max transfer size
+    val DD_BLOCKSIZE = 512 * 32 * 64  // 1 MB
 
     class Action {
         val WRITE_IMAGE = "eu.depau.ddroid.action.API_WRITE_IMAGE"
