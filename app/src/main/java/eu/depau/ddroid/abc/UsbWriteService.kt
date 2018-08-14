@@ -6,6 +6,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.net.Uri
 import android.os.Build
+import android.support.v4.app.NotificationCompat
 import eu.depau.ddroid.R
 import eu.depau.ddroid.utils.getFileName
 import eu.depau.ddroid.utils.toHRSize
@@ -19,7 +20,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
     private var prevBytes = 0L
     private var notifyChanRegistered = false
 
-    fun getNotificationBuilder(): Notification.Builder {
+    fun getNotificationBuilder(): NotificationCompat.Builder {
         if (!notifyChanRegistered) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val channame = "USB write progress"
@@ -37,9 +38,9 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         }
 
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            Notification.Builder(this, WRITE_PROGRESS_CHANNEL_ID)
+            NotificationCompat.Builder(this, WRITE_PROGRESS_CHANNEL_ID)
         else
-            Notification.Builder(this)
+            NotificationCompat.Builder(this)
     }
 
     fun updateNotification(usbDevice: String, uri: Uri, bytes: Long, total: Long) {
@@ -65,7 +66,9 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
                 .setContentTitle("Write failed")
                 .setContentText("The USB drive may have been unplugged while writing.")
                 .setOngoing(false)
-                .setSmallIcon(R.drawable.ic_usb_white_24dp)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            b.setSmallIcon(R.drawable.ic_usb_white_24dp)
 
         notificationManager.notify(FOREGROUND_ID, b.build())
     }
@@ -87,8 +90,10 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         b.setContentTitle("Writing image")
                 .setContentText("${uri.getFileName(this)} to $usbDevice")
                 .setOngoing(true)
-                .setSmallIcon(R.drawable.ic_usb_white_24dp)
                 .setProgress(100, progr, indet)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            b.setSmallIcon(R.drawable.ic_usb_white_24dp)
 
         if (subText != null)
             b.setSubText(subText)
