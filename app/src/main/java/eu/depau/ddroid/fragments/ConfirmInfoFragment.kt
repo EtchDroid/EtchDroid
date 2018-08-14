@@ -64,25 +64,33 @@ class ConfirmInfoFragment : WizardFragment() {
 
         view.confirm_sel_usbdev.text = StateKeeper.usbDevice?.name
 
-        try {
-            StateKeeper.usbMassStorageDevice!!.init()
-            val blockDev = StateKeeper.usbMassStorageDevice?.blockDevice
+        for (trial in 0..1) {
+            try {
+                StateKeeper.usbMassStorageDevice!!.init()
+                val blockDev = StateKeeper.usbMassStorageDevice?.blockDevice
 
-            if (blockDev != null) {
-                val devSize = (blockDev.size.toLong() * blockDev.blockSize.toLong())
-                view.confirm_sel_usbdev_size.text = devSize.toHRSize()
+                if (blockDev != null) {
+                    val devSize = (blockDev.size.toLong() * blockDev.blockSize.toLong())
+                    view.confirm_sel_usbdev_size.text = devSize.toHRSize()
 
-                if (imgSize!! > devSize)
-                    view.confirm_extra_info.text = getString(R.string.image_bigger_than_usb)
-                else {
-                    view.confirm_extra_info.text = getString(R.string.tap_next_to_write)
-                    canContinue = true
+                    if (imgSize!! > devSize)
+                        view.confirm_extra_info.text = getString(R.string.image_bigger_than_usb)
+                    else {
+                        view.confirm_extra_info.text = getString(R.string.tap_next_to_write)
+                        canContinue = true
+                    }
+                } else {
+                    view.confirm_extra_info.text = getString(R.string.cant_read_usbdev)
                 }
-            } else {
-                view.confirm_extra_info.text = getString(R.string.cant_read_usbdev)
+            } catch (e: IOException) {
+                if (trial == 0) {
+                    StateKeeper.usbMassStorageDevice!!.close()
+                    continue
+                } else {
+                    view.confirm_extra_info.text = "Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app."
+                    break
+                }
             }
-        } catch (e: IOException) {
-            view.confirm_extra_info.text = "Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app."
         }
 
         return view
