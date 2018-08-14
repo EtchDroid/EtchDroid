@@ -10,6 +10,8 @@ import eu.depau.ddroid.utils.name
 import java.nio.ByteBuffer
 
 class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
+    val DD_BLOCKSIZE = 4096
+
     class Action {
         val WRITE_IMAGE = "eu.depau.ddroid.action.API_WRITE_IMAGE"
         val WRITE_CANCEL = "eu.depau.ddroid.action.API_WRITE_CANCEL"
@@ -45,7 +47,8 @@ class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
         msDev.init()
 
         val blockDev = msDev.blockDevice
-        val byteBuffer = ByteBuffer.allocate(blockDev.blockSize)
+        var bsFactor = DD_BLOCKSIZE / blockDev.blockSize
+        val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bsFactor)
         val imageSize = uri.getFileSize(this)
         val inputStream = contentResolver.openInputStream(uri)!!
 
@@ -56,12 +59,12 @@ class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
             readBytes = inputStream.read(byteBuffer.array()!!)
             if (readBytes < 0)
                 break
+            byteBuffer.position(0)
 
-            byteBuffer.position(readBytes)
             blockDev.write(offset, byteBuffer)
             offset++
 
-            notify(offset * blockDev.blockSize, imageSize)
+            notify(offset * blockDev.blockSize * bsFactor, imageSize)
         }
 
         msDev.close()
