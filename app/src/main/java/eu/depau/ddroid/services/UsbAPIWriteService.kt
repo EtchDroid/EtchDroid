@@ -3,6 +3,7 @@ package eu.depau.ddroid.services
 import android.content.Intent
 import android.hardware.usb.UsbDevice
 import android.net.Uri
+import android.util.Log
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.ddroid.abc.UsbWriteService
 import eu.depau.ddroid.utils.getFileSize
@@ -62,13 +63,15 @@ class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
             byteBuffer.position(0)
 
             blockDev.write(offset, byteBuffer)
-            offset++
+            offset += bsFactor
 
             notify(offset * blockDev.blockSize * bsFactor, imageSize)
         }
 
         msDev.close()
 
-        return offset * blockDev.blockSize
+        val writtenBytes = offset * blockDev.blockSize
+        Log.d(TAG, "Written $writtenBytes bytes to ${usbDevice.name} using API")
+        return writtenBytes
     }
 }
