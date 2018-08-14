@@ -6,6 +6,7 @@ import android.net.Uri
 import android.util.Log
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.ddroid.abc.UsbWriteService
+import eu.depau.ddroid.utils.getFileName
 import eu.depau.ddroid.utils.getFileSize
 import eu.depau.ddroid.utils.name
 import java.nio.ByteBuffer
@@ -16,20 +17,6 @@ class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
     class Action {
         val WRITE_IMAGE = "eu.depau.ddroid.action.API_WRITE_IMAGE"
         val WRITE_CANCEL = "eu.depau.ddroid.action.API_WRITE_CANCEL"
-    }
-
-    override fun onHandleIntent(intent: Intent?) {
-        val uri: Uri = intent!!.data!!
-        val usbDevice: UsbDevice = intent.getParcelableExtra("usbDevice")
-
-        startForeground(FOREGROUND_ID, buildForegroundNotification(usbDevice.name, uri, -1, -1))
-
-        try {
-            val notify = { bytes: Long, total: Long -> updateNotification(usbDevice.name, uri, bytes, total) }
-            writeImage(usbDevice, uri, notify)
-        } finally {
-            stopForeground(true)
-        }
     }
 
     private fun getUsbMSDevice(usbDevice: UsbDevice): UsbMassStorageDevice? {
@@ -43,34 +30,50 @@ class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
         return null
     }
 
-    private fun writeImage(usbDevice: UsbDevice, uri: Uri, notify: (Long, Long) -> Unit): Long {
+    override fun writeImage(intent: Intent): Long {
+        val uri: Uri = intent.data!!
+        val usbDevice: UsbDevice = intent.getParcelableExtra("usbDevice")
+
         val msDev = getUsbMSDevice(usbDevice)!!
         msDev.init()
 
         val blockDev = msDev.blockDevice
-        var bsFactor = DD_BLOCKSIZE / blockDev.blockSize
+        val bsFactor = DD_BLOCKSIZE / blockDev.blockSize
         val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bsFactor)
         val imageSize = uri.getFileSize(this)
         val inputStream = contentResolver.openInputStream(uri)!!
 
+        val startTime = System.currentTimeMillis()
+
         var readBytes: Int
         var offset = 0L
+        var writtenBytes: Long = 0
 
-        while (true) {
-            readBytes = inputStream.read(byteBuffer.array()!!)
-            if (readBytes < 0)
-                break
-            byteBuffer.position(0)
+        try {
+            while (true) {
+                wakeLock(true)
+                readBytes = inputStream.read(byteBuffer.array()!!)
+                if (readBytes < 0)
+                    break
+                byteBuffer.position(0)
 
-            blockDev.write(offset, byteBuffer)
-            offset += bsFactor
+                blockDev.write(offset, byteBuffer)
+                offset += bsFactor
+                writtenBytes += readBytes
 
-            notify(offset * blockDev.blockSize * bsFactor, imageSize)
+                updateNotification(usbDevice.name, uri.getFileName(this), offset * blockDev.blockSize, imageSize)
+            }
+
+            resultNotification(usbDevice.name, uri.getFileName(this)!!, true, writtenBytes, startTime)
+        } catch (e: Exception) {
+            resultNotification(usbDevice.name, uri.getFileName(this)!!, false, writtenBytes, startTime)
+            Log.e(TAG, "Could't write image to ${usbDevice.name}")
+            throw e
+        } finally {
+            wakeLock(false)
+            msDev.close()
         }
 
-        msDev.close()
-
-        val writtenBytes = offset * blockDev.blockSize
         Log.d(TAG, "Written $writtenBytes bytes to ${usbDevice.name} using API")
         return writtenBytes
     }
