@@ -15,6 +15,7 @@ import eu.depau.ddroid.utils.*
 import eu.depau.ddroid.values.FlashMethod
 import eu.depau.ddroid.values.WizardStep
 import kotlinx.android.synthetic.main.fragment_confirminfo.view.*
+import java.io.IOException
 
 /**
  * A placeholder fragment containing a simple view.
@@ -63,21 +64,25 @@ class ConfirmInfoFragment : WizardFragment() {
 
         view.confirm_sel_usbdev.text = StateKeeper.usbDevice?.name
 
-        StateKeeper.usbMassStorageDevice!!.init()
-        val blockDev = StateKeeper.usbMassStorageDevice?.blockDevice
+        try {
+            StateKeeper.usbMassStorageDevice!!.init()
+            val blockDev = StateKeeper.usbMassStorageDevice?.blockDevice
 
-        if (blockDev != null) {
-            val devSize = (blockDev.size.toLong() * blockDev.blockSize.toLong())
-            view.confirm_sel_usbdev_size.text = devSize.toHRSize()
+            if (blockDev != null) {
+                val devSize = (blockDev.size.toLong() * blockDev.blockSize.toLong())
+                view.confirm_sel_usbdev_size.text = devSize.toHRSize()
 
-            if (imgSize!! > devSize)
-                view.confirm_extra_info.text = getString(R.string.image_bigger_than_usb)
-            else {
-                view.confirm_extra_info.text = getString(R.string.tap_next_to_write)
-                canContinue = true
+                if (imgSize!! > devSize)
+                    view.confirm_extra_info.text = getString(R.string.image_bigger_than_usb)
+                else {
+                    view.confirm_extra_info.text = getString(R.string.tap_next_to_write)
+                    canContinue = true
+                }
+            } else {
+                view.confirm_extra_info.text = getString(R.string.cant_read_usbdev)
             }
-        } else {
-            view.confirm_extra_info.text = getString(R.string.cant_read_usbdev)
+        } catch (e: IOException) {
+            view.confirm_extra_info.text = "Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app."
         }
 
         return view
