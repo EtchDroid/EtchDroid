@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "eu.depau.ddroid"
+        applicationId "eu.depau.etchdroid"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
