@@ -2,13 +2,11 @@ package eu.depau.etchdroid.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.abc.WizardActivity
 import eu.depau.etchdroid.abc.WizardFragment
 import eu.depau.etchdroid.services.UsbAPIWriteService
 import eu.depau.etchdroid.utils.*

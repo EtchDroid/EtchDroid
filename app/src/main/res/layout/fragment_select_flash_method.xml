@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,32 +16,32 @@
             android:id="@+id/flash_dd_usb_api_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/flash_dd_usb_api"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/flash_dd_usb_api"/>
 
         <RadioButton
             android:id="@+id/flash_dd_root_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="@string/flash_dd_root"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/flash_dd_root"/>
 
         <RadioButton
             android:id="@+id/flash_unetbootin_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="@string/flash_unetbootin"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/flash_unetbootin"/>
 
         <RadioButton
             android:id="@+id/flash_woeusb_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="@string/flash_woeusb"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/flash_woeusb"/>
 
     </RadioGroup>
 </LinearLayout>

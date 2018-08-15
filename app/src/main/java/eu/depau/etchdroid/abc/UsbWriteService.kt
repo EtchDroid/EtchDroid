@@ -6,12 +6,10 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.PowerManager
 import android.support.v4.app.NotificationCompat
 import eu.depau.etchdroid.R
-import eu.depau.etchdroid.utils.getFileName
 import eu.depau.etchdroid.utils.toHRSize
 import eu.depau.etchdroid.utils.toHRTime
 
@@ -135,7 +133,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
                 .setProgress(100, progr, indet)
 
         if (usbDevice != null && filename != null)
-                b.setContentText("${filename} to $usbDevice")
+            b.setContentText("${filename} to $usbDevice")
         else
             b.setContentText(getString(R.string.notif_initializing))
 
