@@ -6,11 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import android.widget.TextView
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
 import kotlinx.android.synthetic.main.usb_device_row.view.*
-import java.lang.Integer
 
 class UsbDrivesRecyclerViewAdapter(private val dataset: Array<UsbMassStorageDevice>) : RecyclerView.Adapter<UsbDrivesRecyclerViewAdapter.ViewHolder>() {
 

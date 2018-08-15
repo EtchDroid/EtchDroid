@@ -39,9 +39,9 @@
             android:id="@+id/img_url_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textUri"
             android:enabled="false"
-            android:hint="@string/image_url_hint"/>
+            android:hint="@string/image_url_hint"
+            android:inputType="textUri"/>
 
         <CheckBox
             android:id="@+id/streaming_write_checkbox"

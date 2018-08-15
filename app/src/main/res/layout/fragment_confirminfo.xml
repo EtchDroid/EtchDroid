@@ -26,11 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:text="@string/selected_method"
             android:textColor="@color/name"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:ellipsize="end"
-            android:text="@string/selected_method"/>
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/confirm_sel_method"
@@ -56,11 +56,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:text="@string/selected_image"
             android:textColor="@color/name"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:ellipsize="end"
-            android:text="@string/selected_image"/>
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/confirm_sel_image"
@@ -95,11 +95,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:text="@string/selected_usbdev"
             android:textColor="@color/name"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:ellipsize="end"
-            android:text="@string/selected_usbdev"/>
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/confirm_sel_usbdev"
@@ -115,7 +115,6 @@
             android:textColor="@color/info"/>
 
     </RelativeLayout>
-
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -135,9 +134,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:ellipsize="end"
             android:textColor="@color/name"
-            android:textSize="16sp"
-            android:ellipsize="end"/>
+            android:textSize="16sp"/>
 
 
     </RelativeLayout>

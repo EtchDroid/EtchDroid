@@ -3,7 +3,7 @@ package eu.depau.etchdroid.utils
 import android.hardware.usb.UsbDevice
 import android.os.Build
 
-fun formatID(id: Int): String = Integer.toHexString(id).padStart(4,'0')
+fun formatID(id: Int): String = Integer.toHexString(id).padStart(4, '0')
 
 val UsbDevice.vidpid: String
     get() = "${formatID(this.vendorId)}:${formatID(this.productId)}"
