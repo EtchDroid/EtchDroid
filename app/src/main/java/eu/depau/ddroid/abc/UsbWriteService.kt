@@ -81,7 +81,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         if (time <= prevTime + 1000)
             return
 
-        val speed = ((bytes - prevBytes).toDouble() / (time - prevTime).toDouble()).toHRSize()
+        val speed = ((bytes - prevBytes).toDouble() / (time - prevTime).toDouble() * 1000).toHRSize()
         prevTime = time
         prevBytes = bytes
 
@@ -104,7 +104,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
                     .setContentText("$usbDevice may have been unplugged while writing.")
                     .setSubText(dt.toHRTime())
         else {
-            val speed = (dt.toDouble() / bytes.toDouble()).toHRSize() + "/s"
+            val speed = (bytes.toDouble() / dt.toDouble() * 1000).toHRSize() + "/s"
             b.setContentTitle("Write finished")
                     .setContentText("$filename successfully written to $usbDevice")
                     .setSubText("${dt.toHRTime()} • ${bytes.toHRSize()} • $speed")
