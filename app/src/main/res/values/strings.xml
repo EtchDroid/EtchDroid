@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DDroid</string>
+    <string name="app_name">EtchDroid</string>
     <string name="action_settings">Settings</string>
     <string name="download_image_from_url">Download image from URL</string>
     <string name="use_local_image">Use local image</string>

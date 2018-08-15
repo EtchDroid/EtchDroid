@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="eu.depau.ddroid.fragments.UsbDriveFragment">
+      tools:context="eu.depau.etchdroid.fragments.UsbDriveFragment">
     <item
         android:id="@+id/action_refresh"
         android:orderInCategory="100"
