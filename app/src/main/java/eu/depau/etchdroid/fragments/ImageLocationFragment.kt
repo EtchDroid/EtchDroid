@@ -16,8 +16,7 @@ import android.view.ViewGroup
 import com.github.isabsent.filepicker.SimpleFilePickerDialog
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.abc.WizardActivity
-import eu.depau.etchdroid.abc.WizardFragment
+import eu.depau.etchdroid.activities.WizardActivity
 import eu.depau.etchdroid.kotlin_exts.getFileName
 import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.enums.FlashMethod

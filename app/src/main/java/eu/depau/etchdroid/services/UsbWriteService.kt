@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.abc
+package eu.depau.etchdroid.services
 
 import android.app.IntentService
 import android.app.Notification

@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.abc
+package eu.depau.etchdroid.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.github.isabsent.filepicker.SimpleFilePickerDialog
 import eu.depau.etchdroid.StateKeeper
+import eu.depau.etchdroid.fragments.WizardFragment
 
 abstract class WizardActivity : AppCompatActivity(), SimpleFilePickerDialog.InteractionListenerString {
     override fun onResult(dialogTag: String, which: Int, extras: Bundle): Boolean {

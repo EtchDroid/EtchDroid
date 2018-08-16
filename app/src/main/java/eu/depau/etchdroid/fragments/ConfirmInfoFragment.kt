@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.abc.WizardFragment
 import eu.depau.etchdroid.services.UsbAPIWriteService
 import eu.depau.etchdroid.kotlin_exts.*
 import eu.depau.etchdroid.enums.FlashMethod

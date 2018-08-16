@@ -1,8 +1,9 @@
-package eu.depau.etchdroid.abc
+package eu.depau.etchdroid.fragments
 
 import android.content.Intent
 import android.support.v4.app.Fragment
 import android.view.View
+import eu.depau.etchdroid.activities.WizardActivity
 
 abstract class WizardFragment() : Fragment() {
     private lateinit var wizardActivity: WizardActivity
