@@ -1,3 +1,12 @@
 [submodule "libaums"]
 	path = libaums
 	url = https://github.com/Depau/libaums.git
+[submodule "dmg2img"]
+	path = dmg2img/src/c/dmg2img
+	url = https://github.com/Depau/dmg2img-cmake.git
+[submodule "app/src/c/bzip2"]
+	path = dmg2img/src/c/bzip2
+	url = https://github.com/LuaDist/bzip2.git
+[submodule "app/src/c/libressl"]
+	path = dmg2img/src/c/libressl
+	url = https://github.com/libressl-portable/portable.git

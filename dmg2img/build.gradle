@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+
+android {
+	compileSdkVersion 28
+	defaultConfig {
+		externalNativeBuild {
+			cmake {
+				targets "crypto", "bz2", "ssl", "tls", "dmg2img"
+			}
+		}
+	}
+	externalNativeBuild {
+		cmake {
+			path "CMakeLists.txt"
+		}
+	}
+	sourceSets {
+		main {
+			assets.srcDirs = ['src/main/assets']
+		}
+	}
+}
