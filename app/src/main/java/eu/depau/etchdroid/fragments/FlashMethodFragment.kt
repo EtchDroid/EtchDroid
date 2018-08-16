@@ -9,8 +9,8 @@ import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.abc.WizardActivity
 import eu.depau.etchdroid.abc.WizardFragment
 import eu.depau.etchdroid.kotlin_exts.snackbar
-import eu.depau.etchdroid.values.FlashMethod
-import eu.depau.etchdroid.values.WizardStep
+import eu.depau.etchdroid.enums.FlashMethod
+import eu.depau.etchdroid.enums.WizardStep
 
 /**
  * A placeholder fragment containing a simple view.

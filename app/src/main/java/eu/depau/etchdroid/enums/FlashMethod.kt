@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.values
+package eu.depau.etchdroid.enums
 
 enum class FlashMethod {
     FLASH_API,
