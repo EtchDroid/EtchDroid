@@ -10,8 +10,8 @@ import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.abc.WizardFragment
 import eu.depau.etchdroid.services.UsbAPIWriteService
 import eu.depau.etchdroid.kotlin_exts.*
-import eu.depau.etchdroid.values.FlashMethod
-import eu.depau.etchdroid.values.WizardStep
+import eu.depau.etchdroid.enums.FlashMethod
+import eu.depau.etchdroid.enums.WizardStep
 import kotlinx.android.synthetic.main.fragment_confirminfo.view.*
 import java.io.IOException
 

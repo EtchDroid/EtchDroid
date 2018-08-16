@@ -18,7 +18,7 @@ import eu.depau.etchdroid.activities.MainActivity
 import eu.depau.etchdroid.adapters.UsbDrivesRecyclerViewAdapter
 import eu.depau.etchdroid.kotlin_exts.name
 import eu.depau.etchdroid.kotlin_exts.snackbar
-import eu.depau.etchdroid.values.WizardStep
+import eu.depau.etchdroid.enums.WizardStep
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_select_usb_drive.view.*
 

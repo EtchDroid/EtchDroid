@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.values
+package eu.depau.etchdroid.enums
 
 enum class WizardStep {
     SELECT_FLASH_METHOD,

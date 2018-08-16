@@ -20,9 +20,9 @@ import eu.depau.etchdroid.abc.WizardActivity
 import eu.depau.etchdroid.abc.WizardFragment
 import eu.depau.etchdroid.kotlin_exts.getFileName
 import eu.depau.etchdroid.kotlin_exts.snackbar
-import eu.depau.etchdroid.values.FlashMethod
-import eu.depau.etchdroid.values.ImageLocation
-import eu.depau.etchdroid.values.WizardStep
+import eu.depau.etchdroid.enums.FlashMethod
+import eu.depau.etchdroid.enums.ImageLocation
+import eu.depau.etchdroid.enums.WizardStep
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_select_location.*
 import java.io.File
