@@ -15,9 +15,9 @@ import eu.depau.etchdroid.abc.ClickListener
 import eu.depau.etchdroid.abc.WizardActivity
 import eu.depau.etchdroid.abc.WizardFragment
 import eu.depau.etchdroid.activities.MainActivity
-import eu.depau.etchdroid.utils.UsbDrivesRecyclerViewAdapter
-import eu.depau.etchdroid.utils.name
-import eu.depau.etchdroid.utils.snackbar
+import eu.depau.etchdroid.adapters.UsbDrivesRecyclerViewAdapter
+import eu.depau.etchdroid.kotlin_exts.name
+import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.values.WizardStep
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_select_usb_drive.view.*

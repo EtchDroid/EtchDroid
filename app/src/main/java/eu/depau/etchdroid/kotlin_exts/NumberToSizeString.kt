@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.utils
+package eu.depau.etchdroid.kotlin_exts
 
 // https://stackoverflow.com/a/3758880/1124621
 

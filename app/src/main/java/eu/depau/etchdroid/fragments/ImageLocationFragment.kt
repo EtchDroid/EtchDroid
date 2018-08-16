@@ -18,8 +18,8 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.abc.WizardActivity
 import eu.depau.etchdroid.abc.WizardFragment
-import eu.depau.etchdroid.utils.getFileName
-import eu.depau.etchdroid.utils.snackbar
+import eu.depau.etchdroid.kotlin_exts.getFileName
+import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.values.FlashMethod
 import eu.depau.etchdroid.values.ImageLocation
 import eu.depau.etchdroid.values.WizardStep

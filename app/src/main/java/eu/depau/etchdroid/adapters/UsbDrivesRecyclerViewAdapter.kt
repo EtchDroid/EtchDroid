@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.utils
+package eu.depau.etchdroid.adapters
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
+import eu.depau.etchdroid.kotlin_exts.vidpid
 import kotlinx.android.synthetic.main.usb_device_row.view.*
 
 class UsbDrivesRecyclerViewAdapter(private val dataset: Array<UsbMassStorageDevice>) : RecyclerView.Adapter<UsbDrivesRecyclerViewAdapter.ViewHolder>() {
@@ -16,7 +17,7 @@ class UsbDrivesRecyclerViewAdapter(private val dataset: Array<UsbMassStorageDevi
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            UsbDrivesRecyclerViewAdapter.ViewHolder {
+            ViewHolder {
 
         val relLayout = LayoutInflater.from(parent.context)
                 .inflate(R.layout.usb_device_row, parent, false) as RelativeLayout
