@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.utils
+package eu.depau.etchdroid.kotlin_exts
 
 import android.content.Context
 import android.widget.Toast

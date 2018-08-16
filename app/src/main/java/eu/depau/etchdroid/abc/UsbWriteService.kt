@@ -10,8 +10,8 @@ import android.os.Build
 import android.os.PowerManager
 import android.support.v4.app.NotificationCompat
 import eu.depau.etchdroid.R
-import eu.depau.etchdroid.utils.toHRSize
-import eu.depau.etchdroid.utils.toHRTime
+import eu.depau.etchdroid.kotlin_exts.toHRSize
+import eu.depau.etchdroid.kotlin_exts.toHRTime
 
 
 abstract class UsbWriteService(name: String) : IntentService(name) {

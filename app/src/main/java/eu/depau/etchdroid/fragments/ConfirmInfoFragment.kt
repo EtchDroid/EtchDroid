@@ -9,7 +9,7 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.abc.WizardFragment
 import eu.depau.etchdroid.services.UsbAPIWriteService
-import eu.depau.etchdroid.utils.*
+import eu.depau.etchdroid.kotlin_exts.*
 import eu.depau.etchdroid.values.FlashMethod
 import eu.depau.etchdroid.values.WizardStep
 import kotlinx.android.synthetic.main.fragment_confirminfo.view.*

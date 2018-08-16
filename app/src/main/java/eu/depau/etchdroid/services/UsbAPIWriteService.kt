@@ -6,9 +6,9 @@ import android.net.Uri
 import android.util.Log
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.abc.UsbWriteService
-import eu.depau.etchdroid.utils.getFileName
-import eu.depau.etchdroid.utils.getFileSize
-import eu.depau.etchdroid.utils.name
+import eu.depau.etchdroid.kotlin_exts.getFileName
+import eu.depau.etchdroid.kotlin_exts.getFileSize
+import eu.depau.etchdroid.kotlin_exts.name
 import java.nio.ByteBuffer
 
 class UsbAPIWriteService : UsbWriteService("UsbAPIWriteService") {
