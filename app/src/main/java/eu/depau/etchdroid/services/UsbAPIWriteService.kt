@@ -5,7 +5,6 @@ import android.hardware.usb.UsbDevice
 import android.net.Uri
 import android.util.Log
 import com.github.mjdev.libaums.UsbMassStorageDevice
-import eu.depau.etchdroid.abc.UsbWriteService
 import eu.depau.etchdroid.kotlin_exts.getFileName
 import eu.depau.etchdroid.kotlin_exts.getFileSize
 import eu.depau.etchdroid.kotlin_exts.name

@@ -11,9 +11,8 @@ import android.view.*
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.abc.ClickListener
-import eu.depau.etchdroid.abc.WizardActivity
-import eu.depau.etchdroid.abc.WizardFragment
+import eu.depau.etchdroid.utils.ClickListener
+import eu.depau.etchdroid.activities.WizardActivity
 import eu.depau.etchdroid.activities.MainActivity
 import eu.depau.etchdroid.adapters.UsbDrivesRecyclerViewAdapter
 import eu.depau.etchdroid.kotlin_exts.name

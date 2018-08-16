@@ -12,8 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.abc.WizardActivity
-import eu.depau.etchdroid.abc.WizardFragment
+import eu.depau.etchdroid.fragments.WizardFragment
 import eu.depau.etchdroid.fragments.FlashMethodFragment
 import eu.depau.etchdroid.fragments.UsbDriveFragment
 import kotlinx.android.synthetic.main.activity_main.*

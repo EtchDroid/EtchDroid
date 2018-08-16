@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.abc
+package eu.depau.etchdroid.utils
 
 import android.view.View
 
