@@ -46,7 +46,7 @@ class ConfirmInfoFragment : WizardFragment() {
 
         view.confirm_sel_method.text = when (StateKeeper.flashMethod) {
             FlashMethod.FLASH_API -> getString(R.string.flash_dd_usb_api)
-            FlashMethod.FLASH_DD -> getString(R.string.flash_dd_root)
+            FlashMethod.FLASH_DMG_API -> getString(R.string.flash_dmg_api)
             FlashMethod.FLASH_UNETBOOTIN -> getString(R.string.flash_unetbootin)
             FlashMethod.FLASH_WOEUSB -> getString(R.string.flash_woeusb)
             else -> null
