@@ -13,19 +13,18 @@
         android:layout_height="wrap_content">
 
         <RadioButton
-            android:id="@+id/flash_dd_usb_api_radio"
+            android:id="@+id/flash_usb_api_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
             android:text="@string/flash_dd_usb_api"/>
 
         <RadioButton
-            android:id="@+id/flash_dd_root_radio"
+            android:id="@+id/flash_dmg_api_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/flash_dd_root"/>
+            android:text="@string/flash_dmg_api"/>
 
         <RadioButton
             android:id="@+id/flash_unetbootin_radio"

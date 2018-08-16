@@ -33,8 +33,8 @@ class FlashMethodFragment : WizardFragment() {
 
     override fun onRadioButtonClicked(view: View) {
         StateKeeper.flashMethod = when (view.id) {
-            R.id.flash_dd_root_radio -> FlashMethod.FLASH_DD
-            R.id.flash_dd_usb_api_radio -> FlashMethod.FLASH_API
+            R.id.flash_dmg_api_radio -> FlashMethod.FLASH_DMG_API
+            R.id.flash_usb_api_radio -> FlashMethod.FLASH_API
             R.id.flash_unetbootin_radio -> FlashMethod.FLASH_UNETBOOTIN
             R.id.flash_woeusb_radio -> FlashMethod.FLASH_WOEUSB
             else -> null

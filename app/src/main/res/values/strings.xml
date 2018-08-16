@@ -4,7 +4,7 @@
     <string name="download_image_from_url">Download image from URL</string>
     <string name="use_local_image">Use local image</string>
     <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
-    <string name="flash_dd_root">Write using dd (requires root)</string>
+    <string name="flash_dmg_api">Restore macOS DMG image to disk (using Android API)</string>
     <string name="flash_unetbootin">Unetbootin-style flash (MBR only, requires root)</string>
     <string name="flash_woeusb">Write Windows image (using WoeUSB, requires root)</string>
     <string name="download_streaming">Stream directly to USB drive</string>
