@@ -22,6 +22,7 @@ import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.enums.FlashMethod
 import eu.depau.etchdroid.enums.ImageLocation
 import eu.depau.etchdroid.enums.WizardStep
+import eu.depau.etchdroid.img_types.DMGImage
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_select_location.*
 import java.io.File
@@ -80,7 +81,7 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
         img_url_textview?.isEnabled = StateKeeper.imageLocation == ImageLocation.REMOTE
 
         setStreamingCheckBoxAvailability(activity as WizardActivity)
-        updateFileButtonLabel(activity as WizardActivity)
+        loadImageChanges(activity as WizardActivity)
     }
 
     override fun onButtonClicked(view: View) {
@@ -200,16 +201,21 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
         return Uri.parse(text)
     }
 
-    fun updateFileButtonLabel(context: WizardActivity) {
+    fun loadImageChanges(context: WizardActivity) {
         val button = pick_file_btn
-        val uri = StateKeeper.imageFile
+        val uri = StateKeeper.imageFile ?: return
 
-        val text = uri?.getFileName(context)
+        val text = uri.getFileName(context)
 
         if (text != null)
             button.text = text
         else
             button.text = getString(R.string.pick_a_file)
+
+        if (StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API) {
+            StateKeeper.imageRepr = DMGImage(uri, context)
+            Log.d(TAG, (StateKeeper.imageRepr as DMGImage).partitionTable.toString())
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -223,7 +229,7 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
                 uri = data.getData()
                 Log.d(TAG, "Uri: " + uri!!.toString())
                 StateKeeper.imageFile = uri
-                updateFileButtonLabel(activity as WizardActivity)
+                loadImageChanges(activity as WizardActivity)
             }
         }
     }
@@ -235,7 +241,7 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
                 if (extras.containsKey(SimpleFilePickerDialog.SELECTED_SINGLE_PATH)) {
                     val path = extras.getString(SimpleFilePickerDialog.SELECTED_SINGLE_PATH)
                     StateKeeper.imageFile = Uri.fromFile(File(path))
-                    updateFileButtonLabel(activity as WizardActivity)
+                    loadImageChanges(activity as WizardActivity)
                 }
             }
         }

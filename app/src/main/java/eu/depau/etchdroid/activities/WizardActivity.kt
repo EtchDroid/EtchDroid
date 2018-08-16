@@ -12,7 +12,7 @@ abstract class WizardActivity : AppCompatActivity(), SimpleFilePickerDialog.Inte
     override fun onResult(dialogTag: String, which: Int, extras: Bundle): Boolean {
         if (StateKeeper.currentFragment is SimpleFilePickerDialog.InteractionListenerString)
             return (StateKeeper.currentFragment as SimpleFilePickerDialog.InteractionListenerString).onResult(dialogTag, which, extras)
-        throw RuntimeException("Wrong fragment type")
+        throw RuntimeException("Wrong fragment fsType")
     }
 
     override fun showListItemDialog(title: String?, folderPath: String?, mode: SimpleFilePickerDialog.CompositeMode?, dialogTag: String?) {
