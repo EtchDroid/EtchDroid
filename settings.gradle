@@ -1,2 +1,2 @@
-include ':app', ':libaums'
+include ':app', ':libaums', ':dmg2img'
 project(':libaums').projectDir = new File('libaums/libaums')
