@@ -6,6 +6,7 @@ android {
 		externalNativeBuild {
 			cmake {
 				targets "crypto", "bz2", "ssl", "tls", "dmg2img"
+				arguments "-DANDROID_PIE=ON"
 			}
 		}
 	}
