@@ -52,12 +52,6 @@ class PartitionTableRecyclerViewAdapter(private val dataset: List<Partition>) : 
             kv.value.text = part.fsType.getString(layout.context)
             layout.part_data_grid.addView(kv)
         }
-        if (part.fsLabel != null) {
-            kv = li.inflate(R.layout.part_data_keyvalue, layout.part_data_grid, false) as LinearLayout
-            kv.key.text = layout.context.getString(R.string.fs_label)
-            kv.value.text = part.fsLabel
-            layout.part_data_grid.addView(kv)
-        }
         if (part.size != null) {
             kv = li.inflate(R.layout.part_data_keyvalue, layout.part_data_grid, false) as LinearLayout
             kv.key.text = layout.context.getString(R.string.part_size)
