@@ -62,6 +62,12 @@ class MainActivity : WizardActivity() {
         registerReceiver(mUsbReceiver, filter)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        unregisterReceiver(mUsbReceiver)
+    }
+
     override fun goToNewFragment(fragment: WizardFragment) {
         StateKeeper.currentFragment?.onFragmentRemoving(this)
 
