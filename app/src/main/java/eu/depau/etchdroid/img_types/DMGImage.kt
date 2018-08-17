@@ -22,6 +22,7 @@ private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Pair<
 
     val p = pb.start()
     val out = p.inputStream.readString()
+    System.err.println(out)
     p.waitFor()
     val matches = partRegex.findAll(out)
 
