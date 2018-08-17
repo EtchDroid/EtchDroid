@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.services.UsbAPIWriteService
-import eu.depau.etchdroid.kotlin_exts.*
 import eu.depau.etchdroid.enums.FlashMethod
 import eu.depau.etchdroid.enums.WizardStep
+import eu.depau.etchdroid.kotlin_exts.*
+import eu.depau.etchdroid.services.UsbAPIWriteService
 import kotlinx.android.synthetic.main.fragment_confirminfo.view.*
 import java.io.IOException
 
@@ -73,7 +73,13 @@ class ConfirmInfoFragment : WizardFragment() {
                     if (imgSize!! > devSize)
                         view.confirm_extra_info.text = getString(R.string.image_bigger_than_usb)
                     else {
-                        view.confirm_extra_info.text = getString(R.string.tap_next_to_write)
+                        var text =
+                                if (StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API)
+                                    getString(R.string.no_image_size_check_dmg) + "\n"
+                                else
+                                    ""
+                        text += getString(R.string.tap_next_to_write)
+                        view.confirm_extra_info.text = text
                         canContinue = true
                     }
                 } else {
