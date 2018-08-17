@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:grid="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?android:attr/selectableItemBackground"
+              android:clickable="true"
+              android:focusable="true"
+              android:orientation="horizontal"
+              android:paddingBottom="@dimen/row_padding"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/row_padding">
+
+    <TextView
+        android:id="@+id/part_number"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="@dimen/grid_padding"/>
+
+    <LinearLayout
+        android:id="@+id/part_data_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/row_padding"
+        android:paddingEnd="@dimen/row_padding"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+</LinearLayout>
