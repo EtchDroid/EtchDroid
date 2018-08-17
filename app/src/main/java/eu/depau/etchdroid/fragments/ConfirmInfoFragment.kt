@@ -10,7 +10,8 @@ import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.enums.FlashMethod
 import eu.depau.etchdroid.enums.WizardStep
 import eu.depau.etchdroid.kotlin_exts.*
-import eu.depau.etchdroid.services.UsbAPIWriteService
+import eu.depau.etchdroid.services.UsbApiDmgWriteService
+import eu.depau.etchdroid.services.UsbApiImgWriteService
 import kotlinx.android.synthetic.main.fragment_confirminfo.view.*
 import java.io.IOException
 
@@ -29,7 +30,12 @@ class ConfirmInfoFragment : WizardFragment() {
 
         context?.toast("Check notification for progress")
 
-        val intent = Intent(activity, UsbAPIWriteService::class.java)
+        val intent: Intent = when (StateKeeper.flashMethod) {
+            FlashMethod.FLASH_API -> Intent(activity, UsbApiImgWriteService::class.java)
+            FlashMethod.FLASH_DMG_API -> Intent(activity, UsbApiDmgWriteService::class.java)
+            else -> null!!
+        }
+
         intent.setDataAndType(StateKeeper.imageFile, "application/octet-stream")
         intent.putExtra("usbDevice", StateKeeper.usbDevice)
         activity?.startService(intent)

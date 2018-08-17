@@ -12,6 +12,7 @@ import android.support.v4.app.NotificationCompat
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.kotlin_exts.toHRSize
 import eu.depau.etchdroid.kotlin_exts.toHRTime
+import kotlin.math.max
 
 
 abstract class UsbWriteService(name: String) : IntentService(name) {
@@ -30,7 +31,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
     private val WL_TIMEOUT = 10 * 60 * 1000L
 
     override fun onHandleIntent(intent: Intent?) {
-        startForeground(FOREGROUND_ID, buildForegroundNotification(null, null, -1, -1))
+        startForeground(FOREGROUND_ID, buildForegroundNotification(null, null, -1))
 
         try {
             writeImage(intent!!)
@@ -73,20 +74,18 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
             NotificationCompat.Builder(this)
     }
 
-    fun updateNotification(usbDevice: String, filename: String?, bytes: Long, total: Long) {
+    fun updateNotification(usbDevice: String, filename: String?, bytes: Long, progr: Int) {
         // Notification rate limiting
         val time = System.currentTimeMillis()
         if (time <= prevTime + 1000)
             return
 
-        val speed = ((bytes - prevBytes).toDouble() / (time - prevTime).toDouble() * 1000).toHRSize()
+        val speed = max((bytes - prevBytes).toDouble() / (time - prevTime).toDouble() * 1000, 0.0).toHRSize()
         prevTime = time
         prevBytes = bytes
 
-        val perc: Int = (bytes.toDouble() / total * 100.0).toInt()
-
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(FOREGROUND_ID, buildForegroundNotification(usbDevice, filename, bytes, total, "$perc% • $speed/s"))
+        notificationManager.notify(FOREGROUND_ID, buildForegroundNotification(usbDevice, filename, progr, "$progr% • $speed/s"))
     }
 
     fun resultNotification(usbDevice: String, filename: String, success: Boolean, bytes: Long = 0, startTime: Long = 0) {
@@ -102,7 +101,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
                     .setContentText("$usbDevice may have been unplugged while writing.")
                     .setSubText(dt.toHRTime())
         else {
-            val speed = (bytes.toDouble() / dt.toDouble() * 1000).toHRSize() + "/s"
+            val speed = max(bytes.toDouble() / dt.toDouble() * 1000, 0.0).toHRSize() + "/s"
             b.setContentTitle("Write finished")
                     .setContentText("$filename successfully written to $usbDevice")
                     .setSubText("${dt.toHRTime()} • ${bytes.toHRSize()} • $speed")
@@ -114,23 +113,23 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         notificationManager.notify(RESULT_NOTIFICATION_ID, b.build())
     }
 
-    fun buildForegroundNotification(usbDevice: String?, filename: String?, bytes: Long, total: Long, subText: String? = null): Notification {
-        val progr: Int
+    fun buildForegroundNotification(usbDevice: String?, filename: String?, progr: Int, subText: String? = null, title: String = getString(R.string.notif_writing_img)): Notification {
         val indet: Boolean
+        val prog: Int
 
-        if (total < 0) {
-            progr = 0
+        if (progr < 0) {
+            prog = 0
             indet = true
         } else {
-            progr = (bytes.toFloat() / total * 100).toInt()
+            prog = progr
             indet = false
         }
 
         val b = getNotificationBuilder()
 
-        b.setContentTitle(getString(R.string.notif_writing_img))
+        b.setContentTitle(title)
                 .setOngoing(true)
-                .setProgress(100, progr, indet)
+                .setProgress(100, prog, indet)
 
         if (usbDevice != null && filename != null)
             b.setContentText("${filename} to $usbDevice")
