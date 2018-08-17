@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 3.4)
 
 set(EXECUTABLE_OUTPUT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/src/main/assets/bin/${ANDROID_ABI}")
 
+find_program(CCACHE_FOUND ccache)
+if(CCACHE_FOUND)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+endif(CCACHE_FOUND)
+
 execute_process(
     COMMAND truncate -s 0 crypto/compat/getpagesize.c
     WORKING_DIRECTORY src/c/libressl)
