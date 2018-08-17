@@ -13,7 +13,7 @@ object StateKeeper {
     var wizardStep: WizardStep = WizardStep.SELECT_FLASH_METHOD
     var currentFragment: WizardFragment? = null
     var flashMethod: FlashMethod? = null
-    var imageLocation: ImageLocation? = null
+    var imageLocation: ImageLocation? = ImageLocation.LOCAL
     var streamingWrite: Boolean = false
     var imageFile: Uri? = null
     var imageRepr: Image? = null

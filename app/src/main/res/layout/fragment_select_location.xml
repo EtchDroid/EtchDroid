@@ -5,52 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.FlashMethodFragment"
-    tools:showIn="@layout/activity_main">
+    tools:context=".fragments.FlashMethodFragment">
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/use_local_img_radio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/use_local_image"/>
-
         <Button
             android:id="@+id/pick_file_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
             android:onClick="onButtonClicked"
             android:text="@string/pick_a_file"/>
 
-        <RadioButton
-            android:id="@+id/download_img_radio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/download_image_from_url"/>
-
-        <EditText
-            android:id="@+id/img_url_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="@string/image_url_hint"
-            android:inputType="textUri"/>
-
-        <CheckBox
-            android:id="@+id/streaming_write_checkbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:enabled="false"
-            android:onClick="onCheckBoxClicked"
-            android:text="@string/download_streaming"/>
     </RadioGroup>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="?android:attr/selectableItemBackground"
+                  android:clickable="true"
+                  android:focusable="true"
+                  android:orientation="horizontal"
+                  android:paddingBottom="@dimen/row_padding"
+                  android:paddingLeft="@dimen/activity_horizontal_margin"
+                  android:paddingRight="@dimen/activity_horizontal_margin"
+                  android:paddingTop="@dimen/row_padding">
+
+        <TextView
+            android:id="@+id/part_table_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/grid_padding"
+            android:textColor="@color/name"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/part_table_header_side"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/grid_padding"
+            android:textColor="@color/info"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/part_table_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

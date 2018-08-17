@@ -16,10 +16,10 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/row_padding_vertical"
+                    android:paddingBottom="@dimen/row_padding"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:paddingTop="@dimen/row_padding_vertical">
+                    android:paddingTop="@dimen/row_padding">
 
         <TextView
             android:id="@+id/confirm_sel_method_title"
@@ -46,10 +46,10 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/row_padding_vertical"
+                    android:paddingBottom="@dimen/row_padding"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:paddingTop="@dimen/row_padding_vertical">
+                    android:paddingTop="@dimen/row_padding">
 
         <TextView
             android:id="@+id/confirm_sel_image_title"
@@ -85,10 +85,10 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/row_padding_vertical"
+                    android:paddingBottom="@dimen/row_padding"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:paddingTop="@dimen/row_padding_vertical">
+                    android:paddingTop="@dimen/row_padding">
 
         <TextView
             android:id="@+id/confirm_sel_usbdev_title"
@@ -124,10 +124,10 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/row_padding_vertical"
+                    android:paddingBottom="@dimen/row_padding"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:paddingTop="@dimen/row_padding_vertical">
+                    android:paddingTop="@dimen/row_padding">
 
         <TextView
             android:id="@+id/confirm_extra_info"

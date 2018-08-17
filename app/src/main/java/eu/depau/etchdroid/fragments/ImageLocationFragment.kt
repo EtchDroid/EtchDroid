@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import com.github.isabsent.filepicker.SimpleFilePickerDialog
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.activities.WizardActivity
+import eu.depau.etchdroid.adapters.PartitionTableRecyclerViewAdapter
 import eu.depau.etchdroid.kotlin_exts.getFileName
 import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.enums.FlashMethod
@@ -37,6 +39,7 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
     val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 29
     val TAG = "ImageLocationFragment"
     val PICKER_DIALOG_TAG = "eu.depau.etchdroid.filepicker.DIALOG_TAG"
+    var issuesFound = false
 
     fun isStreamingAvailable(): Boolean {
         if (StateKeeper.imageLocation != ImageLocation.REMOTE)
@@ -46,7 +49,7 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
         return true
     }
 
-    fun setStreamingCheckBoxAvailability(context: WizardActivity) {
+/*    fun setStreamingCheckBoxAvailability(context: WizardActivity) {
         val checkBox = streaming_write_checkbox
 
         if (checkBox == null)
@@ -59,28 +62,29 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
             checkBox.isEnabled = enabled
             onCheckBoxClicked(checkBox)
         }
-    }
+    }*/
 
-    override fun onCheckBoxClicked(view: View) {
+/*    override fun onCheckBoxClicked(view: View) {
         super.onCheckBoxClicked(view)
 
         if (view.id == R.id.streaming_write_checkbox)
             StateKeeper.streamingWrite = view.isActivated && view.isEnabled
-    }
+    }*/
 
     override fun onRadioButtonClicked(view: View) {
-        StateKeeper.imageLocation = when (view.id) {
+        StateKeeper.imageLocation = ImageLocation.LOCAL
+        /*when (view.id) {
             R.id.download_img_radio -> ImageLocation.REMOTE
             R.id.use_local_img_radio -> ImageLocation.LOCAL
             else -> null
-        }
+        }*/
 
         fab?.show()
 
         pick_file_btn?.isEnabled = StateKeeper.imageLocation == ImageLocation.LOCAL
-        img_url_textview?.isEnabled = StateKeeper.imageLocation == ImageLocation.REMOTE
+//        img_url_textview?.isEnabled = StateKeeper.imageLocation == ImageLocation.REMOTE
 
-        setStreamingCheckBoxAvailability(activity as WizardActivity)
+//        setStreamingCheckBoxAvailability(activity as WizardActivity)
         loadImageChanges(activity as WizardActivity)
     }
 
@@ -127,12 +131,17 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
     }
 
     override fun nextStep(view: View?) {
+        if (issuesFound) {
+            view?.snackbar(getString(R.string.issues_found_expl))
+            return
+        }
+
         if (StateKeeper.imageLocation == null) {
             view?.snackbar(getString(R.string.select_image_location))
             return
         }
 
-        if (StateKeeper.imageLocation == ImageLocation.REMOTE) {
+/*        if (StateKeeper.imageLocation == ImageLocation.REMOTE) {
             try {
                 StateKeeper.imageFile = getRemoteImageUri(activity as WizardActivity)
             } catch (e: RuntimeException) {
@@ -140,7 +149,7 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
                 view?.snackbar(getString(R.string.provided_url_invalid))
                 return
             }
-        }
+        }*/
 
         if (StateKeeper.imageFile == null) {
             view?.snackbar(getString(R.string.provide_image_file))
@@ -185,7 +194,7 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
 
     override fun onFragmentAdded(activity: WizardActivity) {
         super.onFragmentAdded(activity)
-        setStreamingCheckBoxAvailability(activity)
+//        setStreamingCheckBoxAvailability(activity)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -196,10 +205,10 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
         return inflater.inflate(R.layout.fragment_select_location, container, false)
     }
 
-    fun getRemoteImageUri(context: WizardActivity): Uri {
+/*    fun getRemoteImageUri(context: WizardActivity): Uri {
         val text = img_url_textview.text.toString()
         return Uri.parse(text)
-    }
+    }*/
 
     fun loadImageChanges(context: WizardActivity) {
         val button = pick_file_btn
@@ -214,7 +223,24 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
 
         if (StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API) {
             StateKeeper.imageRepr = DMGImage(uri, context)
-            Log.d(TAG, (StateKeeper.imageRepr as DMGImage).partitionTable.toString())
+            val imgRepr = StateKeeper.imageRepr as DMGImage
+
+            if (imgRepr.tableType == null && (imgRepr.partitionTable == null || imgRepr.partitionTable?.size == 0)) {
+                part_table_header.text = getString(R.string.image_is_not_dmg)
+                issuesFound = true
+                return
+            } else {
+                part_table_header.text = if (imgRepr.tableType != null) "Partition table:" else ""
+                part_table_header_side.text = imgRepr.tableType?.getString(context) ?: ""
+                issuesFound = false
+
+                val viewAdapter = PartitionTableRecyclerViewAdapter(imgRepr.partitionTable!!)
+                part_table_recycler.apply {
+                    setHasFixedSize(true)
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = viewAdapter
+                }
+            }
         }
     }
 
