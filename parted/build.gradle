@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+
+android {
+	compileSdkVersion 28
+	defaultConfig {
+		externalNativeBuild {
+			cmake {
+				targets "libparted", "libparted-fs-resize", "parted", "partprobe"
+				arguments "-DANDROID_PIE=ON"
+			}
+		}
+	}
+	externalNativeBuild {
+		cmake {
+			path "CMakeLists.txt"
+		}
+	}
+	sourceSets {
+		main {
+			assets.srcDirs = ['src/main/assets']
+		}
+	}
+}

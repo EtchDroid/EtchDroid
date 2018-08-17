@@ -10,3 +10,6 @@
 [submodule "app/src/c/libressl"]
 	path = dmg2img/src/c/libressl
 	url = https://github.com/libressl-portable/portable.git
+[submodule "parted/src/c/parted"]
+	path = parted/src/c/parted
+	url = https://github.com/Depau/parted.git

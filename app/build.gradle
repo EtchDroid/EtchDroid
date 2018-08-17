@@ -37,7 +37,7 @@ dependencies {
 //    implementation 'com.github.mjdev:libaums:0.5.5'
     implementation project(':libaums')
     implementation project(':dmg2img')
-
+    implementation project(':parted')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
