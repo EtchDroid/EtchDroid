@@ -10,13 +10,14 @@ import eu.depau.etchdroid.utils.Partition
 import eu.depau.etchdroid.utils.PartitionBuilder
 import java.io.File
 
-private val partRegex = Regex("partition (\\d+): (.*) \\((.+) : \\d+\\)")
+val SECTOR_SIZE = 512
+private val partRegex = Regex("partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s+(.*) \\((.+) : \\d+\\)", RegexOption.MULTILINE)
 
 private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Pair<PartitionTableType?, List<Partition>?> {
     val pt = ArrayList<Partition>()
     var ptType: PartitionTableType? = null
 
-    val pb = ProcessBuilder(dmg2img.path, "-l", file.path)
+    val pb = ProcessBuilder(dmg2img.path, "-v", "-l", file.path)
     pb.environment()["LD_LIBRARY_PATH"] = libDir
     pb.redirectErrorStream(true)
 
@@ -27,10 +28,17 @@ private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Pair<
     val matches = partRegex.findAll(out)
 
     matchloop@ for (m in matches) {
-        val (number, label, type) = m.destructured
+        val (
+                number, begin, size,
+                decoded, firstsector,
+                sectorcount, blocksruncount,
+                label, type
+        ) = m.destructured
+
         val pb = PartitionBuilder()
 
         pb.number = number.toInt()
+        pb.size = SECTOR_SIZE * sectorcount.toLong()
 
         if (label.isNotEmpty())
             pb.fsLabel = label
