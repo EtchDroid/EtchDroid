@@ -278,7 +278,6 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
 
         SimpleFilePickerDialog.build(folderPath, mode)
                 .title(title)
-                .filterable(true, true)
                 .show(this, dialogTag)
     }
 }
