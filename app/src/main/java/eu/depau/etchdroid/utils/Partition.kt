@@ -6,7 +6,7 @@ import eu.depau.etchdroid.enums.PartitionType
 data class Partition(
         val number: Int?,
         val offset: Int?,
-        val size: Int?,
+        val size: Long?,
         val partType: PartitionType?,
         val partLabel: String?,
         val fsType: FilesystemType?,
