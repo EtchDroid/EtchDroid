@@ -35,10 +35,10 @@
     <string name="ptt_amiga">AMIGA</string>
     <string name="ptt_bsd">BSD</string>
     <string name="ptt_dvh">DVH</string>
-    <string name="ptt_gpt">GPT</string>
+    <string name="ptt_gpt">GUID Partition Table (GPT)</string>
     <string name="ptt_loop">None</string>
-    <string name="ptt_mac">APT</string>
-    <string name="ptt_msdos">MBR</string>
+    <string name="ptt_mac">Apple Partition Table (APT)</string>
+    <string name="ptt_msdos">Master Boot Record (MSDOS)</string>
     <string name="ptt_pc98">PC98</string>
     <string name="ptt_sun">Sun</string>
     <string name="fs_fat12">FAT12</string>
@@ -59,7 +59,7 @@
     <string name="fs_f2fs">f2fs</string>
     <string name="fs_luks">LUKS</string>
     <string name="fs_linux_swap">Linux swap</string>
-    <string name="fs_linux_lvm_pv">Linux LVM2 PV</string>
+    <string name="fs_linux_lvm_pv">Linux LVM2 physical volume</string>
     <string name="fs_ufs">UFS</string>
     <string name="fs_xfs">XFS</string>
     <string name="fs_zfs">ZFS</string>
