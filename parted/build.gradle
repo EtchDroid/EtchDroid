@@ -5,7 +5,7 @@ android {
 	defaultConfig {
 		externalNativeBuild {
 			cmake {
-				targets "libparted", "libparted-fs-resize", "parted", "partprobe"
+				targets "libparted", "libparted-fs-resize", "parted", "partprobe", "dummy"
 				arguments "-DANDROID_PIE=ON"
 			}
 		}
