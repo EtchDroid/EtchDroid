@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+	compileSdkVersion 28
+	defaultConfig {
+		minSdkVersion 21
+		externalNativeBuild {
+			cmake {
+				targets "termux_packages"
+				arguments "-DAPP_PKGNAME=eu.depau.etchdroid", "-DTERMUX_PACKAGES=parted"
+			}
+		}
+	}
+	externalNativeBuild {
+		cmake {
+			path "CMakeLists.txt"
+		}
+	}
+	sourceSets {
+		main {
+			assets.srcDirs('src/main/assets')
+		}
+	}
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+	compile "org.kamranzafar:jtar:2.3"
+	compile "commons-io:commons-io:2.6"
+}

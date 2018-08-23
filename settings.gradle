@@ -1,2 +1,2 @@
-include ':app', ':libaums', ':dmg2img'
+include ':app', ':libaums', ':dmg2img', ':termux-packages'
 project(':libaums').projectDir = new File('libaums/libaums')
