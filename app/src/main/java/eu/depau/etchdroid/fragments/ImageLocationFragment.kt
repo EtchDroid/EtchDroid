@@ -78,7 +78,7 @@ class ImageLocationFragment : WizardFragment() {
             else -> null
         }*/
 
-        fab?.show()
+        activity?.fab?.show()
 
         pick_file_btn?.isEnabled = StateKeeper.imageLocation == ImageLocation.LOCAL
 //        img_url_textview?.isEnabled = StateKeeper.imageLocation == ImageLocation.REMOTE
@@ -113,6 +113,8 @@ class ImageLocationFragment : WizardFragment() {
                         chooser.setOnSelectListener {
                             StateKeeper.imageFile = Uri.fromFile(File(it))
                             loadImageChanges(activity as WizardActivity)
+
+                            activity?.fab?.show()
                         }
                     }
                 }
@@ -205,9 +207,9 @@ class ImageLocationFragment : WizardFragment() {
 
     }
 
-    override fun onFragmentAdded(activity: WizardActivity) {
-        super.onFragmentAdded(activity)
-//        setStreamingCheckBoxAvailability(activity)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.fab?.show()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -269,6 +271,8 @@ class ImageLocationFragment : WizardFragment() {
                 Log.d(TAG, "Uri: " + uri!!.toString())
                 StateKeeper.imageFile = uri
                 loadImageChanges(activity as WizardActivity)
+
+                activity?.fab?.show()
             }
         }
     }
