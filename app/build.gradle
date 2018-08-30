@@ -33,7 +33,7 @@ dependencies {
     implementation 'com.android.support:gridlayout-v7:28.0.0-rc01'
     api 'com.google.guava:guava:26.0-android'
 
-    implementation 'com.github.isabsent:filepicker:1.1.01'
+    implementation 'com.github.codekidX:storage-chooser:2.0.4.2'
 //    implementation 'com.github.mjdev:libaums:0.5.5'
     implementation project(':libaums')
     implementation project(':dmg2img')
