@@ -12,7 +12,7 @@
                 android:paddingTop="@dimen/row_padding">
 
     <TextView
-        android:id="@+id/usbdev_name"
+        android:id="@+id/software_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,13 +22,20 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/devpath"
+        android:id="@+id/software_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/usbdev_name"/>
+        android:layout_below="@id/software_name"/>
+
 
     <TextView
-        android:id="@+id/vidpid"
+        android:id="@+id/software_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/software_desc"/>
+
+    <TextView
+        android:id="@+id/software_license"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

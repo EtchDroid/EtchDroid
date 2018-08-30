@@ -72,4 +72,13 @@
     <string name="fs_type">Type</string>
     <string name="part_size">Size</string>
     <string name="no_image_size_check_dmg">Image size checks can\'t be performed on DMG images. Make sure the USB drive is large enough before flashing.</string>
+    <string name="license_gpl3">GNU GPLv3</string>
+    <string name="this_app">This app</string>
+    <string name="license_apache2_0">Apache 2.0</string>
+    <string name="libaums_license_desc">Userspace USB block device implementation</string>
+    <string name="license_gpl2">GNU GPLv2</string>
+    <string name="license_bzip2">Custom BSD-like</string>
+    <string name="license_custom">Custom</string>
+    <string name="licenses">Licenses</string>
+    <string name="dmg2img_license_desc">Converts compressed Apple® DMG images</string>
 </resources>

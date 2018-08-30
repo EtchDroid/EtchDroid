@@ -23,10 +23,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <service android:name=".services.UsbApiImgWriteService"
-                 android:exported="false"/>
-        <service android:name=".services.UsbApiDmgWriteService"
-                 android:exported="false"/>
+
+        <service
+            android:name=".services.UsbApiImgWriteService"
+            android:exported="false"/>
+        <service
+            android:name=".services.UsbApiDmgWriteService"
+            android:exported="false"/>
+
+        <activity android:name=".activities.LicensesActivity">
+        </activity>
     </application>
 
 </manifest>

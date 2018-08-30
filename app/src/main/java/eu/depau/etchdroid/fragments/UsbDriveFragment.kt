@@ -18,6 +18,7 @@ import eu.depau.etchdroid.adapters.UsbDrivesRecyclerViewAdapter
 import eu.depau.etchdroid.kotlin_exts.name
 import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.enums.WizardStep
+import eu.depau.etchdroid.utils.RecyclerViewTouchListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_select_usb_drive.view.*
 
@@ -32,37 +33,6 @@ class UsbDriveFragment : WizardFragment(), SwipeRefreshLayout.OnRefreshListener 
     private lateinit var viewAdapter: UsbDrivesRecyclerViewAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var refreshLayout: SwipeRefreshLayout
-
-
-    class RecyclerViewTouchListener(context: Context, val recyclerView: RecyclerView, val clickListener: ClickListener) : RecyclerView.OnItemTouchListener {
-        private var gestureDetector: GestureDetector
-
-        init {
-            gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
-                override fun onSingleTapUp(e: MotionEvent): Boolean {
-                    return true
-                }
-
-                override fun onLongPress(e: MotionEvent) {
-                    val child = recyclerView.findChildViewUnder(e.x, e.y)
-                    if (child != null)
-                        clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child))
-                }
-            })
-        }
-
-        override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {}
-
-        override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-            val child = rv.findChildViewUnder(e.x, e.y)
-            if (child != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildAdapterPosition(child))
-            }
-            return false
-        }
-
-        override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
-    }
 
 
     override fun onRefresh() {

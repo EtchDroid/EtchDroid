@@ -30,11 +30,11 @@ class UsbDrivesRecyclerViewAdapter(private val dataset: Array<UsbMassStorageDevi
         val usbDevice = dataset[position].usbDevice
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            holder.relLayout.name.text = "${usbDevice.manufacturerName} ${usbDevice.productName}"
+            holder.relLayout.usbdev_name.text = "${usbDevice.manufacturerName} ${usbDevice.productName}"
             holder.relLayout.devpath.text = usbDevice.deviceName
             holder.relLayout.vidpid.text = usbDevice.vidpid
         } else {
-            holder.relLayout.name.text = usbDevice.deviceName
+            holder.relLayout.usbdev_name.text = usbDevice.deviceName
             holder.relLayout.devpath.text = usbDevice.vidpid
         }
     }
