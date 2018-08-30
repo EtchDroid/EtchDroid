@@ -48,42 +48,10 @@ class ImageLocationFragment : WizardFragment() {
         return true
     }
 
-/*    fun setStreamingCheckBoxAvailability(context: WizardActivity) {
-        val checkBox = streaming_write_checkbox
-
-        if (checkBox == null)
-            return
-
-        val curEnabled = checkBox.isEnabled
-        var enabled = isStreamingAvailable()
-
-        if (curEnabled != enabled) {
-            checkBox.isEnabled = enabled
-            onCheckBoxClicked(checkBox)
-        }
-    }*/
-
-/*    override fun onCheckBoxClicked(view: View) {
-        super.onCheckBoxClicked(view)
-
-        if (view.id == R.id.streaming_write_checkbox)
-            StateKeeper.streamingWrite = view.isActivated && view.isEnabled
-    }*/
-
     override fun onRadioButtonClicked(view: View) {
         StateKeeper.imageLocation = ImageLocation.LOCAL
-        /*when (view.id) {
-            R.id.download_img_radio -> ImageLocation.REMOTE
-            R.id.use_local_img_radio -> ImageLocation.LOCAL
-            else -> null
-        }*/
-
         activity?.fab?.show()
-
         pick_file_btn?.isEnabled = StateKeeper.imageLocation == ImageLocation.LOCAL
-//        img_url_textview?.isEnabled = StateKeeper.imageLocation == ImageLocation.REMOTE
-
-//        setStreamingCheckBoxAvailability(activity as WizardActivity)
         loadImageChanges(activity as WizardActivity)
     }
 
@@ -156,35 +124,11 @@ class ImageLocationFragment : WizardFragment() {
             return
         }
 
-/*        if (StateKeeper.imageLocation == ImageLocation.REMOTE) {
-            try {
-                StateKeeper.imageFile = getRemoteImageUri(activity as WizardActivity)
-            } catch (e: RuntimeException) {
-                Log.e(TAG, "Invalid URI specified", e)
-                view?.snackbar(getString(R.string.provided_url_invalid))
-                return
-            }
-        }*/
-
         if (StateKeeper.imageFile == null) {
             view?.snackbar(getString(R.string.provide_image_file))
             return
         }
 
-        if (StateKeeper.imageLocation == ImageLocation.REMOTE && !StateKeeper.streamingWrite) {
-//            // Request permission to download file
-//            if (ContextCompat.checkSelfPermission(activity!!, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//                    != PackageManager.PERMISSION_GRANTED) {
-//
-//                // Permission is not granted
-//                ActivityCompat.requestPermissions(activity!!,
-//                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-//                        MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
-//                return
-//            }
-
-
-        }
         (activity as WizardActivity).goToNewFragment(UsbDriveFragment())
     }
 
@@ -192,17 +136,10 @@ class ImageLocationFragment : WizardFragment() {
         when (requestCode) {
             MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE -> {
                 onButtonClicked(pick_file_btn)
-//                // If request is cancelled, the result arrays are empty.
-//                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-//                    nextStep(fragment_layout)
-//                } else {
-//                    Snackbar.make(fragment_layout, getString(R.string.storage_perm_required_explaination), Snackbar.LENGTH_LONG).show()
-//                }
                 return
             }
 
-            else -> {
-            }
+            else -> {}
         }
 
     }
@@ -219,11 +156,6 @@ class ImageLocationFragment : WizardFragment() {
 
         return inflater.inflate(R.layout.fragment_select_location, container, false)
     }
-
-/*    fun getRemoteImageUri(context: WizardActivity): Uri {
-        val text = img_url_textview.text.toString()
-        return Uri.parse(text)
-    }*/
 
     fun loadImageChanges(context: WizardActivity) {
         val button = pick_file_btn
