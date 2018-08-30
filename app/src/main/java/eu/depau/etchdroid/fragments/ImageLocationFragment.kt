@@ -14,17 +14,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.isabsent.filepicker.SimpleFilePickerDialog
+import com.codekidlabs.storagechooser.StorageChooser
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.activities.WizardActivity
 import eu.depau.etchdroid.adapters.PartitionTableRecyclerViewAdapter
-import eu.depau.etchdroid.kotlin_exts.getFileName
-import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.enums.FlashMethod
 import eu.depau.etchdroid.enums.ImageLocation
 import eu.depau.etchdroid.enums.WizardStep
 import eu.depau.etchdroid.img_types.DMGImage
+import eu.depau.etchdroid.kotlin_exts.getFileName
+import eu.depau.etchdroid.kotlin_exts.snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_select_location.*
 import java.io.File
@@ -33,8 +33,7 @@ import java.io.File
 /**
  * A placeholder fragment containing a simple view.
  */
-class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.InteractionListenerString {
-
+class ImageLocationFragment : WizardFragment() {
     val READ_REQUEST_CODE = 42
     val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 29
     val TAG = "ImageLocationFragment"
@@ -100,7 +99,21 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
                 FlashMethod.FLASH_DMG_API -> {
                     if (checkAndRequestStorageReadPerm()) {
                         val sdcard = Environment.getExternalStorageDirectory().absolutePath
-                        showListItemDialog("Select a DMG file", sdcard, SimpleFilePickerDialog.CompositeMode.FILE_ONLY_DIRECT_CHOICE_IMMEDIATE, PICKER_DIALOG_TAG)
+
+
+                        val chooser = StorageChooser.Builder()
+                                .withActivity(activity)
+                                .withFragmentManager(activity!!.fragmentManager)
+                                .withMemoryBar(true)
+                                .allowCustomPath(true)
+                                .setType(StorageChooser.FILE_PICKER)
+                                .customFilter(arrayListOf("dmg"))
+                                .build()
+                        chooser.show()
+                        chooser.setOnSelectListener {
+                            StateKeeper.imageFile = Uri.fromFile(File(it))
+                            loadImageChanges(activity as WizardActivity)
+                        }
                     }
                 }
                 FlashMethod.FLASH_UNETBOOTIN -> {
@@ -258,26 +271,5 @@ class ImageLocationFragment : WizardFragment(), SimpleFilePickerDialog.Interacti
                 loadImageChanges(activity as WizardActivity)
             }
         }
-    }
-
-
-    override fun onResult(dialogTag: String, which: Int, extras: Bundle): Boolean {
-        when (dialogTag) {
-            PICKER_DIALOG_TAG -> {
-                if (extras.containsKey(SimpleFilePickerDialog.SELECTED_SINGLE_PATH)) {
-                    val path = extras.getString(SimpleFilePickerDialog.SELECTED_SINGLE_PATH)
-                    StateKeeper.imageFile = Uri.fromFile(File(path))
-                    loadImageChanges(activity as WizardActivity)
-                }
-            }
-        }
-        return false
-    }
-
-    override fun showListItemDialog(title: String?, folderPath: String?, mode: SimpleFilePickerDialog.CompositeMode?, dialogTag: String?) {
-
-        SimpleFilePickerDialog.build(folderPath, mode)
-                .title(title)
-                .show(this, dialogTag)
     }
 }

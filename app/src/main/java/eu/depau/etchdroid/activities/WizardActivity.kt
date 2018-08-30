@@ -1,25 +1,12 @@
 package eu.depau.etchdroid.activities
 
 import android.content.Intent
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.github.isabsent.filepicker.SimpleFilePickerDialog
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.fragments.WizardFragment
 
-abstract class WizardActivity : AppCompatActivity(), SimpleFilePickerDialog.InteractionListenerString {
-    override fun onResult(dialogTag: String, which: Int, extras: Bundle): Boolean {
-        if (StateKeeper.currentFragment is SimpleFilePickerDialog.InteractionListenerString)
-            return (StateKeeper.currentFragment as SimpleFilePickerDialog.InteractionListenerString).onResult(dialogTag, which, extras)
-        throw RuntimeException("Wrong fragment fsType")
-    }
-
-    override fun showListItemDialog(title: String?, folderPath: String?, mode: SimpleFilePickerDialog.CompositeMode?, dialogTag: String?) {
-        if (StateKeeper.currentFragment is SimpleFilePickerDialog.InteractionListenerString)
-            return (StateKeeper.currentFragment as SimpleFilePickerDialog.InteractionListenerString).showListItemDialog(title, folderPath, mode, dialogTag)
-    }
-
+abstract class WizardActivity : AppCompatActivity() {
     abstract fun goToNewFragment(fragment: WizardFragment)
 
     open fun onCheckBoxClicked(view: View) {
