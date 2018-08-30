@@ -1,6 +1,7 @@
 package eu.depau.etchdroid.fragments
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,8 +39,13 @@ class ConfirmInfoFragment : WizardFragment() {
 
         intent.setDataAndType(StateKeeper.imageFile, "application/octet-stream")
         intent.putExtra("usbDevice", StateKeeper.usbDevice)
-        activity?.startService(intent)
-        activity?.finish()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            activity!!.startForegroundService(intent)
+        else
+            activity!!.startService(intent)
+
+        activity!!.finish()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
