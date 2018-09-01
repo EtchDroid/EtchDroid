@@ -101,4 +101,10 @@
     <string name="cancel">Cancel</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
     <string name="storagechooser_license_description">DMG file selector</string>
+    <string name="result_channel_desc">Used to display the result of a finished write operation</string>
+    <string name="result_channel_name">USB write result notifications</string>
+    <string name="write_failed">Write failed</string>
+    <string name="write_finished">Write finished</string>
+    <string name="error_notif_content_text">%1$s may have been unplugged while writing.</string>
+    <string name="success_notif_content_text">%1$s successfully written to %2$s</string>
 </resources>

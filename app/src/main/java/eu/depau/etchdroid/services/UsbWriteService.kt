@@ -55,16 +55,16 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
 
                 val resultChannel = NotificationChannel(
                         WRITE_RESULT_CHANNEL_ID,
-                        "USB write result notifications",
+                        getString(R.string.result_channel_name),
                         NotificationManager.IMPORTANCE_DEFAULT
                 )
-                resultChannel.description = "Used to display the result of a finished write operation"
+                resultChannel.description = getString(R.string.result_channel_desc)
 
                 // Register the channel with the system; you can't change the importance
                 // or other notification behaviors after this
                 val notificationManager = getSystemService(NotificationManager::class.java)
                 notificationManager!!.createNotificationChannel(statusChannel)
-                notificationManager!!.createNotificationChannel(resultChannel)
+                notificationManager.createNotificationChannel(resultChannel)
             }
             notifyChanRegistered = true
         }
@@ -98,13 +98,13 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         val dt = System.currentTimeMillis() - startTime
 
         if (!success)
-            b.setContentTitle("Write failed")
-                    .setContentText("$usbDevice may have been unplugged while writing.")
+            b.setContentTitle(getString(R.string.write_failed))
+                    .setContentText(getString(R.string.error_notif_content_text, usbDevice))
                     .setSubText(dt.toHRTime())
         else {
             val speed = max(bytes.toDouble() / dt.toDouble() * 1000, 0.0).toHRSize() + "/s"
-            b.setContentTitle("Write finished")
-                    .setContentText("$filename successfully written to $usbDevice")
+            b.setContentTitle(getString(R.string.write_finished))
+                    .setContentText(getString(R.string.success_notif_content_text, filename, usbDevice))
                     .setSubText("${dt.toHRTime()} • ${bytes.toHRSize()} • $speed")
         }
 
