@@ -3,10 +3,9 @@ package eu.depau.etchdroid.activities
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.MenuItem
 import android.view.View
 import eu.depau.etchdroid.R
@@ -40,8 +39,6 @@ class LicensesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_licenses)
         updateLicenses()
-
-        title = getString(R.string.licenses)
 
         // Enable back button in action bar
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

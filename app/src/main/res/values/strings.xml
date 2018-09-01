@@ -24,7 +24,7 @@
     <string name="please_select_writing_method">Please select writing method</string>
     <string name="image_bigger_than_usb">Image is bigger than the USB drive, so it can\'t be written</string>
     <string name="cant_read_usbdev">Cannot read USB device</string>
-    <string name="tap_next_to_write">Tap Next to write the image to the USB drive</string>
+    <string name="tap_next_to_write">Tap Write to write the image to the USB drive</string>
     <string name="notchan_writestatus_title">USB write status</string>
     <string name="notchan_writestatus_desc">Used to display the status of images being written to USB drives</string>
     <string name="notif_initializing">Initializing...</string>
@@ -81,4 +81,15 @@
     <string name="license_custom">Custom</string>
     <string name="licenses">Licenses</string>
     <string name="dmg2img_license_desc">Converts compressed Apple® DMG images</string>
+    <string name="title_activity_usb_drive_picker">Select USB drive</string>
+    <string name="title_activity_confirmation">Ready to write</string>
+    <string name="cannot_write">Cannot write image to USB drive</string>
+    <string name="check_notification_progress">Check notification for progress</string>
+    <string name="partition_table_title">Partition table:</string>
+    <string name="could_not_access_usb_error">Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app.</string>
+    <string name="write_image_or_iso">Write raw image or ISO</string>
+    <string name="raw_image_desc">Good for GNU/Linux distribution ISOs and disk images created on Windows or Linux</string>
+    <string name="write_apple_dmg">Write Apple® DMG image</string>
+    <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
+    <string name="no_usb_drives_detected">No USB drives detected</string>
 </resources>

@@ -1,6 +1,6 @@
 package eu.depau.etchdroid.kotlin_exts
 
-import android.support.design.widget.Snackbar
+import com.google.android.material.snackbar.Snackbar
 import android.view.View
 
 fun View.snackbar(message: CharSequence, duration: Int = Snackbar.LENGTH_LONG) {

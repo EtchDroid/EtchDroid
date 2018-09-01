@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="eu.depau.etchdroid">
 
+    <uses-feature android:name="android.hardware.usb.host" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
@@ -12,16 +14,40 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.StartActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/MaterialAppTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".activities.LicensesActivity"
+                  android:label="@string/licenses"
+                  android:theme="@style/MaterialAppTheme">
+        </activity>
+        <activity
+            android:name=".activities.UsbDrivePickerActivity"
+            android:label="@string/title_activity_usb_drive_picker"
+            android:parentActivityName=".activities.StartActivity"
+            android:theme="@style/MaterialAppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="eu.depau.etchdroid.activities.StartActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ConfirmationActivity"
+            android:label="@string/title_activity_confirmation"
+            android:parentActivityName=".activities.UsbDrivePickerActivity"
+            android:theme="@style/MaterialAppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="eu.depau.etchdroid.activities.UsbDrivePickerActivity"/>
         </activity>
 
         <service
@@ -30,9 +56,6 @@
         <service
             android:name=".services.UsbApiDmgWriteService"
             android:exported="false"/>
-
-        <activity android:name=".activities.LicensesActivity">
-        </activity>
     </application>
 
 </manifest>

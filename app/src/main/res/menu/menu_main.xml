@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="eu.depau.etchdroid.activities.MainActivity">
+      tools:context="eu.depau.etchdroid.activities.StartActivity">
     <item
         android:id="@+id/action_licenses"
         android:orderInCategory="100"
