@@ -99,4 +99,6 @@
     <string name="dataloss_confirmation_dialog_message">If you continue, selected image will be written and all data stored on the USB drive will be lost forever.</string>
     <string name="warning">Warning</string>
     <string name="cancel">Cancel</string>
+    <string name="license_mpl_2_0">MPL-2.0</string>
+    <string name="storagechooser_license_description">DMG file selector</string>
 </resources>

@@ -27,6 +27,7 @@ class LicensesActivity : AppCompatActivity() {
         if (!::licenses.isInitialized) {
             licenses = arrayOf(
                     License(getString(R.string.this_app), Uri.parse("https://github.com/Depau/EtchDroid"), getString(R.string.license_gpl3)),
+                    License("Storage Chooser 2.0", Uri.parse("https://github.com/codekidX/storage-chooser"), getString(R.string.license_mpl_2_0), getString(R.string.storagechooser_license_description)),
                     License("libaums (fork)", Uri.parse("https://github.com/Depau/libaums"), getString(R.string.license_apache2_0), getString(R.string.libaums_license_desc)),
                     License("dmg2img (fork)", Uri.parse("https://github.com/Depau/dmg2img-cmake"), getString(R.string.license_gpl2), getString(R.string.dmg2img_license_desc)),
                     License("bzip2", Uri.parse("https://github.com/LuaDist/bzip2/"), getString(R.string.license_bzip2)),
