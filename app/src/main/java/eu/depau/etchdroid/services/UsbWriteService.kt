@@ -12,16 +12,17 @@ import androidx.core.app.NotificationCompat
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.kotlin_exts.toHRSize
 import eu.depau.etchdroid.kotlin_exts.toHRTime
+import java.util.*
 import kotlin.math.max
 
 
 abstract class UsbWriteService(name: String) : IntentService(name) {
     val TAG = name
-    val FOREGROUND_ID = 1931
-    val RESULT_NOTIFICATION_ID = 3829
+    val FOREGROUND_ID = Random().nextInt()
+    val RESULT_NOTIFICATION_ID = Random().nextInt()
     val WRITE_PROGRESS_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_PROGRESS"
     val WRITE_RESULT_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_RESULT"
-    val WAKELOCK_TAG = "eu.depau.etchdroid.wakelocks.USB_WRITING"
+    val WAKELOCK_TAG = "eu.depau.etchdroid.wakelocks.USB_WRITING-$FOREGROUND_ID"
 
     private var prevTime = System.currentTimeMillis()
     private var prevBytes = 0L
