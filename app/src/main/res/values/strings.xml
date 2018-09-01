@@ -91,4 +91,8 @@
     <string name="write_apple_dmg">Write Apple® DMG image</string>
     <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
     <string name="no_usb_drives_detected">No USB drives detected</string>
+    <string name="do_not_show_again">Do not show again</string>
+    <string name="here_be_dragons">Here be dragons</string>
+    <string name="i_understand">I understand, continue</string>
+    <string name="dmg_alert_dialog_text">While in most cases DMG images can be restored just fine, sometimes there may be inconsistencies. You\'ve been warned.</string>
 </resources>

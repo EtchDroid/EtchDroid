@@ -15,14 +15,29 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.enums.FlashMethod
 import eu.depau.etchdroid.kotlin_exts.snackbar
+import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
 import kotlinx.android.synthetic.main.activity_start.*
 import java.io.File
+
 
 class StartActivity : ActivityBase() {
     val TAG = "StartActivity"
     val READ_REQUEST_CODE = 42
     val READ_EXTERNAL_STORAGE_PERMISSION = 29
-    var delayedButtonClicked: View? = null
+    val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
+    var delayedButtonClicked: Boolean = false
+
+    var shouldShowDMGAlertDialog: Boolean
+        get() {
+            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            return !settings.getBoolean("DMG_beta_alert", false)
+        }
+        set(value) {
+            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val editor = settings.edit()
+            editor.putBoolean("DMG_beta_alert", !value)
+            editor.apply()
+        }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,13 +45,37 @@ class StartActivity : ActivityBase() {
         setContentView(R.layout.activity_start)
     }
 
-    fun onButtonClicked(view: View) {
-        StateKeeper.flashMethod = when (view.id) {
-            R.id.btn_image_raw -> FlashMethod.FLASH_API
-            R.id.btn_image_dmg -> FlashMethod.FLASH_DMG_API
-            else -> null
-        }
+    fun onButtonClicked(view: View) = onButtonClicked(view, true)
 
+    private fun onButtonClicked(view: View?, showDialog: Boolean = true) {
+        if (view != null)
+            StateKeeper.flashMethod = when (view.id) {
+                R.id.btn_image_raw -> FlashMethod.FLASH_API
+                R.id.btn_image_dmg -> FlashMethod.FLASH_DMG_API
+                else -> null
+            }
+
+        if (StateKeeper.flashMethod != FlashMethod.FLASH_DMG_API || !shouldShowDMGAlertDialog || !showDialog)
+            showFilePicker()
+        else
+            showDMGBetaAlertDialog()
+    }
+
+    fun showDMGBetaAlertDialog() {
+        val dialogFragment = DoNotShowAgainDialogFragment()
+        dialogFragment.title = getString(R.string.here_be_dragons)
+        dialogFragment.message = getString(R.string.dmg_alert_dialog_text)
+        dialogFragment.closeButton = getString(R.string.i_understand)
+        dialogFragment.listener = object : DoNotShowAgainDialogFragment.DialogListener {
+            override fun onDialogClose(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {
+                shouldShowDMGAlertDialog = showAgain
+                showFilePicker()
+            }
+        }
+        dialogFragment.show(supportFragmentManager, "DMGBetaAlertDialogFragment")
+    }
+
+    fun showFilePicker() {
         when (StateKeeper.flashMethod) {
             FlashMethod.FLASH_API -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
@@ -62,7 +101,7 @@ class StartActivity : ActivityBase() {
                         nextStep()
                     }
                 } else {
-                    delayedButtonClicked = view
+                    delayedButtonClicked = true
                 }
             }
             FlashMethod.FLASH_UNETBOOTIN -> {
@@ -95,8 +134,8 @@ class StartActivity : ActivityBase() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             READ_EXTERNAL_STORAGE_PERMISSION -> {
-                if (delayedButtonClicked != null)
-                    onButtonClicked(delayedButtonClicked!!)
+                if (delayedButtonClicked)
+                    onButtonClicked(null, showDialog = false)
                 return
             }
             else -> {
