@@ -52,40 +52,6 @@ class UsbApiDmgWriteService : UsbApiWriteService("UsbApiDmgWriteService") {
             updateNotification(usbDevice.name, uri.getFileName(this), bytes, perc)
         }
     }
-//
-//    fun asyncReadProcessProgress() {
-//        val startTime = System.currentTimeMillis()
-//        var c: Int
-//        val charArray = CharArray(20)
-//
-//        try {
-//            while (System.currentTimeMillis() < startTime + 50) {
-//                // Skip everything until the first backspace
-//                do
-//                    c = readTimeLimiter.callWithTimeout(errReader::read, 50, TimeUnit.MILLISECONDS)
-//                while (c.toChar() != '\b' && c != -1)
-//                // Skip all backspaces
-//                do
-//                    c = readTimeLimiter.callWithTimeout(errReader::read, 50, TimeUnit.MILLISECONDS)
-//                while (c.toChar() == '\b' && c != -1)
-//
-//                // Read the stream
-//                readTimeLimiter.callWithTimeout({errReader.read(charArray)}, 50, TimeUnit.MILLISECONDS)
-//                val match = progressRegex.find(String(charArray)) ?: continue
-//                val (blocksruncurStr, percStr) = match.destructured
-//                val blocksruncur = blocksruncurStr.toInt()
-//
-//                blocksrun += blocksruncur
-//
-//                if (blocksruncur >= blocksrunLast)
-//                    blocksrun -= blocksrunLast
-//
-//                blocksrunLast = blocksruncur
-//            }
-//        } catch (e: TimeoutException) {
-//        } catch (e: UncheckedTimeoutException) {
-//        }
-//    }
 
     override fun getInputStream(uri: Uri): InputStream {
         this.uri = uri
