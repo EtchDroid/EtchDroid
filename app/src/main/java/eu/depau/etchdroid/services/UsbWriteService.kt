@@ -1,15 +1,13 @@
 package eu.depau.etchdroid.services
 
-import android.app.IntentService
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.PowerManager
 import androidx.core.app.NotificationCompat
 import eu.depau.etchdroid.R
+import eu.depau.etchdroid.activities.ErrorActivity
 import eu.depau.etchdroid.kotlin_exts.toHRSize
 import eu.depau.etchdroid.kotlin_exts.toHRTime
 import java.util.*
@@ -89,7 +87,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         notificationManager.notify(FOREGROUND_ID, buildForegroundNotification(usbDevice, filename, progr, "$progr% • $speed/s"))
     }
 
-    fun resultNotification(usbDevice: String, filename: String, success: Boolean, bytes: Long = 0, startTime: Long = 0) {
+    fun resultNotification(usbDevice: String, filename: String, exception: Throwable?, bytes: Long = 0, startTime: Long = 0) {
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
         val b = getNotificationBuilder(WRITE_RESULT_CHANNEL_ID)
@@ -97,11 +95,18 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
 
         val dt = System.currentTimeMillis() - startTime
 
-        if (!success)
-            b.setContentTitle(getString(R.string.write_failed))
+        if (exception != null) {
+            val intent = Intent(this, ErrorActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            intent.putExtra("error", exception.message)
+            val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+            b.setContentTitle(getString(R.string.write_failed_tap_for_info))
                     .setContentText(getString(R.string.error_notif_content_text, usbDevice))
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
                     .setSubText(dt.toHRTime())
-        else {
+        } else {
             val speed = max(bytes.toDouble() / dt.toDouble() * 1000, 0.0).toHRSize() + "/s"
             b.setContentTitle(getString(R.string.write_finished))
                     .setContentText(getString(R.string.success_notif_content_text, filename, usbDevice))

@@ -101,9 +101,9 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
         try {
             writtenBytes = writeInputStream(inputStream, msDev, sendProgress)
 
-            resultNotification(usbDevice.name, uri.getFileName(this)!!, true, writtenBytes, startTime)
+            resultNotification(usbDevice.name, uri.getFileName(this)!!, null, writtenBytes, startTime)
         } catch (e: Exception) {
-            resultNotification(usbDevice.name, uri.getFileName(this)!!, false, writtenBytes, startTime)
+            resultNotification(usbDevice.name, uri.getFileName(this)!!, e, writtenBytes, startTime)
             Log.e(TAG, "Could't write image to ${usbDevice.name}")
             throw e
         } finally {

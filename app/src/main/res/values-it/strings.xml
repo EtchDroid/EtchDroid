@@ -91,8 +91,15 @@
     <string name="storagechooser_license_description">Selettore file DMG</string>
     <string name="result_channel_desc">Utilizzato per mostrare il risultato di un\'operazione di scrittura terminata</string>
     <string name="result_channel_name">Risultati scrittura USB</string>
-    <string name="write_failed">Scrittura fallita</string>
+    <string name="write_failed_tap_for_info">Scrittura fallita • Tocca per i dettagli</string>
     <string name="write_finished">Scrittura terminata</string>
     <string name="error_notif_content_text">%1$s potrebbe essere stato rimosso durante la scrittura.</string>
     <string name="success_notif_content_text">%1$s scritto con successo su %2$s</string>
+    <string name="troubleshooting_info">Risoluzione dei problemi</string>
+    <string name="operation_failed_because">L\'operazione non è stata completata a causa del seguente errore:</string>
+    <string name="troubleshoot_sock_op_on_non_sock">Questo è un errore comune. In genere succede quando il dispositivo USB viene scollegato mentre è in corso una scrittura o quando è connesso attraverso un hub USB. Su qualche dispositivo, invece, è presente un problema nel sottosistema USB di Android: solitamente un riavvio lo risolve per un po\' di tempo.\n\nProva questi suggerimenti:\n• Stacca e riattacca il dispositivo USB, quindi riavvia l\'app\n• Riavvia il dispositivo (davvero, fallo)\n• Prova un\'altro dispositivo USB\n• Evita di usare adattatori o hub se non necessari\n• Evita di usare il telefono mentre sta scrivendo immagini\n• Sostituisci un adattatore USB On-The-Go difettoso</string>
+    <string name="reporting_issues">Segnalazione dei problemi</string>
+    <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="write_failed">Scrittura fallita</string>
+    <string name="unknown_error">Errore sconosciuto. Prova a ricollegare il dispositivo USB o a riavviare il dispositivo. Per favore, segnala il problema su GitHub.</string>
 </resources>

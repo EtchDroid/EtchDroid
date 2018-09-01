@@ -90,8 +90,15 @@
     <string name="storagechooser_license_description">DMG file selector</string>
     <string name="result_channel_desc">Used to display the result of a finished write operation</string>
     <string name="result_channel_name">USB write result notifications</string>
-    <string name="write_failed">Write failed</string>
+    <string name="write_failed_tap_for_info">Write failed • Tap for info</string>
     <string name="write_finished">Write finished</string>
     <string name="error_notif_content_text">%1$s may have been unplugged while writing.</string>
     <string name="success_notif_content_text">%1$s successfully written to %2$s</string>
+    <string name="troubleshooting_info">Troubleshooting information</string>
+    <string name="operation_failed_because">The operation could not be completed because the following error occurred:</string>
+    <string name="troubleshoot_sock_op_on_non_sock">This is a common error. Usually this happens when the USB drive is unplugged while it\'s being written to, or when it\'s connected through a USB hub. On some devices there might be a bug in Android\'s USB subsystem: usually a reboot will fix it for some time. \n\nTry these:\n• Unplug and re-plug the USB device, then restart the app\n• Reboot your device (really, try it)\n• Try another USB drive\n• Avoid using unnecessary adapters, dongles or hubs\n• Avoid using your phone while it\'s writing\n• Replace defective USB On-The-Go adapters\n\nIf the problem persists, please file an issue on GitHub.</string>
+    <string name="reporting_issues">Reporting issues</string>
+    <string name="reporting_issues_text">Issues can be reported on GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="write_failed">Write failed</string>
+    <string name="unknown_error">Unknown error. Try to reattach the USB drive or reboot the device. Please file an issue on GitHub.</string>
 </resources>
