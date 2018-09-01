@@ -10,13 +10,4 @@
     </style>
 
 
-    <style name="MaterialAppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-
-    <style name="MaterialAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-    <style name="MaterialAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>

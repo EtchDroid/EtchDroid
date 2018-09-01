@@ -1,19 +1,9 @@
 <resources>
     <string name="app_name">EtchDroid</string>
-    <string name="action_settings">Settings</string>
-    <string name="download_image_from_url">Download image from URL</string>
-    <string name="use_local_image">Use local image</string>
     <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
     <string name="flash_dmg_api">Restore macOS DMG image to disk (using Android API)</string>
     <string name="flash_unetbootin">Unetbootin-style flash (MBR only, requires root)</string>
     <string name="flash_woeusb">Write Windows image (using WoeUSB, requires root)</string>
-    <string name="download_streaming">Stream directly to USB drive</string>
-    <string name="pick_a_file">Pick an image file</string>
-    <string name="image_url_hint">Image URL</string>
-    <string name="provided_url_invalid">Provided URL is invalid</string>
-    <string name="select_image_location">Please select image location</string>
-    <string name="provide_image_file">Please provide an image file</string>
-    <string name="storage_perm_required_explaination">Storage permission required to download images</string>
     <string name="action_refresh">Refresh</string>
     <string name="usb_perm_denied">Permission denied for</string>
     <string name="usb_perm_denied_noname">Permission denied for USB device</string>
@@ -21,7 +11,6 @@
     <string name="selected_method">Selected writing method:</string>
     <string name="selected_usbdev">Selected USB device:</string>
     <string name="unknown_filename">Unknown filename</string>
-    <string name="please_select_writing_method">Please select writing method</string>
     <string name="image_bigger_than_usb">Image is bigger than the USB drive, so it can\'t be written</string>
     <string name="cant_read_usbdev">Cannot read USB device</string>
     <string name="tap_next_to_write">Tap Write to write the image to the USB drive</string>
@@ -29,7 +18,6 @@
     <string name="notchan_writestatus_desc">Used to display the status of images being written to USB drives</string>
     <string name="notif_initializing">Initializing...</string>
     <string name="notif_writing_img">Writing image</string>
-    <string name="issues_found_expl">Selected image cannot be flashed</string>
     <string name="image_is_not_dmg">Selected image is not a DMG image (maybe it\'s corrupted)</string>
     <string name="ptt_aix">IBM AIX</string>
     <string name="ptt_amiga">AMIGA</string>
@@ -66,7 +54,6 @@
     <string name="fs_free">Free space</string>
     <string name="fs_unformatted">Unformatted</string>
     <string name="fs_unknown">Unknown</string>
-    <string name="part_name">Name:</string>
     <string name="part_label">Name</string>
     <string name="fs_label">Label</string>
     <string name="fs_type">Type</string>
