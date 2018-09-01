@@ -1,9 +1,8 @@
 package eu.depau.etchdroid.activities
 
-import android.os.Bundle
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
+import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,13 +14,43 @@ import eu.depau.etchdroid.img_types.DMGImage
 import eu.depau.etchdroid.kotlin_exts.*
 import eu.depau.etchdroid.services.UsbApiDmgWriteService
 import eu.depau.etchdroid.services.UsbApiImgWriteService
-
+import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
 import kotlinx.android.synthetic.main.activity_confirmation.*
 import java.io.IOException
 
 class ConfirmationActivity : ActivityBase() {
     var canContinue: Boolean = false
-    var issuesFound: Boolean = false
+    var issuesFound: String? = null
+    val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
+
+    var shouldShowDataLossAlertDialog: Boolean
+        get() {
+            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            return !settings.getBoolean("data_loss_alert", false)
+        }
+        set(value) {
+            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val editor = settings.edit()
+            editor.putBoolean("data_loss_alert", !value)
+            editor.apply()
+        }
+
+
+    fun showDataLossAlertDialog() {
+        val dialogFragment = DoNotShowAgainDialogFragment()
+        dialogFragment.title = getString(R.string.warning)
+        dialogFragment.message = getString(R.string.dataloss_confirmation_dialog_message)
+        dialogFragment.positiveButton = getString(R.string.confirm_flash_image)
+        dialogFragment.negativeButton = getString(R.string.cancel)
+        dialogFragment.listener = object : DoNotShowAgainDialogFragment.DialogListener {
+            override fun onDialogNegative(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {}
+            override fun onDialogPositive(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {
+                shouldShowDataLossAlertDialog = showAgain
+                nextStep(false)
+            }
+        }
+        dialogFragment.show(supportFragmentManager, "DataLossAlertDialogFragment")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,13 +131,13 @@ class ConfirmationActivity : ActivityBase() {
             val imgRepr = StateKeeper.imageRepr as DMGImage
 
             if (imgRepr.tableType == null && (imgRepr.partitionTable == null || imgRepr.partitionTable?.size == 0)) {
-                part_table_header.text = getString(R.string.image_is_not_dmg)
-                issuesFound = true
+                issuesFound = getString(R.string.image_is_not_dmg)
+                part_table_header.text = issuesFound
                 return
             } else {
                 part_table_header.text = if (imgRepr.tableType != null) getString(R.string.partition_table_title) else ""
                 part_table_header_side.text = imgRepr.tableType?.getString(this) ?: ""
-                issuesFound = false
+                issuesFound = null
 
                 val viewAdapter = PartitionTableRecyclerViewAdapter(imgRepr.partitionTable!!)
                 part_table_recycler.apply {
@@ -120,9 +149,14 @@ class ConfirmationActivity : ActivityBase() {
         }
     }
 
-    fun nextStep() {
-        if (!canContinue) {
-            confirm_fab.snackbar(getString(R.string.cannot_write))
+    fun nextStep(showDialog: Boolean = true) {
+        if (!canContinue || issuesFound != null) {
+            confirm_fab.snackbar(issuesFound ?: getString(R.string.cannot_write))
+            return
+        }
+
+        if (showDialog && shouldShowDataLossAlertDialog) {
+            showDataLossAlertDialog()
             return
         }
 

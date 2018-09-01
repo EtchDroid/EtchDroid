@@ -11,12 +11,14 @@ import kotlinx.android.synthetic.main.do_not_show_again.view.*
 
 class DoNotShowAgainDialogFragment() : DialogFragment() {
     var title: String? = null
-    var closeButton: String? = null
+    var positiveButton: String? = null
+    var negativeButton: String? = null
     var message: String? = null
     var listener: DialogListener? = null
 
     interface DialogListener {
-        fun onDialogClose(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean)
+        fun onDialogPositive(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean)
+        fun onDialogNegative(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -30,9 +32,14 @@ class DoNotShowAgainDialogFragment() : DialogFragment() {
                 .setTitle(title)
                 .setMessage(message)
                 .setView(dnsaLayout)
-                .setPositiveButton(closeButton) { _, _ ->
-                    listener?.onDialogClose(this@DoNotShowAgainDialogFragment, !doNotShowAgainCB.isChecked)
+                .setPositiveButton(positiveButton) { _, _ ->
+                    listener?.onDialogPositive(this@DoNotShowAgainDialogFragment, !doNotShowAgainCB.isChecked)
                 }
+
+        if (negativeButton != null)
+            builder.setNegativeButton(negativeButton) {_, _ ->
+                listener?.onDialogNegative(this@DoNotShowAgainDialogFragment, !doNotShowAgainCB.isChecked)
+            }
 
         return builder.create()
     }

@@ -65,9 +65,10 @@ class StartActivity : ActivityBase() {
         val dialogFragment = DoNotShowAgainDialogFragment()
         dialogFragment.title = getString(R.string.here_be_dragons)
         dialogFragment.message = getString(R.string.dmg_alert_dialog_text)
-        dialogFragment.closeButton = getString(R.string.i_understand)
+        dialogFragment.positiveButton = getString(R.string.i_understand)
         dialogFragment.listener = object : DoNotShowAgainDialogFragment.DialogListener {
-            override fun onDialogClose(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {
+            override fun onDialogNegative(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {}
+            override fun onDialogPositive(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {
                 shouldShowDMGAlertDialog = showAgain
                 showFilePicker()
             }

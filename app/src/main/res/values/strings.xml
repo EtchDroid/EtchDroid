@@ -95,4 +95,8 @@
     <string name="here_be_dragons">Here be dragons</string>
     <string name="i_understand">I understand, continue</string>
     <string name="dmg_alert_dialog_text">While in most cases DMG images can be restored just fine, sometimes there may be inconsistencies. You\'ve been warned.</string>
+    <string name="confirm_flash_image">Flash image</string>
+    <string name="dataloss_confirmation_dialog_message">If you continue, selected image will be written and all data stored on the USB drive will be lost forever.</string>
+    <string name="warning">Warning</string>
+    <string name="cancel">Cancel</string>
 </resources>
