@@ -71,7 +71,6 @@
     <string name="fs_label">Label</string>
     <string name="fs_type">Type</string>
     <string name="part_size">Size</string>
-    <string name="no_image_size_check_dmg">Image size checks can\'t be performed on DMG images. Make sure the USB drive is large enough before flashing.</string>
     <string name="license_gpl3">GNU GPLv3</string>
     <string name="this_app">This app</string>
     <string name="license_apache2_0">Apache 2.0</string>

@@ -13,9 +13,10 @@ import java.io.File
 val SECTOR_SIZE = 512
 private val partRegex = Regex("partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s+(.*) \\((.+) : \\d+\\)", RegexOption.MULTILINE)
 
-private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Pair<PartitionTableType?, List<Partition>?> {
+private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Triple<PartitionTableType?, List<Partition>?, Long?> {
     val pt = ArrayList<Partition>()
     var ptType: PartitionTableType? = null
+    var imgSize = 0L
 
     val pb = ProcessBuilder(dmg2img.path, "-v", "-l", file.path)
     pb.environment()["LD_LIBRARY_PATH"] = libDir
@@ -39,6 +40,7 @@ private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Pair<
 
         pb.number = number.toInt()
         pb.size = SECTOR_SIZE * sectorcount.toLong()
+        imgSize += pb.size!!
 
         if (label.isNotEmpty())
             pb.fsLabel = label
@@ -67,7 +69,7 @@ private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Pair<
         pt.add(pb.build())
     }
 
-    return Pair(ptType, pt)
+    return Triple(ptType, pt, imgSize)
 }
 
 class DMGImage(private val uri: Uri, private val context: Context) : Image {
@@ -76,14 +78,16 @@ class DMGImage(private val uri: Uri, private val context: Context) : Image {
     private var loaded: Boolean = false
     private var partTable: List<Partition>? = null
     private var partTableType: PartitionTableType? = null
+    private var imgSize: Long? = null
 
     private fun readInfo() {
         if (loaded)
             return
-        val pair = readPartitionTable(dmg2img, libDir, File(uri.path))
+        val triple = readPartitionTable(dmg2img, libDir, File(uri.path))
         loaded = true
-        partTableType = pair.first
-        partTable = pair.second
+        partTableType = triple.first
+        partTable = triple.second
+        imgSize = triple.third
     }
 
     override val partitionTable: List<Partition>?
@@ -97,6 +101,12 @@ class DMGImage(private val uri: Uri, private val context: Context) : Image {
         get() {
             readInfo()
             return partTableType
+        }
+
+    override val size: Long?
+        get() {
+            readInfo()
+            return imgSize
         }
 
 }

@@ -28,8 +28,10 @@ class ConfirmationActivity : ActivityBase() {
         setContentView(R.layout.activity_confirmation)
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        displayDetails()
+        // displayImageLayout must be called before displayDetails
+        // to ensure uncompressed image size is available
         displayImageLayout()
+        displayDetails()
     }
 
     fun displayDetails() {
@@ -46,8 +48,17 @@ class ConfirmationActivity : ActivityBase() {
         if (confirm_sel_image.text == null)
             confirm_sel_image.text = getString(R.string.unknown_filename)
 
-        val imgSize = StateKeeper.imageFile?.getFileSize(this)
-        confirm_sel_image_size.text = imgSize?.toHRSize()
+        val imgSize: Long?
+        val sizeStr: String?
+        if (StateKeeper.imageRepr?.size != null) {
+            imgSize = StateKeeper.imageRepr?.size
+            sizeStr = imgSize?.toHRSize() + " (uncompressed)"
+        } else {
+            imgSize = StateKeeper.imageFile?.getFileSize(this)
+            sizeStr = imgSize?.toHRSize()
+        }
+
+        confirm_sel_image_size.text = sizeStr
 
         confirm_sel_usbdev.text = StateKeeper.usbDevice?.name
 
@@ -63,12 +74,7 @@ class ConfirmationActivity : ActivityBase() {
                     if (imgSize!! > devSize)
                         confirm_extra_info.text = getString(R.string.image_bigger_than_usb)
                     else {
-                        var text =
-                                if (StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API)
-                                    getString(R.string.no_image_size_check_dmg) + "\n"
-                                else
-                                    ""
-                        text += getString(R.string.tap_next_to_write)
+                        val text = getString(R.string.tap_next_to_write)
                         confirm_extra_info.text = text
                         canContinue = true
                     }
