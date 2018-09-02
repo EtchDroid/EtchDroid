@@ -102,4 +102,5 @@
     <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Scrittura fallita</string>
     <string name="unknown_error">Errore sconosciuto. Prova a ricollegare il dispositivo USB o a riavviare il dispositivo. Per favore, segnala il problema su GitHub.</string>
+    <string name="uncompressed">(decompresso)</string>
 </resources>

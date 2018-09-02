@@ -81,7 +81,7 @@ class ConfirmationActivity : ActivityBase() {
         val sizeStr: String?
         if (StateKeeper.imageRepr?.size != null) {
             imgSize = StateKeeper.imageRepr?.size
-            sizeStr = imgSize?.toHRSize() + " (uncompressed)"
+            sizeStr = imgSize?.toHRSize() + " " + getString(R.string.uncompressed)
         } else {
             imgSize = StateKeeper.imageFile?.getFileSize(this)
             sizeStr = imgSize?.toHRSize()
