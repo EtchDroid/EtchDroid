@@ -9,7 +9,7 @@ You can use it to make a bootable GNU/Linux USB drive when your laptop is dead a
 
 - Fork me on [GitHub](https://github.com/Depau/EtchDroid)
 - Download from [Google Play](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
-- (soon on F-Droid)
+- Soon on F-Droid: see [merge request](https://gitlab.com/fdroid/fdroiddata/merge_requests/3624)
 
 ## Features
 - Supports raw disk images and most GNU/Linux distributions ISOs
