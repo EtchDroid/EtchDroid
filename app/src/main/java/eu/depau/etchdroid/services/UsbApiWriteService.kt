@@ -5,6 +5,7 @@ import android.hardware.usb.UsbDevice
 import android.net.Uri
 import android.util.Log
 import com.github.mjdev.libaums.UsbMassStorageDevice
+import eu.depau.etchdroid.exceptions.UsbWriteException
 import eu.depau.etchdroid.kotlin_exts.getFileName
 import eu.depau.etchdroid.kotlin_exts.name
 import java.io.BufferedInputStream
@@ -69,7 +70,11 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
             byteBuffer.limit(readBlocksBytes)
 
             // Write the buffer to the device
-            blockDev.write(offset, byteBuffer)
+            try {
+                blockDev.write(offset, byteBuffer)
+            } catch (e: Exception) {
+                throw UsbWriteException(offset, writtenBytes, e)
+            }
             offset += (readBlocksBytes) / blockDev.blockSize
             writtenBytes += readBlocksBytes
 
