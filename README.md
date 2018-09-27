@@ -8,7 +8,7 @@ EtchDroid is an open-source application that helps you write images to USB drive
 You can use it to make a bootable GNU/Linux USB drive when your laptop is dead and you're in the middle of nowhere.
 
 - [Download from Google Play](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
-- Soon on F-Droid: see [merge request](https://gitlab.com/fdroid/fdroiddata/merge_requests/3624)
+- [Download from F-Droid](https://f-droid.org/packages/eu.depau.etchdroid/)
 
 ## Features
 - Supports raw disk images and most GNU/Linux distributions ISOs
