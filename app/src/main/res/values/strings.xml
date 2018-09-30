@@ -103,4 +103,6 @@
     <string name="unknown_error">Unknown error. Try to reattach the USB drive or reboot the device. Please file an issue on GitHub.</string>
     <string name="uncompressed">(uncompressed)</string>
     <string name="nightmode">Enable night mode</string>
+    <string name="android_pie_bug">Android Pie bug</string>
+    <string name="android_pie_bug_dialog_text">There is a bug on Android 9 which causes some writes to fail.\nIf it says \"Write failed\", reboot your device and try again.</string>
 </resources>

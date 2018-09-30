@@ -4,12 +4,14 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.codekidlabs.storagechooser.StorageChooser
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.enums.FlashMethod
@@ -38,6 +40,19 @@ class StartActivity : ActivityBase() {
             editor.apply()
         }
 
+    var shouldShowAndroidPieAlertDialog: Boolean
+        get() {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                return false
+            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            return !settings.getBoolean("Android_Pie_alert", false)
+        }
+        set(value) {
+            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val editor = settings.edit()
+            editor.putBoolean("Android_Pie_alert", !value)
+            editor.apply()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +90,26 @@ class StartActivity : ActivityBase() {
         dialogFragment.show(supportFragmentManager, "DMGBetaAlertDialogFragment")
     }
 
-    fun showFilePicker() {
+    fun showAndroidPieAlertDialog() {
+        val dialogFragment = DoNotShowAgainDialogFragment(nightModeHelper.nightMode)
+        dialogFragment.title = getString(R.string.android_pie_bug)
+        dialogFragment.message = getString(R.string.android_pie_bug_dialog_text)
+        dialogFragment.positiveButton = getString(R.string.i_understand)
+        dialogFragment.listener = object : DoNotShowAgainDialogFragment.DialogListener {
+            override fun onDialogNegative(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {}
+            override fun onDialogPositive(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {
+                shouldShowAndroidPieAlertDialog = showAgain
+                showFilePicker(false)
+            }
+        }
+        dialogFragment.show(supportFragmentManager, "DMGBetaAlertDialogFragment")
+    }
+
+    fun showFilePicker(showDialog: Boolean = true) {
+        if (showDialog && shouldShowAndroidPieAlertDialog) {
+            showAndroidPieAlertDialog()
+            return
+        }
         when (StateKeeper.flashMethod) {
             FlashMethod.FLASH_API -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
@@ -158,7 +192,6 @@ class StartActivity : ActivityBase() {
             }
         }
     }
-
 
     fun nextStep() {
         val intent = Intent(this, UsbDrivePickerActivity::class.java)
