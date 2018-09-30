@@ -6,11 +6,13 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import eu.depau.etchdroid.R
+import eu.depau.etchdroid.kotlin_exts.toast
 import eu.depau.etchdroid.utils.NightModeHelper
 
 
 abstract class ActivityBase : AppCompatActivity() {
     protected lateinit var nightModeHelper: NightModeHelper
+    val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,12 @@ abstract class ActivityBase : AppCompatActivity() {
             R.id.action_licenses -> {
                 val intent = Intent(this, LicensesActivity::class.java)
                 startActivity(intent)
+                return true
+            }
+            R.id.action_reset_warnings -> {
+                getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+                        .edit().clear().apply()
+                toast(getString(R.string.warnings_reset))
                 return true
             }
             R.id.action_nightmode -> {

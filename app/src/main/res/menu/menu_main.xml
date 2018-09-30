@@ -13,4 +13,10 @@
         android:orderInCategory="100"
         android:title="@string/nightmode"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_reset_warnings"
+        android:orderInCategory="100"
+        android:title="@string/reset_warnings"
+        app:showAsAction="never"/>
 </menu>

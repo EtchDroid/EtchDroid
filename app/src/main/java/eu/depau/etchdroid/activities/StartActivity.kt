@@ -25,7 +25,6 @@ class StartActivity : ActivityBase() {
     val TAG = "StartActivity"
     val READ_REQUEST_CODE = 42
     val READ_EXTERNAL_STORAGE_PERMISSION = 29
-    val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
     var delayedButtonClicked: Boolean = false
 
     var shouldShowDMGAlertDialog: Boolean

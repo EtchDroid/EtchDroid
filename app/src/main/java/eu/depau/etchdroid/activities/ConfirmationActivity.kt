@@ -21,7 +21,6 @@ import java.io.IOException
 class ConfirmationActivity : ActivityBase() {
     var canContinue: Boolean = false
     var issuesFound: String? = null
-    val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
 
     var shouldShowDataLossAlertDialog: Boolean
         get() {
