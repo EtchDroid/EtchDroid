@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light application theme. -->
+    <style name="MaterialAppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+    <style name="DarkThemeOverlayBase">
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+
+    <style name="CardContentStyleBase"/>
+</resources>

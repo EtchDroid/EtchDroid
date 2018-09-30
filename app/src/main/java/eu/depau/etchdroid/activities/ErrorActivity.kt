@@ -1,11 +1,10 @@
 package eu.depau.etchdroid.activities
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import eu.depau.etchdroid.R
 import kotlinx.android.synthetic.main.activity_error.*
 
-class ErrorActivity : AppCompatActivity() {
+class ErrorActivity : ActivityBase() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

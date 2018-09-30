@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:theme="@style/DarkThemeOverlay"
     tools:context=".activities.StartActivity">
 
 
@@ -17,6 +18,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".fragments.FlashMethodFragment"
+        android:background="?android:windowBackground"
         tools:showIn="@layout/activity_start">
 
         <androidx.cardview.widget.CardView
@@ -28,13 +30,15 @@
             android:layout_marginLeft="@dimen/card_margin"
             android:layout_marginTop="@dimen/card_margin"
             android:layout_marginRight="@dimen/card_margin"
+            android:background="@color/background"
             android:minHeight="200dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btn_image_raw"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackground"
+                android:theme="@style/CardContentStyle"
+                android:foreground="?attr/selectableItemBackground"
                 android:onClick="onButtonClicked">
 
                 <ImageView
@@ -89,6 +93,7 @@
             android:layout_marginTop="@dimen/card_margin"
             android:layout_marginRight="@dimen/card_margin"
             android:layout_marginBottom="@dimen/card_margin"
+            android:background="@color/background"
             android:minHeight="200dp">
             <!--
             android:background="?attr/selectableItemBackground"-->
@@ -96,7 +101,8 @@
                 android:id="@+id/btn_image_dmg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackground"
+                android:theme="@style/CardContentStyle"
+                android:foreground="?attr/selectableItemBackground"
                 android:onClick="onButtonClicked">
 
                 <ImageView

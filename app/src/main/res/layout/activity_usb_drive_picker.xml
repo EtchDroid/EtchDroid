@@ -6,12 +6,14 @@
     android:id="@+id/usbdevs_swiperefreshlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/DarkThemeOverlay"
     tools:context=".activities.UsbDrivePickerActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:theme="@style/CardContentStyle">
 
         <eu.depau.etchdroid.utils.EmptyRecyclerView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,7 +37,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/no_usb_drives_detected"
             android:textAlignment="center"
-            android:drawableTop="@drawable/ic_usb_black_200dp"/>
+            android:drawableTop="@drawable/ic_usb_200dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

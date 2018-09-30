@@ -1,12 +1,21 @@
 package eu.depau.etchdroid.activities
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import eu.depau.etchdroid.R
+import eu.depau.etchdroid.utils.NightModeHelper
 
-abstract class ActivityBase: AppCompatActivity() {
+
+abstract class ActivityBase : AppCompatActivity() {
+    protected lateinit var nightModeHelper: NightModeHelper
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        nightModeHelper = NightModeHelper(this, R.style.AppTheme)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -22,6 +31,10 @@ abstract class ActivityBase: AppCompatActivity() {
             R.id.action_licenses -> {
                 val intent = Intent(this, LicensesActivity::class.java)
                 startActivity(intent)
+                return true
+            }
+            R.id.action_nightmode -> {
+                nightModeHelper.toggle()
                 return true
             }
             else -> super.onOptionsItemSelected(item)

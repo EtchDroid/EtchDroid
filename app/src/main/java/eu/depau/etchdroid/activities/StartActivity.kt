@@ -1,16 +1,15 @@
 package eu.depau.etchdroid.activities
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.codekidlabs.storagechooser.StorageChooser
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.enums.FlashMethod
@@ -62,7 +61,7 @@ class StartActivity : ActivityBase() {
     }
 
     fun showDMGBetaAlertDialog() {
-        val dialogFragment = DoNotShowAgainDialogFragment()
+        val dialogFragment = DoNotShowAgainDialogFragment(nightModeHelper.nightMode)
         dialogFragment.title = getString(R.string.here_be_dragons)
         dialogFragment.message = getString(R.string.dmg_alert_dialog_text)
         dialogFragment.positiveButton = getString(R.string.i_understand)
@@ -145,7 +144,7 @@ class StartActivity : ActivityBase() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == READ_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK) {
             // The document selected by the user won't be returned in the intent.
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.

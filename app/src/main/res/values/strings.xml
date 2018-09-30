@@ -102,4 +102,5 @@
     <string name="write_failed">Write failed</string>
     <string name="unknown_error">Unknown error. Try to reattach the USB drive or reboot the device. Please file an issue on GitHub.</string>
     <string name="uncompressed">(uncompressed)</string>
+    <string name="nightmode">Enable night mode</string>
 </resources>

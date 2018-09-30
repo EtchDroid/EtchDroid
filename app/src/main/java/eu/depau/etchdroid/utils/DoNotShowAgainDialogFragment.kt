@@ -1,5 +1,6 @@
 package eu.depau.etchdroid.utils
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +9,21 @@ import androidx.fragment.app.DialogFragment
 import eu.depau.etchdroid.R
 import kotlinx.android.synthetic.main.do_not_show_again.view.*
 
-
-class DoNotShowAgainDialogFragment() : DialogFragment() {
+@SuppressLint("ValidFragment")
+class DoNotShowAgainDialogFragment(nightMode: Boolean) : DialogFragment() {
     var title: String? = null
     var positiveButton: String? = null
     var negativeButton: String? = null
     var message: String? = null
     var listener: DialogListener? = null
+    val dialogTheme: Int
+
+    constructor() : this(false)
+
+    init {
+        dialogTheme = if (nightMode) R.style.DialogThemeDark else R.style.DialogThemeLight
+        setStyle(DialogFragment.STYLE_NORMAL, dialogTheme)
+    }
 
     interface DialogListener {
         fun onDialogPositive(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean)
@@ -23,7 +32,7 @@ class DoNotShowAgainDialogFragment() : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Build the dialog and set up the button click handlers
-        val builder = AlertDialog.Builder(activity!!)
+        val builder = AlertDialog.Builder(activity!!, dialogTheme)
         val inflater = LayoutInflater.from(this.context)
         val dnsaLayout = inflater.inflate(R.layout.do_not_show_again, null)
         val doNotShowAgainCB = dnsaLayout.do_not_show_again
@@ -37,7 +46,7 @@ class DoNotShowAgainDialogFragment() : DialogFragment() {
                 }
 
         if (negativeButton != null)
-            builder.setNegativeButton(negativeButton) {_, _ ->
+            builder.setNegativeButton(negativeButton) { _, _ ->
                 listener?.onDialogNegative(this@DoNotShowAgainDialogFragment, !doNotShowAgainCB.isChecked)
             }
 

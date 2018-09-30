@@ -7,4 +7,10 @@
         android:orderInCategory="100"
         android:title="@string/licenses"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_nightmode"
+        android:orderInCategory="100"
+        android:title="@string/nightmode"
+        app:showAsAction="never"/>
 </menu>
