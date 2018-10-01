@@ -108,4 +108,8 @@
     <string name="android_pie_bug_dialog_text">A causa di un bug di Android 9, alcune scritture potrebbero fallire.\nSe appare un messaggio di errore \"Scrittura fallita\", riavvia il dispositivo e prova di nuovo.</string>
     <string name="reset_warnings">Reimposta tutti gli avvisi</string>
     <string name="warnings_reset">Tutti gli avvisi sono stati ripristinati</string>
+    <string name="flash_iso_image">Scrivi ISO su USB</string>
+    <string name="file_type_not_supported">Tipo di file non supportato</string>
+    <string name="cannot_find_file_in_storage">Impossibile trovare file nella memoria interna. Prova ad aprirlo da dentro l\'app.</string>
+    <string name="storage_permission_required">Il permesso per l\'archiviazione è richiesto per leggere i file DMG</string>
 </resources>

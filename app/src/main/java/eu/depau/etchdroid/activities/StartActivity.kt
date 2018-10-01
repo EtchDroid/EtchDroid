@@ -1,30 +1,22 @@
 package eu.depau.etchdroid.activities
 
-import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.codekidlabs.storagechooser.StorageChooser
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.enums.FlashMethod
-import eu.depau.etchdroid.kotlin_exts.snackbar
 import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
-import kotlinx.android.synthetic.main.activity_start.*
 import java.io.File
 
 
 class StartActivity : ActivityBase() {
     val TAG = "StartActivity"
-    val READ_REQUEST_CODE = 42
-    val READ_EXTERNAL_STORAGE_PERMISSION = 29
     var delayedButtonClicked: Boolean = false
 
     var shouldShowDMGAlertDialog: Boolean
@@ -39,20 +31,6 @@ class StartActivity : ActivityBase() {
             editor.apply()
         }
 
-    var shouldShowAndroidPieAlertDialog: Boolean
-        get() {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                return false
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
-            return !settings.getBoolean("Android_Pie_alert", false)
-        }
-        set(value) {
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
-            val editor = settings.edit()
-            editor.putBoolean("Android_Pie_alert", !value)
-            editor.apply()
-        }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
@@ -60,7 +38,7 @@ class StartActivity : ActivityBase() {
 
     fun onButtonClicked(view: View) = onButtonClicked(view, true)
 
-    private fun onButtonClicked(view: View?, showDialog: Boolean = true) {
+    private fun onButtonClicked(view: View?, showDMGDialog: Boolean = true, showAndroidPieDialog: Boolean = true) {
         if (view != null)
             StateKeeper.flashMethod = when (view.id) {
                 R.id.btn_image_raw -> FlashMethod.FLASH_API
@@ -68,13 +46,20 @@ class StartActivity : ActivityBase() {
                 else -> null
             }
 
-        if (StateKeeper.flashMethod != FlashMethod.FLASH_DMG_API || !shouldShowDMGAlertDialog || !showDialog)
-            showFilePicker()
-        else
-            showDMGBetaAlertDialog()
+        if (showAndroidPieDialog && shouldShowAndroidPieAlertDialog) {
+            showAndroidPieAlertDialog { onButtonClicked(view, showDMGDialog, false) }
+            return
+        }
+
+        if (showDMGDialog && shouldShowDMGAlertDialog && StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API) {
+            showDMGBetaAlertDialog {onButtonClicked(view, false, showAndroidPieDialog)}
+            return
+        }
+
+        showFilePicker()
     }
 
-    fun showDMGBetaAlertDialog() {
+    fun showDMGBetaAlertDialog(callback: () -> Unit) {
         val dialogFragment = DoNotShowAgainDialogFragment(nightModeHelper.nightMode)
         dialogFragment.title = getString(R.string.here_be_dragons)
         dialogFragment.message = getString(R.string.dmg_alert_dialog_text)
@@ -83,32 +68,14 @@ class StartActivity : ActivityBase() {
             override fun onDialogNegative(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {}
             override fun onDialogPositive(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {
                 shouldShowDMGAlertDialog = showAgain
-                showFilePicker()
+                callback()
             }
         }
         dialogFragment.show(supportFragmentManager, "DMGBetaAlertDialogFragment")
     }
 
-    fun showAndroidPieAlertDialog() {
-        val dialogFragment = DoNotShowAgainDialogFragment(nightModeHelper.nightMode)
-        dialogFragment.title = getString(R.string.android_pie_bug)
-        dialogFragment.message = getString(R.string.android_pie_bug_dialog_text)
-        dialogFragment.positiveButton = getString(R.string.i_understand)
-        dialogFragment.listener = object : DoNotShowAgainDialogFragment.DialogListener {
-            override fun onDialogNegative(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {}
-            override fun onDialogPositive(dialog: DoNotShowAgainDialogFragment, showAgain: Boolean) {
-                shouldShowAndroidPieAlertDialog = showAgain
-                showFilePicker(false)
-            }
-        }
-        dialogFragment.show(supportFragmentManager, "DMGBetaAlertDialogFragment")
-    }
 
-    fun showFilePicker(showDialog: Boolean = true) {
-        if (showDialog && shouldShowAndroidPieAlertDialog) {
-            showAndroidPieAlertDialog()
-            return
-        }
+    fun showFilePicker() {
         when (StateKeeper.flashMethod) {
             FlashMethod.FLASH_API -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
@@ -147,31 +114,14 @@ class StartActivity : ActivityBase() {
         }
     }
 
-    private fun checkAndRequestStorageReadPerm(): Boolean {
-        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                            Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                btn_image_dmg.snackbar("Storage permission is required to read DMG images")
-            } else {
-                ActivityCompat.requestPermissions(this,
-                        arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                        READ_EXTERNAL_STORAGE_PERMISSION)
-            }
-        } else {
-            // Permission granted
-            return true
-        }
-        return false
-    }
-
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             READ_EXTERNAL_STORAGE_PERMISSION -> {
-                if (delayedButtonClicked)
-                    onButtonClicked(null, showDialog = false)
-                return
-            }
-            else -> {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (delayedButtonClicked)
+                        onButtonClicked(null, showDMGDialog = false, showAndroidPieDialog = false)
+                    return
+                }
             }
         }
     }
@@ -184,8 +134,7 @@ class StartActivity : ActivityBase() {
             // Pull that URI using resultData.getData().
             var uri: Uri? = null
             if (data != null) {
-                uri = data.getData()
-                StateKeeper.imageFile = uri
+                StateKeeper.imageFile = data.data
 
                 nextStep()
             }

@@ -107,4 +107,8 @@
     <string name="android_pie_bug_dialog_text">There is a bug on Android 9 which causes some writes to fail.\nIf it says \"Write failed\", reboot your device and try again.</string>
     <string name="reset_warnings">Reset all warnings</string>
     <string name="warnings_reset">All warning dialogs restored</string>
+    <string name="flash_iso_image">Flash ISO to USB</string>
+    <string name="file_type_not_supported">File type not supported</string>
+    <string name="cannot_find_file_in_storage">Cannot find file in internal storage. Try opening it from within the app.</string>
+    <string name="storage_permission_required">Storage permission is required to read DMG images</string>
 </resources>

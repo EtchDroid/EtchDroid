@@ -5,8 +5,10 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -18,12 +20,13 @@ import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.adapters.UsbDrivesRecyclerViewAdapter
-import eu.depau.etchdroid.kotlin_exts.name
-import eu.depau.etchdroid.kotlin_exts.snackbar
+import eu.depau.etchdroid.enums.FlashMethod
+import eu.depau.etchdroid.kotlin_exts.*
 import eu.depau.etchdroid.utils.ClickListener
 import eu.depau.etchdroid.utils.EmptyRecyclerView
 import eu.depau.etchdroid.utils.RecyclerViewTouchListener
 import kotlinx.android.synthetic.main.activity_usb_drive_picker.*
+import java.io.File
 
 class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListener {
     val USB_PERMISSION = "eu.depau.etchdroid.USB_PERMISSION"
@@ -35,8 +38,68 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
     private lateinit var refreshLayout: SwipeRefreshLayout
 
 
+    fun handleIntent(intent: Intent) {
+        if (intent.action == Intent.ACTION_VIEW) {
+            val uri = intent.data
+            val ext = uri?.getExtension(contentResolver)
+
+            when (ext) {
+                in listOf("iso", "img") -> {
+                    StateKeeper.flashMethod = FlashMethod.FLASH_API
+                    StateKeeper.imageFile = uri
+                }
+                "dmg" -> {
+                    val path: String?
+                    try {
+                        path = uri.getFilePath(this)
+                    } catch (e: Exception) {
+                        toast(getString(R.string.cannot_find_file_in_storage))
+                        // Rethrow exception so it's logged in Google Developer Console
+                        throw e
+                    }
+                    if (path == null) {
+                        toast(getString(R.string.cannot_find_file_in_storage))
+                        finish()
+                    }
+
+                    StateKeeper.flashMethod = FlashMethod.FLASH_DMG_API
+                    StateKeeper.imageFile = Uri.fromFile(File(path))
+
+                    checkAndRequestStorageReadPerm()
+                }
+                null -> {
+                    return
+                }
+                else -> {
+                    toast(getString(R.string.file_type_not_supported))
+                    finish()
+                }
+            }
+
+            if (shouldShowAndroidPieAlertDialog)
+                showAndroidPieAlertDialog {}
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            READ_EXTERNAL_STORAGE_PERMISSION -> {
+                if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                    toast(getString(R.string.storage_permission_required))
+                    finish()
+                }
+                return
+            }
+            else -> {
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        handleIntent(intent)
+
         setContentView(R.layout.activity_usb_drive_picker)
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
