@@ -111,12 +111,13 @@ class ConfirmationActivity : ActivityBase() {
                 }
             } catch (e: IOException) {
                 if (trial == 0) {
-                    StateKeeper.usbMassStorageDevice!!.close()
                     continue
                 } else {
                     confirm_extra_info.text = getString(R.string.could_not_access_usb_error)
                     break
                 }
+            } finally {
+                StateKeeper.usbMassStorageDevice!!.close()
             }
         }
     }
