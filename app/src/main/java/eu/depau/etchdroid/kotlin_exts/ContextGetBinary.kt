@@ -1,7 +1,6 @@
 package eu.depau.etchdroid.kotlin_exts
 
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import android.os.Build
 import java.io.File
 import java.io.FileOutputStream

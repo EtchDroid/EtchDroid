@@ -2,10 +2,10 @@ package eu.depau.etchdroid.adapters
 
 import android.annotation.SuppressLint
 import android.os.Build
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.kotlin_exts.vidpid

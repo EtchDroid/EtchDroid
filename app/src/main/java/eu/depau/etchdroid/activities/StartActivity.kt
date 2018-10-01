@@ -52,7 +52,7 @@ class StartActivity : ActivityBase() {
         }
 
         if (showDMGDialog && shouldShowDMGAlertDialog && StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API) {
-            showDMGBetaAlertDialog {onButtonClicked(view, false, showAndroidPieDialog)}
+            showDMGBetaAlertDialog { onButtonClicked(view, false, showAndroidPieDialog) }
             return
         }
 

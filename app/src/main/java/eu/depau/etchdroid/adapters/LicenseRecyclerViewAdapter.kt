@@ -1,11 +1,11 @@
 package eu.depau.etchdroid.adapters
 
 import android.annotation.SuppressLint
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.recyclerview.widget.RecyclerView
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.utils.License
 import kotlinx.android.synthetic.main.license_row.view.*

@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Dark application theme. -->
-    <style name="MaterialAppBaseTheme" parent="Theme.AppCompat">
-        <item name="cardStyle">@style/CardViewStyle.Dark</item>
-    </style>
 
     <style name="DarkThemeOverlayBase" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:windowBackground">@color/background</item>
-    </style>
-
-    <style name="CardViewStyle.Dark" parent="CardView.Dark">
-        <item name="cardBackgroundColor">@android:color/background_dark</item>
     </style>
 
     <style name="CardContentStyleBase" parent="ThemeOverlay.AppCompat.Dark">

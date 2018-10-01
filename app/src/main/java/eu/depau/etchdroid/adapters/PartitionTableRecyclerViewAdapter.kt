@@ -1,9 +1,9 @@
 package eu.depau.etchdroid.adapters
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.RecyclerView
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.kotlin_exts.toHRSize
 import eu.depau.etchdroid.utils.Partition

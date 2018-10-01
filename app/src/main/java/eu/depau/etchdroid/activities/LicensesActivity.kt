@@ -3,11 +3,11 @@ package eu.depau.etchdroid.activities
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.view.MenuItem
-import android.view.View
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.adapters.LicenseRecyclerViewAdapter
 import eu.depau.etchdroid.utils.ClickListener
