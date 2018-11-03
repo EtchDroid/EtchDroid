@@ -75,10 +75,10 @@
     <string name="partition_table_title">Tabella delle partizioni:</string>
     <string name="could_not_access_usb_error">Non è stato possibile accedere al dispositivo USB. Forse hai utilizzato quest\'app in precedenza ma ha smesso di funzionare? Prova a rimuovere e reinserire il dispositivo, quindi riavvia l\'app.</string>
     <string name="write_image_or_iso">Scrivi immagine disco o ISO</string>
-    <string name="raw_image_desc">Ottimo per ISO di distribuzioni GNU/Linux recenti, e per immagini disco create su Windows o Linux</string>
+    <string name="raw_image_desc">Ottimo per ISO di distribuzioni GNU/Linux recenti, immagini per Raspberry Pi e immagini disco create su Windows o Linux</string>
     <string name="write_apple_dmg">Scrivi immagine Apple® DMG</string>
     <string name="dmg_image_desc">Ripristina un\'immagine disco creata con l\'Utility Dischi di macOS</string>
-    <string name="no_usb_drives_detected">Nessun dispositivo USB rilevato</string>
+    <string name="no_usb_drives_detected">Nessun dispositivo USB rilevato.\nPer scrivere su schede SD devi usare un adattore microSD-USB.</string>
     <string name="do_not_show_again">Non mostrare più</string>
     <string name="here_be_dragons">Hic sunt dracones</string>
     <string name="i_understand">Capisco, prosegui</string>

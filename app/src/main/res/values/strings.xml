@@ -74,10 +74,10 @@
     <string name="partition_table_title">Partition table:</string>
     <string name="could_not_access_usb_error">Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app.</string>
     <string name="write_image_or_iso">Write raw image or ISO</string>
-    <string name="raw_image_desc">Good for GNU/Linux distribution ISOs and disk images created on Windows or Linux</string>
+    <string name="raw_image_desc">Good for GNU/Linux distro ISOs, Raspberry Pi images and disk images created on Windows or Linux</string>
     <string name="write_apple_dmg">Write Apple® DMG image</string>
     <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
-    <string name="no_usb_drives_detected">No USB drives detected</string>
+    <string name="no_usb_drives_detected">No USB drives detected.\nNote that you need an SD card to USB adapter to write to SD cards.</string>
     <string name="do_not_show_again">Do not show again</string>
     <string name="here_be_dragons">Here be dragons</string>
     <string name="i_understand">I understand, continue</string>
