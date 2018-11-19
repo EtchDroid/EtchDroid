@@ -56,6 +56,8 @@ class ConfirmationActivity : ActivityBase() {
         setContentView(R.layout.activity_confirmation)
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
+        confirm_fab.setOnClickListener(this::onButtonClicked)
+
         // displayImageLayout must be called before displayDetails
         // to ensure uncompressed image size is available
         displayImageLayout()

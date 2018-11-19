@@ -215,7 +215,6 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="onButtonClicked"
         app:srcCompat="@drawable/ic_twotone_save_alt_24px"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

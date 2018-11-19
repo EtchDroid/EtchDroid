@@ -12,6 +12,7 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.enums.FlashMethod
 import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
+import kotlinx.android.synthetic.main.activity_start.*
 import java.io.File
 
 
@@ -34,6 +35,8 @@ class StartActivity : ActivityBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+        btn_image_raw.setOnClickListener(this::onButtonClicked)
+        btn_image_dmg.setOnClickListener(this::onButtonClicked)
     }
 
     fun onButtonClicked(view: View) = onButtonClicked(view, true)

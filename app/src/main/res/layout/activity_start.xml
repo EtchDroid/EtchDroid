@@ -38,8 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/CardContentStyle"
-                android:foreground="?attr/selectableItemBackground"
-                android:onClick="onButtonClicked">
+                android:foreground="?attr/selectableItemBackground">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -102,8 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/CardContentStyle"
-                android:foreground="?attr/selectableItemBackground"
-                android:onClick="onButtonClicked">
+                android:foreground="?attr/selectableItemBackground">
 
                 <ImageView
                     android:id="@+id/imageView2"
