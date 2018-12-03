@@ -9,4 +9,10 @@
     <style name="CardContentStyleBase" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:background">@color/colorPrimary</item>
     </style>
+
+    <style name="AttribouterTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="personDialogTheme">@style/PersonDialogTheme</item>
+    </style>
+
+    <style name="PersonDialogTheme" parent="ThemeOverlay.AppCompat.Dialog"/>
 </resources>

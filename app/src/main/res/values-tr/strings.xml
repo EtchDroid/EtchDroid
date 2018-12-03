@@ -65,7 +65,7 @@
     <string name="license_gpl2">GNU GPLv2</string>
     <string name="license_bzip2">Özel BSD benzeri</string>
     <string name="license_custom">Özel</string>
-    <string name="licenses">Lisanslar</string>
+    <string name="about">Lisanslar</string>
     <string name="dmg2img_license_desc">Sıkıştırılmış Apple® DMG imajlarını dönüştürür.</string>
     <string name="title_activity_usb_drive_picker">USB aygıtı seçin.</string>
     <string name="title_activity_confirmation">Yazmaya hazır.</string>

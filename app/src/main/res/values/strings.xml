@@ -65,7 +65,7 @@
     <string name="license_gpl2">GNU GPLv2</string>
     <string name="license_bzip2">Custom BSD-like</string>
     <string name="license_custom">Custom</string>
-    <string name="licenses">Licenses</string>
+    <string name="about">About</string>
     <string name="dmg2img_license_desc">Converts compressed Apple® DMG images</string>
     <string name="title_activity_usb_drive_picker">Select USB drive</string>
     <string name="title_activity_confirmation">Ready to write</string>
@@ -110,4 +110,46 @@
     <string name="file_type_not_supported">File type not supported</string>
     <string name="cannot_find_file_in_storage">Cannot find file in internal storage. Try opening it from within the app.</string>
     <string name="storage_permission_required">Storage permission is required to read DMG images</string>
+
+
+    <!-- AndroidX Jetpack -->
+    <string name="define_AndroidX" translatable="false"/>
+    <string name="library_AndroidX_author" translatable="false">AOSP</string>
+    <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
+    <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX is a major improvement to the original Android Support Library and provides backwards-compatibility across Android releases</string>
+    <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
+    <string name="library_AndroidX_libraryVersion">1.0.1</string>
+    <string name="library_AndroidX_isOpenSource">true</string>
+    <string name="library_AndroidX_repositoryLink">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
+    <string name="library_AndroidX_licenseId" translatable="false">apache_2_0</string>
+
+
+    <!-- Kotlin Standard Library -->
+    <string name="define_KotlinStdlib"/>
+    <string name="library_KotlinStdlib_author">JetBrains</string>
+    <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
+    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
+    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
+    <string name="library_KotlinStdlib_libraryWebsite">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
+    <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
+    <string name="library_KotlinStdlib_isOpenSource">true</string>
+    <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
+    <string name="library_KotlinStdlib_licenseId">apache_2_0</string>
+
+
+    <!-- Material Components -->
+    <string name="define_Material"/>
+    <string name="library_Material_author">Google</string>
+    <string name="library_Material_authorWebsite">https://material.io/develop/</string>
+    <string name="library_Material_libraryName">Material Components</string>
+    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
+    <string name="library_Material_libraryWebsite">https://material.io/develop/android/</string>
+    <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
+    <string name="library_Material_isOpenSource">true</string>
+    <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
+    <string name="library_Material_licenseId">apache_2_0</string>
+
+    <string name="app_desc">An application to write OS images to USB drives, on Android, no root required.</string>
+
 </resources>

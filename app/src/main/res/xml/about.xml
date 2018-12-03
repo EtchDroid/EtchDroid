@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<about>
+    <me.jfenn.attribouter.wedges.AppWedge repo="Depau/EtchDroid">
+        <me.jfenn.attribouter.wedges.link.LinkWedge
+            name="F-Droid"
+            icon="@drawable/ic_fdroid_logo_24dp"
+            url="https://f-droid.org/en/packages/eu.depau.etchdroid/" />
+        <me.jfenn.attribouter.wedges.link.LinkWedge id="playStore" />
+        <me.jfenn.attribouter.wedges.link.LinkWedge
+            name="^GitHub"
+            id="github" />
+    </me.jfenn.attribouter.wedges.AppWedge>
+
+    <me.jfenn.attribouter.wedges.ContributorsWedge showDefaults="false">
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            name="Davide Depau"
+            bio="My dream is meeting the love of my life here just to be able to say &quot;we met on GitHub&quot;. GNU/Linux and Python lover, gay as fuck."
+            email="davide@depau.eu"
+            login="Depau"
+            position="1"
+            task="Owner">
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                name="Instagram"
+                icon="https://instagram.com/favicon.ico"
+                url="https://instagram.com/depau.py" />
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                name="StackOverflow"
+                icon="https://stackoverflow.com/favicon.ico"
+                url="https://stackoverflow.com/story/depau" />
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                name="PayPal"
+                icon="https://paypal.com/favicon.ico"
+                url="https://paypal.me/DavideDepau/5" />
+        </me.jfenn.attribouter.wedges.ContributorWedge>
+    </me.jfenn.attribouter.wedges.ContributorsWedge>
+
+    <me.jfenn.attribouter.wedges.LicensesWedge
+        overflow="5"
+        showDefaults="true">
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="An application to write OS images to USB drives, on Android, no root required."
+            license="gpl-3.0"
+            licenseName="GNU General Public License v3.0"
+            repo="Depau/EtchDroid"
+            title="This app"
+            website="https://etchdroid.depau.eu" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/app_desc"
+            license="gpl-3.0"
+            licenseName="GNU GPL v3.0"
+            repo="Depau/EtchDroid"
+            title="^@string/this_app"
+            website="https://etchdroid.depau.eu" />
+
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/storagechooser_license_description"
+            license="mpl-2.0"
+            licenseName="Mozilla Public License 2.0"
+            repo="codekidX/storage-chooser"
+            title="Storage Chooser" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/libaums_license_desc"
+            license="apache-2.0"
+            licenseName="Apache 2.0"
+            repo="Depau/libaums"
+            title="libaums (fork)" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/dmg2img_license_desc"
+            license="gpl-2.0"
+            licenseName="GNU General Public License 2.0"
+            repo="Depau/dmg2img-cmake"
+            title="dmg2img (fork)" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            licenseBody="@string/license_bzip2"
+            licenseName="Other"
+            repo="LuaDist/bzip2"
+            title="bzip2" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            licenseName="Custom FOSS"
+            repo="Depau/libressl"
+            title="LibreSSL" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="@string/library_AndroidX_libraryDescription"
+            license="apache-2.0"
+            licenseName="Apache License 2.0"
+            licenseUrl="https://choosealicense.com/licenses/apache-2.0/"
+            title="@string/library_AndroidX_libraryName"
+            website="@string/library_AndroidX_libraryWebsite" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="@string/library_KotlinStdlib_libraryDescription"
+            license="apache-2.0"
+            licenseName="Apache License 2.0"
+            licenseUrl="https://choosealicense.com/licenses/apache-2.0/"
+            title="@string/library_KotlinStdlib_libraryName"
+            website="@string/library_KotlinStdlib_libraryWebsite" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="@string/library_Material_libraryDescription"
+            license="apache-2.0"
+            licenseName="Apache License 2.0"
+            licenseUrl="https://choosealicense.com/licenses/apache-2.0/"
+            title="@string/library_Material_libraryName"
+            website="@string/library_Material_libraryWebsite" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            repo="google/guava"
+            license="apache-2.0"
+            licenseName="Apache License 2.0"
+            licenseUrl="https://choosealicense.com/licenses/apache-2.0/"/>
+
+    </me.jfenn.attribouter.wedges.LicensesWedge>
+
+    <me.jfenn.attribouter.wedges.TranslatorsWedge overflow="5">
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Davide Depau"
+            locales="it"
+            login="Depau" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Can Berberoglu"
+            avatar="https://avatars1.githubusercontent.com/u/21688873"
+            locales="tr"
+            login="Exodus1831" />
+    </me.jfenn.attribouter.wedges.TranslatorsWedge>
+</about>

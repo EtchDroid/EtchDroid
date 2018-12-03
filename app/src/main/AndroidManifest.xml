@@ -31,11 +31,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.LicensesActivity"
-            android:label="@string/licenses"
-            android:theme="@style/MaterialAppTheme">
-        </activity>
-        <activity
             android:name=".activities.UsbDrivePickerActivity"
             android:label="@string/title_activity_usb_drive_picker"
             android:parentActivityName=".activities.StartActivity"

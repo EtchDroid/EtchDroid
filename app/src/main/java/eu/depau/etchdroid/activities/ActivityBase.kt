@@ -1,7 +1,6 @@
 package eu.depau.etchdroid.activities
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +13,7 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.kotlin_exts.toast
 import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
 import eu.depau.etchdroid.utils.NightModeHelper
+import me.jfenn.attribouter.Attribouter
 
 
 abstract class ActivityBase : AppCompatActivity() {
@@ -80,13 +80,12 @@ abstract class ActivityBase : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_licenses -> {
-                val intent = Intent(this, LicensesActivity::class.java)
-                startActivity(intent)
+            R.id.action_about -> {
+                Attribouter
+                        .from(this)
+                        .withFile(R.xml.about)
+                        .show()
                 return true
             }
             R.id.action_reset_warnings -> {
