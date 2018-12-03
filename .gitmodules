@@ -9,4 +9,4 @@
 	url = https://github.com/LuaDist/bzip2.git
 [submodule "app/src/c/libressl"]
 	path = dmg2img/src/c/libressl
-	url = https://github.com/libressl-portable/portable.git
+	url = https://github.com/Depau/libressl.git
