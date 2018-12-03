@@ -1,0 +1,3 @@
+- Aggiunta traduzione in Turco
+- Aggiornato LibreSSL all'ultima versione
+- Risolto un problema che faceva crashare l'app quando si premeva un tasto qualsiasi su Android 6.0

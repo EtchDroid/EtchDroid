@@ -1,0 +1,3 @@
+- Added Turkish translation
+- Updated LibreSSL to latest version
+- Fixed a bug which caused the app to crash when pressing any button on Android 6.0
