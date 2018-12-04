@@ -1,8 +1,8 @@
 # EtchDroid
 
-[![F-Droid](assets/docs/img/get-from-fdroid-small.png)](https://f-droid.org/packages/eu.depau.etchdroid/) [![Google Play](assets/docs/img/get-from-googleplay-small.png)](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
+[![F-Droid](docs/assets/img/get-from-fdroid-small.png)](https://f-droid.org/packages/eu.depau.etchdroid/) [![Google Play](docs/assets/img/get-from-googleplay-small.png)](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
 
-![EtchDroid](assets/docs/img/playstore_banner.png)
+![EtchDroid](docs/assets/img/playstore_banner.png)
 
 EtchDroid is an open-source application that helps you write images to USB drives, no root required.
 
@@ -27,7 +27,7 @@ You can use it to make a bootable GNU/Linux USB drive when your laptop is dead a
 
 You can support the development by sending a donation.
 
-See the wesite: https://etchdroid.depau.eu/donate/
+See the website: https://etchdroid.depau.eu/donate/
 
 ## FAQ/Common issues
 
