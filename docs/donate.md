@@ -9,7 +9,7 @@ layout: page
 You can actively support the development with a monthly subscription on Patreon or Flattr.
 
 <p align="center">
-<a href="https://www.patreon.com/depau" rel="_noopener" target="_blank"><img alt="Become a Patron" src="/assets/img/become_a_patron_button.png"/></a> &nbsp;&nbsp;&nbsp; <a href="https://flattr.com/@Depau" rel="_noopener" target="_blank"><img alt="Flattr this" src="http://api.flattr.com/button/flattr-badge-large.png"/></a>
+<a href="https://www.patreon.com/depau" rel="_noopener" target="_blank"><img alt="Become a Patron" src="/assets/img/become_a_patron_button.png"/></a> &nbsp;&nbsp;&nbsp; <a href="https://flattr.com/@Depau" rel="_noopener" target="_blank"><img alt="Flattr this" src="https://api.flattr.com/button/flattr-badge-large.png"/></a>
 </p>
 
 Supporters who subscribe for $10 or more can ask me to **get listed in the app's
