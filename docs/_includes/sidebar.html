@@ -1,0 +1,135 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3><a name="about"></a>About</h3>
+    </div>
+    <div class="panel-body" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <p class='text-center' itemprop='logo' itemscope itemtype='http://schema.org/ImageObject'>
+            <a href='{{ site.image | prepend: site.baseurl | replace: "//", "/" | prepend: site.url }}' itemprop='url'>
+                <img src='{{ site.image | prepend: site.baseurl | replace: "//", "/" | prepend: site.url }}' class='img-responsive img-thumbnail'>
+            </a>
+            <!--<meta itemprop="width" content=""/>--><!-- TODO Image width -->
+            <!--<meta itemprop="height" content=""/>--><!-- TODO Image height -->
+        </p>
+        <p class="lead text-center">
+            <a href="{{ site.baseurl | prepend: site.url }}" itemprop="url">
+                <span itemprop="name">{{ site.title }}</span>
+            </a>
+        </p>
+        <p class="text" itemprop="description">
+            {{ site.description }}
+        </p>
+        <p class="text-center">
+            <img src="/assets/img/get-from-github-small.png"/>
+        </p>
+    </div><!-- .panel-body -->
+</div><!-- .panel -->
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3><a name="author"></a>Author</h3>
+    </div>
+    <div class="panel-body" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        {% if site.author.name %}
+            <p class="lead" itemprop="name">
+                {{ site.author.name }}
+            </p>
+        {% endif %}
+        <ul class="contact-list list-unstyled">
+            {% if site.author.site %}
+                <li><a href="{{ site.author.site }}" itemprop="url"><i class="fa fa-globe"></i> {{ site.author.site }}</a></li>
+            {% endif %}
+            {% if site.author.email %}
+                <li><a href="mailto:{{ site.author.email }}" itemprop="email"><i class="fa fa-envelope"></i> {{ site.author.email }}</a></li>
+            {% endif %}
+        </ul>
+
+        {% if site.addthis_profile_id %}
+            <!-- AddThis Follow Buttons -->
+            <div class="addthis_toolbox addthis_32x32_style addthis_default_style center-block">
+                {% if site.facebook.username %}
+                    <a href="https://facebook.com/{{ site.facebook.username }}" class="addthis_button_facebook_follow" addthis:userid="{{ site.facebook_username }}" itemprop="sameAs"></a>
+                {% endif %}
+                {% if site.twitter_username %}
+                    <a href="https://twitter.com/{{ site.twitter_username }}" class="addthis_button_twitter_follow" addthis:userid="{{ site.twitter_username }}" itemprop="sameAs"></a>
+                {% endif %}
+                {% if site.linkedin_username %}
+                    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" class="addthis_button_linkedin_follow" addthis:userid="{{ site.linkedin_username }}" itemprop="sameAs"></a>
+                {% endif %}
+                {% if site.google_plus_user_id %}
+                    <a href="https://plus.google.com/{{ site.google_plus_user_id }}" class="addthis_button_google_follow" addthis:userid="{{ site.google_plus_user_id }}" itemprop="sameAs"></a>
+                {% endif %}
+                {% if site.youtube.profile and site.youtube.name %}
+                    <a href="https://youtube.com/{{ site.youtube.profile }}/{{ site.youtube.name }}" class="addthis_button_youtube_follow" addthis:userid="{{ site.youtube.name }}" itemprop="sameAs"></a>
+                {% endif %}
+                {% if site.foursquare_username %}
+                    <a href="https://foursquare.com/{{ site.foursquare_username }}" class="addthis_button_foursquare_follow" addthis:userid="{{ site.foursquare_username }}" itemprop="sameAs"></a>
+                {% endif %}
+                {% if site.github_username %}
+                    <a href="https://github.com/{{ site.github_username }}" class="addthis_button_github_follow" addthis:userid="{{ site.github_username }}" itemprop="sameAs"></a>
+                {% endif %}
+                <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="addthis_button_rss_follow"></a>
+            </div>
+            <!-- AddThis Follow Buttons End -->
+        {% else %}
+            <ul class="social-media-list list-unstyled">
+                {% if site.facebook.username %}
+                    <li>
+                        <a href="https://facebook.com/{{ site.facebook.username }}" itemprop="sameAs">
+                            <i class="fa fa-facebook-official"></i> {{ site.facebook.username }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if site.twitter_username %}
+                    <li>
+                        <a href="https://twitter.com/{{ site.twitter_username }}" itemprop="sameAs">
+                            <i class="fa fa-twitter"></i> {{ site.twitter_username }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if site.linkedin_username %}
+                    <li>
+                        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" itemprop="sameAs">
+                            <i class="fa fa-linkedin-square"></i> {{ site.linkedin_username }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if site.google.user_id %}
+                    <li>
+                        <a href="https://plus.google.com/{{ site.google.user_id }}" itemprop="sameAs">
+                            <i class="fa fa-google-plus-square"></i> {{ site.google.user_id }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if site.youtube.profile and site.youtube.name %}
+                    <li>
+                        <a href="https://youtube.com/{{ site.youtube.profile }}/{{ site.youtube.username }}" itemprop="sameAs">
+                            <i class="fa fa-youtube-play"></i> {{ site.youtube.name }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if site.foursquare_username %}
+                    <li>
+                        <a href="https://foursquare.com/{{ site.foursquare_username }}" itemprop="sameAs">
+                            <i class="fa fa-foursquare"></i> {{ site.foursquare_username }}
+                        </a>
+                    </li>
+                {% endif %}
+                {% if site.github_username %}
+                    <li>
+                        <a href="https://github.com/{{ site.github_username }}" itemprop="sameAs">
+                            <i class="fa fa-github"></i> {{ site.github_username }}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div><!-- .panel-body -->
+</div><!-- .panel -->
+
+{% if site.google.adsense.sidebar_ad_unit %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {% include adsense.html id="sidebar_ad_unit" ad_slot=site.google.adsense.sidebar_ad_unit %}
+        </div><!-- .col-xs-12 -->
+    </div><!-- .row -->
+{% endif %}

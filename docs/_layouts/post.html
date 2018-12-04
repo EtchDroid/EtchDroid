@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<div class="blog-post panel panel-default">
+    <header class="panel-heading">
+        <h1 class="blog-post-title" itemprop="headline name">
+            <a class="blog-post-link" href="{{ page.url | prepend: site.baseurl | replace: '//', '/' }}" itemprop="mainEntityOfPage url">
+                {{ page.title }}
+            </a>
+        </h1>
+        <div class="blog-post-meta row">
+            <div class='col-sm-6'>
+                <p class="blog-post-date" itemprop="datePublished" content="{{ page.date | date: "%Y-%m-%d" }}">
+                    {{ page.date | date: "%b %-d, %Y" }}
+                </p>
+                <!--<meta itemprop="dateModified" content="" />--><!-- TODO Last modified date -->
+            </div>
+            <div class='col-sm-6'>
+                {% if site.addthis_profile_id %}
+                    <div class='blog-post-share'>
+                        <!-- AddThis Sharing Buttons -->
+                        <div class="addthis_toolbox addthis_default_style">
+                            <a class="addthis_button_facebook"></a>
+                            <a class="addthis_button_twitter"{% if site.twitter_username %} data-via="{{ site.twitter_username }}"{% endif %}></a>
+                            <a class="addthis_button_google_plusone_share"></a>
+                            <a class="addthis_button_favorites"></a>
+                            <a class="addthis_button_compact"></a>
+                            <a class="addthis_counter addthis_bubble_style"></a>
+                        </div>
+                        <!-- AddThis Sharing Buttons End -->
+                    </div><!-- .blog-post-share -->
+                {% endif %}
+            </div><!-- .col-sm-6 -->
+        </div><!-- .blog-post-meta -->
+    </header>
+
+    <article class="blog-post-content panel-body">
+        {% if site.google.adsense.content_ad_unit_1 %}
+            {% include adsense.html id="content_ad_unit_1" ad_slot=site.google.adsense.content_ad_unit_1 %}
+        {% endif %}
+
+        <div class="row" itemprop="articleBody mainEntity">
+            <div class="col-xs-12">
+                {{ content }}
+            </div>
+        </div>
+
+        {% if site.addthis_profile_id %}
+            <!-- AddThis Sharing Buttons -->
+            <div class="gap"></div>
+            <h2>Did you like it? What about sharing?</h2>
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                <a class="addthis_button_facebook"></a>
+                <a class="addthis_button_twitter"></a>
+                <a class="addthis_button_google_plusone_share"></a>
+                <a class="addthis_button_email"></a>
+                <a class="addthis_button_favorites"></a>
+                <a class="addthis addthis_button_print"></a>
+                <a class="addthis_button_pdfonline"></a>
+                <a class="addthis_button_compact"></a>
+                <a class="addthis_counter addthis_bubble_style"></a>
+            </div>
+            <!-- AddThis Sharing Buttons End -->
+        {% endif %}
+
+        {% if site.disqus_shortname %}
+            <!-- Disqus -->
+            <div class="gap"></div>
+            <h2>Comments</h2>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES * * */
+                        var disqus_shortname = '{{ site.disqus_shortname }}';
+                        var disqus_url = '{{ page.url | prepend: site.baseurl | replace: '//', '/' | prepend: site.url }}';
+
+                        /* * * DON'T EDIT BELOW THIS LINE * * */
+                        (function() {
+                            var dsq = document.createElement('script');
+                            dsq.type = 'text/javascript';
+                            dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>
+                        <p>Please <a href="http://www.enable-javascript.com/" target="_blank">enable JavaScript</a> to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus</a>.</p>
+                    </noscript>
+                </div><!-- .col-xs-12 -->
+            </div><!-- .row -->
+            <!-- Disqus End -->
+        {% endif %}
+    </article>
+</div><!-- .blog-post -->

@@ -1,1 +1,26 @@
-theme: jekyll-theme-cayman
+title: EtchDroid
+
+description: >
+    An application to write OS images to USB drives, on Android, no root required.
+
+lang: en
+
+url: "https://etchdroid.depau.eu"
+
+author:
+    name: Davide Depau
+    email: etchdroid@depau.eu
+    site: http://depau.eu
+
+github_username: "Depau"
+
+excerpt_separator: <!--more-->
+
+exclude: ['Gemfile', 'Gemfile.lock', 'LICENSE', 'README.md']
+
+permalink: pretty
+
+gems:
+    - jekyll-sitemap
+
+image: "/assets/img/icon.png"

@@ -1,0 +1,3 @@
+*                                   text=auto
+*.md                                text
+assets/favicons/browserconfig.xml   eol=crlf

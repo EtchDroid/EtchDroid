@@ -1,0 +1,10 @@
+<div class='image no-ads-here text-center' itemscope itemtype='http://schema.org/ImageObject'>
+<a href='{% if include.link %}{{ include.link }}{% else %}{{ include.src }}{% endif %}' title='{{ include.caption }}'>
+<img src='{{ include.src }}' alt='{{ include.caption }}' class='img-responsive img-thumbnail' itemprop='contentUrl'{% if include.style %} style="{{ include.style }}"{% endif %}>
+</a>
+{% if include.caption %}
+<em class='caption' itemprop='description'>
+{{ include.caption | markdownify }}
+</em>
+{% endif %}
+</div>

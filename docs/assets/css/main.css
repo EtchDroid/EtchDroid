@@ -1,0 +1,324 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background-color: #E5E5E5;
+    padding-top: 70px;
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 890px;
+    }
+}
+
+@media (min-width: 1074px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+.panel-heading h1,
+.panel-heading h2,
+.panel-heading h3,
+.panel-heading h4,
+.panel-heading h5,
+.panel-heading h6 {
+    margin-top: 0;
+}
+
+.gap {
+    margin-bottom: 30px;
+}
+
+.gap-small {
+    margin-bottom: 15px;
+}
+
+.panel-default > .panel-heading {
+    color: #212121;
+    background-color: #F5F5F5;
+}
+
+/* Brand */
+
+@media (min-width: 350px) {
+    a.navbar-brand {
+        background: url(../favicons/favicon-32x32.svg) 15px no-repeat;
+        padding-left: 60px !important;
+    }
+}
+
+/* Footer */
+
+.footer {
+    background-color: #2D643E;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.footer, .footer a {
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.footer > .container {
+    padding: 15px;
+}
+
+@media (max-width: 469px) {
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 150px;
+    }
+
+    .footer {
+        /* Set the fixed height of the footer here */
+        height: 150px;
+    }
+}
+
+@media (min-width: 470px) and (max-width: 767px) {
+    body {
+        margin-bottom: 130px;
+    }
+
+    .footer {
+        height: 130px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        margin-bottom: 110px;
+    }
+
+    .footer {
+        height: 110px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        margin-bottom: 60px;
+    }
+
+    .footer {
+        height: 60px;
+    }
+}
+
+.contact-list, .social-media-list {
+    margin-left: 0px;
+    padding: 0px;
+}
+
+/* Navbar with collapsible search bar */
+/* Search based on: https://bootsnipp.com/snippets/a6aV0 */
+
+@media (max-width: 767px) {
+    .navbar-header, .navbar-brand {
+        float: left;
+    }
+
+    #navbar {
+        clear: both;
+    }
+}
+
+#search-button {
+    color: rgba(255,255,255,0.84);
+    cursor: pointer;
+    margin-left: 15px;
+    margin-right: -15px;
+    padding: 15px;
+}
+
+@media (min-width: 1200px) {
+    #search-button {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+#search-bar {
+    background-color: #F5F5F5;
+    position: absolute;
+
+    -moz-transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+
+    -moz-transform-origin: 0 0 0;
+    -ms-transform-origin: 0 0 0;
+    -o-transform-origin: 0 0 0;
+    -webkit-transform-origin: 0 0 0;
+    transform-origin: 0 0 0;
+
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    visibility: hidden;
+    width: 100%;
+}
+
+#search-bar.open {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -o-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    visibility: visible;
+}
+
+#search-bar .form-group {
+    margin: 0;
+    padding: 0;
+}
+
+#search-bar .input-group-btn {
+    padding: 0;
+}
+
+#search-bar .input-group-btn > .btn {
+    border-radius: 0px;
+    margin: 0;
+    padding: 15px;
+}
+
+#search-input {
+    font-size: 18px;
+    height: 50px;
+    margin: 0;
+}
+
+/* Blog posts */
+
+.blog-post-link,
+.blog-post-link:focus,
+.blog-post-link:hover {
+    color: #444;
+}
+
+.blog-post-meta {
+    color: #999;
+}
+
+@media (max-width: 767px) {
+    .blog-post-date, .blog-post-share {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .blog-post-share {
+        width: 140px;
+    }
+}
+
+@media (min-width: 768px) {
+    .blog-post-date {
+        text-align: left;
+    }
+
+    .blog-post-share {
+        float: right !important;
+    }
+
+    .pager {
+        margin-bottom: 60px;
+    }
+}
+
+/* http://getbootstrap.com/getting-started/#third-parties */
+
+.reset-box-sizing,
+.reset-box-sizing *,
+.reset-box-sizing *:before,
+.reset-box-sizing *:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+/* Google AdSense */
+
+.adsbygoogle {
+    display: block;
+    margin: 1em;
+}
+
+/* Images */
+
+em.caption {
+    display: block;
+    margin-top: 1em;
+}
+
+.embed-responsive {
+    margin: 0px 0px 1em;
+}
+
+/* AddThis */
+
+.at4-icon.aticon-github {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAnBJREFUWIW11s+LjWEUB/DPXMYMhuEfIMaQUkiykliKRBELNn4slZSSko383CPMUpZKsmKrlGYG2VAjmzGT/MigO35ci+e93ds7z/ve97qvbz2b55znfM9znnOec7oUxwLswDasxXIsTGRfMIZRPMIDfG3Ddi5WYgjfUSu4vuEWVnRCPBdX8bMN4vSaxmX0tks+iJcdEKfXKAaKkq/HZInk9TUh5E7Lm/8P8mYnMiMxz8ywj+DuPzr1HneE8KefI5oTVyNGdieybhzGeLL/Ec+EknuMYXxOZO9wCLOTs/sidi+lyVeKZ3u6jPqF+s/CCuG/aMbqiN1pqacYiijV0kr/iFUZtm/WFRbK/mR2leDAngzbU+iDAxkKY0LIO0U/3mZw7COEIiY8UAJ5HQczOK7D04jgB3pKdGAuqhGeJ/AhInheInkdryI8ExWNltqM6n9wYDqyt6iCroigjORLY3Fkr4v4E1SVmwPz8SvCM1kRSiSNOdhSogNbMSuyP1YR/vEYjpfoQJatYbI/oprQVDrFkRz7e8n/in/hpHj4WmE2TuF3hu0pTY3rdpPgHPbjRdPea5zGBvnJ2YuNOIM3OTev4UbzwUGhTmv4hO2Jdy8iB+9lkHfhYQvS5iqb0davpMKzVJjhvqQOb8qJwOaCDlyMHe5N3fhasr8M54XGcUxj0omhrwD5qJxnHBAGx5owIe3MIYuhuwX5eHKhXKzTGEL/4D5O4CjOtjg7pwX5mqI3GRA6YsxQrHfU0ZtxZkSBm8eMXdaojvrKy4F5Kd0qLuiwrwwINTslDCp5n1JPQjolJG3eBN02+rCkgN7SRLcQ/gKnLYoRyhei4QAAAABJRU5ErkJggg==');
+}
+
+.addthis_toolbox.center-block {
+    display: table;
+}
+
+/* Code highlighting */
+
+/* https://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html */
+
+.highlight .lineno {
+    -moz-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    color: #ccc;
+}
+
+.highlight .lineno::-moz-selection,
+.highlight .lineno::selection {
+    background-color: transparent;
+}
+
+.highlight .lineno {
+    border-right:1px solid #ccc;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.highlight pre code {
+    display: block;
+    overflow-x: auto;
+    white-space: pre;
+    word-wrap: normal;
+}
+
+
+.navbar, .navbar.navbar-default {
+    background-color: #2D643E;
+    -webkit-box-shadow: 0px 3px 11px -4px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 3px 11px -4px rgba(0,0,0,0.6);
+    box-shadow: 0px 3px 11px -4px rgba(0,0,0,0.6);
+}

@@ -1,4 +1,8 @@
-# EtchDroid FAQ
+---
+title: FAQ
+permalink: /faq/
+layout: page
+---
 
 ### When I tap "Write DMG image", an empty file picker is shown
 
