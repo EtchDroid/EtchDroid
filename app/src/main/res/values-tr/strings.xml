@@ -110,4 +110,6 @@
     <string name="file_type_not_supported">Dosya türü deskteklenmiyor</string>
     <string name="cannot_find_file_in_storage">Dosya, dahili hafızanızda bulunamadı. Uygulamayı kullanarak seçmeyi deneyin.</string>
     <string name="storage_permission_required">DMG dosyalarını okuyabilmek için depolama izni gerekmektedir.</string>
+    <string name="app_desc">Un\'applicazione per scrivere immagini di sistemi operativi su chiavette USB, su Android, senza root.</string>
+    <string name="buy_me_a_coffee">Pagami un caffè</string>
 </resources>

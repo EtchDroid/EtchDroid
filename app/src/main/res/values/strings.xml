@@ -151,5 +151,6 @@
     <string name="library_Material_licenseId">apache_2_0</string>
 
     <string name="app_desc">An application to write OS images to USB drives, on Android, no root required.</string>
+    <string name="buy_me_a_coffee">Buy me a coffee</string>
 
 </resources>

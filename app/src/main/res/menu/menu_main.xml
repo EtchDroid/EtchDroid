@@ -9,6 +9,12 @@
         app:showAsAction="never"/>
 
     <item
+        android:id="@+id/action_donate"
+        android:orderInCategory="100"
+        android:title="@string/buy_me_a_coffee"
+        app:showAsAction="never"/>
+
+    <item
         android:id="@+id/action_nightmode"
         android:orderInCategory="100"
         android:title="@string/nightmode"

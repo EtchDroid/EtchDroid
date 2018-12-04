@@ -14,6 +14,8 @@ import eu.depau.etchdroid.kotlin_exts.toast
 import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
 import eu.depau.etchdroid.utils.NightModeHelper
 import me.jfenn.attribouter.Attribouter
+import android.content.Intent
+import android.net.Uri
 
 
 abstract class ActivityBase : AppCompatActivity() {
@@ -86,6 +88,11 @@ abstract class ActivityBase : AppCompatActivity() {
                         .from(this)
                         .withFile(R.xml.about)
                         .show()
+                return true
+            }
+            R.id.action_donate -> {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://etchdroid.depau.eu/donate/"))
+                startActivity(intent)
                 return true
             }
             R.id.action_reset_warnings -> {
