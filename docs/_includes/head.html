@@ -147,4 +147,27 @@
     </script>
     <noscript><p><img src="//analytics.depau.eu/piwik.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
     <!-- End Matomo Code -->
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#2d643e",
+          "text": "#ffffff"
+        },
+        "button": {
+          "background": "#a3c439",
+          "text": "#ffffff"
+        }
+      },
+      "theme": "edgeless",
+      "position": "bottom-right",
+      "content": {
+        "message": "This website uses cookies for anonymized traffic analytics.\nTo opt-out, enable the \"Do Not Track\" option in your browser's settings."
+      }
+    })});
+    </script>
 </head>
