@@ -1,7 +1,9 @@
 package eu.depau.etchdroid.activities
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -14,8 +16,6 @@ import eu.depau.etchdroid.kotlinexts.toast
 import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
 import eu.depau.etchdroid.utils.NightModeHelper
 import me.jfenn.attribouter.Attribouter
-import android.content.Intent
-import android.net.Uri
 
 
 abstract class ActivityBase : AppCompatActivity() {
