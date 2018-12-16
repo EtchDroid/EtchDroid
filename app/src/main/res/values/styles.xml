@@ -17,7 +17,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="background">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 
