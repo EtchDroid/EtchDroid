@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/row_padding"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/row_padding"
-    android:orientation="vertical"
     android:theme="@style/CardContentStyle"
     tools:context=".activities.ErrorActivity">
 
@@ -19,13 +18,13 @@
         android:text="@string/write_failed"
         android:textColor="@color/name"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/operation_failed_because"/>
+        android:text="@string/operation_failed_because" />
 
 
     <TextView
@@ -33,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:textIsSelectable="true"/>
+        android:textIsSelectable="true" />
 
 
     <TextView
@@ -44,15 +43,15 @@
         android:text="@string/troubleshooting_info"
         android:textColor="@color/name"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/troubleshooting_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textIsSelectable="true"
-        android:autoLink="web" />
+        android:autoLink="web"
+        android:textIsSelectable="true" />
 
 
     <TextView
@@ -63,12 +62,12 @@
         android:text="@string/reporting_issues"
         android:textColor="@color/name"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textIsSelectable="true"
+        android:autoLink="web"
         android:text="@string/reporting_issues_text"
-        android:autoLink="web" />
+        android:textIsSelectable="true" />
 </LinearLayout>

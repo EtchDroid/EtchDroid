@@ -8,9 +8,9 @@
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
     </style>
 
-    <style name="DarkThemeOverlay" parent="DarkThemeOverlayBase"/>
+    <style name="DarkThemeOverlay" parent="DarkThemeOverlayBase" />
 
-    <style name="CardContentStyle" parent="CardContentStyleBase"/>
+    <style name="CardContentStyle" parent="CardContentStyleBase" />
 
     <style name="DialogThemeDark" parent="Theme.MaterialComponents.Dialog">
         <item name="colorPrimary">@color/colorPrimary</item>

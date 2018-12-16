@@ -1,28 +1,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      xmlns:tools="http://schemas.android.com/tools"
-      tools:context="eu.depau.etchdroid.activities.StartActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.depau.etchdroid.activities.StartActivity">
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
         android:title="@string/about"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_donate"
         android:orderInCategory="100"
         android:title="@string/buy_me_a_coffee"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_nightmode"
         android:orderInCategory="100"
         android:title="@string/nightmode"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_reset_warnings"
         android:orderInCategory="100"
         android:title="@string/reset_warnings"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 </menu>

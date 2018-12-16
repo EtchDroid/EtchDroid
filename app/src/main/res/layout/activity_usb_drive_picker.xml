@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/usbdevs_swiperefreshlayout"
@@ -15,12 +14,11 @@
         android:layout_height="match_parent"
         android:theme="@style/CardContentStyle">
 
-        <eu.depau.etchdroid.utils.EmptyRecyclerView
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <eu.depau.etchdroid.utils.EmptyRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/usbdevs_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"/>
+            android:scrollbars="vertical" />
 
         <TextView
             android:id="@+id/usbdevs_recycler_empty_view"
@@ -37,7 +35,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

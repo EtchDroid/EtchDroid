@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:foreground="?attr/selectableItemBackground"
-              android:clickable="true"
-              android:focusable="true"
-              android:orientation="horizontal"
-              android:paddingBottom="@dimen/row_padding"
-              android:paddingLeft="@dimen/activity_horizontal_margin"
-              android:paddingRight="@dimen/activity_horizontal_margin"
-              android:paddingTop="@dimen/row_padding">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/row_padding"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/row_padding">
 
     <TextView
         android:id="@+id/part_number"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:padding="@dimen/grid_padding"/>
+        android:padding="@dimen/grid_padding" />
 
     <LinearLayout
         android:id="@+id/part_data_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingStart="@dimen/row_padding"
-        android:paddingEnd="@dimen/row_padding"
-        android:orientation="vertical">
+        android:paddingEnd="@dimen/row_padding">
 
 
     </LinearLayout>

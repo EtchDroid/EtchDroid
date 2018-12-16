@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,35 +9,34 @@
     tools:context=".activities.StartActivity">
 
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?android:windowBackground"
         android:orientation="vertical"
         tools:context=".fragments.FlashMethodFragment"
-        android:background="?android:windowBackground"
         tools:showIn="@layout/activity_start">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
             android:layout_marginLeft="@dimen/card_margin"
             android:layout_marginTop="@dimen/card_margin"
             android:layout_marginRight="@dimen/card_margin"
+            android:layout_weight="1"
             android:background="@color/background"
+            android:clickable="true"
+            android:focusable="true"
             android:minHeight="200dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btn_image_raw"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:theme="@style/CardContentStyle"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                android:theme="@style/CardContentStyle">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -49,7 +47,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/ic_raw"/>
+                    app:srcCompat="@drawable/ic_raw" />
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -68,14 +66,14 @@
                         android:layout_height="wrap_content"
                         android:text="@string/write_image_or_iso"
                         android:textColor="@color/name"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/textView"
-                        android:text="@string/raw_image_desc"/>
+                        android:text="@string/raw_image_desc" />
                 </RelativeLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -85,14 +83,14 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:focusable="true"
             android:layout_marginLeft="@dimen/card_margin"
             android:layout_marginTop="@dimen/card_margin"
             android:layout_marginRight="@dimen/card_margin"
             android:layout_marginBottom="@dimen/card_margin"
+            android:layout_weight="1"
             android:background="@color/background"
+            android:clickable="true"
+            android:focusable="true"
             android:minHeight="200dp">
             <!--
             android:background="?attr/selectableItemBackground"-->
@@ -100,8 +98,8 @@
                 android:id="@+id/btn_image_dmg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:theme="@style/CardContentStyle"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                android:theme="@style/CardContentStyle">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -112,16 +110,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/ic_dmg"/>
+                    app:srcCompat="@drawable/ic_dmg" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="-2dp"
+                    android:layout_marginEnd="-2dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_beta"/>
+                    app:srcCompat="@drawable/ic_beta" />
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -139,14 +137,14 @@
                         android:layout_height="wrap_content"
                         android:text="@string/write_apple_dmg"
                         android:textColor="@color/name"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/textView4"
-                        android:text="@string/dmg_image_desc"/>
+                        android:text="@string/dmg_image_desc" />
                 </RelativeLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
