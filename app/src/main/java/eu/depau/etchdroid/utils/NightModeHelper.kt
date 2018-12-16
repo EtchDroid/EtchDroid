@@ -55,7 +55,7 @@ class NightModeHelper {
     val nightMode: Boolean
         get() = uiNightMode == Configuration.UI_MODE_NIGHT_YES
 
-    private val PREF_KEY = "nightModeState"
+    private val prefKey = "nightModeState"
 
     companion object {
         var uiNightMode = Configuration.UI_MODE_NIGHT_UNDEFINED
@@ -68,7 +68,7 @@ class NightModeHelper {
         val currentMode = activity.resources.configuration
                 .uiMode and Configuration.UI_MODE_NIGHT_MASK
         mPrefs = PreferenceManager.getDefaultSharedPreferences(activity)
-        init(activity, theme, mPrefs.getInt(PREF_KEY, currentMode))
+        init(activity, theme, mPrefs.getInt(prefKey, currentMode))
     }
 
     /**
@@ -81,9 +81,8 @@ class NightModeHelper {
 
     private fun init(activity: AppCompatActivity, theme: Int, defaultUiMode: Int) {
         mActivity = WeakReference(activity)
-        if (uiNightMode == Configuration.UI_MODE_NIGHT_UNDEFINED) {
+        if (uiNightMode == Configuration.UI_MODE_NIGHT_UNDEFINED)
             uiNightMode = defaultUiMode
-        }
         updateConfig(uiNightMode)
 
         // This may seem pointless but it forces the Theme to be reloaded
@@ -99,7 +98,7 @@ class NightModeHelper {
         newConfig.uiMode = newConfig.uiMode or uiNightMode
         activity.resources.updateConfiguration(newConfig, null)
         Companion.uiNightMode = uiNightMode
-        mPrefs.edit()?.putInt(PREF_KEY, Companion.uiNightMode)?.apply()
+        mPrefs.edit()?.putInt(prefKey, Companion.uiNightMode)?.apply()
     }
 
     fun toggle() {

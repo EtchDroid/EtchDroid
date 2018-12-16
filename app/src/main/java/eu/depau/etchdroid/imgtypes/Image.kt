@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.img_types
+package eu.depau.etchdroid.imgtypes
 
 import eu.depau.etchdroid.enums.PartitionTableType
 import eu.depau.etchdroid.utils.Partition

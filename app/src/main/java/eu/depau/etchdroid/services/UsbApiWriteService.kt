@@ -6,15 +6,15 @@ import android.net.Uri
 import android.util.Log
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.exceptions.UsbWriteException
-import eu.depau.etchdroid.kotlin_exts.getFileName
-import eu.depau.etchdroid.kotlin_exts.name
+import eu.depau.etchdroid.kotlinexts.getFileName
+import eu.depau.etchdroid.kotlinexts.name
 import java.io.BufferedInputStream
 import java.io.InputStream
 import java.nio.ByteBuffer
 
 abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
     // 512 * 32 bytes = USB max transfer size
-    val DD_BLOCKSIZE = 512 * 32 * 64  // 1 MB
+    val ddBlocksize = 512 * 32 * 64  // 1 MB
 
     class Action {
         val WRITE_IMAGE = "eu.depau.etchdroid.action.API_WRITE_IMAGE"
@@ -27,17 +27,16 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
     private fun getUsbMSDevice(usbDevice: UsbDevice): UsbMassStorageDevice? {
         val msDevs = UsbMassStorageDevice.getMassStorageDevices(this)
 
-        for (dev in msDevs) {
+        for (dev in msDevs)
             if (dev.usbDevice == usbDevice)
                 return dev
-        }
 
         return null
     }
 
     fun writeInputStream(inputStream: InputStream, msDev: UsbMassStorageDevice, sendProgress: (Long) -> Unit): Long {
         val blockDev = msDev.blockDevice
-        val bsFactor = DD_BLOCKSIZE / blockDev.blockSize
+        val bsFactor = ddBlocksize / blockDev.blockSize
         val buffIS = BufferedInputStream(inputStream)
         val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bsFactor)
 
@@ -109,14 +108,14 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
             resultNotification(usbDevice.name, uri.getFileName(this)!!, null, writtenBytes, startTime)
         } catch (e: Exception) {
             resultNotification(usbDevice.name, uri.getFileName(this)!!, e, writtenBytes, startTime)
-            Log.e(TAG, "Could't write image to ${usbDevice.name}")
+            Log.e(tag, "Couldn't write image to ${usbDevice.name}")
             throw e
         } finally {
             wakeLock(false)
             msDev.close()
         }
 
-        Log.d(TAG, "Written $writtenBytes bytes to ${usbDevice.name} using API")
+        Log.d(tag, "Written $writtenBytes bytes to ${usbDevice.name} using API")
         return writtenBytes
     }
 }

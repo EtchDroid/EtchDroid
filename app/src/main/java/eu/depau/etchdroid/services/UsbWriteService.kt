@@ -8,29 +8,29 @@ import android.os.PowerManager
 import androidx.core.app.NotificationCompat
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.activities.ErrorActivity
-import eu.depau.etchdroid.kotlin_exts.toHRSize
-import eu.depau.etchdroid.kotlin_exts.toHRTime
+import eu.depau.etchdroid.kotlinexts.toHRSize
+import eu.depau.etchdroid.kotlinexts.toHRTime
 import java.util.*
 import kotlin.math.max
 
 
 abstract class UsbWriteService(name: String) : IntentService(name) {
-    val TAG = name
-    val FOREGROUND_ID = Random().nextInt()
-    val RESULT_NOTIFICATION_ID = Random().nextInt()
-    val WRITE_PROGRESS_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_PROGRESS"
-    val WRITE_RESULT_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_RESULT"
-    val WAKELOCK_TAG = "eu.depau.etchdroid.wakelocks.USB_WRITING-$FOREGROUND_ID"
+    val tag = name
+    val foregroundId = Random().nextInt()
+    val resultNotificationId = Random().nextInt()
+    val writeProgressChannelId = "eu.depau.etchdroid.notifications.USB_WRITE_PROGRESS"
+    val writeResultChannelId = "eu.depau.etchdroid.notifications.USB_WRITE_RESULT"
+    val wakelockTag = "eu.depau.etchdroid.wakelocks.USB_WRITING-$foregroundId"
 
     private var prevTime = System.currentTimeMillis()
     private var prevBytes = 0L
     private var notifyChanRegistered = false
     private var mWakeLock: PowerManager.WakeLock? = null
     private var wlAcquireTime = -1L
-    private val WL_TIMEOUT = 10 * 60 * 1000L
+    private val wlTimeout = 10 * 60 * 1000L
 
     override fun onHandleIntent(intent: Intent?) {
-        startForeground(FOREGROUND_ID, buildForegroundNotification(null, null, -1))
+        startForeground(foregroundId, buildForegroundNotification(null, null, -1))
 
         try {
             writeImage(intent!!)
@@ -41,18 +41,18 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
 
     abstract fun writeImage(intent: Intent): Long
 
-    fun getNotificationBuilder(channel: String = WRITE_PROGRESS_CHANNEL_ID): NotificationCompat.Builder {
+    fun getNotificationBuilder(channel: String = writeProgressChannelId): NotificationCompat.Builder {
         if (!notifyChanRegistered) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val statusChannel = NotificationChannel(
-                        WRITE_PROGRESS_CHANNEL_ID,
+                        writeProgressChannelId,
                         getString(R.string.notchan_writestatus_title),
                         NotificationManager.IMPORTANCE_LOW
                 )
                 statusChannel.description = getString(R.string.notchan_writestatus_desc)
 
                 val resultChannel = NotificationChannel(
-                        WRITE_RESULT_CHANNEL_ID,
+                        writeResultChannelId,
                         getString(R.string.result_channel_name),
                         NotificationManager.IMPORTANCE_DEFAULT
                 )
@@ -84,13 +84,13 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         prevBytes = bytes
 
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(FOREGROUND_ID, buildForegroundNotification(usbDevice, filename, progr, "$progr% • $speed/s"))
+        notificationManager.notify(foregroundId, buildForegroundNotification(usbDevice, filename, progr, "$progr% • $speed/s"))
     }
 
     fun resultNotification(usbDevice: String, filename: String, exception: Throwable?, bytes: Long = 0, startTime: Long = 0) {
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        val b = getNotificationBuilder(WRITE_RESULT_CHANNEL_ID)
+        val b = getNotificationBuilder(writeResultChannelId)
                 .setOngoing(false)
 
         val dt = System.currentTimeMillis() - startTime
@@ -116,7 +116,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             b.setSmallIcon(R.drawable.ic_usb_white_24dp)
 
-        notificationManager.notify(RESULT_NOTIFICATION_ID, b.build())
+        notificationManager.notify(resultNotificationId, b.build())
     }
 
     fun buildForegroundNotification(usbDevice: String?, filename: String?, progr: Int, subText: String? = null, title: String = getString(R.string.notif_writing_img)): Notification {
@@ -138,7 +138,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
                 .setProgress(100, prog, indet)
 
         if (usbDevice != null && filename != null)
-            b.setContentText("${filename} to $usbDevice")
+            b.setContentText("$filename to $usbDevice")
         else
             b.setContentText(getString(R.string.notif_initializing))
 
@@ -154,7 +154,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
 
     fun wakeLock(acquire: Boolean) {
         // Do not reacquire wakelock if timeout not expired
-        if (acquire && mWakeLock != null && wlAcquireTime > 0 && System.currentTimeMillis() < wlAcquireTime + WL_TIMEOUT - 5000)
+        if (acquire && mWakeLock != null && wlAcquireTime > 0 && System.currentTimeMillis() < wlAcquireTime + wlTimeout - 5000)
             return
 
         wlAcquireTime = if (acquire)
@@ -166,16 +166,14 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
 
         powerMgr.run {
             if (mWakeLock == null)
-                mWakeLock = newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, WAKELOCK_TAG)
+                mWakeLock = newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, wakelockTag)
 
             mWakeLock.apply {
                 if (acquire)
-                    this!!.acquire(WL_TIMEOUT /*10 minutes*/)
+                    this!!.acquire(wlTimeout /*10 minutes*/)
                 else
                     this!!.release()
             }
         }
-
     }
-
 }

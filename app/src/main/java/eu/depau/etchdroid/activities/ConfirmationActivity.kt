@@ -10,8 +10,8 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.adapters.PartitionTableRecyclerViewAdapter
 import eu.depau.etchdroid.enums.FlashMethod
-import eu.depau.etchdroid.img_types.DMGImage
-import eu.depau.etchdroid.kotlin_exts.*
+import eu.depau.etchdroid.imgtypes.DMGImage
+import eu.depau.etchdroid.kotlinexts.*
 import eu.depau.etchdroid.services.UsbApiDmgWriteService
 import eu.depau.etchdroid.services.UsbApiImgWriteService
 import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
@@ -24,11 +24,11 @@ class ConfirmationActivity : ActivityBase() {
 
     var shouldShowDataLossAlertDialog: Boolean
         get() {
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val settings = getSharedPreferences(dismissedDialogsPrefs, 0)
             return !settings.getBoolean("data_loss_alert", false)
         }
         set(value) {
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val settings = getSharedPreferences(dismissedDialogsPrefs, 0)
             val editor = settings.edit()
             editor.putBoolean("data_loss_alert", !value)
             editor.apply()
@@ -178,15 +178,13 @@ class ConfirmationActivity : ActivityBase() {
         else
             startService(intent)
 
-        moveTaskToBack(true);
+        moveTaskToBack(true)
         finish()
     }
-
 
     fun onButtonClicked(view: View) {
         when (view.id) {
             R.id.confirm_fab -> nextStep()
         }
     }
-
 }

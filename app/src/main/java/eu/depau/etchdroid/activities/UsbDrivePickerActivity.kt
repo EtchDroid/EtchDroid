@@ -21,7 +21,7 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.adapters.UsbDrivesRecyclerViewAdapter
 import eu.depau.etchdroid.enums.FlashMethod
-import eu.depau.etchdroid.kotlin_exts.*
+import eu.depau.etchdroid.kotlinexts.*
 import eu.depau.etchdroid.utils.ClickListener
 import eu.depau.etchdroid.utils.EmptyRecyclerView
 import eu.depau.etchdroid.utils.RecyclerViewTouchListener
@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_usb_drive_picker.*
 import java.io.File
 
 class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListener {
-    val USB_PERMISSION = "eu.depau.etchdroid.USB_PERMISSION"
+    val usbPermission = "eu.depau.etchdroid.usbPermission"
     lateinit var mUsbPermissionIntent: PendingIntent
 
     private lateinit var recyclerView: EmptyRecyclerView
@@ -83,7 +83,7 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
-            READ_EXTERNAL_STORAGE_PERMISSION -> {
+            readExternalStoragePermission -> {
                 if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
                     toast(getString(R.string.storage_permission_required))
                     finish()
@@ -103,8 +103,8 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
         setContentView(R.layout.activity_usb_drive_picker)
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        mUsbPermissionIntent = PendingIntent.getBroadcast(this, 0, Intent(USB_PERMISSION), 0)
-        val usbPermissionFilter = IntentFilter(USB_PERMISSION)
+        mUsbPermissionIntent = PendingIntent.getBroadcast(this, 0, Intent(usbPermission), 0)
+        val usbPermissionFilter = IntentFilter(usbPermission)
         val usbAttachedFilter = IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED)
         val usbDetachedFilter = IntentFilter(UsbManager.ACTION_USB_DEVICE_DETACHED)
 
@@ -163,7 +163,7 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
 
         override fun onReceive(context: Context, intent: Intent) {
             when (intent.action) {
-                USB_PERMISSION -> synchronized(this) {
+                usbPermission -> synchronized(this) {
                     val device: UsbDevice? = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE)
 
                     val result = intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)

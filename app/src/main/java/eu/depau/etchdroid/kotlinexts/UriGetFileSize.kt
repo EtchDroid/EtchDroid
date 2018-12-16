@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.kotlin_exts
+package eu.depau.etchdroid.kotlinexts
 
 import android.content.ContentResolver
 import android.content.Context
@@ -18,7 +18,8 @@ fun Uri.getFileSize(context: Context): Long {
         }
 
         ContentResolver.SCHEME_CONTENT -> {
-            val cursor: Cursor? = context.contentResolver.query(this, null, null, null, null)
+            val cursor: Cursor? = context.contentResolver.query(
+                    this, null, null, null, null)
 
             cursor.use {
                 if (it == null) {

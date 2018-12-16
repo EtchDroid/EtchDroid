@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.kotlin_exts
+package eu.depau.etchdroid.kotlinexts
 
 import android.content.Context
 import android.os.Build
@@ -20,9 +20,9 @@ fun Context.getBinary(name: String): File {
 
     val arch = when {
         abi.contains("armeabi-v7a") -> "armeabi-v7a"
-        abi.contains("x86_64") -> "x86_64"
-        abi.contains("x86") -> "x86"
         abi.contains("arm64-v8a") -> "arm64-v8a"
+        abi.contains("x86") -> "x86"
+        abi.contains("x86_64") -> "x86_64"
         else -> null!!
     }
 

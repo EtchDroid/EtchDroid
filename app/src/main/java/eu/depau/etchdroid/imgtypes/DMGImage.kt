@@ -1,16 +1,16 @@
-package eu.depau.etchdroid.img_types
+package eu.depau.etchdroid.imgtypes
 
 import android.content.Context
 import android.net.Uri
 import eu.depau.etchdroid.enums.FilesystemType
 import eu.depau.etchdroid.enums.PartitionTableType
-import eu.depau.etchdroid.kotlin_exts.getBinary
-import eu.depau.etchdroid.kotlin_exts.readString
+import eu.depau.etchdroid.kotlinexts.getBinary
+import eu.depau.etchdroid.kotlinexts.readString
 import eu.depau.etchdroid.utils.Partition
 import eu.depau.etchdroid.utils.PartitionBuilder
 import java.io.File
 
-val SECTOR_SIZE = 512
+const val SECTOR_SIZE = 512
 private val partRegex = Regex("partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s+(.*) \\((.+) : \\d+\\)", RegexOption.MULTILINE)
 
 private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Triple<PartitionTableType?, List<Partition>?, Long?> {
@@ -72,7 +72,7 @@ private fun readPartitionTable(dmg2img: File, libDir: String, file: File): Tripl
     return Triple(ptType, pt, imgSize)
 }
 
-class DMGImage(private val uri: Uri, private val context: Context) : Image {
+class DMGImage(private val uri: Uri, context: Context) : Image {
     private val dmg2img: File = context.getBinary("dmg2img")
     private val libDir: String = context.applicationInfo.nativeLibraryDir
     private var loaded: Boolean = false
@@ -108,5 +108,4 @@ class DMGImage(private val uri: Uri, private val context: Context) : Image {
             readInfo()
             return imgSize
         }
-
 }

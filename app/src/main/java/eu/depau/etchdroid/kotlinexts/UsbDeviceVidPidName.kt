@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.kotlin_exts
+package eu.depau.etchdroid.kotlinexts
 
 import android.hardware.usb.UsbDevice
 import android.os.Build
@@ -10,8 +10,7 @@ val UsbDevice.vidpid: String
 
 
 val UsbDevice.name: String
-    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
         "${this.manufacturerName} ${this.productName}"
-    } else {
+    else
         this.deviceName
-    }

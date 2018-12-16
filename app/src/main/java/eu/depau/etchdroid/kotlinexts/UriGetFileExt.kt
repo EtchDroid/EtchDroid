@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.kotlin_exts
+package eu.depau.etchdroid.kotlinexts
 
 import android.content.ContentResolver
 import android.net.Uri

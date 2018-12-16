@@ -5,10 +5,10 @@ import android.net.Uri
 import com.google.common.util.concurrent.SimpleTimeLimiter
 import com.google.common.util.concurrent.TimeLimiter
 import com.google.common.util.concurrent.UncheckedTimeoutException
-import eu.depau.etchdroid.kotlin_exts.getBinary
-import eu.depau.etchdroid.kotlin_exts.getFileName
-import eu.depau.etchdroid.kotlin_exts.getFileSize
-import eu.depau.etchdroid.kotlin_exts.name
+import eu.depau.etchdroid.kotlinexts.getBinary
+import eu.depau.etchdroid.kotlinexts.getFileName
+import eu.depau.etchdroid.kotlinexts.getFileSize
+import eu.depau.etchdroid.kotlinexts.name
 import java.io.BufferedReader
 import java.io.InputStream
 import java.util.concurrent.Executors
@@ -19,7 +19,7 @@ val plistRegex = Regex("\\s*partition (\\d+): begin=(\\d+), size=(\\d+), decoded
 //val progressRegex = Regex("\\[?(\\d+)]\\s+(\\d+[.,]\\d+)%")
 
 class UsbApiDmgWriteService : UsbApiWriteService("UsbApiDmgWriteService") {
-    val SECTOR_SIZE = 512
+    val sectorSize = 512
 
     private lateinit var uri: Uri
     private lateinit var process: Process
@@ -75,7 +75,7 @@ class UsbApiDmgWriteService : UsbApiWriteService("UsbApiDmgWriteService") {
                 lastSector = partLastSector
         }
 
-        bytesTotal = lastSector * SECTOR_SIZE
+        bytesTotal = lastSector * sectorSize
         return process.inputStream
     }
 }

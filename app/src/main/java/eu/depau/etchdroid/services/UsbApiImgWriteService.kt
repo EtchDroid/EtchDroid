@@ -2,9 +2,9 @@ package eu.depau.etchdroid.services
 
 import android.hardware.usb.UsbDevice
 import android.net.Uri
-import eu.depau.etchdroid.kotlin_exts.getFileName
-import eu.depau.etchdroid.kotlin_exts.getFileSize
-import eu.depau.etchdroid.kotlin_exts.name
+import eu.depau.etchdroid.kotlinexts.getFileName
+import eu.depau.etchdroid.kotlinexts.getFileSize
+import eu.depau.etchdroid.kotlinexts.name
 import java.io.InputStream
 
 class UsbApiImgWriteService : UsbApiWriteService("UsbApiImgWriteService") {
@@ -15,7 +15,5 @@ class UsbApiImgWriteService : UsbApiWriteService("UsbApiImgWriteService") {
         }
     }
 
-    override fun getInputStream(uri: Uri): InputStream {
-        return contentResolver.openInputStream(uri)!!
-    }
+    override fun getInputStream(uri: Uri): InputStream = contentResolver.openInputStream(uri)!!
 }

@@ -22,11 +22,11 @@ class StartActivity : ActivityBase() {
 
     var shouldShowDMGAlertDialog: Boolean
         get() {
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val settings = getSharedPreferences(dismissedDialogsPrefs, 0)
             return !settings.getBoolean("DMG_beta_alert", false)
         }
         set(value) {
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val settings = getSharedPreferences(dismissedDialogsPrefs, 0)
             val editor = settings.edit()
             editor.putBoolean("DMG_beta_alert", !value)
             editor.apply()
@@ -83,8 +83,8 @@ class StartActivity : ActivityBase() {
             FlashMethod.FLASH_API -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
-                intent.setType("*/*");
-                startActivityForResult(intent, READ_REQUEST_CODE)
+                intent.type = "*/*"
+                startActivityForResult(intent, readRequestCode)
             }
             FlashMethod.FLASH_DMG_API -> {
                 if (checkAndRequestStorageReadPerm()) {
@@ -119,7 +119,7 @@ class StartActivity : ActivityBase() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
-            READ_EXTERNAL_STORAGE_PERMISSION -> {
+            readExternalStoragePermission -> {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if (delayedButtonClicked)
                         onButtonClicked(null, showDMGDialog = false, showAndroidPieDialog = false)
@@ -130,7 +130,7 @@ class StartActivity : ActivityBase() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == READ_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK) {
+        if (requestCode == readRequestCode && resultCode == AppCompatActivity.RESULT_OK) {
             // The document selected by the user won't be returned in the intent.
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.

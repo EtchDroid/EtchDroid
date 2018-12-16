@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import eu.depau.etchdroid.R
-import eu.depau.etchdroid.kotlin_exts.toast
+import eu.depau.etchdroid.kotlinexts.toast
 import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
 import eu.depau.etchdroid.utils.NightModeHelper
 import me.jfenn.attribouter.Attribouter
@@ -20,19 +20,19 @@ import android.net.Uri
 
 abstract class ActivityBase : AppCompatActivity() {
     protected lateinit var nightModeHelper: NightModeHelper
-    val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
-    val READ_REQUEST_CODE = 42
-    val READ_EXTERNAL_STORAGE_PERMISSION = 29
+    val dismissedDialogsPrefs = "dismissed_dialogs"
+    val readRequestCode = 42
+    val readExternalStoragePermission = 29
 
     var shouldShowAndroidPieAlertDialog: Boolean
         get() {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
                 return false
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val settings = getSharedPreferences(dismissedDialogsPrefs, 0)
             return !settings.getBoolean("Android_Pie_alert", false)
         }
         set(value) {
-            val settings = getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+            val settings = getSharedPreferences(dismissedDialogsPrefs, 0)
             val editor = settings.edit()
             editor.putBoolean("Android_Pie_alert", !value)
             editor.apply()
@@ -61,7 +61,7 @@ abstract class ActivityBase : AppCompatActivity() {
             } else {
                 ActivityCompat.requestPermissions(this,
                         arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                        READ_EXTERNAL_STORAGE_PERMISSION)
+                        readExternalStoragePermission)
             }
         } else {
             // Permission granted
@@ -96,7 +96,7 @@ abstract class ActivityBase : AppCompatActivity() {
                 return true
             }
             R.id.action_reset_warnings -> {
-                getSharedPreferences(DISMISSED_DIALOGS_PREFS, 0)
+                getSharedPreferences(dismissedDialogsPrefs, 0)
                         .edit().clear().apply()
                 toast(getString(R.string.warnings_reset))
                 return true

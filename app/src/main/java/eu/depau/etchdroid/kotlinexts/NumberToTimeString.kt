@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.kotlin_exts
+package eu.depau.etchdroid.kotlinexts
 
 private val timeStrings = arrayOf("s", "m", "h", "d")
 private val timeDivs = arrayOf(60, 60, 24)
