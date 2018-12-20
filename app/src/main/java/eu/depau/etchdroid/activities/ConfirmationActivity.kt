@@ -95,7 +95,7 @@ class ConfirmationActivity : ActivityBase() {
         for (trial in 0..1) {
             try {
                 StateKeeper.usbMassStorageDevice!!.init()
-                val blockDev = StateKeeper.usbMassStorageDevice?.blockDevice
+                val blockDev = StateKeeper.usbMassStorageDevice!!.blockDevice
 
                 if (blockDev != null) {
                     val devSize = (blockDev.size.toLong() * blockDev.blockSize.toLong())
@@ -178,7 +178,7 @@ class ConfirmationActivity : ActivityBase() {
         else
             startService(intent)
 
-        moveTaskToBack(true);
+        moveTaskToBack(true)
         finish()
     }
 
