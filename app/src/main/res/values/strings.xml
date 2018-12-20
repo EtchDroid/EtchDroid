@@ -16,8 +16,8 @@
     <string name="tap_next_to_write">Tap Write to write the image to the USB drive</string>
     <string name="notchan_writestatus_title">USB write status</string>
     <string name="notchan_writestatus_desc">Used to display the status of images being written to USB drives</string>
-    <string name="notif_initializing">Initializing...</string>
-    <string name="notif_writing_img">Writing image</string>
+    <string name="notif_initializing">Initializing…</string>
+    <string name="notif_writing_img">Writing image…</string>
     <string name="image_is_not_dmg">Selected image is not a DMG image (maybe it\'s corrupted)</string>
     <string name="ptt_aix">IBM AIX</string>
     <string name="ptt_amiga">AMIGA</string>
@@ -74,16 +74,16 @@
     <string name="partition_table_title">Partition table:</string>
     <string name="could_not_access_usb_error">Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app.</string>
     <string name="write_image_or_iso">Write raw image or ISO</string>
-    <string name="raw_image_desc">Good for GNU/Linux distro ISOs, Raspberry Pi images and disk images created on Windows or Linux</string>
+    <string name="raw_image_desc">Good for GNU/Linux distro ISOs, Raspberry Pi images, and disk images created on Windows or Linux.</string>
     <string name="write_apple_dmg">Write Apple® DMG image</string>
     <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
     <string name="no_usb_drives_detected">No USB drives detected.\nNote that you need an SD card to USB adapter to write to SD cards.</string>
     <string name="do_not_show_again">Do not show again</string>
     <string name="here_be_dragons">Here be dragons</string>
-    <string name="i_understand">I understand, continue</string>
-    <string name="dmg_alert_dialog_text">While in most cases DMG images can be restored just fine, sometimes there may be inconsistencies. You\'ve been warned.</string>
+    <string name="i_understand">I understand</string>
+    <string name="dmg_alert_dialog_text">While in most cases DMG images can be restored just fine, sometimes there may be inconsistencies. This is a warning.</string>
     <string name="confirm_flash_image">Flash image</string>
-    <string name="dataloss_confirmation_dialog_message">If you continue, selected image will be written and all data stored on the USB drive will be lost forever.</string>
+    <string name="dataloss_confirmation_dialog_message">If you continue, the selected image will be written and all data stored on the USB drive will be lost forever.</string>
     <string name="warning">Warning</string>
     <string name="cancel">Cancel</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
@@ -150,7 +150,7 @@
     <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
     <string name="library_Material_licenseId">apache_2_0</string>
 
-    <string name="app_desc">An application to write OS images to USB drives, on Android, no root required.</string>
+    <string name="app_desc">An application to write OS images to USB drives. No root required.</string>
     <string name="buy_me_a_coffee">Buy me a coffee</string>
 
 </resources>
