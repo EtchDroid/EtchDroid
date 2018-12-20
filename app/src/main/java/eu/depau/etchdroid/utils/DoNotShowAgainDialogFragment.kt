@@ -16,12 +16,11 @@ class DoNotShowAgainDialogFragment(nightMode: Boolean) : DialogFragment() {
     var negativeButton: String? = null
     var message: String? = null
     var listener: DialogListener? = null
-    val dialogTheme: Int
+    val dialogTheme: Int = if (nightMode) R.style.DialogThemeDark else R.style.DialogThemeLight
 
     constructor() : this(false)
 
     init {
-        dialogTheme = if (nightMode) R.style.DialogThemeDark else R.style.DialogThemeLight
         setStyle(DialogFragment.STYLE_NORMAL, dialogTheme)
     }
 

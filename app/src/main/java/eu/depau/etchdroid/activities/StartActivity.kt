@@ -83,7 +83,7 @@ class StartActivity : ActivityBase() {
             FlashMethod.FLASH_API -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
-                intent.setType("*/*");
+                intent.type = "*/*"
                 startActivityForResult(intent, READ_REQUEST_CODE)
             }
             FlashMethod.FLASH_DMG_API -> {
