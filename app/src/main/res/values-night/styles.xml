@@ -7,7 +7,7 @@
     </style>
 
     <style name="CardContentStyleBase" parent="ThemeOverlay.AppCompat.Dark">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="background">@color/colorPrimary</item>
     </style>
 
     <style name="AttribouterTheme" parent="Theme.AppCompat.NoActionBar">
