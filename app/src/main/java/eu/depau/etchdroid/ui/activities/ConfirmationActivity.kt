@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.activities
+package eu.depau.etchdroid.ui.activities
 
 import android.content.Intent
 import android.os.Build
@@ -8,13 +8,13 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.adapters.PartitionTableRecyclerViewAdapter
-import eu.depau.etchdroid.enums.FlashMethod
-import eu.depau.etchdroid.img_types.DMGImage
-import eu.depau.etchdroid.kotlin_exts.*
+import eu.depau.etchdroid.ui.adapters.PartitionTableRecyclerViewAdapter
+import eu.depau.etchdroid.utils.enums.FlashMethod
+import eu.depau.etchdroid.utils.imagetypes.DMGImage
+import eu.depau.etchdroid.utils.ktexts.*
 import eu.depau.etchdroid.services.UsbApiDmgWriteService
 import eu.depau.etchdroid.services.UsbApiImgWriteService
-import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
+import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
 import kotlinx.android.synthetic.main.activity_confirmation.*
 import java.io.IOException
 

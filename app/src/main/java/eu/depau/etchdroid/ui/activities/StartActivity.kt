@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.activities
+package eu.depau.etchdroid.ui.activities
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.codekidlabs.storagechooser.StorageChooser
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.enums.FlashMethod
-import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
+import eu.depau.etchdroid.utils.enums.FlashMethod
+import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
 import kotlinx.android.synthetic.main.activity_start.*
 import java.io.File
 

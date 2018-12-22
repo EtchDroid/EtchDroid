@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.activities
+package eu.depau.etchdroid.ui.activities
 
 import android.os.Bundle
 import eu.depau.etchdroid.R

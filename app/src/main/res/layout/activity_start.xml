@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:theme="@style/DarkThemeOverlay"
-    tools:context=".activities.StartActivity">
+    tools:context=".ui.activities.StartActivity">
 
 
     <LinearLayout

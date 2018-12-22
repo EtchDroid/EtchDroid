@@ -7,9 +7,9 @@ import android.os.Build
 import android.os.PowerManager
 import androidx.core.app.NotificationCompat
 import eu.depau.etchdroid.R
-import eu.depau.etchdroid.activities.ErrorActivity
-import eu.depau.etchdroid.kotlin_exts.toHRSize
-import eu.depau.etchdroid.kotlin_exts.toHRTime
+import eu.depau.etchdroid.ui.activities.ErrorActivity
+import eu.depau.etchdroid.utils.ktexts.toHRSize
+import eu.depau.etchdroid.utils.ktexts.toHRTime
 import java.util.*
 import kotlin.math.max
 

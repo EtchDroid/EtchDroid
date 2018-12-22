@@ -5,9 +5,9 @@ import android.hardware.usb.UsbDevice
 import android.net.Uri
 import android.util.Log
 import com.github.mjdev.libaums.UsbMassStorageDevice
-import eu.depau.etchdroid.exceptions.UsbWriteException
-import eu.depau.etchdroid.kotlin_exts.getFileName
-import eu.depau.etchdroid.kotlin_exts.name
+import eu.depau.etchdroid.utils.exception.UsbWriteException
+import eu.depau.etchdroid.utils.ktexts.getFileName
+import eu.depau.etchdroid.utils.ktexts.name
 import java.io.BufferedInputStream
 import java.io.InputStream
 import java.nio.ByteBuffer

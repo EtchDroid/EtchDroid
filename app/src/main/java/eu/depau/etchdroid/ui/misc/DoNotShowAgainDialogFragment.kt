@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.utils
+package eu.depau.etchdroid.ui.misc
 
 import android.annotation.SuppressLint
 import android.app.Dialog

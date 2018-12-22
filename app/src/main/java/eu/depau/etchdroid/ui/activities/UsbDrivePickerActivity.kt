@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.activities
+package eu.depau.etchdroid.ui.activities
 
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
@@ -19,12 +19,12 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.adapters.UsbDrivesRecyclerViewAdapter
-import eu.depau.etchdroid.enums.FlashMethod
-import eu.depau.etchdroid.kotlin_exts.*
-import eu.depau.etchdroid.utils.ClickListener
-import eu.depau.etchdroid.utils.EmptyRecyclerView
-import eu.depau.etchdroid.utils.RecyclerViewTouchListener
+import eu.depau.etchdroid.ui.adapters.UsbDrivesRecyclerViewAdapter
+import eu.depau.etchdroid.utils.enums.FlashMethod
+import eu.depau.etchdroid.utils.ktexts.*
+import eu.depau.etchdroid.ui.misc.ClickListener
+import eu.depau.etchdroid.ui.misc.EmptyRecyclerView
+import eu.depau.etchdroid.ui.misc.RecyclerViewTouchListener
 import kotlinx.android.synthetic.main.activity_usb_drive_picker.*
 import java.io.File
 

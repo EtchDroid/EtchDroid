@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.utils
+package eu.depau.etchdroid.ui.misc
 
 import android.content.Context
 import android.view.GestureDetector

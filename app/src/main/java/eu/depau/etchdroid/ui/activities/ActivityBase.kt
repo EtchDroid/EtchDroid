@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.activities
+package eu.depau.etchdroid.ui.activities
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import eu.depau.etchdroid.R
-import eu.depau.etchdroid.kotlin_exts.toast
-import eu.depau.etchdroid.utils.DoNotShowAgainDialogFragment
-import eu.depau.etchdroid.utils.NightModeHelper
+import eu.depau.etchdroid.utils.ktexts.toast
+import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
+import eu.depau.etchdroid.ui.misc.NightModeHelper
 import me.jfenn.attribouter.Attribouter
 import android.content.Intent
 import android.net.Uri
