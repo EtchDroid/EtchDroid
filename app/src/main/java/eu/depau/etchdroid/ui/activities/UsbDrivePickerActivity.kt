@@ -120,7 +120,7 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
         }
 
         viewManager = LinearLayoutManager(this)
-        recyclerView = usbdevs_recycler_view
+        recyclerView = usbdevs_recycler_view as EmptyRecyclerView
         recyclerView.emptyView = usbdevs_recycler_empty_view
 
         recyclerView.addOnItemTouchListener(RecyclerViewTouchListener(this, recyclerView, object : ClickListener {
