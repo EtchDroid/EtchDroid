@@ -67,7 +67,7 @@ class BlockDeviceInputStream(
         if (isNextByteAfterEOF())
             return -1
 
-        val maxPos = (off + len) % (b.size + 1)
+        val maxPos = Math.min(off + len, b.size)
 
         if (len <= 0 || off > b.size)
             return 0
@@ -81,6 +81,7 @@ class BlockDeviceInputStream(
                 break
 
             b[i] = readByte.toByte()
+            bytesRead++
         }
 
         return bytesRead

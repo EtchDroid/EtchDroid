@@ -87,6 +87,59 @@ class BlockDeviceInputStreamTest {
             Assert.assertEquals(106 and 0xFF, inputStream.read())
             Assert.assertEquals(107 and 0xFF, inputStream.read())
 
+            // Go back to beginning
+            inputStream.skip(-testDevSize)
+
+            // Read to array
+            var byteArray = ByteArray(8)
+            Assert.assertEquals(byteArray.size, inputStream.read(byteArray))
+
+            Assert.assertArrayEquals(
+                    byteArrayOf(0, 1, 2, 3, 4, 5, 6, 7),
+                    byteArray
+            )
+
+            // Read to array with offset + length
+            byteArray = byteArrayOf(0, 0, 0, 0, 0, 0, 0, 0)
+            Assert.assertEquals(4, inputStream.read(byteArray, 4, 4))
+            Assert.assertArrayEquals(
+                    byteArrayOf(0, 0, 0, 0, 8, 9, 10, 11),
+                    byteArray
+            )
+
+            // Read to array with length > array size
+            Assert.assertEquals(4, inputStream.read(byteArray, 4, 200))
+            Assert.assertArrayEquals(
+                    byteArrayOf(0, 0, 0, 0, 12, 13, 14, 15),
+                    byteArray
+            )
+
+            // Read to array with offset outside of array
+            Assert.assertEquals(0, inputStream.read(byteArray, 10, 4))
+
+            // Go to end of prefetched blocks
+            inputStream.skip(-testDevSize)
+            inputStream.skip((testPrefetchBlocks * testBlockSize - 4).toLong())
+
+            // Read to array, second half needs to be fetched
+            Assert.assertEquals(byteArray.size, inputStream.read(byteArray))
+
+            val currentPos = testPrefetchBlocks * testBlockSize - 4
+
+            Assert.assertArrayEquals(
+                    byteArrayOf(
+                            ((currentPos + 0) % 0xFF).toByte(),
+                            ((currentPos + 1) % 0xFF).toByte(),
+                            ((currentPos + 2) % 0xFF).toByte(),
+                            ((currentPos + 3) % 0xFF).toByte(),
+                            ((currentPos + 4) % 0xFF).toByte(),
+                            ((currentPos + 5) % 0xFF).toByte(),
+                            ((currentPos + 6) % 0xFF).toByte(),
+                            ((currentPos + 7) % 0xFF).toByte()
+                    ),
+                    byteArray
+            )
+
         } finally {
             testFile.delete()
         }
