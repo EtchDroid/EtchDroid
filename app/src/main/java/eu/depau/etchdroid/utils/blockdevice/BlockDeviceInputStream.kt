@@ -8,6 +8,7 @@ class BlockDeviceInputStream(
         private val blockDev: BlockDeviceDriver,
         private val prefetchBlocks: Int = 2048
 ) : InputStream() {
+    private var neverFetched = true
 
     private val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * prefetchBlocks)
 
@@ -32,13 +33,19 @@ class BlockDeviceInputStream(
 
         if (blockDev.size - currentBlockOffset < prefetchBlocks)
             byteBuffer.limit(
-                    (currentBlockOffset - blockDev.size).toInt() * blockDev.blockSize
+                    (blockDev.size - currentBlockOffset).toInt() * blockDev.blockSize
             )
 
         blockDev.read(currentBlockOffset, byteBuffer)
+        byteBuffer.flip()
     }
 
     private fun fetchNextIfNeeded() {
+        if (neverFetched) {
+            fetch()
+            neverFetched = false
+            return
+        }
         if (byteBuffer.hasRemaining())
             return
         currentBlockOffset++
@@ -87,9 +94,13 @@ class BlockDeviceInputStream(
         }
 
         val newByteOffset = currentByteOffset + actualSkipDistance
-        currentBlockOffset = newByteOffset / blockDev.blockSize
+        val newBlockOffset = newByteOffset / blockDev.blockSize
 
-        fetch()
+        if (newBlockOffset != currentBlockOffset) {
+            currentBlockOffset = newBlockOffset
+            fetch()
+        }
+
         byteBuffer.position((newByteOffset - currentBlockOffset * blockDev.blockSize).toInt())
 
         return actualSkipDistance
