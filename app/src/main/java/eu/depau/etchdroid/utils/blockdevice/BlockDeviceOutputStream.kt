@@ -7,7 +7,7 @@ import java.nio.ByteBuffer
 
 class BlockDeviceOutputStream(
         private val blockDev: BlockDeviceDriver,
-        bufferBlocks: Int = 2048
+        private val bufferBlocks: Int = 2048
 ) : OutputStream() {
 
     private val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bufferBlocks)
@@ -16,15 +16,14 @@ class BlockDeviceOutputStream(
     private val currentByteOffset: Long
         get() = currentBlockOffset * blockDev.blockSize + byteBuffer.position()
 
-    private val sizeBytes: Long
-        get() = blockDev.size.toLong() * blockDev.blockSize
-
     private val bytesUntilEOF: Long
-        get() = blockDev.size.toLong() * blockDev.size - currentByteOffset
+        get() = blockDev.size.toLong() * blockDev.blockSize - currentByteOffset
 
     override fun write(b: Int) {
-        if (bytesUntilEOF < 1)
+        if (bytesUntilEOF < 1) {
+            flush()
             throw IOException("No space left on device")
+        }
 
         byteBuffer.put(b.toByte())
 
@@ -37,7 +36,7 @@ class BlockDeviceOutputStream(
     }
 
     override fun write(b: ByteArray, off: Int, len: Int) {
-        val maxPos = (off + len) % (b.size + 1)
+        val maxPos = Math.min(off + len, b.size)
 
         if (len <= 0 || off > b.size)
             return
@@ -61,12 +60,16 @@ class BlockDeviceOutputStream(
             blockDev.read(currentBlockOffset + fullBlocks, incompleteBlockBuffer)
 
             // Add it to the incomplete block
-            byteBuffer.limit(fullBlocks * blockDev.blockSize)
-            byteBuffer.put(
-                    incompleteBlockBuffer.array(),
-                    toWrite, blockDev.blockSize - incompleteBlockFullBytes
-            )
-            byteBuffer.position(0)
+            byteBuffer.apply {
+                position(toWrite)
+                limit((fullBlocks + 1) * blockDev.blockSize)
+                put(
+                        incompleteBlockBuffer.array(),
+                        incompleteBlockFullBytes,
+                        blockDev.blockSize - incompleteBlockFullBytes
+                )
+                position(0)
+            }
         }
 
         // Flush to device
@@ -80,6 +83,13 @@ class BlockDeviceOutputStream(
             clear()
             position(incompleteBlockFullBytes)
         }
-        currentBlockOffset += fullBlocks;
+
+        // Ensure the buffer is limited on EOF
+        if (blockDev.size - currentBlockOffset < bufferBlocks)
+            byteBuffer.limit(
+                    (blockDev.size - currentBlockOffset).toInt() * blockDev.blockSize
+            )
+
+        currentBlockOffset += fullBlocks
     }
 }
