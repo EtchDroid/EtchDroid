@@ -31,6 +31,7 @@ class BlockDeviceInputStream(
     private fun fetch() {
         byteBuffer.clear()
 
+        // Ensure the buffer is limited on EOF
         if (blockDev.size - currentBlockOffset < prefetchBlocks)
             byteBuffer.limit(
                     (blockDev.size - currentBlockOffset).toInt() * blockDev.blockSize
