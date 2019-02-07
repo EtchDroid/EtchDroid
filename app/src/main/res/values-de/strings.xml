@@ -103,6 +103,7 @@
     <string name="unknown_error">Unbekannter Fehler. Versuche, den USB-Datenträger erneut anzuschließen oder starte das Gerät neu. Bitte reiche ein Issue auf GitHub ein.</string>
     <string name="uncompressed">(unkomprimiert)</string>
     <string name="nightmode">Nachtmodus aktivieren</string>
+    <string name="nightmode_night">Nachtmodus deaktivieren</string>
     <string name="android_pie_bug">Android Pie Bug</string>
     <string name="android_pie_bug_dialog_text">Es gibt einen Fehler in Android 9, welcher manchmal Schreibfehler verursacht.\nWenn \"Schreiben fehlgeschlagen\" gemeldet wird, starte das Gerät neu und versuche es nochmal.</string>
     <string name="reset_warnings">Alle Warnungen zurücksetzen</string>

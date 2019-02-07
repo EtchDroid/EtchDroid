@@ -103,6 +103,7 @@
     <string name="unknown_error">Bilinmeyen hata. USB aygıtınızı çıkarıp tekrar takın veya cihazınızı yeniden başlatın. Lütfen GitHub üzerinden bir sorun bildirimi oluşturun.</string>
     <string name="uncompressed">(sıkıştırılmamış)</string>
     <string name="nightmode">Gece modunu etkinleştir</string>
+    <string name="nightmode_night">Gece modunu devre dışı bırak</string>
     <string name="android_pie_bug">Android Pie hatası</string>
     <string name="android_pie_bug_dialog_text">Android 9 ile yazılırken hata almanıza sebep olan bir seoun yaşıyoruz.\nEğer yazma başarısız oluyorsa cihazınızı yeniden başlatın ve tekrar deneyin.</string>
     <string name="reset_warnings">Tüm uyarıları sıfırla</string>
