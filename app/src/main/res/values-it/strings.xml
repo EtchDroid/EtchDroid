@@ -104,6 +104,7 @@
     <string name="unknown_error">Errore sconosciuto. Prova a ricollegare il dispositivo USB o a riavviare il dispositivo. Per favore, segnala il problema su GitHub.</string>
     <string name="uncompressed">(decompresso)</string>
     <string name="nightmode">Attiva modalità notturna</string>
+    <string name="nightmode_night">Disattiva modalità notturna</string>
     <string name="android_pie_bug">Bug di Android Pie</string>
     <string name="android_pie_bug_dialog_text">A causa di un bug di Android 9, alcune scritture potrebbero fallire.\nSe appare un messaggio di errore \"Scrittura fallita\", riavvia il dispositivo e prova di nuovo.</string>
     <string name="reset_warnings">Reimposta tutti gli avvisi</string>
