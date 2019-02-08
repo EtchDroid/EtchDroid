@@ -134,5 +134,10 @@
             avatar="https://avatars3.githubusercontent.com/u/8578362"
             locales="de"
             login="fyr77" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Yassine Imounachen"
+            avatar="https://avatars3.githubusercontent.com/u/9938439"
+            locales="fr"
+            login="yassineim" />
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
 </about>
