@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Scrivi immagine su dispositivo USB (utilizzando le API di Android)</string>
@@ -112,4 +112,10 @@
     <string name="file_type_not_supported">Tipo di file non supportato</string>
     <string name="cannot_find_file_in_storage">Impossibile trovare file nella memoria interna. Prova ad aprirlo da dentro l\'app.</string>
     <string name="storage_permission_required">Il permesso per l\'archiviazione è richiesto per leggere i file DMG</string>
+<string name="library_AndroidX_libraryDescription">AndroidX è una nuova versione della Libreria di Supporto Android e fornisce compatibilità con le precedenti versioni di Android</string>
+    <string name="library_KotlinStdlib_libraryName">Libreria Standard Kotlin</string>
+    <string name="library_KotlinStdlib_libraryDescription">La libreria standard Kotlin fornisce il materiale essenziale per lavorare con Kotlin</string>
+    <string name="app_desc">Un\'applicazione per scrivere immagini di sistemi operativi su chiavette USB, su Android, senza root.</string>
+    <string name="buy_me_a_coffee">Offrimi un caffè</string>
+
 </resources>
