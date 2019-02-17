@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Scrivi immagine su dispositivo USB (utilizzando le API di Android)</string>
@@ -17,8 +17,8 @@
     <string name="tap_next_to_write">Tocca Scrivi per scrivere l\'immagine sul dispositivo USB</string>
     <string name="notchan_writestatus_title">Avanzamento scrittura</string>
     <string name="notchan_writestatus_desc">Utilizzato per mostrare l\'avanzamento dell\'operazione di scrittura in corso</string>
-    <string name="notif_initializing">Inizializzazione...</string>
-    <string name="notif_writing_img">Scrittura immagine</string>
+    <string name="notif_initializing">Inizializzazione…</string>
+    <string name="notif_writing_img">Scrittura immagine…</string>
     <string name="image_is_not_dmg">L\'immagine selezionata non è in formato DMG (probabilmente è corrotta)</string>
     <string name="ptt_aix">IBM AIX</string>
     <string name="ptt_amiga">AMIGA</string>
@@ -64,8 +64,8 @@
     <string name="license_apache2_0">Apache 2.0</string>
     <string name="libaums_license_desc">Implementazione dispositivi a blocchi in userspace</string>
     <string name="license_gpl2">GNU GPLv2</string>
-    <string name="license_bzip2">Custom BSD-like</string>
-    <string name="license_custom">Custom</string>
+    <string name="license_bzip2">Simile a BSD</string>
+    <string name="license_custom">Personalizzata</string>
     <string name="about">Informazioni</string>
     <string name="dmg2img_license_desc">Converte immagini Apple® DMG compresse</string>
     <string name="title_activity_usb_drive_picker">Seleziona dispositivo USB</string>
@@ -75,7 +75,7 @@
     <string name="partition_table_title">Tabella delle partizioni:</string>
     <string name="could_not_access_usb_error">Non è stato possibile accedere al dispositivo USB. Forse hai utilizzato quest\'app in precedenza ma ha smesso di funzionare? Prova a rimuovere e reinserire il dispositivo, quindi riavvia l\'app.</string>
     <string name="write_image_or_iso">Scrivi immagine disco o ISO</string>
-    <string name="raw_image_desc">Ottimo per ISO di distribuzioni GNU/Linux recenti, immagini per Raspberry Pi e immagini disco create su Windows o Linux</string>
+    <string name="raw_image_desc">Ottimo per ISO di distribuzioni GNU/Linux recenti, immagini per Raspberry Pi e immagini disco create su Windows o Linux.</string>
     <string name="write_apple_dmg">Scrivi immagine Apple® DMG</string>
     <string name="dmg_image_desc">Ripristina un\'immagine disco creata con l\'Utility Dischi di macOS</string>
     <string name="no_usb_drives_detected">Nessun dispositivo USB rilevato.\nPer scrivere su schede SD devi usare un adattore microSD-USB.</string>
@@ -97,7 +97,17 @@
     <string name="success_notif_content_text">%1$s scritto con successo su %2$s</string>
     <string name="troubleshooting_info">Risoluzione dei problemi</string>
     <string name="operation_failed_because">L\'operazione non è stata completata a causa del seguente errore:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Questo è un errore comune. In genere succede quando il dispositivo USB viene scollegato mentre è in corso una scrittura o quando è connesso attraverso un hub USB. Su qualche dispositivo, invece, è presente un problema nel sottosistema USB di Android: solitamente un riavvio lo risolve per un po\' di tempo.\n\nProva questi suggerimenti:\n• Stacca e riattacca il dispositivo USB, quindi riavvia l\'app\n• Riavvia il dispositivo (davvero, fallo)\n• Prova un\'altro dispositivo USB\n• Evita di usare adattatori o hub se non necessari\n• Evita di usare il telefono mentre sta scrivendo immagini\n• Sostituisci un adattatore USB On-The-Go difettoso</string>
+    <string name="troubleshoot_sock_op_on_non_sock">Questo è un errore comune. In genere succede quando il dispositivo USB viene scollegato mentre è in corso una scrittura o quando è connesso attraverso un hub USB. Su qualche dispositivo, invece, è presente un problema nel sottosistema USB di Android: solitamente un riavvio lo risolve per un po\' di tempo.
+\n
+\nProva questi suggerimenti:
+\n• Stacca e riattacca il dispositivo USB, quindi riavvia l\'app
+\n• Riavvia il dispositivo (davvero, fallo)
+\n• Prova un\'altro dispositivo USB
+\n• Evita di usare adattatori o hub se non necessari
+\n• Evita di usare il telefono mentre sta scrivendo immagini
+\n• Sostituisci un adattatore USB On-The-Go difettoso
+\n
+\nSe il problema persiste segnalacelo su GitHub cosicché possiamo sistemarlo.</string>
     <string name="reporting_issues">Segnalazione dei problemi</string>
     <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Scrittura fallita</string>
@@ -112,4 +122,11 @@
     <string name="file_type_not_supported">Tipo di file non supportato</string>
     <string name="cannot_find_file_in_storage">Impossibile trovare file nella memoria interna. Prova ad aprirlo da dentro l\'app.</string>
     <string name="storage_permission_required">Il permesso per l\'archiviazione è richiesto per leggere i file DMG</string>
-</resources>
+<string name="library_AndroidX_libraryDescription">AndroidX è una nuova versione della Libreria di Supporto Android e fornisce compatibilità con le precedenti versioni di Android</string>
+    <string name="library_KotlinStdlib_libraryName">Libreria Standard Kotlin</string>
+    <string name="library_KotlinStdlib_libraryDescription">La libreria standard Kotlin fornisce il materiale essenziale per lavorare con Kotlin</string>
+    <string name="app_desc">Un\'applicazione per scrivere immagini di sistemi operativi su chiavette USB, su Android, senza root.</string>
+    <string name="buy_me_a_coffee">Offrimi un caffè</string>
+
+<string name="library_Material_libraryDescription">Crea bei prodotti, più velocemente. Material è un sistema di design che, con l\'aiuto di software open-source, aiuta i team a sviluppare esperienze digitali</string>
+    </resources>

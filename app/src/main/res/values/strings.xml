@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EtchDroid</string>
+    <string name="app_name" translatable="false">EtchDroid</string>
     <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
     <string name="flash_dmg_api">Restore macOS DMG image to disk (using Android API)</string>
     <string name="flash_unetbootin">Unetbootin-style flash (MBR only, requires root)</string>
