@@ -19,38 +19,38 @@
     <string name="notif_initializing">Initializing…</string>
     <string name="notif_writing_img">Writing image…</string>
     <string name="image_is_not_dmg">Selected image is not a DMG image (maybe it\'s corrupted)</string>
-    <string name="ptt_aix">IBM AIX</string>
-    <string name="ptt_amiga">AMIGA</string>
-    <string name="ptt_bsd">BSD</string>
-    <string name="ptt_dvh">DVH</string>
+    <string name="ptt_aix" translatable="false">IBM AIX</string>
+    <string name="ptt_amiga" translatable="false">AMIGA</string>
+    <string name="ptt_bsd" translatable="false">BSD</string>
+    <string name="ptt_dvh" translatable="false">DVH</string>
     <string name="ptt_gpt">GUID Partition Table (GPT)</string>
     <string name="ptt_loop">None</string>
     <string name="ptt_mac">Apple Partition Table (APT)</string>
-    <string name="ptt_msdos">Master Boot Record (MSDOS)</string>
-    <string name="ptt_pc98">PC98</string>
-    <string name="ptt_sun">Sun</string>
-    <string name="fs_fat12">FAT12</string>
-    <string name="fs_fat16">FAT16</string>
-    <string name="fs_fat32">FAT32</string>
-    <string name="fs_exfat">ExFAT</string>
-    <string name="fs_ntfs">NTFS</string>
-    <string name="fs_refs">ReFS</string>
-    <string name="fs_hfs">macOS HFS</string>
-    <string name="fs_hfsplus">macOS HFS+</string>
-    <string name="fs_apfs">Apple Filesystem (APFS)</string>
+    <string name="ptt_msdos" translatable="false">Master Boot Record (MSDOS)</string>
+    <string name="ptt_pc98" translatable="false">PC98</string>
+    <string name="ptt_sun" translatable="false">Sun</string>
+    <string name="fs_fat12" translatable="false">FAT12</string>
+    <string name="fs_fat16" translatable="false">FAT16</string>
+    <string name="fs_fat32" translatable="false">FAT32</string>
+    <string name="fs_exfat" translatable="false">ExFAT</string>
+    <string name="fs_ntfs" translatable="false">NTFS</string>
+    <string name="fs_refs" translatable="false">ReFS</string>
+    <string name="fs_hfs" translatable="false">macOS HFS</string>
+    <string name="fs_hfsplus" translatable="false">macOS HFS+</string>
+    <string name="fs_apfs" translatable="false">Apple Filesystem (APFS)</string>
     <string name="fs_apt_data">APT data</string>
-    <string name="fs_iso9660">ISO 9660</string>
-    <string name="fs_ext2">Linux Ext2</string>
-    <string name="fs_ext3">Linux Ext3</string>
-    <string name="fs_ext4">Linux Ext4</string>
-    <string name="fs_btrfs">Btrfs</string>
-    <string name="fs_f2fs">f2fs</string>
+    <string name="fs_iso9660" translatable="false">ISO 9660</string>
+    <string name="fs_ext2" translatable="false">Linux Ext2</string>
+    <string name="fs_ext3" translatable="false">Linux Ext3</string>
+    <string name="fs_ext4" translatable="false">Linux Ext4</string>
+    <string name="fs_btrfs" translatable="false">Btrfs</string>
+    <string name="fs_f2fs" translatable="false">f2fs</string>
     <string name="fs_luks">LUKS encrypted</string>
     <string name="fs_linux_swap">Linux swap</string>
     <string name="fs_linux_lvm_pv">Linux LVM2 physical volume</string>
-    <string name="fs_ufs">UFS</string>
-    <string name="fs_xfs">XFS</string>
-    <string name="fs_zfs">ZFS</string>
+    <string name="fs_ufs" translatable="false">UFS</string>
+    <string name="fs_xfs" translatable="false">XFS</string>
+    <string name="fs_zfs" translatable="false">ZFS</string>
     <string name="fs_free">Free space</string>
     <string name="fs_unformatted">Unformatted</string>
     <string name="fs_unknown">Unknown</string>
@@ -58,13 +58,13 @@
     <string name="fs_label">Label</string>
     <string name="fs_type">Type</string>
     <string name="part_size">Size</string>
-    <string name="license_gpl3">GNU GPLv3</string>
+    <string name="license_gpl3" translatable="false">GNU GPLv3</string>
     <string name="this_app">This app</string>
-    <string name="license_apache2_0">Apache 2.0</string>
+    <string name="license_apache2_0" translatable="false">Apache 2.0</string>
     <string name="libaums_license_desc">Userspace USB block device implementation</string>
-    <string name="license_gpl2">GNU GPLv2</string>
-    <string name="license_bzip2">Custom BSD-like</string>
-    <string name="license_custom">Custom</string>
+    <string name="license_gpl2" translatable="false">GNU GPLv2</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom BSD-like</string>
+    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom</string>
     <string name="about">About</string>
     <string name="dmg2img_license_desc">Converts compressed Apple® DMG images</string>
     <string name="title_activity_usb_drive_picker">Select USB drive</string>
@@ -86,7 +86,7 @@
     <string name="dataloss_confirmation_dialog_message">If you continue, the selected image will be written and all data stored on the USB drive will be lost forever.</string>
     <string name="warning">Warning</string>
     <string name="cancel">Cancel</string>
-    <string name="license_mpl_2_0">MPL-2.0</string>
+    <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
     <string name="storagechooser_license_description">DMG file selector</string>
     <string name="result_channel_desc">Used to display the result of a finished write operation</string>
     <string name="result_channel_name">USB write result notifications</string>
@@ -119,37 +119,37 @@
     <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX is a major improvement to the original Android Support Library and provides backwards-compatibility across Android releases</string>
-    <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
-    <string name="library_AndroidX_libraryVersion">1.0.1</string>
-    <string name="library_AndroidX_isOpenSource">true</string>
-    <string name="library_AndroidX_repositoryLink">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
+    <string name="library_AndroidX_libraryWebsite" translatable="false">https://developer.android.com/jetpack/androidx/</string>
+    <string name="library_AndroidX_libraryVersion" translatable="false">1.0.1</string>
+    <string name="library_AndroidX_isOpenSource" translatable="false">true</string>
+    <string name="library_AndroidX_repositoryLink" translatable="false">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
     <string name="library_AndroidX_licenseId" translatable="false">apache_2_0</string>
 
 
     <!-- Kotlin Standard Library -->
-    <string name="define_KotlinStdlib"/>
-    <string name="library_KotlinStdlib_author">JetBrains</string>
-    <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
+    <string name="define_KotlinStdlib" translatable="false"/>
+    <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
+    <string name="library_KotlinStdlib_authorWebsite" translatable="false">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
-    <string name="library_KotlinStdlib_libraryWebsite">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
-    <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
-    <string name="library_KotlinStdlib_isOpenSource">true</string>
-    <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
-    <string name="library_KotlinStdlib_licenseId">apache_2_0</string>
+    <string name="library_KotlinStdlib_libraryWebsite" translatable="false">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
+    <string name="library_KotlinStdlib_libraryVersion" translatable="false">1.2.71</string>
+    <string name="library_KotlinStdlib_isOpenSource" translatable="false">true</string>
+    <string name="library_KotlinStdlib_repositoryLink" translatable="false">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
+    <string name="library_KotlinStdlib_licenseId" translatable="false">apache_2_0</string>
 
 
     <!-- Material Components -->
-    <string name="define_Material"/>
-    <string name="library_Material_author">Google</string>
-    <string name="library_Material_authorWebsite">https://material.io/develop/</string>
-    <string name="library_Material_libraryName">Material Components</string>
+    <string name="define_Material" translatable="false"/>
+    <string name="library_Material_author" translatable="false">Google</string>
+    <string name="library_Material_authorWebsite" translatable="false">https://material.io/develop/</string>
+    <string name="library_Material_libraryName" translatable="false">Material Components</string>
     <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
-    <string name="library_Material_libraryWebsite">https://material.io/develop/android/</string>
-    <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
-    <string name="library_Material_isOpenSource">true</string>
-    <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
-    <string name="library_Material_licenseId">apache_2_0</string>
+    <string name="library_Material_libraryWebsite" translatable="false">https://material.io/develop/android/</string>
+    <string name="library_Material_libraryVersion" translatable="false">1.1.0-alpha01</string>
+    <string name="library_Material_isOpenSource" translatable="false">true</string>
+    <string name="library_Material_repositoryLink" translatable="false">https://github.com/material-components/material-components-android</string>
+    <string name="library_Material_licenseId" translatable="false">apache_2_0</string>
 
     <string name="app_desc">An application to write OS images to USB drives, on Android, no root required.</string>
     <string name="buy_me_a_coffee">Buy me a coffee</string>
