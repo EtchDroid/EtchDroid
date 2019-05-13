@@ -97,7 +97,17 @@
     <string name="success_notif_content_text">%1$s wurde erfolgreich auf %2$s geschrieben</string>
     <string name="troubleshooting_info">Informationen zur Fehlerbehebung</string>
     <string name="operation_failed_because">Die Operation konnte nicht fertiggestellt werden, da der folgende Fehler aufgetreten ist:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Dies ist ein häufiger Fehler. Er passiert normalerweise, wenn der USB-Datenträger während des Schreibens entfernt wird, oder wenn er mit einem USB-Hub verbunden ist. Auf manchen Geräten existiert möglicherweise ein Bug im USB-Subsystem von Android: ein Neustart des Geräts sollte es für einige Zeit beheben. \n\nVersuche folgendes:\n• USB-Gerät ausstecken und wieder anstecken, dann die App neu starten\n• Gerät neu starten (ernsthaft, versuche es)\n• Anderes USB-Gerät ausprobieren\n• Unnötige Adapter und Hubs vermeiden\n• Vermeide, dein Smart-Gerät während des Schreibens zu benutzen\n• Defekte USB-Adapter austauschen\n\nWenn das Problem weiterhin auftaucht, reiche bitte ein Issue auf GitHub ein.</string>
+    <string name="troubleshoot_sock_op_on_non_sock">Dies ist ein häufiger Fehler. Er passiert normalerweise, wenn der USB-Datenträger während des Schreibens entfernt wird, oder wenn er mit einem USB-Hub verbunden ist. Auf manchen Geräten existiert möglicherweise ein Bug im USB-Subsystem von Android: ein Neustart des Geräts sollte es für einige Zeit beheben. 
+\n
+\nVersuche folgendes:
+\n• USB-Gerät abstecken und wieder anstecken, dann die App neu starten
+\n• Gerät neu starten (ernsthaft, versuche es)
+\n• Anderes USB-Gerät ausprobieren
+\n• Unnötige Adapter und Hubs vermeiden
+\n• Vermeide, dein Smart-Gerät während des Schreibens zu benutzen
+\n• Defekte USB-Adapter austauschen
+\n
+\nWenn das Problem weiterhin auftritt, reiche bitte ein Issue auf GitHub ein.</string>
     <string name="reporting_issues">Probleme melden</string>
     <string name="reporting_issues_text">Probleme können auf Github gemeldet werden:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Schreiben fehlgeschlagen</string>
