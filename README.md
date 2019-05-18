@@ -4,6 +4,9 @@
 
 [![F-Droid](docs/assets/img/get-from-fdroid-small.png)](https://f-droid.org/packages/eu.depau.etchdroid/) [![Google Play](docs/assets/img/get-from-googleplay-small.png)](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
 
+## Update on development status
+On my blog: https://blog.depau.eu/2019/05/18/etchdroid-development-update/
+
 ![EtchDroid](docs/assets/img/playstore_banner.png)
 
 EtchDroid is an open-source application that helps you write images to USB drives, no root required.
