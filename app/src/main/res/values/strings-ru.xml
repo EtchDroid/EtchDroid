@@ -1,0 +1,157 @@
+<resources>
+    <string name="app_name" translatable="false">EtchDroid</string>
+    <string name="flash_dd_usb_api">Записать образ на диск (используя Android API)</string>
+    <string name="flash_dmg_api">Восстановить образ macOS DMG на диск (using Android API)</string>
+    <string name="flash_unetbootin">Unetbootin-стиль прошивки (только MBR, нужен root)</string>
+    <string name="flash_woeusb">Записать образ Windows (используя WoeUSB, нужен root)</string>
+    <string name="action_refresh">Обновить</string>
+    <string name="usb_perm_denied">Разрешение отклонено для</string>
+    <string name="usb_perm_denied_noname">Разрешение отклонено для устройства USB</string>
+    <string name="selected_image">Выбранный образ:</string>
+    <string name="selected_method">Выбранный метод записи:</string>
+    <string name="selected_usbdev">Выбранное устройство USB:</string>
+    <string name="unknown_filename">Неизвестное название</string>
+    <string name="image_bigger_than_usb">Образ больше размера USB устройства и не может быть записан</string>
+    <string name="cant_read_usbdev">Невозможно прочитать устройство USB</string>
+    <string name="tap_next_to_write">Нажмите для записи образа в устройство USB</string>
+    <string name="notchan_writestatus_title">Статус записи USB</string>
+    <string name="notchan_writestatus_desc">Используется для отображения статуса записываемого образа в накопитель USB</string>
+    <string name="notif_initializing">Инициализация…</string>
+    <string name="notif_writing_img">Запись образа…</string>
+    <string name="image_is_not_dmg">Выбранный образ не DMG (или повреждён)</string>
+    <string name="ptt_aix" translatable="false">IBM AIX</string>
+    <string name="ptt_amiga" translatable="false">AMIGA</string>
+    <string name="ptt_bsd" translatable="false">BSD</string>
+    <string name="ptt_dvh" translatable="false">DVH</string>
+    <string name="ptt_gpt">GUID Partition Table (GPT)</string>
+    <string name="ptt_loop">Отсутствует</string>
+    <string name="ptt_mac">Apple Partition Table (APT)</string>
+    <string name="ptt_msdos" translatable="false">Master Boot Record (MSDOS)</string>
+    <string name="ptt_pc98" translatable="false">PC98</string>
+    <string name="ptt_sun" translatable="false">Sun</string>
+    <string name="fs_fat12" translatable="false">FAT12</string>
+    <string name="fs_fat16" translatable="false">FAT16</string>
+    <string name="fs_fat32" translatable="false">FAT32</string>
+    <string name="fs_exfat" translatable="false">ExFAT</string>
+    <string name="fs_ntfs" translatable="false">NTFS</string>
+    <string name="fs_refs" translatable="false">ReFS</string>
+    <string name="fs_hfs" translatable="false">macOS HFS</string>
+    <string name="fs_hfsplus" translatable="false">macOS HFS+</string>
+    <string name="fs_apfs" translatable="false">Apple Filesystem (APFS)</string>
+    <string name="fs_apt_data">APT data</string>
+    <string name="fs_iso9660" translatable="false">ISO 9660</string>
+    <string name="fs_ext2" translatable="false">Linux Ext2</string>
+    <string name="fs_ext3" translatable="false">Linux Ext3</string>
+    <string name="fs_ext4" translatable="false">Linux Ext4</string>
+    <string name="fs_btrfs" translatable="false">Btrfs</string>
+    <string name="fs_f2fs" translatable="false">f2fs</string>
+    <string name="fs_luks">LUKS encrypted</string>
+    <string name="fs_linux_swap">Linux swap</string>
+    <string name="fs_linux_lvm_pv">Linux LVM2 physical volume</string>
+    <string name="fs_ufs" translatable="false">UFS</string>
+    <string name="fs_xfs" translatable="false">XFS</string>
+    <string name="fs_zfs" translatable="false">ZFS</string>
+    <string name="fs_free">Свободное пространство</string>
+    <string name="fs_unformatted">Неотформатирован</string>
+    <string name="fs_unknown">Неизвестный</string>
+    <string name="part_label">Название</string>
+    <string name="fs_label">Метка</string>
+    <string name="fs_type">Тип</string>
+    <string name="part_size">Размер</string>
+    <string name="license_gpl3" translatable="false">GNU GPLv3</string>
+    <string name="this_app">Это приложение</string>
+    <string name="license_apache2_0" translatable="false">Apache 2.0</string>
+    <string name="libaums_license_desc">Внедрение блочного устройства Userspace USB</string>
+    <string name="license_gpl2" translatable="false">GNU GPLv2</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Кастомная BSD-как</string>
+    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Кастомная</string>
+    <string name="about">О программе</string>
+    <string name="dmg2img_license_desc">Конвертирует сжатые образы Apple® DMG</string>
+    <string name="title_activity_usb_drive_picker">Выбрать USB накопитель</string>
+    <string name="title_activity_confirmation">Готово к записи</string>
+    <string name="cannot_write">Невозможно записать образ в накопитель USB</string>
+    <string name="check_notification_progress">Проверьте уведомления о состоянии</string>
+    <string name="partition_table_title">Таблица разделов:</string>
+    <string name="could_not_access_usb_error">Устройство USB недоступно. Возможно предыдущая попытка входа в приложение потерпела неудачу? Выньте и вставьте заново накопитель USB и перезапустите приложение</string>
+    <string name="write_image_or_iso">Записать образ или ISO</string>
+    <string name="raw_image_desc">Подойдёт для ISO дистрибутивов GNU/Linux, образов Raspberry Pi и образов дисков, созданных на Windows или Linux.</string>
+    <string name="write_apple_dmg">Записать образ Apple®</string>
+    <string name="dmg_image_desc">Восстановление образа созданного в macOS Disk Utility</string>
+    <string name="no_usb_drives_detected">Не удалось обнаружить драйверов USB.\nДля записи в SD карту вам нужен адаптер.</string>
+    <string name="do_not_show_again">Больше не показывать</string>
+    <string name="here_be_dragons">Здесь должны быть драконы</string>
+    <string name="i_understand">Я понял</string>
+    <string name="dmg_alert_dialog_text">В большинстве случаев образы DMG легко восстанавливаются, но иногда могут быть несоответствия. Это предупреждение.</string>
+    <string name="confirm_flash_image">Прошить образ</string>
+    <string name="dataloss_confirmation_dialog_message">Если вы продолжите, выбранный образ будет записан и все данные находящиеся на устройстве USB будут утеряны навсегда.</string>
+    <string name="warning">Предупреждение</string>
+    <string name="cancel">Отмена</string>
+    <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
+    <string name="storagechooser_license_description">Настройщик файла DMG</string>
+    <string name="result_channel_desc">Используется для отображения результата окончания процедуры</string>
+    <string name="result_channel_name">Уведомления результата записи USB</string>
+    <string name="write_failed_tap_for_info">Ошибка записи • Нажмите для информации</string>
+    <string name="write_finished">Запись закончилась</string>
+    <string name="error_notif_content_text">%1$s был извлечён во время записи.</string>
+    <string name="success_notif_content_text">%1$s успешно записан на %2$s</string>
+    <string name="troubleshooting_info">Информация для решения проблем</string>
+    <string name="operation_failed_because">Данная операция не может быть завершена из-за следующей ошибки:</string>
+    <string name="troubleshoot_sock_op_on_non_sock">Это известная проблема. Обычно это происходит если вынуть накопитель из USB во время процедуры записи, подключения через хаб USB, наконец накопитель просто не подключён к устройству. На некоторых устройствах может быть USB баг подсистемы Android: иногда достаточно перезагрузить. \n\nTry these:\n• Unplug and re-plug the USB device, then restart the app\n• Reboot your device (really, try it)\n• Try another USB drive\n• Avoid using unnecessary adapters, dongles or hubs\n• Avoid using your phone while it\'s writing\n• Replace defective USB On-The-Go adapters\n\nIf the problem persists, please file an issue on GitHub.</string>
+    <string name="reporting_issues">Сообщить о проблемах</string>
+    <string name="reporting_issues_text">Сообщения о проблемах можно разместить на GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="write_failed">Ошибка записи</string>
+    <string name="unknown_error">Неизвестная ошибка. Попробуйте переставить USB накопитель или перезагрузить устройство. Пожалуйста сообщите о проблеме на GitHub.</string>
+    <string name="uncompressed">(несжатый)</string>
+    <string name="nightmode">Включить ночной режим</string>
+    <string name="nightmode_night">Отключить ночной режим</string>
+    <string name="android_pie_bug">Баг Android Pie</string>
+    <string name="android_pie_bug_dialog_text">В Android 9 существует баг, в некоторых случаях, приводящий к ошибке записи.\nЕсли выдаёт \"Ошибка записи\", перезагрузите устройство и запустите ещё раз.</string>
+    <string name="reset_warnings">Обнулить все предупреждения</string>
+    <string name="warnings_reset">Все записи об ошибках восстановлены</string>
+    <string name="file_type_not_supported">Неподдерживаемый тип файла</string>
+    <string name="cannot_find_file_in_storage">Во внутренней памяти нет файла. Попробуйте открыть вне этой программы.</string>
+    <string name="storage_permission_required">Требуется разрешение на доступ к чтению образов DMG</string>
+
+
+    <!-- AndroidX Jetpack -->
+    <string name="define_AndroidX" translatable="false"/>
+    <string name="library_AndroidX_author" translatable="false">AOSP</string>
+    <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
+    <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX is a major improvement to the original Android Support Library and provides backwards-compatibility across Android releases</string>
+    <string name="library_AndroidX_libraryWebsite" translatable="false">https://developer.android.com/jetpack/androidx/</string>
+    <string name="library_AndroidX_libraryVersion" translatable="false">1.0.1</string>
+    <string name="library_AndroidX_isOpenSource" translatable="false">true</string>
+    <string name="library_AndroidX_repositoryLink" translatable="false">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
+    <string name="library_AndroidX_licenseId" translatable="false">apache_2_0</string>
+
+
+    <!-- Kotlin Standard Library -->
+    <string name="define_KotlinStdlib" translatable="false"/>
+    <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
+    <string name="library_KotlinStdlib_authorWebsite" translatable="false">https://kotlinlang.org/</string>
+    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
+    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
+    <string name="library_KotlinStdlib_libraryWebsite" translatable="false">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
+    <string name="library_KotlinStdlib_libraryVersion" translatable="false">1.2.71</string>
+    <string name="library_KotlinStdlib_isOpenSource" translatable="false">true</string>
+    <string name="library_KotlinStdlib_repositoryLink" translatable="false">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
+    <string name="library_KotlinStdlib_licenseId" translatable="false">apache_2_0</string>
+
+
+    <!-- Material Components -->
+    <string name="define_Material" translatable="false"/>
+    <string name="library_Material_author" translatable="false">Google</string>
+    <string name="library_Material_authorWebsite" translatable="false">https://material.io/develop/</string>
+    <string name="library_Material_libraryName" translatable="false">Material Components</string>
+    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
+    <string name="library_Material_libraryWebsite" translatable="false">https://material.io/develop/android/</string>
+    <string name="library_Material_libraryVersion" translatable="false">1.1.0-alpha01</string>
+    <string name="library_Material_isOpenSource" translatable="false">true</string>
+    <string name="library_Material_repositoryLink" translatable="false">https://github.com/material-components/material-components-android</string>
+    <string name="library_Material_licenseId" translatable="false">apache_2_0</string>
+
+    <string name="app_desc">Приложения для записи образов OC в накопитель USB, на Android, без необходимости в root.</string>
+    <string name="buy_me_a_coffee">Купить мне кофе</string>
+
+</resources>
