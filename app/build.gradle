@@ -40,6 +40,7 @@ dependencies {
     implementation 'androidx.core:core:1.2.0-alpha02'
     implementation 'androidx.fragment:fragment:1.2.0-alpha01'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+    implementation 'com.github.Depau:kotlet-android:v0.2.4'
     api 'com.google.guava:guava:27.0.1-android'
 
     api 'com.github.codekidX:storage-chooser:2.0.4.2'

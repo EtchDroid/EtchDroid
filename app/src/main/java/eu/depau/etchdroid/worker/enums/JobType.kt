@@ -1,6 +1,6 @@
 package eu.depau.etchdroid.worker.enums
 
-enum class OperationType {
+enum class JobType {
     FLASH_RAW_IMAGE,
     FLASH_DMG,
     FLASH_ELTORITO,

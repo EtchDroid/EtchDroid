@@ -1,7 +1,9 @@
-package eu.depau.etchdroid.worker
+package eu.depau.etchdroid.worker.abstractimpl
+
+import eu.depau.etchdroid.worker.IAsyncWorker
 
 abstract class AbstractAsyncWorker : IAsyncWorker, AbstractProgressSender() {
-    override suspend fun run() {
+    override fun run() {
         while (runStep()) {
         }
     }
