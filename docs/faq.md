@@ -4,6 +4,10 @@ permalink: /faq/
 layout: page
 ---
 
+### My USB drive is broken, please help!
+
+It's not. Calm down and read this: [My USB drive is broken! Plz helppppp :(](/broken_usb/)
+
 ### When I tap "Write DMG image", an empty file picker is shown
 
 That's because you don't have any DMG files on your phone. Download one and see if it shows up.

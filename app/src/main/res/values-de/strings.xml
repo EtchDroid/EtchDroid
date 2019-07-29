@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Abbild direkt auf Datenträger schreiben (mithilfe der Android API)</string>
@@ -23,9 +24,9 @@
     <string name="ptt_amiga">AMIGA</string>
     <string name="ptt_bsd">BSD</string>
     <string name="ptt_dvh">DVH</string>
-    <string name="ptt_gpt">GUID Partition Table (GPT)</string>
+    <string name="ptt_gpt">GUID Partitionstabelle (GPT)</string>
     <string name="ptt_loop">Keiner</string>
-    <string name="ptt_mac">Apple Partition Table (APT)</string>
+    <string name="ptt_mac">Apple Partitionstabelle (APT)</string>
     <string name="ptt_msdos">Master Boot Record (MSDOS)</string>
     <string name="ptt_pc98">PC98</string>
     <string name="ptt_sun">Sun</string>
@@ -38,7 +39,7 @@
     <string name="fs_hfs">macOS HFS</string>
     <string name="fs_hfsplus">macOS HFS+</string>
     <string name="fs_apfs">Apple Filesystem (APFS)</string>
-    <string name="fs_apt_data">APT data</string>
+    <string name="fs_apt_data">APT-Daten</string>
     <string name="fs_iso9660">ISO 9660</string>
     <string name="fs_ext2">Linux Ext2</string>
     <string name="fs_ext3">Linux Ext3</string>
@@ -63,8 +64,8 @@
     <string name="license_apache2_0">Apache 2.0</string>
     <string name="libaums_license_desc">Userspace USB Block Gerät Implementation</string>
     <string name="license_gpl2">GNU GPLv2</string>
-    <string name="license_bzip2">Custom BSD-like</string>
-    <string name="license_custom">Custom</string>
+    <string name="license_bzip2">BSD-ähnlich</string>
+    <string name="license_custom">personalisierte</string>
     <string name="about">Über</string>
     <string name="dmg2img_license_desc">Kovertiert komprimierte Apple® DMG Abbilder</string>
     <string name="title_activity_usb_drive_picker">USB-Gerät auswählen</string>
@@ -96,7 +97,17 @@
     <string name="success_notif_content_text">%1$s wurde erfolgreich auf %2$s geschrieben</string>
     <string name="troubleshooting_info">Informationen zur Fehlerbehebung</string>
     <string name="operation_failed_because">Die Operation konnte nicht fertiggestellt werden, da der folgende Fehler aufgetreten ist:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Dies ist ein häufiger Fehler. Er passiert normalerweise, wenn der USB-Datenträger während des Schreibens entfernt wird, oder wenn er mit einem USB-Hub verbunden ist. Auf manchen Geräten existiert möglicherweise ein Bug im USB-Subsystem von Android: ein Neustart des Geräts sollte es für einige Zeit beheben. \n\nVersuche folgendes:\n• USB-Gerät ausstecken und wieder anstecken, dann die App neu starten\n• Gerät neu starten (ernsthaft, versuche es)\n• Anderes USB-Gerät ausprobieren\n• Unnötige Adapter und Hubs vermeiden\n• Vermeide, dein Smart-Gerät während des Schreibens zu benutzen\n• Defekte USB-Adapter austauschen\n\nWenn das Problem weiterhin auftaucht, reiche bitte ein Issue auf GitHub ein.</string>
+    <string name="troubleshoot_sock_op_on_non_sock">Dies ist ein häufiger Fehler. Er passiert normalerweise, wenn der USB-Datenträger während des Schreibens entfernt wird, oder wenn er mit einem USB-Hub verbunden ist. Auf manchen Geräten existiert möglicherweise ein Bug im USB-Subsystem von Android: ein Neustart des Geräts sollte es für einige Zeit beheben. 
+\n
+\nVersuche folgendes:
+\n• USB-Gerät abstecken und wieder anstecken, dann die App neu starten
+\n• Gerät neu starten (ernsthaft, versuche es)
+\n• Anderes USB-Gerät ausprobieren
+\n• Unnötige Adapter und Hubs vermeiden
+\n• Vermeide, dein Smart-Gerät während des Schreibens zu benutzen
+\n• Defekte USB-Adapter austauschen
+\n
+\nWenn das Problem weiterhin auftritt, reiche bitte ein Issue auf GitHub ein.</string>
     <string name="reporting_issues">Probleme melden</string>
     <string name="reporting_issues_text">Probleme können auf Github gemeldet werden:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Schreiben fehlgeschlagen</string>
@@ -110,7 +121,7 @@
     <string name="warnings_reset">Alle Warnungen und Dialoge wiederhergestellt</string>
     <string name="file_type_not_supported">Dateityp nicht unterstützt</string>
     <string name="cannot_find_file_in_storage">Datei kann im internen Speicher nicht gefunden werden. Versuche es innerhalb der App zu öffnen.</string>
-    <string name="storage_permission_required">Speicherberechtigung ist notwendig, um DMG Abbilder zu lesen.</string>
+    <string name="storage_permission_required">Speicherberechtigung ist notwendig, um DMG Abbilder zu lesen</string>
 
 
     <!-- AndroidX Jetpack -->
@@ -118,7 +129,7 @@
     <string name="library_AndroidX_author" translatable="false">AOSP</string>
     <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
-    <string name="library_AndroidX_libraryDescription">AndroidX is a major improvement to the original Android Support Library and provides backwards-compatibility across Android releases</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX ist eine neue Version der originalen Android Unterstützungs-Bibliothek und gewährleistet Abwärtskompatibilität mit früheren Android-Versionen</string>
     <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
     <string name="library_AndroidX_libraryVersion">1.0.1</string>
     <string name="library_AndroidX_isOpenSource">true</string>
@@ -130,8 +141,8 @@
     <string name="define_KotlinStdlib"/>
     <string name="library_KotlinStdlib_author">JetBrains</string>
     <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
-    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
+    <string name="library_KotlinStdlib_libraryName">Kotlin Standardbibliothek</string>
+    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standardbibliothek stellt das Notwendigste zur Verfügung, um mit Kotlin zu arbeiten</string>
     <string name="library_KotlinStdlib_libraryWebsite">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
     <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
     <string name="library_KotlinStdlib_isOpenSource">true</string>
@@ -144,7 +155,7 @@
     <string name="library_Material_author">Google</string>
     <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
-    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
+    <string name="library_Material_libraryDescription">Erstelle schöne Produkte, schneller. Material ist ein Designsystem, welches von open-source Code unterstützt wird und Teams beim bauen von digitalen Erfahrungen hilft</string>
     <string name="library_Material_libraryWebsite">https://material.io/develop/android/</string>
     <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
     <string name="library_Material_isOpenSource">true</string>

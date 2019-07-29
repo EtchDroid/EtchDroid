@@ -1,6 +1,11 @@
 # EtchDroid
 
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) [![Translation status](https://etchdroid-l10n.depau.eu/widgets/etchdroid/-/app/svg-badge.svg)](https://etchdroid-l10n.depau.eu/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social) 
+
 [![F-Droid](docs/assets/img/get-from-fdroid-small.png)](https://f-droid.org/packages/eu.depau.etchdroid/) [![Google Play](docs/assets/img/get-from-googleplay-small.png)](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
+
+## Update on development status
+On my blog: https://blog.depau.eu/2019/05/18/etchdroid-development-update/
 
 ![EtchDroid](docs/assets/img/playstore_banner.png)
 
