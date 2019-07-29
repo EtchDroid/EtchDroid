@@ -32,14 +32,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
-    implementation 'com.google.android.material:material:1.1.0-alpha03'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha02'
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'androidx.core:core:1.1.0-alpha04'
-    implementation 'androidx.fragment:fragment:1.1.0-alpha03'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha01'
+    implementation 'androidx.core:core:1.2.0-alpha02'
+    implementation 'androidx.fragment:fragment:1.2.0-alpha01'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
     api 'com.google.guava:guava:27.0.1-android'
 
     api 'com.github.codekidX:storage-chooser:2.0.4.2'
@@ -49,6 +49,6 @@ dependencies {
 
     implementation 'me.jfenn:Attribouter:0.1.5'
     testImplementation 'junit:junit:4.13-beta-1'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
