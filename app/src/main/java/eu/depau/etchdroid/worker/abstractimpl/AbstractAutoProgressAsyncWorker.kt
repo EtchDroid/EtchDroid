@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.worker
+package eu.depau.etchdroid.worker.abstractimpl
 
 import eu.depau.etchdroid.worker.dto.ProgressUpdateDTO
 
@@ -26,7 +26,7 @@ abstract class AbstractAutoProgressAsyncWorker(private val totalToDo: Long) : Ab
             val timeRemainingMillis: Long = ((totalToDo - doneAccumulator) / speedUnitPerMillis).toLong()
 
             val dto = progressUpdateDTO.copy(
-                    operationProgress = progress,
+                    jobProgress = progress,
                     stepProgress = progress,
                     timeRemaining = timeRemainingMillis,
                     currentRate = speedUnitPerMillis * 1000

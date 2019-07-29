@@ -1,5 +1,7 @@
-package eu.depau.etchdroid.worker
+package eu.depau.etchdroid.worker.abstractimpl
 
+import eu.depau.etchdroid.worker.IProgressListener
+import eu.depau.etchdroid.worker.IProgressSender
 import eu.depau.etchdroid.worker.dto.ProgressDoneDTO
 import eu.depau.etchdroid.worker.dto.ProgressStartDTO
 import eu.depau.etchdroid.worker.dto.ProgressUpdateDTO
