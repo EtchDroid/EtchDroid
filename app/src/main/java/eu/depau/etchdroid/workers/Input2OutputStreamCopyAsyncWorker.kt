@@ -11,7 +11,11 @@ open class Input2OutputStreamCopyAsyncWorker(
         private val dest: OutputStream,
         chunkSize: Int,
         size: Long
-) : IMergedAsyncWorkerProgressSender, AbstractAutoProgressAsyncWorker(size, RateUnit.BYTES_PER_SECOND) {
+) :
+        IMergedAsyncWorkerProgressSender,
+        AbstractAutoProgressAsyncWorker(
+                0L /*TODO remove stub*/, size, RateUnit.BYTES_PER_SECOND
+        ) {
 
     private val buffer = ByteArray(chunkSize)
 

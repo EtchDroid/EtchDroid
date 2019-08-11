@@ -81,7 +81,7 @@ class ProgressBroadcastForwarder(
     override fun onWorkerProgress(dto: ProgressUpdateDTO) {
         assertProcedureStarted()
         // TODO: stub
-        println("  -> onWorkerProgress job $jobId action $currentActionIdx dto $dto")
+        println("    -> onWorkerProgress job $jobId action $currentActionIdx dto $dto")
     }
 
 

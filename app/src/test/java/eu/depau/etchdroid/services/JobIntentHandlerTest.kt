@@ -81,10 +81,10 @@ internal class JobIntentHandlerTest {
     fun testCheckpointFlow() {
         // Create mock job
         val jobProcedure = JobProcedure(-1).apply {
-            add(MockJobAction(0, 1.0, 0, 10))
-            add(MockJobAction(1, 1.0, 0, 10))
-            add(MockJobAction(2, 1.0, 7, 10))
-            add(MockJobAction(3, 1.0, 0, 10))
+            add(MockJobAction(0, 1.0, 0, 15))
+            add(MockJobAction(1, 1.0, 0, 15))
+            add(MockJobAction(2, 1.0, 7, 15))
+            add(MockJobAction(3, 1.0, 0, 15))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),

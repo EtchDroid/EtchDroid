@@ -5,22 +5,20 @@ import eu.depau.etchdroid.utils.worker.enums.RateUnit
 
 
 abstract class AbstractAutoProgressAsyncWorker(
+        private val startDone: Long,
         private val totalToDo: Long,
         private val rateUnit: RateUnit
 ) : AbstractAsyncWorker() {
 
-    private var doneAccumulator = 0L
+    private var doneAccumulator = startDone
     private var doneSinceLastUpdate = 0L
     private var lastUpdateTime = 0L
 
-    fun progressUpdate(lastDone: Long) {
+    fun progressUpdate(stepDone: Long) {
         val currentTime = System.currentTimeMillis()
 
-        if (lastUpdateTime == 0L)
-            lastUpdateTime = currentTime
-
-        doneSinceLastUpdate += lastDone
-        doneAccumulator += lastDone
+        doneSinceLastUpdate += stepDone
+        doneAccumulator += stepDone
 
         if (currentTime > lastUpdateTime + UPDATE_INTERVAL) {
             val progress = doneAccumulator.toDouble() / totalToDo

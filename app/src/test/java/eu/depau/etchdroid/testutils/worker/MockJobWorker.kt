@@ -3,7 +3,9 @@ package eu.depau.etchdroid.testutils.worker
 import eu.depau.etchdroid.utils.worker.enums.RateUnit
 import eu.depau.etchdroid.utils.worker.impl.AbstractAutoProgressAsyncWorker
 
-open class MockJobWorker(val startAt: Int, val steps: Int) : AbstractAutoProgressAsyncWorker(10, RateUnit.FURLONGS_PER_FORTNIGHT) {
+open class MockJobWorker(val startAt: Int, val steps: Int) : AbstractAutoProgressAsyncWorker(
+        startAt.toLong(), steps.toLong(), RateUnit.FURLONGS_PER_FORTNIGHT) {
+
     var counter = startAt
     private val sleepTime = (UPDATE_INTERVAL * 2.2 / steps).toLong()
 
@@ -14,7 +16,8 @@ open class MockJobWorker(val startAt: Int, val steps: Int) : AbstractAutoProgres
      */
     override fun runStep(): Boolean {
         counter++
-        println("    -> Worker counts $counter/$steps")
+        println("    -- Worker counts $counter/$steps")
+        progressUpdate(1)
         Thread.sleep(sleepTime)
         return counter < steps
     }
