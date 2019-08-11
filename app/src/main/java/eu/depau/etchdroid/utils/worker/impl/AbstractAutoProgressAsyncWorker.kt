@@ -32,7 +32,7 @@ abstract class AbstractAutoProgressAsyncWorker(
                     rateUnit = rateUnit
             )
 
-            notifyProgress(dto)
+            notifyWorkerProgress(dto)
 
             doneSinceLastUpdate = 0
             lastUpdateTime = currentTime

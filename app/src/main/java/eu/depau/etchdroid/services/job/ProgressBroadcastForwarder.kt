@@ -1,7 +1,6 @@
 package eu.depau.etchdroid.services.job
 
 import android.content.Context
-import android.util.Log
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.utils.job.IJobProgressListener
 import eu.depau.etchdroid.utils.worker.IWorkerProgressListener
@@ -10,14 +9,14 @@ import eu.depau.etchdroid.utils.worker.dto.ProgressUpdateDTO
 // TODO: implement class stubs
 
 /**
- * This class is subscribed to IAsyncWorker+IProgressSender events by the worker service.
+ * This class is subscribed to IAsyncWorker+IWorkerProgressSender events by the worker service.
  * It is aware of the current JobProcedure (in fact, it retrieves it by ID from the database).
  *
  * It tracks
  */
-class ProgressBroadcastForwarder(private val context: Context) : IJobProgressListener, IWorkerProgressListener {
-
-    var jobId: Long = -1
+class ProgressBroadcastForwarder(
+        private val jobId: Long, private val context: Context
+) : IJobProgressListener, IWorkerProgressListener {
 
     private val db = EtchDroidDatabase.getDatabase(context)
     private val jobEntity = db.jobRepository().getById(jobId)
@@ -44,6 +43,9 @@ class ProgressBroadcastForwarder(private val context: Context) : IJobProgressLis
                 .subList(0, currentActionIdx!!)
                 .map { it.progressWeight }
                 .sum()
+
+        println("-> onProcedureStart job $jobId, startAt $startActionIndex, " +
+                "currentAction $currentActionIdx, prevProgress: $prevActionsProgressWeight")
     }
 
 
@@ -54,18 +56,21 @@ class ProgressBroadcastForwarder(private val context: Context) : IJobProgressLis
     override fun onProcedureDone() {
         assertProcedureStarted()
         // TODO: stub
-        Log.d(TAG, "onProcedureDone job $jobId ACTION $currentActionIdx")
+        println("-> onProcedureDone job $jobId action $currentActionIdx")
     }
+
 
     /**
      * Called by the worker service to notify the forwarder that the currently referenced procedure
      * has failed with the provided exception.
      */
-    override fun onProcedureError(error: Exception) {
+    override fun onProcedureError(error: Throwable) {
         assertProcedureStarted()
         // TODO: stub
-        Log.d(TAG, "onProcedureError job $jobId ACTION $currentActionIdx", error)
+        println("-> onProcedureError job $jobId action $currentActionIdx")
+        error.printStackTrace()
     }
+
 
     /**
      * Called by the current worker to update the progress listener on its status relative to
@@ -76,13 +81,14 @@ class ProgressBroadcastForwarder(private val context: Context) : IJobProgressLis
     override fun onWorkerProgress(dto: ProgressUpdateDTO) {
         assertProcedureStarted()
         // TODO: stub
-        Log.d(TAG, "onWorkerProgress job $jobId ACTION $currentActionIdx dto $dto")
+        println("  -> onWorkerProgress job $jobId action $currentActionIdx dto $dto")
     }
 
+
     /**
-     * Called by the worker service to update the forwarder on the current ACTION index.
+     * Called by the worker service to update the forwarder on the current action index.
      *
-     * @param actionIndex the current ACTION index within the JobProcedure
+     * @param actionIndex the current action index within the JobProcedure
      */
     override fun onActionStart(actionIndex: Int) {
         assertProcedureStarted()
@@ -90,11 +96,12 @@ class ProgressBroadcastForwarder(private val context: Context) : IJobProgressLis
         prevActionsProgressWeight = prevActionsProgressWeight!!.plus(jobEntity.jobProcedure[actionIndex].progressWeight)
 
         // TODO: stub
-        Log.d(TAG, "onActionStart job $jobId ACTION $currentActionIdx")
+        println("  -> onActionStart job $jobId action $currentActionIdx")
     }
 
+
     /**
-     * Called by the worker service to notify the forwarder that the current ACTION has finished
+     * Called by the worker service to notify the forwarder that the current action has finished
      * running. Whether it has finished successfully or not is unspecified.
      *
      * If it failed, a call to onProcedureError will follow with an Exception reference.
@@ -102,10 +109,6 @@ class ProgressBroadcastForwarder(private val context: Context) : IJobProgressLis
     override fun onActionDone() {
         assertProcedureStarted()
         // TODO: stub
-        Log.d(TAG, "onActionDone job $jobId ACTION $currentActionIdx")
-    }
-
-    companion object {
-        const val TAG = ".w.ProgBcastFwd"
+        println("  -> onActionDone job $jobId action $currentActionIdx")
     }
 }

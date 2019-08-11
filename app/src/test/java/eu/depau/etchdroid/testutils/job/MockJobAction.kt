@@ -11,16 +11,20 @@ import org.mockito.Mockito
 
 class MockJobAction(
         override val nameResId: Int,
-        override val progressWeight: Double
+        override val progressWeight: Double,
+        private val startAt: Int,
+        private val steps: Int
 ) : IJobAction, KotletParcelable {
 
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
-            parcel.readDouble()
+            parcel.readDouble(),
+            parcel.readInt(),
+            parcel.readInt()
     )
 
     private val lazyWorker by lazy {
-        Mockito.spy(MockJobWorker())
+        Mockito.spy(MockJobWorker(startAt, steps))
     }
 
     override fun getWorker(): IAsyncWorker {
@@ -42,6 +46,8 @@ class MockJobAction(
         parcel.apply {
             writeInt(nameResId)
             writeDouble(progressWeight)
+            writeInt(startAt)
+            writeInt(steps)
         }
     }
 

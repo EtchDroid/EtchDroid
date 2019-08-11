@@ -31,12 +31,12 @@ interface IJobProgressListener {
     /**
      * Called by the worker service to notify the forwarder that the currently referenced procedure
      * has finished successfully.
-    */
+     */
     fun onProcedureDone()
 
     /**
      * Called by the worker service to notify the forwarder that the currently referenced procedure
      * has failed with the provided exception.
      */
-    fun onProcedureError(error: java.lang.Exception)
+    fun onProcedureError(error: Throwable)
 }

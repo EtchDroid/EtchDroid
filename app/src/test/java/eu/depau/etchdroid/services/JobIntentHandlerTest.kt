@@ -7,6 +7,7 @@ import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.db.entity.Job
 import eu.depau.etchdroid.db.repository.JobRepository
+import eu.depau.etchdroid.services.job.JobIntentHandler
 import eu.depau.etchdroid.services.job.JobService
 import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
 import eu.depau.etchdroid.testutils.job.MockJobAction
@@ -22,9 +23,8 @@ import java.util.*
 import kotlin.math.abs
 
 @RunWith(MockitoJUnitRunner::class)
-internal class JobServiceTest {
-    private var service: JobService? = null
-    private var mockContext: Context? = null
+internal class JobIntentHandlerTest {
+    private var mockService: JobService? = null
     private var jobRepo: JobRepository? = null
     private var random = Random()
 
@@ -33,7 +33,21 @@ internal class JobServiceTest {
         // Used by JobServiceNotificationHandler to avoid building real notifications when testing
         AppBuildConfig.TEST_BUILD = true
 
-        mockContext = mock(Context::class.java)
+        // Mock eu.depau.etchdroid.services.job.JobService
+        mockService = mock(JobService::class.java)
+        Mockito
+                .doReturn(mock(NotificationManager::class.java))
+                .`when`(mockService!!).getSystemService(Context.NOTIFICATION_SERVICE)
+        Mockito
+                .doReturn("penis")
+                .`when`(mockService!!).getString(anyInt())
+        Mockito
+                .doNothing()
+                .`when`(mockService!!).startForeground(anyInt(), any())
+        Mockito
+                .doNothing()
+                .`when`(mockService!!).stopForeground(anyBoolean())
+
         jobRepo = mock(JobRepository::class.java)
 
         // Inject mock JobRepository into database mock instance
@@ -47,30 +61,14 @@ internal class JobServiceTest {
                 .getDeclaredMethod("access\$setINSTANCE\$cp", EtchDroidDatabase::class.java)
                 .apply { isAccessible = true }
                 .invoke(null, db)
-
-        // Create a clean JobService and mock its Android framework methods
-        service = spy(JobService::class.java)
-        Mockito
-                .doReturn(mock(NotificationManager::class.java))
-                .`when`(service!!).getSystemService(Context.NOTIFICATION_SERVICE)
-        Mockito
-                .doReturn("penis")
-                .`when`(service!!).getString(anyInt())
-        Mockito
-                .doNothing()
-                .`when`(service!!).startForeground(anyInt(), any())
-        Mockito
-                .doNothing()
-                .`when`(service!!).stopForeground(anyBoolean())
-
     }
 
     @Test
     fun testBasicFlow() {
         // Create mock job
         val jobProcedure = JobProcedure(-1).apply {
-            add(MockJobAction(1, 1.0))
-            add(MockJobAction(2, 1.0))
+            add(MockJobAction(1, 1.0, 0, 10))
+            add(MockJobAction(2, 1.0, 0, 10))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
@@ -83,27 +81,25 @@ internal class JobServiceTest {
                 .`when`(jobRepo!!.getById(jobId))
                 .thenReturn(job)
 
-        // Create mock Intent to pass to the service
+        // Create mock Intent to pass to the intentHandler
         val serviceIntent = mock(Intent::class.java) as Intent
         Mockito
                 .doReturn(JobServiceIntentDTO(jobId))
                 .`when`(serviceIntent).getParcelableExtra<JobServiceIntentDTO>(JobServiceIntentDTO.EXTRA)
 
-        // Pass it to onHandleIntent (with reflection cause it's protected)
-        service!!::class.java
-                .getDeclaredMethod("onHandleIntent", Intent::class.java)
-                .apply { isAccessible = true }
-                .invoke(service, serviceIntent)
+        // Pass it to the intent handler
+        val intentHandler = JobIntentHandler(mockService!!, JobServiceIntentDTO(jobId))
+        intentHandler.handle()
 
         // Check whether everything was called, in order
         val mockWorkers = jobProcedure
                 .map { it.getWorker() as MockJobWorker }
                 .toTypedArray()
 
-        val inOrder = Mockito.inOrder(*mockWorkers, service)
+        val inOrder = Mockito.inOrder(mockService, *mockWorkers)
 
         inOrder
-                .verify(service!!, times(1))
+                .verify(mockService!!, times(1))
                 .startForeground(anyInt(), any())
 
         for (mockWorker in mockWorkers) {
@@ -113,7 +109,7 @@ internal class JobServiceTest {
         }
 
         inOrder
-                .verify(service!!, times(1))
+                .verify(mockService!!, times(1))
                 .stopForeground(anyBoolean())
     }
 }

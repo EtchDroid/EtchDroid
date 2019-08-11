@@ -1,6 +1,6 @@
 package eu.depau.etchdroid.utils.worker
 
-interface IAsyncWorker: IProgressSender {
+interface IAsyncWorker: IWorkerProgressSender {
     /**
      * Make the worker run do one step. Returns whether there are more steps to do
      *
