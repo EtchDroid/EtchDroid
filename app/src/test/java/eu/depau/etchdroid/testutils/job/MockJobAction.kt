@@ -5,8 +5,6 @@ import eu.depau.etchdroid.testutils.worker.MockJobWorker
 import eu.depau.etchdroid.utils.StringResBuilder
 import eu.depau.etchdroid.utils.job.IJobAction
 import eu.depau.etchdroid.utils.worker.IAsyncWorker
-import eu.depau.etchdroid.utils.worker.dto.ProgressUpdateDTO
-import eu.depau.etchdroid.utils.worker.enums.RateUnit
 import eu.depau.kotlet.android.parcelable.KotletParcelable
 import eu.depau.kotlet.android.parcelable.parcelableCreator
 import org.mockito.Mockito
@@ -22,19 +20,13 @@ class MockJobAction(
     )
 
     private val lazyWorker by lazy {
-        Mockito.spy(
-                MockJobWorker(
-                        // TODO: fix update dto so it doesn't have excess fields
-                        ProgressUpdateDTO(
-                                -1, 0, 0.0,
-                                0.0, 0, 0.0,
-                                RateUnit.FURLONGS_PER_FORTNIGHT
-                        )
-                )
-        )
+        Mockito.spy(MockJobWorker())
     }
 
-    override fun getWorker(): IAsyncWorker = lazyWorker
+    override fun getWorker(): IAsyncWorker {
+        println("Retrieved worker for Action with nameResId $nameResId")
+        return lazyWorker
+    }
 
     /**
      * Check action preconditions and return a list of StringResBuilders, which will then be

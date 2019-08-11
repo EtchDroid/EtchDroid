@@ -1,11 +1,13 @@
 package eu.depau.etchdroid.utils.worker.impl
 
 import eu.depau.etchdroid.utils.worker.dto.ProgressUpdateDTO
+import eu.depau.etchdroid.utils.worker.enums.RateUnit
 
-const val UPDATE_INTERVAL = 500
 
-abstract class AbstractAutoProgressAsyncWorker(private val totalToDo: Long) : AbstractAsyncWorker() {
-    abstract val progressUpdateDTO: ProgressUpdateDTO
+abstract class AbstractAutoProgressAsyncWorker(
+        private val totalToDo: Long,
+        private val rateUnit: RateUnit
+) : AbstractAsyncWorker() {
 
     private var doneAccumulator = 0L
     private var doneSinceLastUpdate = 0L
@@ -23,13 +25,11 @@ abstract class AbstractAutoProgressAsyncWorker(private val totalToDo: Long) : Ab
         if (currentTime > lastUpdateTime + UPDATE_INTERVAL) {
             val progress = doneAccumulator.toDouble() / totalToDo
             val speedUnitPerMillis = doneSinceLastUpdate.toDouble() / (currentTime - lastUpdateTime)
-            val timeRemainingMillis: Long = ((totalToDo - doneAccumulator) / speedUnitPerMillis).toLong()
 
-            val dto = progressUpdateDTO.copy(
-                    jobProgress = progress,
-                    stepProgress = progress,
-                    timeRemaining = timeRemainingMillis,
-                    currentRate = speedUnitPerMillis * 1000
+            val dto = ProgressUpdateDTO(
+                    progress = progress,
+                    rate = speedUnitPerMillis * 1000,
+                    rateUnit = rateUnit
             )
 
             notifyProgress(dto)
@@ -37,5 +37,9 @@ abstract class AbstractAutoProgressAsyncWorker(private val totalToDo: Long) : Ab
             doneSinceLastUpdate = 0
             lastUpdateTime = currentTime
         }
+    }
+
+    companion object {
+        const val UPDATE_INTERVAL = 500
     }
 }

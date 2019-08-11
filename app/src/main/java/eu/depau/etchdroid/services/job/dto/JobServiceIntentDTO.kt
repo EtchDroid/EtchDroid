@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.services.dto
+package eu.depau.etchdroid.services.job.dto
 
 import android.os.Parcel
 import eu.depau.kotlet.android.parcelable.KotletParcelable

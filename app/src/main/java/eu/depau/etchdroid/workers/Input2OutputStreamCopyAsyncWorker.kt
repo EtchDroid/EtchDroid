@@ -1,6 +1,6 @@
 package eu.depau.etchdroid.workers
 
-import eu.depau.etchdroid.utils.worker.dto.ProgressUpdateDTO
+import eu.depau.etchdroid.utils.worker.enums.RateUnit
 import eu.depau.etchdroid.utils.worker.impl.AbstractAutoProgressAsyncWorker
 import java.io.InputStream
 import java.io.OutputStream
@@ -10,9 +10,8 @@ open class Input2OutputStreamCopyAsyncWorker(
         private val source: InputStream,
         private val dest: OutputStream,
         chunkSize: Int,
-        override val progressUpdateDTO: ProgressUpdateDTO,
         size: Long
-) : IMergedAsyncWorkerProgressSender, AbstractAutoProgressAsyncWorker(size) {
+) : IMergedAsyncWorkerProgressSender, AbstractAutoProgressAsyncWorker(size, RateUnit.BYTES_PER_SECOND) {
 
     private val buffer = ByteArray(chunkSize)
 

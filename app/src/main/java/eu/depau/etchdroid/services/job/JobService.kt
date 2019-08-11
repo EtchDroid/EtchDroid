@@ -1,10 +1,10 @@
-package eu.depau.etchdroid.services
+package eu.depau.etchdroid.services.job
 
 import android.app.IntentService
 import android.content.Intent
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.notification.impl.JobServiceNotificationHandler
-import eu.depau.etchdroid.services.dto.JobServiceIntentDTO
+import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
 
 open class JobService(name: String) : IntentService(name) {
     constructor() : this("TestJobService")

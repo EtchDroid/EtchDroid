@@ -1,20 +1,23 @@
-package eu.depau.etchdroid.utils.worker
+package eu.depau.etchdroid.utils.job
 
-interface IProgressForwarder {
+/**
+ * Base interface for a class that listens to progress events from a JobService
+ */
+interface IJobProgressListener {
     /**
      * Called by the worker service to update the forwarder on the current ACTION index.
      *
      * @param actionIndex the current ACTION index within the JobProcedure
      */
-    fun notifyActionStart(actionIndex: Int)
+    fun onActionStart(actionIndex: Int)
 
     /**
      * Called by the worker service to notify the forwarder that the current ACTION has finished
      * running. Whether it has finished successfully or not is unspecified.
      *
-     * If it failed, a call to notifyProcedureError will follow with an Exception reference.
+     * If it failed, a call to onProcedureError will follow with an Exception reference.
      */
-    fun notifyActionDone()
+    fun onActionDone()
 
     /**
      * Called by the worker service to notify the forwarder that the currently referenced procedure
@@ -23,17 +26,17 @@ interface IProgressForwarder {
      * @param startActionIndex the ACTION index the procedure is starting with (which is > 0 if it's
      * being bootstrapped from a checkpoint)
      */
-    fun notifyProcedureStart(startActionIndex: Int = 0)
+    fun onProcedureStart(startActionIndex: Int = 0)
 
     /**
      * Called by the worker service to notify the forwarder that the currently referenced procedure
      * has finished successfully.
     */
-    fun notifyProcedureDone()
+    fun onProcedureDone()
 
     /**
      * Called by the worker service to notify the forwarder that the currently referenced procedure
      * has failed with the provided exception.
      */
-    fun notifyProcedureError(error: java.lang.Exception)
+    fun onProcedureError(error: java.lang.Exception)
 }

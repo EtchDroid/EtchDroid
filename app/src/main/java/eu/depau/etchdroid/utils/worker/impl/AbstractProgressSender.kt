@@ -1,28 +1,19 @@
 package eu.depau.etchdroid.utils.worker.impl
 
-import eu.depau.etchdroid.utils.worker.IProgressListener
 import eu.depau.etchdroid.utils.worker.IProgressSender
-import eu.depau.etchdroid.utils.worker.dto.ProgressDoneDTO
-import eu.depau.etchdroid.utils.worker.dto.ProgressStartDTO
+import eu.depau.etchdroid.utils.worker.IWorkerProgressListener
 import eu.depau.etchdroid.utils.worker.dto.ProgressUpdateDTO
 
 
 abstract class AbstractProgressSender : IProgressSender {
-    private val listeners = ArrayList<IProgressListener>()
+    private val listeners = ArrayList<IWorkerProgressListener>()
 
-    override fun attachProgressListener(listener: IProgressListener) =
+    override fun attachProgressListener(listener: IWorkerProgressListener) =
             listeners.add(listener)
 
-    override fun detachProgressListener(listener: IProgressListener) =
+    override fun detachProgressListener(listener: IWorkerProgressListener) =
             listeners.remove(listener)
 
-    // TODO: fix
-//    protected fun notifyStart(dto: ProgressStartDTO) =
-//            listeners.forEach { it.notifyActionStart() }
-
     protected fun notifyProgress(dto: ProgressUpdateDTO) =
-            listeners.forEach { it.notifyActionProgress(dto) }
-
-//    protected fun notifyDone(dto: ProgressDoneDTO) =
-//            listeners.forEach { it.notifyActionDone() }
+            listeners.forEach { it.onWorkerProgress(dto) }
 }

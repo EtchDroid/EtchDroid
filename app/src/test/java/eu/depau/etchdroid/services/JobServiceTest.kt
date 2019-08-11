@@ -7,7 +7,8 @@ import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.db.entity.Job
 import eu.depau.etchdroid.db.repository.JobRepository
-import eu.depau.etchdroid.services.dto.JobServiceIntentDTO
+import eu.depau.etchdroid.services.job.JobService
+import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
 import eu.depau.etchdroid.testutils.job.MockJobAction
 import eu.depau.etchdroid.testutils.worker.MockJobWorker
 import eu.depau.etchdroid.utils.job.impl.JobProcedure
