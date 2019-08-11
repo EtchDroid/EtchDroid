@@ -10,10 +10,10 @@ data class JobProgressUpdateBroadcastDTO(
         val indefinite: Boolean,
         val showProgressBar: Boolean,
         val completed: Boolean,
-        val step: Int?,
-        val percentage: Double?,
-        val currentMessage: String?,
-        val error: Exception?
+        val step: Int? = null,
+        val percentage: Double? = null,
+        val currentMessage: String? = null,
+        val error: Exception? = null
 ) : Serializable {
     fun writeToIntent(intent: Intent) {
         intent.putExtra(BroadcastExtras.UPDATE_DTO, this)
