@@ -24,35 +24,37 @@ import kotlin.math.abs
 @RunWith(MockitoJUnitRunner::class)
 internal class JobServiceTest {
     private var service: JobService? = null
-    private var appContext: Context? = null
     private var mockContext: Context? = null
     private var jobRepo: JobRepository? = null
     private var random = Random()
 
     @Before
     fun setUp() {
-        appContext = mock(Context::class.java)
-        mockContext = mock(Context::class.java)
+        // Used by JobServiceNotificationHandler to avoid building real notifications when testing
+        AppBuildConfig.TEST_BUILD = true
 
+        mockContext = mock(Context::class.java)
         jobRepo = mock(JobRepository::class.java)
 
+        // Inject mock JobRepository into database mock instance
         val db = mock(EtchDroidDatabase::class.java)
         Mockito
                 .`when`(db.jobRepository())
                 .thenReturn(jobRepo!!)
 
+        // Duct tape-inject database instance into database companion object
         EtchDroidDatabase::class.java
                 .getDeclaredMethod("access\$setINSTANCE\$cp", EtchDroidDatabase::class.java)
                 .apply { isAccessible = true }
                 .invoke(null, db)
-        AppBuildConfig.TEST_BUILD = true
 
+        // Create a clean JobService and mock its Android framework methods
         service = spy(JobService::class.java)
         Mockito
                 .doReturn(mock(NotificationManager::class.java))
                 .`when`(service!!).getSystemService(Context.NOTIFICATION_SERVICE)
         Mockito
-                .doReturn("Mock string")
+                .doReturn("penis")
                 .`when`(service!!).getString(anyInt())
         Mockito
                 .doNothing()
@@ -65,6 +67,7 @@ internal class JobServiceTest {
 
     @Test
     fun testBasicFlow() {
+        // Create mock job
         val jobProcedure = JobProcedure(-1).apply {
             add(MockJobAction(1, 1.0))
             add(MockJobAction(2, 1.0))
@@ -75,22 +78,24 @@ internal class JobServiceTest {
         )
         val jobId = job.jobId
 
+        // Add job to mock Repository
         Mockito
                 .`when`(jobRepo!!.getById(jobId))
                 .thenReturn(job)
 
+        // Create mock Intent to pass to the service
         val serviceIntent = mock(Intent::class.java) as Intent
-
         Mockito
                 .doReturn(JobServiceIntentDTO(jobId))
                 .`when`(serviceIntent).getParcelableExtra<JobServiceIntentDTO>(JobServiceIntentDTO.EXTRA)
 
+        // Pass it to onHandleIntent (with reflection cause it's protected)
         service!!::class.java
                 .getDeclaredMethod("onHandleIntent", Intent::class.java)
                 .apply { isAccessible = true }
                 .invoke(service, serviceIntent)
 
-
+        // Check whether everything was called, in order
         val mockWorkers = jobProcedure
                 .map { it.getWorker() as MockJobWorker }
                 .toTypedArray()
