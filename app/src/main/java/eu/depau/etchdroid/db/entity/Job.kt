@@ -8,7 +8,7 @@ import eu.depau.etchdroid.utils.job.IJobProcedure
 data class Job(
         @PrimaryKey(autoGenerate = true) val jobId: Long = 0,
         var jobProcedure: IJobProcedure,
-        var checkpointActionIndex: Int? = null,
+        var checkpointActionIndex: Int = 0,
         var checkpointData: String? = null,
         var completed: Boolean = false
 )
