@@ -1,13 +1,13 @@
 package eu.depau.etchdroid.broadcasts
 
 import android.content.Intent
-import eu.depau.etchdroid.worker.dto.ProgressUpdateDTO
+import eu.depau.etchdroid.broadcasts.dto.JobProgressUpdateBroadcastDTO
 
 object JobProgressUpdateBroadcast {
-    val action = "eu.depau.etchdroid.broadcast.JOB_PROGRESS_UPDATE"
+    const val ACTION = "eu.depau.etchdroid.broadcast.JOB_PROGRESS_UPDATE"
 
-    fun getIntent(dto: ProgressUpdateDTO) = Intent().apply {
-        action = this@JobProgressUpdateBroadcast.action
-        putExtra("data", dto)
+    fun getIntent(dto: JobProgressUpdateBroadcastDTO) = Intent().apply {
+        action = this@JobProgressUpdateBroadcast.ACTION
+        dto.writeToIntent(this)
     }
 }
