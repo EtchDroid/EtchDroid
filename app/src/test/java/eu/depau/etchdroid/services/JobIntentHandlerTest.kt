@@ -2,7 +2,6 @@ package eu.depau.etchdroid.services
 
 import android.app.NotificationManager
 import android.content.Context
-import android.content.Intent
 import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.db.entity.Job
@@ -67,13 +66,36 @@ internal class JobIntentHandlerTest {
     fun testBasicFlow() {
         // Create mock job
         val jobProcedure = JobProcedure(-1).apply {
+            add(MockJobAction(0, 1.0, 0, 10))
             add(MockJobAction(1, 1.0, 0, 10))
-            add(MockJobAction(2, 1.0, 0, 10))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
                 jobProcedure = jobProcedure
         )
+        testFlow(job)
+    }
+
+
+    @Test
+    fun testCheckpointFlow() {
+        // Create mock job
+        val jobProcedure = JobProcedure(-1).apply {
+            add(MockJobAction(0, 1.0, 0, 10))
+            add(MockJobAction(1, 1.0, 0, 10))
+            add(MockJobAction(2, 1.0, 7, 10))
+            add(MockJobAction(3, 1.0, 0, 10))
+        }
+        val job = Job(
+                jobId = abs(random.nextInt().toLong()),
+                jobProcedure = jobProcedure,
+                checkpointActionIndex = 2
+        )
+        testFlow(job)
+    }
+
+    private fun testFlow(job: Job) {
+
         val jobId = job.jobId
 
         // Add job to mock Repository
@@ -81,18 +103,13 @@ internal class JobIntentHandlerTest {
                 .`when`(jobRepo!!.getById(jobId))
                 .thenReturn(job)
 
-        // Create mock Intent to pass to the intentHandler
-        val serviceIntent = mock(Intent::class.java) as Intent
-        Mockito
-                .doReturn(JobServiceIntentDTO(jobId))
-                .`when`(serviceIntent).getParcelableExtra<JobServiceIntentDTO>(JobServiceIntentDTO.EXTRA)
-
         // Pass it to the intent handler
         val intentHandler = JobIntentHandler(mockService!!, JobServiceIntentDTO(jobId))
         intentHandler.handle()
 
         // Check whether everything was called, in order
-        val mockWorkers = jobProcedure
+        val mockWorkers = job.jobProcedure
+                .subList(job.checkpointActionIndex, job.jobProcedure.size)
                 .map { it.getWorker() as MockJobWorker }
                 .toTypedArray()
 
@@ -104,7 +121,7 @@ internal class JobIntentHandlerTest {
 
         for (mockWorker in mockWorkers) {
             inOrder
-                    .verify(mockWorker, times(mockWorker.steps))
+                    .verify(mockWorker, times(mockWorker.steps - mockWorker.startAt))
                     .runStep()
         }
 
