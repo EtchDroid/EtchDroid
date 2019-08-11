@@ -27,29 +27,39 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha1'
     implementation 'com.google.android.material:material:1.1.0-alpha09'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta02'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'androidx.core:core:1.2.0-alpha02'
-    implementation 'androidx.fragment:fragment:1.2.0-alpha01'
+    implementation 'androidx.core:core:1.2.0-alpha03'
+    implementation 'androidx.fragment:fragment:1.2.0-alpha02'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
     implementation 'com.github.Depau:kotlet-android:v0.2.4'
+    implementation 'com.google.code.gson:gson:2.8.5'
     api 'com.google.guava:guava:27.0.1-android'
-
     api 'com.github.codekidX:storage-chooser:2.0.4.2'
-//    implementation 'com.github.mjdev:libaums:0.5.5'
+
     implementation project(':libaums')
     implementation project(':dmg2img')
 
     implementation 'me.jfenn:Attribouter:0.1.5'
-    testImplementation 'junit:junit:4.13-beta-1'
+    implementation 'androidx.room:room-runtime:2.1.0'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0'
+
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    testImplementation 'junit:junit:4.13-beta-3'
+    testImplementation 'androidx.test:core:1.2.0'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
+
 }
