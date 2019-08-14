@@ -1,6 +1,7 @@
 package eu.depau.etchdroid.utils.blockdevice
 
 import com.github.mjdev.libaums.driver.BlockDeviceDriver
+import eu.depau.etchdroid.utils.streams.Seekable
 import java.io.IOException
 import java.io.OutputStream
 import java.nio.ByteBuffer
@@ -8,13 +9,16 @@ import java.nio.ByteBuffer
 class BlockDeviceOutputStream(
         private val blockDev: BlockDeviceDriver,
         private val bufferBlocks: Int = 2048
-) : OutputStream() {
+) : OutputStream(), Seekable {
 
     private val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bufferBlocks)
 
     private var currentBlockOffset: Long = 0
     private val currentByteOffset: Long
         get() = currentBlockOffset * blockDev.blockSize + byteBuffer.position()
+
+    private val sizeBytes: Long
+        get() = blockDev.size.toLong() * blockDev.blockSize
 
     private val bytesUntilEOF: Long
         get() = blockDev.size.toLong() * blockDev.blockSize - currentByteOffset
@@ -91,5 +95,37 @@ class BlockDeviceOutputStream(
             )
 
         currentBlockOffset += fullBlocks
+    }
+
+    override fun seek(offset: Long): Long {
+        // Flush all the unwritten changes to disk
+        flush()
+
+        val actualSkipDistance = when {
+            currentByteOffset + offset > sizeBytes -> sizeBytes - currentByteOffset
+            currentByteOffset + offset < 0         -> -currentByteOffset
+            else                                   -> offset
+        }
+
+        val newByteOffset = currentByteOffset + actualSkipDistance
+        val newBlockOffset = newByteOffset / blockDev.blockSize
+
+        // Jump to the closest block
+        currentBlockOffset = newBlockOffset
+        byteBuffer.clear()
+
+        // Read the part between the start of the new block and the seeked position
+        val blockByteOffset = (newByteOffset - currentBlockOffset * blockDev.blockSize).toInt()
+        if (blockByteOffset > 0) {
+            byteBuffer.apply {
+                position(0)
+                limit(blockByteOffset)
+                blockDev.read(currentBlockOffset, this)
+                clear()
+                position(blockByteOffset)
+            }
+        }
+
+        return actualSkipDistance
     }
 }
