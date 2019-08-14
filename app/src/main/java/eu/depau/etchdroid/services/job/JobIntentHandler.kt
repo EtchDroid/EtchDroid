@@ -16,10 +16,10 @@ class JobIntentHandler(
 ) : AbstractJobProgressSender() {
 
     private val jobId = jobDTO.jobId
-    private val broadcastForwarder = ProgressBroadcastForwarder(jobId, context)
     private val svcNotificationHandler = JobServiceNotificationHandler(context)
     private val notification = svcNotificationHandler.build()
     private lateinit var job: Job
+    private val broadcastForwarder = ProgressBroadcastForwarder(jobId, context)
 
     init {
         assert(jobId >= 0) { "Invalid jobId (jobId < 0)" }
@@ -27,8 +27,10 @@ class JobIntentHandler(
 
     fun handle() = context.runForeground(jobId.toInt(), notification, true) {
         val db = EtchDroidDatabase.getDatabase(context)
-        job = db.jobRepository().getById(jobId)
-        assert(!job.completed) { "Job $jobId already completed" }
+
+        job = db.jobRepository().getById(jobId).also {
+            assert(!it.completed) { "Job $jobId already completed" }
+        }
 
         job.attachAndRun { procedure ->
             procedure.forEachAction { index, action, worker ->
@@ -36,6 +38,9 @@ class JobIntentHandler(
                 }
             }
         }
+
+        job.completed = true
+        db.jobRepository().update(job)
     }
 
 

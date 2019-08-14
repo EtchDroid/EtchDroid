@@ -158,5 +158,9 @@
     <string name="notif_channel_job_result_name">Job outcome</string>
     <string name="notif_channel_job_result_desc">Used to show a completed job outcome</string>
     <string name="notif_starting_job">Starting job...</string>
+    <string name="starting_job">Starting job...</string>
+    <string name="resuming_job">Resuming from checkpoint...</string>
+    <string name="done">Done.</string>
+    <string name="job_failed">Job failed.</string>
 
 </resources>

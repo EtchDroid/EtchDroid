@@ -2,7 +2,9 @@ package eu.depau.etchdroid.services
 
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import eu.depau.etchdroid.AppBuildConfig
+import eu.depau.etchdroid.broadcasts.dto.JobProgressUpdateBroadcastDTO
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.db.entity.Job
 import eu.depau.etchdroid.db.repository.JobRepository
@@ -31,6 +33,8 @@ internal class JobIntentHandlerTest {
     fun setUp() {
         // Used by JobServiceNotificationHandler to avoid building real notifications when testing
         AppBuildConfig.TEST_BUILD = true
+        // Make sure the app uses Context to send broadcasts, so it's mocked
+        AppBuildConfig.USE_LOCAL_BROADCASTS = false
 
         // Mock eu.depau.etchdroid.services.job.JobService
         mockService = mock(JobService::class.java)
@@ -102,6 +106,14 @@ internal class JobIntentHandlerTest {
         Mockito
                 .`when`(jobRepo!!.getById(jobId))
                 .thenReturn(job)
+
+        Mockito
+                .`when`(mockService!!.sendBroadcast(any()))
+                .thenAnswer {
+                    val intent = it.arguments[0] as Intent
+                    println("))) BROADCAST (((  ${intent.getSerializableExtra(JobProgressUpdateBroadcastDTO.EXTRA)}")
+                    Unit
+                }
 
         // Pass it to the intent handler
         val intentHandler = JobIntentHandler(mockService!!, JobServiceIntentDTO(jobId))

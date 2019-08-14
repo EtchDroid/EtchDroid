@@ -1,9 +1,6 @@
 package eu.depau.etchdroid.db.repository
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import eu.depau.etchdroid.db.entity.Job
 
 @Dao
@@ -19,6 +16,9 @@ interface JobRepository {
 
     @Insert
     fun insertAll(vararg jobs: Job)
+
+    @Update
+    fun update(job: Job)
 
     @Delete
     fun delete(job: Job)

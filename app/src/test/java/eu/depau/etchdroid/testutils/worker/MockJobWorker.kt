@@ -1,5 +1,6 @@
 package eu.depau.etchdroid.testutils.worker
 
+import android.util.Log
 import eu.depau.etchdroid.utils.worker.enums.RateUnit
 import eu.depau.etchdroid.utils.worker.impl.AbstractAutoProgressAsyncWorker
 
@@ -16,7 +17,7 @@ open class MockJobWorker(val startAt: Int, val steps: Int) : AbstractAutoProgres
      */
     override fun runStep(): Boolean {
         counter++
-        println("    -- Worker counts $counter/$steps")
+        Log.d(".t.MockJobWorkr", "    -- Worker counts $counter/$steps")
         progressUpdate(1)
         Thread.sleep(sleepTime)
         return counter < steps

@@ -7,7 +7,7 @@ object JobProgressUpdateBroadcast {
     const val ACTION = "eu.depau.etchdroid.broadcast.JOB_PROGRESS_UPDATE"
 
     fun getIntent(dto: JobProgressUpdateBroadcastDTO) = Intent().apply {
-        action = this@JobProgressUpdateBroadcast.ACTION
+        action = ACTION
         dto.writeToIntent(this)
     }
 }
