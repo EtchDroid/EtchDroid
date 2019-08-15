@@ -1,2 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources><string name="flash_dd_usb_api">Gravar imagens diretamente para o disco (usando Android API)</string>
+    <string name="flash_dmg_api">Restaurar imagem DMG de macOS para o disco (usando Android API)</string>
+    <string name="flash_unetbootin">Instalação de imagem no estilo Unetbootin (MBR apenas, requer root)</string>
+    <string name="flash_woeusb">Gravar imagem Windows (usando WoeUSB, requer root)</string>
+    <string name="action_refresh">Atualizar</string>
+    <string name="usb_perm_denied">Permissão negada para</string>
+    <string name="usb_perm_denied_noname">Permissão negada para o dispositivo USB</string>
+    <string name="selected_image">Imagem selecionada:</string>
+    <string name="selected_method">Método de gravação selecionado:</string>
+    <string name="selected_usbdev">Dispositivo USB selecionado:</string>
+    <string name="unknown_filename">Nome de arquivo desconhecido</string>
+    <string name="image_bigger_than_usb">A imagem é maior que a unidade USB, então ela não pode ser gravada</string>
+    <string name="cant_read_usbdev">Não foi possível ler o dispositivo USB</string>
+    <string name="tap_next_to_write">Toque em Gravar para gravar a imagem na unidade USB</string>
+    <string name="notchan_writestatus_title">Status de gravação em USB</string>
+    <string name="notchan_writestatus_desc">Usado para exibir o status de imagens sendo gravadas em unidades USB</string>
+    <string name="notif_initializing">Inicializando…</string>
+    <string name="notif_writing_img">Gravando imagem…</string>
+    <string name="image_is_not_dmg">A imagem selecionada não é uma imagem DMG (talvez ela esteja corrompida)</string>
+    <string name="ptt_gpt">Tabela de Partição GUID (GPT)</string>
+    <string name="ptt_loop">Nenhuma</string>
+    <string name="ptt_mac">Tabela de Partição Apple (APT)</string>
+    <string name="fs_apt_data">Dados APT</string>
+    <string name="fs_luks">Criptografado com LUKS</string>
+    <string name="fs_linux_swap">Swap do Linux</string>
+    <string name="fs_linux_lvm_pv">Volume físico de LVM2 Linux</string>
+    <string name="fs_free">Espaço livre</string>
+    <string name="fs_unformatted">Não formatado</string>
+    <string name="fs_unknown">Desconhecido</string>
+    <string name="part_label">Nome</string>
+    <string name="fs_label">Rótulo</string>
+    <string name="fs_type">Tipo</string>
+    <string name="part_size">Tamanho</string>
+    <string name="this_app">Esse aplicativo</string>
+    <string name="libaums_license_desc">Implementação de espaço de usuário de dispositivo de bloco USB</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Tipo BSD</string>
+    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personal.</string>
+    <string name="about">Sobre</string>
+    <string name="dmg2img_license_desc">Converte imagens compactadas Apple® DMG</string>
+    <string name="title_activity_usb_drive_picker">Selecionar unidade USB</string>
+    <string name="title_activity_confirmation">Pronto para gravar</string>
+    <string name="cannot_write">Não foi possível gravar a imagem na unidade USB</string>
+    <string name="check_notification_progress">Verifique notificação por progresso</string>
+    <string name="partition_table_title">Tabela de partição:</string>
+    <string name="could_not_access_usb_error">Não foi possível acessar o dispositivo USB. Talvez você tenha usado o aplicativo anteriormente e ele travou\? Remova e reinsira a unidade USB e reinicie o aplicativo.</string>
+    <string name="write_image_or_iso">Gravar imagem raw ou ISO</string>
+    <string name="raw_image_desc">Bom para ISOs de distribuições GNU/Linux, imagens Raspberry Pi e imagens de disco criadas em Windows ou Linux.</string>
+    <string name="write_apple_dmg">Gravar imagem Apple® DMG</string>
+    <string name="dmg_image_desc">Restaure uma imagem criada com Utilitário de Disco do macOS</string>
+    <string name="no_usb_drives_detected">Nenhuma imagem USB detectada.
+\nNote que você precisa de um adaptador de cartão SD para USB para gravar em cartões SD.</string>
+    <string name="do_not_show_again">Não mostrar novamente</string>
+    <string name="here_be_dragons">Aqui há dragões</string>
+    <string name="i_understand">Eu entendo</string>
+    <string name="dmg_alert_dialog_text">Enquanto na maioria dos casos as imagens DMG podem ser restauradas sem problemas, às vezes pode haver inconsistências. Isso é um aviso.</string>
+    <string name="confirm_flash_image">Instalar imagem</string>
+    <string name="dataloss_confirmation_dialog_message">Se você continuar, a imagem selecionada será gravada e todos os dados armazenados na unidade USB serão perdidos para sempre.</string>
+    <string name="warning">Aviso</string>
+    <string name="cancel">Cancelar</string>
+    <string name="storagechooser_license_description">Seletor de arquivo DMG</string>
+    <string name="result_channel_desc">Usado para exibir o resultado de uma operação de gravação finalizada</string>
+    <string name="result_channel_name">Notificação de resultado de gravação de USB</string>
+    <string name="write_failed_tap_for_info">Gravação falhou • Toque para informações</string>
+    <string name="write_finished">Gravação finalizada</string>
+    <string name="error_notif_content_text">%1$s pode ter sido desconectado durante a gravação.</string>
+    <string name="success_notif_content_text">%1$s gravado com sucesso para %2$s</string>
+    <string name="troubleshooting_info">Informações de solução de problemas</string>
+    <string name="operation_failed_because">A operação não pôde ser concluída porque ocorreu o seguinte erro:</string>
+    <string name="troubleshoot_sock_op_on_non_sock">Este é um erro comum. Geralmente, isso acontece quando a unidade USB é desconectada enquanto está sendo gravada ou quando está conectada por meio de um hub USB. Em alguns dispositivos, pode haver um bug no subsistema USB do Android: geralmente, uma reinicialização consertará isso por algum tempo.
+\n
+\nTente isso:
+\n• Desconecte e reconecte o dispositivo USB e reinicie o aplicativo
+\n• Reinicialize seu dispositivo (sério, tente isso)
+\n• Tente outra unidade USB
+\n• Evite usar adaptadores desnecessários, dongles ou hubs
+\n• Evite usar o telefone enquanto ele estiver gravando
+\n• Substitua os adaptadores USB On-The-Go defeituosos
+\n
+\nSe o problema persistir, registre um relatório de problema no GitHub.</string>
+    <string name="reporting_issues">Relatando problemas</string>
+    <string name="reporting_issues_text">Problemas podem ser relatados no GitHub:
+\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="write_failed">Falha na gravação</string>
+    <string name="unknown_error">Erro desconhecido. Tente reconectar a unidade USB ou reinicialize o dispositivo. Por favor, preencha um relatório de erro no GitHub.</string>
+    <string name="uncompressed">(não comprimido)</string>
+    <string name="nightmode">Ativar modo noturno</string>
+    <string name="nightmode_night">Desativar modo noturno</string>
+    <string name="android_pie_bug">Bug no Android Pie</string>
+    <string name="android_pie_bug_dialog_text">Há um bug no Android 9 que faz com que algumas gravações falhem.
+\nSe disser \"Falha na gravação\", reinicie o dispositivo e tente novamente.</string>
+    <string name="reset_warnings">Redefinir todos avisos</string>
+    <string name="warnings_reset">Todos os diálogos de aviso foram restaurados</string>
+    <string name="file_type_not_supported">Sem suporte ao tipo de arquivo</string>
+    <string name="cannot_find_file_in_storage">Não foi possível localizar o arquivo no armazenamento interno. Tente abri-lo por meio do aplicativo.</string>
+    <string name="storage_permission_required">Permissão de armazenamento é necessária para ler imagens DMG</string>
+
+
+    <string name="library_AndroidX_libraryDescription">AndroidX é uma grande melhoria à biblioteca original de suporte do Android e oferece compatibilidade com versões anteriores dos lançamentos do Android</string>
+    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
+    <string name="library_KotlinStdlib_libraryDescription">A Kotlin Standard Library fornece elementos essenciais para o trabalho cotidiano com Kotlin</string>
+    <string name="library_Material_libraryDescription">Faça produtos bonitos, mais rápido. Material é um sistema de design - apoiado por código-fonte aberto - que ajuda as equipes a construir experiências digitais</string>
+    <string name="app_desc">Um aplicativo para gravar imagens de SO em unidades USB, no Android, sem precisar de root.</string>
+    <string name="buy_me_a_coffee">Me compre um café</string>
+
+</resources>
