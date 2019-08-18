@@ -9,17 +9,25 @@ import java.io.OutputStream
 open class Input2OutputStreamCopyAsyncWorker(
         private val source: InputStream,
         private val dest: OutputStream,
-        chunkSize: Int,
+        private val seek: Long,
+        chunkSize: Int = 512 * 32 * 64, // 1 MB
         size: Long
 ) :
         IMergedAsyncWorkerProgressSender,
         AbstractAutoProgressAsyncWorker(
-                0L /*TODO remove stub*/, size, RateUnit.BYTES_PER_SECOND
+                seek, size, RateUnit.BYTES_PER_SECOND
         ) {
+
+    private var seeked = false
 
     private val buffer = ByteArray(chunkSize)
 
     override fun runStep(): Boolean {
+        if (!seeked && seek > 0) {
+            TODO("seek output")
+            //source.skip(seek)
+        }
+
         val readBytes = source.read(buffer)
 
         if (readBytes < 0)

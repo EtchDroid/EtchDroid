@@ -6,7 +6,7 @@ import eu.depau.etchdroid.utils.imagetypes.DMGImage
 import java.io.OutputStream
 
 
-class Dmg2OutputStreamConvertAsyncService private constructor(
+class Dmg2OutputStreamConvertAsyncWorker private constructor(
         private val i2oStreamWorker: Input2OutputStreamCopyAsyncWorker
 ) : IMergedAsyncWorkerProgressSender by i2oStreamWorker {
 
@@ -17,7 +17,7 @@ class Dmg2OutputStreamConvertAsyncService private constructor(
             chunkSize: Int
     ) : this(
             DMGImage.getRawImageInputStream(context, sourceDmgUri).let {
-                Input2OutputStreamCopyAsyncWorker(it, dest, chunkSize, it.size)
+                Input2OutputStreamCopyAsyncWorker(it, dest, 0, chunkSize, it.size)
             }
     )
 }
