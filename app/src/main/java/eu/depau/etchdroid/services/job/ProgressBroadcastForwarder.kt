@@ -110,7 +110,7 @@ class ProgressBroadcastForwarder(
      */
     override fun onProcedureError(error: Throwable) {
         assertProcedureStarted()
-        // TODO: stub
+
         Log.d(TAG, "-> onProcedureError job $jobId action $currentActionIdx")
 
         // Ensure no more updates are sent after the procedure failed

@@ -22,7 +22,7 @@ fun JobProcedureBuilder.buildInOutStreamCopyProcedure(context: Context): IJobPro
     val procedureName = StringResBuilder(R.string.write_x_to_y, inputName, outputName)
     val procedure = JobProcedure(procedureName)
 
-    procedure.apply {
+    return procedure.apply {
         // Open streams
         add(
                 StreamOpenAction(
@@ -85,7 +85,4 @@ fun JobProcedureBuilder.buildInOutStreamCopyProcedure(context: Context): IJobPro
                 )
         )
     }
-
-
-    TODO()
 }
