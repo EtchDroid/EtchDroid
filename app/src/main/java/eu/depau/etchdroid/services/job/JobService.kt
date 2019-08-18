@@ -10,7 +10,16 @@ import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
  */
 open class JobService(name: String) : IntentService(name) {
     override fun onHandleIntent(intent: Intent?) {
-        val jobDTO = intent!!.getParcelableExtra<JobServiceIntentDTO>(JobServiceIntentDTO.EXTRA)
-        JobIntentHandler(this, jobDTO).handle()
+        intent ?: return
+
+        if (intent.action != ACTION)
+            return
+
+        val jobDTO = intent.getParcelableExtra<JobServiceIntentDTO>(JobServiceIntentDTO.EXTRA)
+        JobServiceIntentHandler(this, jobDTO).handle()
+    }
+
+    companion object {
+        const val ACTION = "eu.depau.etchdroid.services.JOB_SERVICE_START"
     }
 }

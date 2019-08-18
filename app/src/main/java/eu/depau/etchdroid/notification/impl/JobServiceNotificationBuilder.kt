@@ -1,18 +1,16 @@
 package eu.depau.etchdroid.notification.impl
 
-import android.app.Notification
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Context.NOTIFICATION_SERVICE
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.notification.IServiceNotificationBuilder
 import eu.depau.kotlet.android.extensions.notification.NotificationImportanceCompat
 import eu.depau.kotlet.android.extensions.notification.registerNotificationChannel
 
-class JobServiceNotificationHandler(val context: Context) : IServiceNotificationBuilder {
+class JobServiceNotificationBuilder(val context: Context) : IServiceNotificationBuilder {
     private val notificationManager = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
     private val notificationChannelProgress = notificationManager
             .registerNotificationChannel(
@@ -30,10 +28,7 @@ class JobServiceNotificationHandler(val context: Context) : IServiceNotification
                     NotificationImportanceCompat.IMPORTANCE_DEFAULT
             )
 
-    private fun getNotificationBuilder(channel: String): NotificationCompat.Builder? {
-        if (AppBuildConfig.TEST_BUILD) {
-            return null
-        }
+    private fun getNotificationBuilder(channel: String): NotificationCompat.Builder {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationCompat.Builder(context, channel)
         } else {
@@ -51,14 +46,19 @@ class JobServiceNotificationHandler(val context: Context) : IServiceNotification
         }
     }
 
-    override fun build(): Notification {
+    override fun getBuilder(): NotificationCompat.Builder {
         val builder = getNotificationBuilder(notificationChannelProgress)
-                ?: // Test build, return fake notification
-                return Notification()
-
         return builder.apply {
+            setSmallIcon(R.drawable.ic_usb_white_24dp)
             setContentTitle(context.getString(R.string.notif_starting_job))
             setProgress(100, 0, true)
-        }.build()
+        }
+    }
+
+    override fun getBuilderDone(): NotificationCompat.Builder {
+        val builder = getNotificationBuilder(notificationChannelResult)
+        return builder.apply {
+            setSmallIcon(R.drawable.ic_usb_white_24dp)
+        }
     }
 }

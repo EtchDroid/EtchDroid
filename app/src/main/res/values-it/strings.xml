@@ -91,7 +91,7 @@
     <string name="storagechooser_license_description">Selettore file DMG</string>
     <string name="result_channel_desc">Utilizzato per mostrare il risultato di un\'operazione di scrittura terminata</string>
     <string name="result_channel_name">Risultati scrittura USB</string>
-    <string name="write_failed_tap_for_info">Scrittura fallita • Tocca per i dettagli</string>
+    <string name="failed_tap_for_info">Scrittura fallita • Tocca per i dettagli</string>
     <string name="write_finished">Scrittura terminata</string>
     <string name="error_notif_content_text">%1$s potrebbe essere stato rimosso durante la scrittura.</string>
     <string name="success_notif_content_text">%1$s scritto con successo su %2$s</string>

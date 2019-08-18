@@ -1,7 +1,8 @@
 package eu.depau.etchdroid.notification
 
-import android.app.Notification
+import androidx.core.app.NotificationCompat
 
 interface IServiceNotificationBuilder {
-    fun build(): Notification
+    fun getBuilder(): NotificationCompat.Builder
+    fun getBuilderDone(): NotificationCompat.Builder
 }

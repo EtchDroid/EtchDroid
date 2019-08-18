@@ -90,7 +90,7 @@
     <string name="storagechooser_license_description">DMG file selector</string>
     <string name="result_channel_desc">Used to display the result of a finished write operation</string>
     <string name="result_channel_name">USB write result notifications</string>
-    <string name="write_failed_tap_for_info">Write failed • Tap for info</string>
+    <string name="failed_tap_for_info">Failed • Tap for info</string>
     <string name="write_finished">Write finished</string>
     <string name="error_notif_content_text">%1$s may have been unplugged while writing.</string>
     <string name="success_notif_content_text">%1$s successfully written to %2$s</string>
@@ -114,7 +114,7 @@
 
 
     <!-- AndroidX Jetpack -->
-    <string name="define_AndroidX" translatable="false"/>
+    <string name="define_AndroidX" translatable="false" />
     <string name="library_AndroidX_author" translatable="false">AOSP</string>
     <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
@@ -127,7 +127,7 @@
 
 
     <!-- Kotlin Standard Library -->
-    <string name="define_KotlinStdlib" translatable="false"/>
+    <string name="define_KotlinStdlib" translatable="false" />
     <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
     <string name="library_KotlinStdlib_authorWebsite" translatable="false">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
@@ -140,7 +140,7 @@
 
 
     <!-- Material Components -->
-    <string name="define_Material" translatable="false"/>
+    <string name="define_Material" translatable="false" />
     <string name="library_Material_author" translatable="false">Google</string>
     <string name="library_Material_authorWebsite" translatable="false">https://material.io/develop/</string>
     <string name="library_Material_libraryName" translatable="false">Material Components</string>
@@ -160,7 +160,12 @@
     <string name="notif_starting_job">Starting job...</string>
     <string name="starting_job">Starting job...</string>
     <string name="resuming_job">Resuming from checkpoint...</string>
-    <string name="done">Done.</string>
+    <string name="done">Done!</string>
     <string name="job_failed">Job failed.</string>
+    <string name="empty_string" translatable="false">%s</string>
+    <string name="file_unknown">(unknown)</string>
+    <string name="write_x_to_y">Write %1$s to %2$s</string>
+    <string name="i2o_action_name">"Copy data from "%1$s" to "%2$s"</string>
+    <string name="step_x_of_y">Step %1$d of %2$d</string>
 
 </resources>

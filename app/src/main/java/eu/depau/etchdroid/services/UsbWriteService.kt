@@ -101,7 +101,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
             intent.putExtra("error", exception.message)
             val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            b.setContentTitle(getString(R.string.write_failed_tap_for_info))
+            b.setContentTitle(getString(R.string.failed_tap_for_info))
                     .setContentText(getString(R.string.error_notif_content_text, usbDevice))
                     .setContentIntent(pendingIntent)
                     .setAutoCancel(true)

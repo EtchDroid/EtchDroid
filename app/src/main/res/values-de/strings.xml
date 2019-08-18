@@ -91,7 +91,7 @@
     <string name="storagechooser_license_description">DMG Dateiwähler</string>
     <string name="result_channel_desc">Zeigt das Ergebnis einer fertigen Schreiboperation an</string>
     <string name="result_channel_name">USB Schreibergebnis Benachrichtigungen</string>
-    <string name="write_failed_tap_for_info">Schreiben fehlgeschlagen • Tippen für Info</string>
+    <string name="failed_tap_for_info">Schreiben fehlgeschlagen • Tippen für Info</string>
     <string name="write_finished">Schreiben abgeschlossen</string>
     <string name="error_notif_content_text">%1$s wurde möglicherweise beim Schreiben ausgesteckt.</string>
     <string name="success_notif_content_text">%1$s wurde erfolgreich auf %2$s geschrieben</string>

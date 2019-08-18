@@ -8,11 +8,14 @@ import eu.depau.etchdroid.broadcasts.dto.JobProgressUpdateBroadcastDTO
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.db.entity.Job
 import eu.depau.etchdroid.db.repository.JobRepository
-import eu.depau.etchdroid.services.job.JobIntentHandler
 import eu.depau.etchdroid.services.job.JobService
+import eu.depau.etchdroid.services.job.JobServiceIntentHandler
 import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
+import eu.depau.etchdroid.testutils.job.MockFailingJobAction
 import eu.depau.etchdroid.testutils.job.MockJobAction
+import eu.depau.etchdroid.testutils.worker.MockFailingJobWorker
 import eu.depau.etchdroid.testutils.worker.MockJobWorker
+import eu.depau.etchdroid.utils.StringResBuilder
 import eu.depau.etchdroid.utils.job.impl.JobProcedure
 import org.junit.Before
 import org.junit.Test
@@ -24,7 +27,7 @@ import java.util.*
 import kotlin.math.abs
 
 @RunWith(MockitoJUnitRunner::class)
-internal class JobIntentHandlerTest {
+internal class JobServiceIntentHandlerTest {
     private var mockService: JobService? = null
     private var jobRepo: JobRepository? = null
     private var random = Random()
@@ -69,9 +72,9 @@ internal class JobIntentHandlerTest {
     @Test
     fun testBasicFlow() {
         // Create mock job
-        val jobProcedure = JobProcedure(-1).apply {
-            add(MockJobAction(0, 1.0, 0, 10))
-            add(MockJobAction(1, 1.0, 0, 10))
+        val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 10, true, false))
+            add(MockJobAction(StringResBuilder(1), 1.0, 0, 10, true, false))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
@@ -84,16 +87,50 @@ internal class JobIntentHandlerTest {
     @Test
     fun testCheckpointFlow() {
         // Create mock job
-        val jobProcedure = JobProcedure(-1).apply {
-            add(MockJobAction(0, 1.0, 0, 15))
-            add(MockJobAction(1, 1.0, 0, 15))
-            add(MockJobAction(2, 1.0, 7, 15))
-            add(MockJobAction(3, 1.0, 0, 15))
+        val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, true, false))
+            add(MockJobAction(StringResBuilder(1), 1.0, 0, 15, true, false))
+            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, true, false))
+            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, true, false))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
                 jobProcedure = jobProcedure,
                 checkpointActionIndex = 2
+        )
+        testFlow(job)
+    }
+
+    @Test
+    fun testCheckpointAlwaysRunFlow() {
+        // Create mock job
+        val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, true, true))
+            add(MockJobAction(StringResBuilder(1), 1.0, 0, 15, true, false))
+            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, true, false))
+            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, true, false))
+        }
+        val job = Job(
+                jobId = abs(random.nextInt().toLong()),
+                jobProcedure = jobProcedure,
+                checkpointActionIndex = 2
+        )
+        testFlow(job)
+    }
+
+
+    @Test
+    fun testErrorAlwaysRunFlow() {
+        // Create mock job
+        val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, true, false))
+            add(MockFailingJobAction(StringResBuilder(1), 1.0, 0, 15, true, false))
+            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, true, false))
+            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, true, true))
+        }
+        val job = Job(
+                jobId = abs(random.nextInt().toLong()),
+                jobProcedure = jobProcedure
         )
         testFlow(job)
     }
@@ -116,13 +153,18 @@ internal class JobIntentHandlerTest {
                 }
 
         // Pass it to the intent handler
-        val intentHandler = JobIntentHandler(mockService!!, JobServiceIntentDTO(jobId))
+        val intentHandler = JobServiceIntentHandler(mockService!!, JobServiceIntentDTO(jobId))
         intentHandler.handle()
+
+        val failingWorkerIndex = job.jobProcedure.indexOfFirst { it is MockFailingJobAction }
 
         // Check whether everything was called, in order
         val mockWorkers = job.jobProcedure
-                .subList(job.checkpointActionIndex, job.jobProcedure.size)
-                .map { it.getWorker() as MockJobWorker }
+                .filterIndexed { index, action ->
+                    index >= job.checkpointActionIndex && index <= failingWorkerIndex
+                            || action.runAlways
+                }
+                .map { it.getWorker(mutableMapOf()) }
                 .toTypedArray()
 
         val inOrder = Mockito.inOrder(mockService, *mockWorkers)
@@ -132,9 +174,18 @@ internal class JobIntentHandlerTest {
                 .startForeground(anyInt(), any())
 
         for (mockWorker in mockWorkers) {
-            inOrder
-                    .verify(mockWorker, times(mockWorker.steps - mockWorker.startAt))
-                    .runStep()
+            when (mockWorker) {
+                is MockJobWorker        ->
+                    inOrder
+                            .verify(mockWorker, times(mockWorker.steps - mockWorker.startAt))
+                            .runStep()
+                is MockFailingJobWorker -> {
+                    println(mockWorker)
+                    inOrder
+                            .verify(mockWorker, times(1))
+                            .runStep()
+                }
+            }
         }
 
         inOrder
