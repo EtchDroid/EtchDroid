@@ -3,11 +3,11 @@ package eu.depau.etchdroid.job.procedures
 import android.content.Context
 import android.hardware.usb.UsbDevice
 import android.net.Uri
-import android.provider.OpenableColumns
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.job.enums.TargetType
 import eu.depau.etchdroid.job.enums.TargetType.*
 import eu.depau.etchdroid.utils.ktexts.name
+import eu.depau.kotlet.android.extensions.uri.getFilePath
 
 /**
  * Utilities to give human-readable names to random stuff
@@ -33,17 +33,9 @@ fun getPathFileName(path: String, context: Context): String {
 
 
 fun Uri.getFileName(context: Context): String {
-    val TAG = "UriGetFileNameExt"
-    var result: String
-
-    if (this.scheme == "content") {
-        val cursor = context.contentResolver.query(this, null, null, null, null)
-        cursor.use {
-            if (it != null && it.moveToFirst()) {
-                return it.getString(it.getColumnIndex(OpenableColumns.DISPLAY_NAME))
-            }
-        }
+    return try {
+        this.getFilePath(context)!!
+    } catch (e: Exception) {
+        getPathFileName(this.encodedPath ?: this.path ?: this.toString(), context)
     }
-
-    return getPathFileName(this.encodedPath ?: this.path ?: this.toString(), context)
 }
