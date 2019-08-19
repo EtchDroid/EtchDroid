@@ -70,6 +70,20 @@
             title="libaums (fork)" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/libaums_license_desc"
+            license="apache-2.0"
+            licenseName="Apache 2.0"
+            repo="magnusja/libaums"
+            title="libaums" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/libaums_wrapper_license_desc"
+            license="apache-2.0"
+            licenseName="Apache 2.0"
+            repo="EtchDroid/libaums_wrapper"
+            title="libaums-wrapper" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
             description="^@string/dmg2img_license_desc"
             license="gpl-2.0"
             licenseName="GNU General Public License 2.0"
