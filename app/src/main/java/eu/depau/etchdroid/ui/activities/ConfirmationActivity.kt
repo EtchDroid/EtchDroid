@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
+import eu.depau.etchdroid.libaums_wrapper.kotlinexts.size
 import eu.depau.etchdroid.ui.adapters.PartitionTableRecyclerViewAdapter
 import eu.depau.etchdroid.utils.enums.FlashMethod
 import eu.depau.etchdroid.utils.imagetypes.DMGImage
@@ -95,7 +96,7 @@ class ConfirmationActivity : ActivityBase() {
         for (trial in 0..1) {
             try {
                 StateKeeper.usbMassStorageDevice!!.init()
-                val blockDev = StateKeeper.usbMassStorageDevice!!.blockDevice
+                val blockDev = StateKeeper.usbMassStorageDevice!!.blockDevices[0]
 
                 if (blockDev != null) {
                     val devSize = (blockDev.size.toLong() * blockDev.blockSize.toLong())

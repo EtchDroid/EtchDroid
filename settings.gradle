@@ -1,1 +1,1 @@
-include ':app', ':libaums', ':dmg2img'
+include ':app', ':dmg2img'

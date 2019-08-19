@@ -3,13 +3,14 @@ package eu.depau.etchdroid.workers
 import android.content.Context
 import android.hardware.usb.UsbDevice
 import android.net.Uri
-import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.job.enums.TargetType
 import eu.depau.etchdroid.job.enums.TargetType.*
-import eu.depau.etchdroid.utils.blockdevice.BlockDeviceInputStream
-import eu.depau.etchdroid.utils.blockdevice.BlockDeviceOutputStream
+import eu.depau.etchdroid.libaums_wrapper.EtchDroidUsbMassStorageDevice
+import eu.depau.etchdroid.libaums_wrapper.EtchDroidUsbMassStorageDevice.Companion.getMassStorageDevices
+import eu.depau.etchdroid.libaums_wrapper.streams.BlockDeviceInputStream
+import eu.depau.etchdroid.libaums_wrapper.streams.BlockDeviceOutputStream
+import eu.depau.etchdroid.libaums_wrapper.streams.SeekableFileOutputStream
 import eu.depau.etchdroid.utils.job.enums.SharedDataType
-import eu.depau.etchdroid.utils.streams.SeekableFileOutputStream
 import eu.depau.etchdroid.utils.worker.enums.RateUnit
 import eu.depau.etchdroid.utils.worker.impl.AbstractAutoProgressAsyncWorker
 import eu.depau.etchdroid.workers.enums.StreamDirection
@@ -51,17 +52,15 @@ class StreamOpenWorker(
         }
     }
 
-    private fun getAUMSDevice(usbDevice: UsbDevice): UsbMassStorageDevice {
+    private fun getAUMSDevice(usbDevice: UsbDevice): EtchDroidUsbMassStorageDevice {
         val context = sharedData[SharedDataType.CONTEXT] as Context
-        val massStorageDevices = UsbMassStorageDevice.getMassStorageDevices(context)
-
-        return massStorageDevices.find { it.usbDevice == usbDevice }!!
+        return usbDevice.getMassStorageDevices(context)[0]
     }
 
     private fun getAUMSBlockDevStream(): Any {
         val usbDev = (targetDescriptor as UsbDevice)
         val aumsDev = getAUMSDevice(usbDev).apply { init() }
-        val blockDev = aumsDev.blockDevice
+        val blockDev = aumsDev.blockDevices[0]!!
 
         return when (streamDirection) {
             INPUT  -> BlockDeviceInputStream(blockDev)

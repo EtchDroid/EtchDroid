@@ -18,14 +18,26 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/libaums_release.kotlin_module'
     }
     compileOptions {
         encoding = 'UTF-8'
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
@@ -45,7 +57,10 @@ dependencies {
     api 'com.google.guava:guava:27.0.1-android'
     api 'com.github.codekidX:storage-chooser:2.0.4.2'
 
-    implementation project(':libaums')
+//    implementation project(':libaums')
+//    api 'com.github.magnusja:libaums:v0.7.0'
+    api 'com.github.EtchDroid:libaums_wrapper:v0.1.1'
+
     implementation project(':dmg2img')
 
     implementation 'me.jfenn:Attribouter:0.1.5'

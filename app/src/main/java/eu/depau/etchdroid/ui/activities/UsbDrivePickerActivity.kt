@@ -19,6 +19,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
+import eu.depau.etchdroid.libaums_wrapper.EtchDroidUsbMassStorageDevice.Companion.getMassStorageDevices
 import eu.depau.etchdroid.ui.adapters.UsbDrivesRecyclerViewAdapter
 import eu.depau.etchdroid.utils.enums.FlashMethod
 import eu.depau.etchdroid.utils.ktexts.*
@@ -182,7 +183,7 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
                     }
 
                     StateKeeper.usbDevice = device
-                    StateKeeper.usbMassStorageDevice = UsbMassStorageDevice.getMassStorageDevices(context).find { it.usbDevice == device }
+                    StateKeeper.usbMassStorageDevice = device!!.getMassStorageDevices(context)[0]
 
                     nextStep()
                 }

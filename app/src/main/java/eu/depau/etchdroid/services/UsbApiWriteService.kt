@@ -4,7 +4,7 @@ import android.content.Intent
 import android.hardware.usb.UsbDevice
 import android.net.Uri
 import android.util.Log
-import com.github.mjdev.libaums.UsbMassStorageDevice
+import eu.depau.etchdroid.libaums_wrapper.EtchDroidUsbMassStorageDevice
 import eu.depau.etchdroid.utils.exception.UsbWriteException
 import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.name
@@ -24,8 +24,8 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
     abstract fun getSendProgress(usbDevice: UsbDevice, uri: Uri): (Long) -> Unit
     abstract fun getInputStream(uri: Uri): InputStream
 
-    private fun getUsbMSDevice(usbDevice: UsbDevice): UsbMassStorageDevice? {
-        val msDevs = UsbMassStorageDevice.getMassStorageDevices(this)
+    private fun getUsbMSDevice(usbDevice: UsbDevice): EtchDroidUsbMassStorageDevice? {
+        val msDevs = EtchDroidUsbMassStorageDevice.getMassStorageDevices(this)
 
         for (dev in msDevs) {
             if (dev.usbDevice == usbDevice)
@@ -35,8 +35,8 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
         return null
     }
 
-    fun writeInputStream(inputStream: InputStream, msDev: UsbMassStorageDevice, sendProgress: (Long) -> Unit): Long {
-        val blockDev = msDev.blockDevice
+    fun writeInputStream(inputStream: InputStream, msDev: EtchDroidUsbMassStorageDevice, sendProgress: (Long) -> Unit): Long {
+        val blockDev = msDev.blockDevices[0]!!
         val bsFactor = DD_BLOCKSIZE / blockDev.blockSize
         val buffIS = BufferedInputStream(inputStream)
         val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bsFactor)
@@ -50,7 +50,7 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
 
         while (true) {
             wakeLock(true)
-            lastReadBytes = buffIS.read(byteBuffer.array()!!, remaining, byteBuffer.array().size - remaining)
+            lastReadBytes = buffIS.read(byteBuffer.array(), remaining, byteBuffer.array().size - remaining)
             if (lastReadBytes < 0 && readBytes > 0) {
                 // EOF, pad with some extra bits until next block
                 if (readBytes % blockDev.blockSize > 0)
