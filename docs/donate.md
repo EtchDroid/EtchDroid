@@ -23,10 +23,6 @@ You can buy me a coffee on PayPal or Monero.
 
 [https://paypal.me/DavideDepau](https://paypal.me/DavideDepau)
 
-### Monero
-
-![82WTvrLEdTbULrcgcUnpuzevHaTMURHQfi4Sf5dG3WLjXzP8NwrfTL82HNdV8gnSN183TnLLsR5Q2YWcNJRriHvPPoweT1Q](https://i.imgur.com/8wxtv31.png)
-
 # Bug bounties
 
 Want a new feature or an annoying bug fixed? Post a bounty on it!
