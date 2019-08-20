@@ -16,7 +16,6 @@
         android:theme="@style/CardContentStyle">
 
         <eu.depau.etchdroid.utils.EmptyRecyclerView
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/usbdevs_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
