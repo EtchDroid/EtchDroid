@@ -183,7 +183,6 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
                     }
 
                     StateKeeper.usbDevice = device
-                    StateKeeper.usbMassStorageDevice = device!!.getMassStorageDevices(context)[0]
 
                     nextStep()
                 }

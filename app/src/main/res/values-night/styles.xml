@@ -2,7 +2,7 @@
 <resources>
     <!-- Dark application theme. -->
 
-    <style name="DarkThemeOverlayBase" parent="ThemeOverlay.AppCompat.Dark">
+    <style name="DarkThemeOverlayBase" parent="Theme.MaterialComponents">
         <item name="android:windowBackground">@color/background</item>
     </style>
 

@@ -12,5 +12,4 @@ object StateKeeper {
     var imageRepr: Image? = null
 
     var usbDevice: UsbDevice? = null
-    var usbMassStorageDevice: EtchDroidUsbMassStorageDevice? = null
 }

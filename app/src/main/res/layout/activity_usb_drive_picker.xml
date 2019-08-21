@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:theme="@style/CardContentStyle">
 
-        <eu.depau.etchdroid.utils.EmptyRecyclerView
+        <eu.depau.etchdroid.ui.misc.EmptyRecyclerView
             android:id="@+id/usbdevs_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

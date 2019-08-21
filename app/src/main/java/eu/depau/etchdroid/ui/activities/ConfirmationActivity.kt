@@ -3,23 +3,29 @@ package eu.depau.etchdroid.ui.activities
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
+import eu.depau.etchdroid.libaums_wrapper.EtchDroidUsbMassStorageDevice.Companion.getMassStorageDevices
 import eu.depau.etchdroid.libaums_wrapper.kotlinexts.size
+import eu.depau.etchdroid.services.UsbApiDmgWriteService
+import eu.depau.etchdroid.services.UsbApiImgWriteService
 import eu.depau.etchdroid.ui.adapters.PartitionTableRecyclerViewAdapter
+import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
 import eu.depau.etchdroid.utils.enums.FlashMethod
 import eu.depau.etchdroid.utils.imagetypes.DMGImage
 import eu.depau.etchdroid.utils.ktexts.*
-import eu.depau.etchdroid.services.UsbApiDmgWriteService
-import eu.depau.etchdroid.services.UsbApiImgWriteService
-import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
 import kotlinx.android.synthetic.main.activity_confirmation.*
 import java.io.IOException
 
 class ConfirmationActivity : ActivityBase() {
+    companion object {
+        const val TAG = ".ui.a.ConfActvt"
+    }
+
     var canContinue: Boolean = false
     var issuesFound: String? = null
 
@@ -94,9 +100,10 @@ class ConfirmationActivity : ActivityBase() {
         confirm_sel_usbdev.text = StateKeeper.usbDevice?.name
 
         for (trial in 0..1) {
+            val aumsDev = StateKeeper.usbDevice!!.getMassStorageDevices(this)[0]
             try {
-                StateKeeper.usbMassStorageDevice!!.init()
-                val blockDev = StateKeeper.usbMassStorageDevice!!.blockDevices[0]
+                aumsDev.init()
+                val blockDev = aumsDev.blockDevices[0]
 
                 if (blockDev != null) {
                     val devSize = (blockDev.size.toLong() * blockDev.blockSize.toLong())
@@ -113,6 +120,7 @@ class ConfirmationActivity : ActivityBase() {
                     confirm_extra_info.text = getString(R.string.cant_read_usbdev)
                 }
             } catch (e: IOException) {
+                Log.e(TAG, "Unable to query size from the USB device:", e)
                 if (trial == 0) {
                     continue
                 } else {
@@ -120,7 +128,7 @@ class ConfirmationActivity : ActivityBase() {
                     break
                 }
             } finally {
-                StateKeeper.usbMassStorageDevice!!.close()
+                aumsDev.close()
             }
         }
     }
