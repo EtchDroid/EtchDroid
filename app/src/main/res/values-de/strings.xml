@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Abbild direkt auf Datenträger schreiben (mithilfe der Android API)</string>
@@ -91,7 +91,7 @@
     <string name="storagechooser_license_description">DMG Dateiwähler</string>
     <string name="result_channel_desc">Zeigt das Ergebnis einer fertigen Schreiboperation an</string>
     <string name="result_channel_name">USB Schreibergebnis Benachrichtigungen</string>
-    <string name="failed_tap_for_info">Schreiben fehlgeschlagen • Tippen für Info</string>
+    <string name="failed_tap_for_info">Fehlgeschlagen • Tippen für Info</string>
     <string name="write_finished">Schreiben abgeschlossen</string>
     <string name="error_notif_content_text">%1$s wurde möglicherweise beim Schreiben ausgesteckt.</string>
     <string name="success_notif_content_text">%1$s wurde erfolgreich auf %2$s geschrieben</string>
@@ -122,8 +122,6 @@
     <string name="file_type_not_supported">Dateityp nicht unterstützt</string>
     <string name="cannot_find_file_in_storage">Datei kann im internen Speicher nicht gefunden werden. Versuche es innerhalb der App zu öffnen.</string>
     <string name="storage_permission_required">Speicherberechtigung ist notwendig, um DMG Abbilder zu lesen</string>
-
-
     <!-- AndroidX Jetpack -->
     <string name="define_AndroidX" translatable="false"/>
     <string name="library_AndroidX_author" translatable="false">AOSP</string>
@@ -135,8 +133,6 @@
     <string name="library_AndroidX_isOpenSource">true</string>
     <string name="library_AndroidX_repositoryLink">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
     <string name="library_AndroidX_licenseId" translatable="false">apache_2_0</string>
-
-
     <!-- Kotlin Standard Library -->
     <string name="define_KotlinStdlib"/>
     <string name="library_KotlinStdlib_author">JetBrains</string>
@@ -148,8 +144,6 @@
     <string name="library_KotlinStdlib_isOpenSource">true</string>
     <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
     <string name="library_KotlinStdlib_licenseId">apache_2_0</string>
-
-
     <!-- Material Components -->
     <string name="define_Material"/>
     <string name="library_Material_author">Google</string>
@@ -161,8 +155,20 @@
     <string name="library_Material_isOpenSource">true</string>
     <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
     <string name="library_Material_licenseId">apache_2_0</string>
-
     <string name="app_desc">Eine Anwendung, um Systemabbilder auf USB-Datenträger zu schreiben, auf Android und ohne Root-Pflicht.</string>
     <string name="buy_me_a_coffee">Kaufe mir einen Kaffee</string>
-
+    <string name="step_x_of_y">Schritt %1$d von %2$d</string>
+    <string name="i2o_action_name">Kopiere daten von %1$s zu %2$s</string>
+    <string name="write_x_to_y">Schreibe %1$s zu %2$s</string>
+    <string name="file_unknown">(unbekannt)</string>
+    <string name="job_failed">Aufgabe fehlgeschlagen.</string>
+    <string name="done">Erledigt!</string>
+    <string name="resuming_job">Fortsetzung von Speicherpunkt…</string>
+    <string name="starting_job">Aufgabe wird gestartet…</string>
+    <string name="notif_starting_job">Aufgabe wird gestartet…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Zeigt Ergebnis einer erledigten Aufgabe</string>
+    <string name="notif_channel_job_result_name">Aufgabenergebnis</string>
+    <string name="notif_channel_job_progress_name">Aufgabenfortschritt</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Zeigt Fortschritt der aktuellen Aufgabe</string>
+    <string name="libaums_wrapper_license_desc">Eine kleine Hilfe, damit libaums besser mit EtchDroid funktioniert</string>
 </resources>
