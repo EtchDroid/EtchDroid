@@ -62,7 +62,6 @@
     <string name="storagechooser_license_description">DMG 文件选择</string>
     <string name="result_channel_desc">用于显示完成写入的结果</string>
     <string name="result_channel_name">USB写入结果通知</string>
-    <string name="write_failed_tap_for_info">写入失败•点击查看详情</string>
     <string name="write_finished">写入完成</string>
     <string name="error_notif_content_text">%1$s 写入过程中USB设备可能被拔出.</string>
     <string name="success_notif_content_text">%1$s 成功写入到 %2$s</string>
