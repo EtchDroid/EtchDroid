@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="flash_dd_usb_api">Gravar imagens diretamente para o disco (usando Android API)</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flash_dd_usb_api">Gravar imagens diretamente para o disco (usando Android API)</string>
     <string name="flash_dmg_api">Restaurar imagem DMG de macOS para o disco (usando Android API)</string>
     <string name="flash_unetbootin">Instalação de imagem no estilo Unetbootin (MBR apenas, requer root)</string>
     <string name="flash_woeusb">Gravar imagem Windows (usando WoeUSB, requer root)</string>
@@ -61,7 +62,6 @@
     <string name="storagechooser_license_description">Seletor de arquivo DMG</string>
     <string name="result_channel_desc">Usado para exibir o resultado de uma operação de gravação finalizada</string>
     <string name="result_channel_name">Notificação de resultado de gravação de USB</string>
-    <string name="write_failed_tap_for_info">Gravação falhou • Toque para informações</string>
     <string name="write_finished">Gravação finalizada</string>
     <string name="error_notif_content_text">%1$s pode ter sido desconectado durante a gravação.</string>
     <string name="success_notif_content_text">%1$s gravado com sucesso para %2$s</string>
@@ -94,13 +94,10 @@
     <string name="file_type_not_supported">Sem suporte ao tipo de arquivo</string>
     <string name="cannot_find_file_in_storage">Não foi possível localizar o arquivo no armazenamento interno. Tente abri-lo por meio do aplicativo.</string>
     <string name="storage_permission_required">Permissão de armazenamento é necessária para ler imagens DMG</string>
-
-
     <string name="library_AndroidX_libraryDescription">AndroidX é uma grande melhoria à biblioteca original de suporte do Android e oferece compatibilidade com versões anteriores dos lançamentos do Android</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="library_KotlinStdlib_libraryDescription">A Kotlin Standard Library fornece elementos essenciais para o trabalho cotidiano com Kotlin</string>
     <string name="library_Material_libraryDescription">Faça produtos bonitos, mais rápido. Material é um sistema de design - apoiado por código-fonte aberto - que ajuda as equipes a construir experiências digitais</string>
     <string name="app_desc">Um aplicativo para gravar imagens de SO em unidades USB, no Android, sem precisar de root.</string>
     <string name="buy_me_a_coffee">Me compre um café</string>
-
 </resources>
