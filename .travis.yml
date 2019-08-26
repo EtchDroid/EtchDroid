@@ -2,13 +2,13 @@ language: android
 dist: bionic
 
 install:
-  - yes | sdkmanager "tools"
-  - yes | sdkmanager "platform-tools"
-  - yes | sdkmanager "platforms;android-28"
-  - yes | sdkmanager "ndk-bundle"
-  - yes | sdkmanager "ndk;20.0.5594570"
-  - yes | sdkmanager "build-tools;29.0.2"
-  - yes | sdkmanager "cmake;3.10.2.4988404"
-  - yes | sdkmanager "lldb;3.1"
-  - yes | sdkmanager "extras;android;m2repository"
-  - yes | sdkmanager "extras;google;m2repository"
+  - yes | sdkmanager "tools" > /dev/null
+  - yes | sdkmanager "platform-tools" > /dev/null
+  - yes | sdkmanager "platforms;android-28" > /dev/null
+  - yes | sdkmanager "ndk-bundle" > /dev/null
+  - yes | sdkmanager "ndk;20.0.5594570" > /dev/null
+  - yes | sdkmanager "build-tools;29.0.2" > /dev/null
+  - yes | sdkmanager "cmake;3.10.2.4988404" > /dev/null
+  - yes | sdkmanager "lldb;3.1" > /dev/null
+  - yes | sdkmanager "extras;android;m2repository" > /dev/null
+  - yes | sdkmanager "extras;google;m2repository" > /dev/null
