@@ -11,7 +11,7 @@
     <string name="selected_method">选择的写入方式:</string>
     <string name="selected_usbdev">选择的USB设备:</string>
     <string name="unknown_filename">未知文件名</string>
-    <string name="image_bigger_than_usb">镜像文件大小大于USB设备，塞不进去。</string>
+    <string name="image_bigger_than_usb">镜像文件大小大于USB设备，塞不进去</string>
     <string name="cant_read_usbdev">无法读取USB设备</string>
     <string name="tap_next_to_write">点击“写入”按钮将镜像写入USB驱动器</string>
     <string name="notchan_writestatus_title">USB 写入状态</string>
@@ -35,8 +35,8 @@
     <string name="part_size">大小</string>
     <string name="this_app">此app</string>
     <string name="libaums_license_desc">USB相关驱动支持</string>
-    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom BSD-like</string>
-    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">自定义 BSD-like</string>
+    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">自定义</string>
     <string name="about">关于</string>
     <string name="dmg2img_license_desc">转换压缩的Apple® DMG镜像</string>
     <string name="title_activity_usb_drive_picker">选择USB驱动器</string>
@@ -97,18 +97,18 @@
     <string name="storage_permission_required">读取DMG镜像需要存储权限</string>
     <!-- AndroidX Jetpack -->
     <string name="define_AndroidX" translatable="false"/>
-    <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容。</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容</string>
     <!-- Kotlin Standard Library -->
     <string name="define_KotlinStdlib" translatable="false"/>
     <!-- Material Components -->
     <string name="define_Material" translatable="false"/>
-    <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品。</string>
+    <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品</string>
     <string name="app_desc">在Android上将各种映像写入USB的应用，无需root权限。</string>
     <string name="buy_me_a_coffee">捐赠</string>
-    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Used to show the progress of the current job</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">用于显示当前处理的进度</string>
     <string name="notif_channel_job_progress_name">处理进度</string>
     <string name="notif_channel_job_result_name">处理结果</string>
-    <string name="notif_channel_job_result_desc" comment="Notification channel description">Used to show a completed job outcome</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">用于显示处理完成的结果</string>
     <string name="notif_starting_job">开始处理…</string>
     <string name="starting_job">开始处理…</string>
     <string name="resuming_job">从检查点恢复…</string>
