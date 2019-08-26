@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">EtchDroid</string>
     <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
@@ -83,7 +84,7 @@
     <string name="i_understand">I understand</string>
     <string name="dmg_alert_dialog_text">While in most cases DMG images can be restored just fine, sometimes there may be inconsistencies. This is a warning.</string>
     <string name="confirm_flash_image">Flash image</string>
-    <string name="dataloss_confirmation_dialog_message">If you continue, the selected image will be written and all data stored on the USB drive will be lost forever.</string>
+    <string name="dataloss_confirmation_dialog_message">If you continue, the selected image will be written and all data stored on the USB drive will be lost forever!</string>
     <string name="warning">Warning</string>
     <string name="cancel">Cancel</string>
     <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
@@ -111,8 +112,6 @@
     <string name="file_type_not_supported">File type not supported</string>
     <string name="cannot_find_file_in_storage">Cannot find file in internal storage. Try opening it from within the app.</string>
     <string name="storage_permission_required">Storage permission is required to read DMG images</string>
-
-
     <!-- AndroidX Jetpack -->
     <string name="define_AndroidX" translatable="false"/>
     <string name="library_AndroidX_author" translatable="false">AOSP</string>
@@ -124,8 +123,6 @@
     <string name="library_AndroidX_isOpenSource" translatable="false">true</string>
     <string name="library_AndroidX_repositoryLink" translatable="false">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
     <string name="library_AndroidX_licenseId" translatable="false">apache_2_0</string>
-
-
     <!-- Kotlin Standard Library -->
     <string name="define_KotlinStdlib" translatable="false"/>
     <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
@@ -137,8 +134,6 @@
     <string name="library_KotlinStdlib_isOpenSource" translatable="false">true</string>
     <string name="library_KotlinStdlib_repositoryLink" translatable="false">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
     <string name="library_KotlinStdlib_licenseId" translatable="false">apache_2_0</string>
-
-
     <!-- Material Components -->
     <string name="define_Material" translatable="false"/>
     <string name="library_Material_author" translatable="false">Google</string>
@@ -150,8 +145,21 @@
     <string name="library_Material_isOpenSource" translatable="false">true</string>
     <string name="library_Material_repositoryLink" translatable="false">https://github.com/material-components/material-components-android</string>
     <string name="library_Material_licenseId" translatable="false">apache_2_0</string>
-
     <string name="app_desc">An application to write OS images to USB drives, on Android, no root required.</string>
     <string name="buy_me_a_coffee">Buy me a coffee</string>
 
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Used to show the progress of the current job</string>
+    <string name="notif_channel_job_progress_name">Job progress</string>
+    <string name="notif_channel_job_result_name">Job outcome</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Used to show a completed job outcome</string>
+    <string name="notif_starting_job">Starting job…</string>
+    <string name="starting_job">Starting job…</string>
+    <string name="resuming_job">Resuming from checkpoint…</string>
+    <string name="done">Done!</string>
+    <string name="job_failed">Job failed.</string>
+    <string name="empty_string" translatable="false">%s</string>
+    <string name="file_unknown">(unknown)</string>
+    <string name="write_x_to_y">Write %1$s to %2$s</string>
+    <string name="i2o_action_name">"Copy data from "%1$s" to "%2$s"</string>
+    <string name="step_x_of_y">Step %1$d of %2$d</string>
 </resources>
