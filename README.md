@@ -4,8 +4,8 @@
 
 [![F-Droid](https://etchdroid.depau.eu/assets/img/get-from-fdroid-small.png)](https://f-droid.org/packages/eu.depau.etchdroid/) [![Google Play](https://etchdroid.depau.eu/assets/img/get-from-googleplay-small.png)](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
 
-## Update on development status
-On my blog: https://blog.depau.eu/2019/05/18/etchdroid-development-update/
+## Updates on development status
+Check out my blog: https://blog.depau.eu/tag/etchdroid/
 
 ![EtchDroid](https://etchdroid.depau.eu/assets/img/playstore_banner.png)
 
