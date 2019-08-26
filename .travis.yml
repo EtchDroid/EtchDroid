@@ -1,5 +1,9 @@
 language: android
 
+android:
+  components:
+    - build-tools-29.0.2
+
 install:
   - yes | sdkmanager "tools" > /dev/null
   - yes | sdkmanager "platform-tools" > /dev/null
