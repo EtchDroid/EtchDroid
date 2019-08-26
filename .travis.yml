@@ -6,6 +6,9 @@ android:
     - platform-tools
     - build-tools-29.0.2
     - android-28
+    - ndk-bundle
+    - cmake
+    - lldb
 
     - extra-google-google_play_services
     - extra-google-m2repository
@@ -14,8 +17,3 @@ android:
   licenses:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
-
-install:
-  - echo y | sdkmanager "ndk-bundle"
-  - echo y | sdkmanager "cmake"
-  - echo y | sdkmanager "lldb"
