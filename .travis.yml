@@ -5,7 +5,7 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-28.0.3
+    - build-tools-29.0.2
     - android-28
 
     - extra-google-google_play_services
@@ -19,5 +19,4 @@ android:
 install:
   - echo y | sdkmanager "ndk-bundle"
   - echo y | sdkmanager "cmake"
-  - echo y | sdkmanager "lldb;3.1"
-
+  - echo y | sdkmanager "lldb"
