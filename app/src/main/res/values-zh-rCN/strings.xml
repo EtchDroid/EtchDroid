@@ -64,7 +64,7 @@
     <string name="result_channel_name">USB写入结果通知</string>
     <string name="failed_tap_for_info">失败·点击查看详情</string>
     <string name="write_finished">写入完成</string>
-    <string name="error_notif_content_text">%1$s 写入过程中USB设备可能被拔出</string>
+    <string name="error_notif_content_text">%1$s 写入过程中USB设备可能被拔出.</string>
     <string name="success_notif_content_text">%1$s 成功写入到 %2$s</string>
     <string name="troubleshooting_info">故障排除信息</string>
     <string name="operation_failed_because">由于发生以下错误，无法完成操作:</string>
@@ -96,12 +96,12 @@
     <string name="cannot_find_file_in_storage">无法在内部存储中找到文件。尝试在应用内打开它。</string>
     <string name="storage_permission_required">读取DMG镜像需要存储权限</string>
     <!-- AndroidX Jetpack -->
-    <string name="define_AndroidX" translatable="false" />
+    <string name="define_AndroidX" translatable="false"/>
     <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容。</string>
     <!-- Kotlin Standard Library -->
-    <string name="define_KotlinStdlib" translatable="false" />
+    <string name="define_KotlinStdlib" translatable="false"/>
     <!-- Material Components -->
-    <string name="define_Material" translatable="false" />
+    <string name="define_Material" translatable="false"/>
     <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品。</string>
     <string name="app_desc">在Android上将各种映像写入USB的应用，无需root权限。</string>
     <string name="buy_me_a_coffee">捐赠</string>
