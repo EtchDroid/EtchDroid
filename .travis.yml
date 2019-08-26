@@ -18,3 +18,5 @@ android:
   licenses:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
+    - 'platforms;android-.+'
+    - 'build-tools;.+'
