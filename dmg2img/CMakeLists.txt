@@ -16,6 +16,9 @@ execute_process(
         COMMAND touch VERSION
         WORKING_DIRECTORY src/c/libressl)
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Qunused-arguments")
+
 include_directories(src/c/bzip2)
 include_directories(src/c/libressl/include)
 
