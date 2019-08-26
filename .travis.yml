@@ -1,21 +1,13 @@
 language: android
 
-android:
-  components:
-    - tools
-    - platform-tools
-    - build-tools-29.0.2
-    - android-28
-    - ndk-bundle
-    - cmake
-    - lldb
-
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-
-  licenses:
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
-    - 'platforms;android-.+'
-    - 'build-tools;.+'
+install:
+  - yes | sdkmanager "tools"
+  - yes | sdkmanager "platform-tools"
+  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "ndk-bundle"
+  - yes | sdkmanager "ndk;20.0.5594570"
+  - yes | sdkmanager "build-tools;29.0.2"
+  - yes | sdkmanager "cmake;3.10.2.4988404"
+  - yes | sdkmanager "lldb;3.1"
+  - yes | sdkmanager "extras;android;m2repository"
+  - yes | sdkmanager "extras;google;m2repository"
