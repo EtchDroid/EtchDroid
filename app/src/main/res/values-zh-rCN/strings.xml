@@ -50,9 +50,9 @@
     <string name="write_apple_dmg">写入 Apple® DMG 镜像</string>
     <string name="dmg_image_desc">使用macOS Disk Utility创建的映像文件还原</string>
     <string name="no_usb_drives_detected">未检测到USB驱动器。\n
-  请注意，如果要写入SD，您需要使用SD卡读卡器来进行写入。</string>
+    请注意，如果要写入SD，您需要使用SD卡读卡器来进行写入。</string>
     <string name="do_not_show_again">不再提示</string>
-    <string name="here_be_dragons">此处有危险</string>
+    <string name="here_be_dragons">地狱无门</string>
     <string name="i_understand">清楚明白</string>
     <string name="dmg_alert_dialog_text">警告:在大多数情况下DMG镜像可以很好地解压还原，但有时可能会出现问题。</string>
     <string name="confirm_flash_image">写入镜像</string>
@@ -62,26 +62,26 @@
     <string name="storagechooser_license_description">DMG 文件选择</string>
     <string name="result_channel_desc">用于显示完成写入的结果</string>
     <string name="result_channel_name">USB写入结果通知</string>
-    <string name="write_failed_tap_for_info">写入失败•点击查看详情</string>
+    <string name="failed_tap_for_info">失败·点击查看详情</string>
     <string name="write_finished">写入完成</string>
     <string name="error_notif_content_text">%1$s 写入过程中USB设备可能被拔出.</string>
     <string name="success_notif_content_text">%1$s 成功写入到 %2$s</string>
     <string name="troubleshooting_info">故障排除信息</string>
     <string name="operation_failed_because">由于发生以下错误，无法完成操作:</string>
     <string name="troubleshoot_sock_op_on_non_sock">这是个常见错误。 通常，当USB驱动器在写入时被拔出，或者通过USB集线器连接时，会发生这种情况。 某些设备的USB子系统可能存在错误：花点时间重启设备，设备一般会自动修复。\n
- \n
-  试试这些：\n
-  •重新插入USB设备，然后重启应用\n
-  •重启设备（不骗你，试试吧）\n
-  •尝试其他USB驱动器\n
-  •避免使用不必要的适配器，加密狗或集线器\n
-  •在写入时避免使用手机\n
-  •更换优良的USB On-The-Go(OTG)适配器\n
- \n
-  如果问题仍然存在，请在GitHub上提交问题。</string>
+   \n
+    试试这些：\n
+    •重新插入USB设备，然后重启应用\n
+    •重启设备（不骗你，试试吧）\n
+    •尝试其他USB驱动器\n
+    •避免使用不必要的适配器，加密狗或集线器\n
+    •在写入时避免使用手机\n
+    •更换优良的USB On-The-Go(OTG)适配器\n
+   \n
+    如果问题仍然存在，请在GitHub上提交问题。</string>
     <string name="reporting_issues">报告问题</string>
     <string name="reporting_issues_text">你可以在 GitHub 上发送issues以进行反馈:\n
- https://github.com/Depau/EtchDroid/issues</string>
+   https://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">写入失败</string>
     <string name="unknown_error">未知错误。尝试重新连接USB驱动器或重新启动设备。请在GitHub上提交这个问题。</string>
     <string name="uncompressed">(未压缩)</string>
@@ -89,7 +89,7 @@
     <string name="nightmode_night">关闭夜间模式</string>
     <string name="android_pie_bug">Android 9 bug</string>
     <string name="android_pie_bug_dialog_text">Android 9上有个错误，导致一些写入失败。\n
-      如果提示“写入失败”，请重启手机并重试。</string>
+        如果提示“写入失败”，请重启手机并重试。</string>
     <string name="reset_warnings">重置警告</string>
     <string name="warnings_reset">所有警告对话框已恢复</string>
     <string name="file_type_not_supported">文件类型不支持</string>
@@ -100,11 +100,22 @@
     <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容。</string>
     <!-- Kotlin Standard Library -->
     <string name="define_KotlinStdlib" translatable="false"/>
-    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
     <!-- Material Components -->
     <string name="define_Material" translatable="false"/>
     <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品。</string>
     <string name="app_desc">在Android上将各种映像写入USB的应用，无需root权限。</string>
-    <string name="buy_me_a_coffee">捐助</string>
+    <string name="buy_me_a_coffee">捐赠</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Used to show the progress of the current job</string>
+    <string name="notif_channel_job_progress_name">处理进度</string>
+    <string name="notif_channel_job_result_name">处理结果</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Used to show a completed job outcome</string>
+    <string name="notif_starting_job">开始处理…</string>
+    <string name="starting_job">开始处理…</string>
+    <string name="resuming_job">从检查点恢复…</string>
+    <string name="done">完成!</string>
+    <string name="job_failed">处理失败.</string>
+    <string name="file_unknown">(未知)</string>
+    <string name="write_x_to_y">写入 %1$s 到 %2$s</string>
+    <string name="i2o_action_name">"从\"%1$s\" 复制数据到 \"%2$s"</string>
+    <string name="step_x_of_y">第 %1$d 步 共 %2$d 步</string>
 </resources>
