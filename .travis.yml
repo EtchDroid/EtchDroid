@@ -15,3 +15,6 @@ install:
   - yes | sdkmanager "lldb;3.1" > /dev/null
   - yes | sdkmanager "extras;android;m2repository" > /dev/null
   - yes | sdkmanager "extras;google;m2repository" > /dev/null
+
+script:
+  - ./gradlew build test
