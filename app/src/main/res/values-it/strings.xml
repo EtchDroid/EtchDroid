@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Scrivi immagine su dispositivo USB (utilizzando le API di Android)</string>
@@ -84,7 +84,7 @@
     <string name="i_understand">Capisco, prosegui</string>
     <string name="dmg_alert_dialog_text">Sebbene nella maggior parte dei casi le immagini DMG vengono ripristinate correttamente, talvolta potrebbero esserci delle inconsistenze. Tienilo a mente.</string>
     <string name="confirm_flash_image">Scrivi immagine</string>
-    <string name="dataloss_confirmation_dialog_message">Se continui, l\'immagine verrà scritta e tutti i dati attualmente memorizzati sul dispositivo USB andranno persi.</string>
+    <string name="dataloss_confirmation_dialog_message">Se continui, l\'immagine verrà scritta e tutti i dati attualmente memorizzati sul dispositivo USB andranno persi!</string>
     <string name="warning">Attenzione</string>
     <string name="cancel">Annulla</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
@@ -122,11 +122,15 @@
     <string name="file_type_not_supported">Tipo di file non supportato</string>
     <string name="cannot_find_file_in_storage">Impossibile trovare file nella memoria interna. Prova ad aprirlo da dentro l\'app.</string>
     <string name="storage_permission_required">Il permesso per l\'archiviazione è richiesto per leggere i file DMG</string>
-<string name="library_AndroidX_libraryDescription">AndroidX è una nuova versione della Libreria di Supporto Android e fornisce compatibilità con le precedenti versioni di Android</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX è una nuova versione della Libreria di Supporto Android e fornisce compatibilità con le precedenti versioni di Android</string>
     <string name="library_KotlinStdlib_libraryName">Libreria Standard Kotlin</string>
     <string name="library_KotlinStdlib_libraryDescription">La libreria standard Kotlin fornisce il materiale essenziale per lavorare con Kotlin</string>
     <string name="app_desc">Un\'applicazione per scrivere immagini di sistemi operativi su chiavette USB, su Android, senza root.</string>
     <string name="buy_me_a_coffee">Offrimi un caffè</string>
-
-<string name="library_Material_libraryDescription">Crea bei prodotti, più velocemente. Material è un sistema di design che, con l\'aiuto di software open-source, aiuta i team a sviluppare esperienze digitali</string>
-    </resources>
+    <string name="library_Material_libraryDescription">Crea bei prodotti, più velocemente. Material è un sistema di design che, con l\'aiuto di software open-source, aiuta i team a sviluppare esperienze digitali</string>
+    <string name="done">Fatto!</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Mostra il risultato dell\'azione corrente</string>
+    <string name="notif_channel_job_result_name">Risultato</string>
+    <string name="notif_channel_job_progress_name">Progressi</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Mostra il progresso dell\'azione corrente</string>
+</resources>
