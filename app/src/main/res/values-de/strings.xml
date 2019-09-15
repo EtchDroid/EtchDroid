@@ -84,7 +84,7 @@
     <string name="i_understand">Ich verstehe</string>
     <string name="dmg_alert_dialog_text">In den meisten Fällen können DMG Abbilder gut wiederhergestellt werden, aber manchmal könnten Probleme auftreten. Dies ist eine Warnung.</string>
     <string name="confirm_flash_image">Abbild flashen</string>
-    <string name="dataloss_confirmation_dialog_message">Wenn du fortfährst, wird das ausgewählte Abbild geschrieben und alle Daten auf dem USB-Datenträger gehen für immer verloren.</string>
+    <string name="dataloss_confirmation_dialog_message">Wenn du fortfährst, wird das ausgewählte Abbild geschrieben und alle Daten auf dem USB-Datenträger gehen für immer verloren!</string>
     <string name="warning">Warnung</string>
     <string name="cancel">Abbrechen</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
