@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="file_unknown">(necunoscut)</string>
+    <string name="done">Terminat!</string>
+    <string name="resuming_job">Începere din checkpoint…</string>
+    <string name="starting_job">Începere acțiune…</string>
+    <string name="notif_starting_job">Începere acțiune…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Folosit pentru afișare rezultat de acțiune terminat</string>
+    <string name="notif_channel_job_result_name">Rezultat de acțiune</string>
+    <string name="notif_channel_job_progress_name">Acțiune progres</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Folosit pentru afișare progres la curent acțiune</string>
+    <string name="i_understand">Ințeles</string>
+    <string name="cannot_write">Nu poate scrie imaginul la disc USB</string>
+    <string name="title_activity_confirmation">Gata pentru scriere</string>
+    <string name="title_activity_usb_drive_picker">Selectează disc USB</string>
+    <string name="this_app">Acest aplicația</string>
+    <string name="part_size">Dimensiune</string>
+    <string name="fs_type">Tip</string>
+    <string name="fs_label">Etichete</string>
+    <string name="part_label">Nume</string>
+    <string name="fs_unknown">Necunoscut</string>
+    <string name="fs_free">Stocare disponibil</string>
+    <string name="ptt_loop">Nimic</string>
+    <string name="image_is_not_dmg">Imagine selectat nu este DMG imaginul (poate este stricat)</string>
+    <string name="notif_writing_img">Scrie imagine…</string>
+    <string name="notif_initializing">Inițializând…</string>
+    <string name="notchan_writestatus_desc">Utilizat pentru afișati statul de imagineuri în scriere la discuri USB</string>
+    <string name="notchan_writestatus_title">Stat de scriere pentru USB</string>
+    <string name="tap_next_to_write">Atingeți Scrie pentru scriere imaginul la discul USB</string>
+    <string name="cant_read_usbdev">Nu poate citire dispozitiv USB</string>
+    <string name="flash_unetbootin">Unetbootin flash stilul (Numai MBR, necesită root-ul)</string>
+    <string name="flash_dmg_api">Restabilește macOS DMG imagine la discul (utilizând Android API)</string>
+    <string name="flash_dd_usb_api">Scrie imagine la discul (utilizând Android API)</string>
+    <string name="image_bigger_than_usb">Nu poate scrie imagine deoarece el este mai mare ca dispozitiv USB</string>
+    <string name="unknown_filename">Nume de fișier neconosciut</string>
+    <string name="usb_perm_denied">Acces refuzat pentru</string>
+    <string name="selected_usbdev">Dispozitiv USB selectat:</string>
+    <string name="selected_method">Mod de scrie selectat:</string>
+    <string name="selected_image">Imagine selectat:</string>
+    <string name="usb_perm_denied_noname">Acces refuzat pentru dispozitiv USB</string>
+    <string name="action_refresh">Reîncarcă</string>
+    <string name="flash_woeusb">Scrie imagine de Windows (utilizând WoeUSB, necesită root-ul)</string>
+</resources>
