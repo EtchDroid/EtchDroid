@@ -40,4 +40,14 @@
     <string name="usb_perm_denied_noname">Acces refuzat pentru dispozitiv USB</string>
     <string name="action_refresh">Reîncarcă</string>
     <string name="flash_woeusb">Scrie imagine de Windows (utilizând WoeUSB, necesită root-ul)</string>
+    <string name="about">Despre</string>
+    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personalizat</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Similar la BSD</string>
+    <string name="fs_unformatted">Neformatată</string>
+    <string name="fs_linux_lvm_pv">Volumul fizic Linux LVM2</string>
+    <string name="fs_linux_swap">Swap Linux</string>
+    <string name="fs_luks">LUKS criptat</string>
+    <string name="fs_apt_data">Datele APT</string>
+    <string name="ptt_mac">Tabel Partiții Apple (APT)</string>
+    <string name="ptt_gpt">Tabel Partiții GUID (GPT)</string>
 </resources>
