@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="app_name">EtchDroid</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Écrire l\'image directement sur le disque (en utilisant l\'API Android)</string>
     <string name="flash_dmg_api">Restauration d\'une image DMG macOS sur le disque (en utilisant l\'API Android)</string>
     <string name="flash_unetbootin">Flash style Unetbootin (MBR uniquement, nécessite le root)</string>
@@ -124,8 +125,6 @@
     <string name="file_type_not_supported">Type de fichier non supporté</string>
     <string name="cannot_find_file_in_storage">Impossible de trouver le fichier dans la mémoire interne. Essayez de l\'ouvrir depuis l\'application.</string>
     <string name="storage_permission_required">La permission de stockage est nécessaire pour pouvoir lire les images DMG</string>
-
-
     <string name="library_AndroidX_libraryDescription">AndroidX est une amélioration majeure de la bibliothèque de support Android d\'origine et offre une rétrocompatibilité entre les versions d\'Android</string>
     <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
     <string name="library_AndroidX_libraryVersion">1.0.1</string>
@@ -140,8 +139,6 @@
     <string name="library_KotlinStdlib_isOpenSource">true</string>
     <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
     <string name="library_KotlinStdlib_licenseId">apache_2_0</string>
-
-
     <string name="library_Material_author">Google</string>
     <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
@@ -151,8 +148,9 @@
     <string name="library_Material_isOpenSource">true</string>
     <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
     <string name="library_Material_licenseId">apache_2_0</string>
-
     <string name="app_desc">Une application pour écrire les images de systèmes d\'exploitation sur les clés USB, pas de root requis.</string>
     <string name="buy_me_a_coffee">M\'acheter un café</string>
-
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Pour afficher la progression de la tâche courante</string>
+    <string name="notif_channel_job_progress_name">Progression de la tâche</string>
+    <string name="notif_channel_job_result_name">Résultat de la tâche</string>
 </resources>
