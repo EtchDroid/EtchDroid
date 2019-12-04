@@ -14,9 +14,10 @@
     <me.jfenn.attribouter.wedges.ContributorsWedge showDefaults="false">
         <me.jfenn.attribouter.wedges.ContributorWedge
             name="Davide Depau"
-            bio="My dream is meeting the love of my life here just to be able to say &quot;we met on GitHub&quot;. GNU/Linux and Python lover, gay as fuck."
+            bio="Into guys and Arch Linux. I like Kotlin, Go, Python and sleeping."
             email="davide@depau.eu"
             login="Depau"
+            avatar="https://avatars2.githubusercontent.com/u/1151321"
             position="1"
             task="Owner">
             <me.jfenn.attribouter.wedges.link.LinkWedge
@@ -123,6 +124,7 @@
         <me.jfenn.attribouter.wedges.TranslatorWedge
             name="Davide Depau"
             locales="it"
+            avatar="https://avatars2.githubusercontent.com/u/1151321"
             login="Depau" />
         <me.jfenn.attribouter.wedges.TranslatorWedge
             name="Can Berberoglu"
@@ -144,5 +146,8 @@
             avatar="https://avatars3.githubusercontent.com/u/30341059"
             locales="zh"
             login="yzqzss" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Demetrio F. B."
+            locales="ro,de"/>
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
 </about>
