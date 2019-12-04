@@ -142,7 +142,7 @@
         <me.jfenn.attribouter.wedges.TranslatorWedge
             name="一座桥在水上"
             avatar="https://avatars3.githubusercontent.com/u/30341059"
-            locales="zh-rCN"
+            locales="zh"
             login="yzqzss" />
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
 </about>
