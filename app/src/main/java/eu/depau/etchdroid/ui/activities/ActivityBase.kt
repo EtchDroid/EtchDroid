@@ -1,7 +1,9 @@
 package eu.depau.etchdroid.ui.activities
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -10,12 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import eu.depau.etchdroid.R
-import eu.depau.etchdroid.utils.ktexts.toast
 import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
 import eu.depau.etchdroid.ui.misc.NightModeHelper
+import eu.depau.etchdroid.utils.ktexts.toast
 import me.jfenn.attribouter.Attribouter
-import android.content.Intent
-import android.net.Uri
 
 
 abstract class ActivityBase : AppCompatActivity() {
@@ -78,6 +78,12 @@ abstract class ActivityBase : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
+
+        // Hide night mode menu on Android 10 as it causes weird issues
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            menu.findItem(R.id.action_nightmode).isVisible = false
+        }
+
         return true
     }
 
