@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Dark application theme. -->
+    <style name="MaterialAppTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="coordinatorLayoutStyle">@style/Widget.Support.CoordinatorLayout</item>
+        <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
+        <item name="alertDialogTheme">@style/DialogThemeDark</item>
+    </style>
 
-    <style name="DarkThemeOverlayBase" parent="Theme.MaterialComponents">
+    <style name="DarkThemeOverlayBase" parent="Theme.MaterialComponents.DayNight">
         <item name="android:windowBackground">@color/background</item>
     </style>
 
@@ -14,5 +22,5 @@
         <item name="personDialogTheme">@style/PersonDialogTheme</item>
     </style>
 
-    <style name="PersonDialogTheme" parent="ThemeOverlay.AppCompat.Dialog"/>
+    <style name="PersonDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog"/>
 </resources>
