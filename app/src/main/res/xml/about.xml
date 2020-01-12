@@ -54,21 +54,6 @@
             title="^@string/this_app"
             website="https://etchdroid.depau.eu" />
 
-
-        <me.jfenn.attribouter.wedges.LicenseWedge
-            description="^@string/storagechooser_license_description"
-            license="mpl-2.0"
-            licenseName="Mozilla Public License 2.0"
-            repo="codekidX/storage-chooser"
-            title="Storage Chooser" />
-
-        <me.jfenn.attribouter.wedges.LicenseWedge
-            description="^@string/libaums_license_desc"
-            license="apache-2.0"
-            licenseName="Apache 2.0"
-            repo="Depau/libaums"
-            title="libaums (fork)" />
-
         <me.jfenn.attribouter.wedges.LicenseWedge
             description="^@string/libaums_license_desc"
             license="apache-2.0"
@@ -82,6 +67,20 @@
             licenseName="Apache 2.0"
             repo="EtchDroid/libaums_wrapper"
             title="libaums-wrapper" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/libusb_license_desc"
+            license="LGPL-2.1"
+            licenseName="LGPL-2.1"
+            repo="libusb/libusb"
+            title="libusb" />
+
+        <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/storagechooser_license_description"
+            license="mpl-2.0"
+            licenseName="Mozilla Public License 2.0"
+            repo="codekidX/storage-chooser"
+            title="Storage Chooser" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
             description="^@string/dmg2img_license_desc"
@@ -98,7 +97,7 @@
 
         <me.jfenn.attribouter.wedges.LicenseWedge
             licenseName="Custom FOSS"
-            repo="Depau/libressl"
+            repo="EtchDroid/libressl"
             title="LibreSSL" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge

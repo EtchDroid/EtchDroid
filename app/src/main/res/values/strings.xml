@@ -63,6 +63,7 @@
     <string name="this_app">This app</string>
     <string name="license_apache2_0" translatable="false">Apache 2.0</string>
     <string name="libaums_license_desc">Userspace USB block device implementation</string>
+    <string name="libusb_license_desc">A cross-platform library to access USB devices</string>
     <string name="libaums_wrapper_license_desc">A little shim to make libaums work better with EtchDroid</string>
     <string name="license_gpl2" translatable="false">GNU GPLv2</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom BSD-like</string>
