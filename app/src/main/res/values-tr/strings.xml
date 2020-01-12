@@ -99,7 +99,8 @@
     <string name="operation_failed_because">İşlem aşağıdaki hatadan dolayı tamamlanamadı:</string>
     <string name="troubleshoot_sock_op_on_non_sock">Bu yaygın bir hatadır. genellikle yazma sırasında USB belleğin çıkarılması, yada bir USB çoklayıcı kullanarak bağlanması ile oluşur. Bazı cihazlarda bu bir Android USB altsistemi hatası olabilir: çoğu zaman cihaz yeniden başlatıldığında çözülebilir. \n\nBunları deneyin:\n• USB aygıtınızı çıkarıp takın, sonra uygulamayı yeniden başlatın.\n• Cihazınızı yeniden başlatın. (evet, deneyin.)\n• Başka bir USB aygıtı deneyin.\n• Gereksiz adaptörler, çoklayıcılar vb. kullanmaktan kaçının.\n• YAzma sırasında cihazınızı kullanmaktan kaçının.\n• Hasarlı OTG kablonuzu değiştirin.\n\nEğer sorununuz çözülmüyorsa GitHub üzerinden sorun bildirimi yapın.</string>
     <string name="reporting_issues">Sorun bildirimi</string>
-    <string name="reporting_issues_text">Sorunlar GitHub üzerinden bildirilebilir:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Sorunlar GitHub üzerinden bildirilebilir:
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Yazma başarısız</string>
     <string name="unknown_error">Bilinmeyen hata. USB aygıtınızı çıkarıp tekrar takın veya cihazınızı yeniden başlatın. Lütfen GitHub üzerinden bir sorun bildirimi oluşturun.</string>
     <string name="uncompressed">(sıkıştırılmamış)</string>
@@ -132,4 +133,7 @@
     <string name="write_x_to_y">%1$s\'i %2$s\'e yaz</string>
     <string name="i2o_action_name">Verileri %1$s\'den %2$s\'e kopyala</string>
     <string name="step_x_of_y">Adım %1$d / %2$d</string>
+    <string name="libusb_license_desc">USB aygıtlarına erişmek için çapraz platform bir kütüphane</string>
+    <string name="broken_usb_text">Android, USB sürücünüzle ilgili bir sorun olduğunu veya EtchDroid kullandıktan sonra desteklenmediğini söylüyorsa, bunu okuyun.</string>
+    <string name="broken_usb_title">Desteklenmeyen USB sürücüsü mü\?</string>
 </resources>
