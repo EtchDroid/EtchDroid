@@ -80,7 +80,7 @@ abstract class ActivityBase : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_main, menu)
 
         // Hide night mode menu on Android 10 as it causes weird issues
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             menu.findItem(R.id.action_nightmode).isVisible = false
         }
 
