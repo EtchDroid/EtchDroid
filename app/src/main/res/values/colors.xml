@@ -6,4 +6,5 @@
     <color name="info">#999999</color>
     <color name="name">#222222</color>
     <color name="background">#F4F4F6</color>
+    <color name="brokenUsbCardBackground">#f1f8e9</color>
 </resources>

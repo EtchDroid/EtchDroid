@@ -39,6 +39,7 @@ class StartActivity : ActivityBase() {
         setContentView(R.layout.activity_start)
         btn_image_raw.setOnClickListener(this::onButtonClicked)
         btn_image_dmg.setOnClickListener(this::onButtonClicked)
+        btn_broken_usb.setOnClickListener(this::onButtonClicked)
 
         if (!StateKeeper.libusbRegistered) {
             UsbCommunicationFactory.apply {
@@ -51,12 +52,22 @@ class StartActivity : ActivityBase() {
 
     fun onButtonClicked(view: View) = onButtonClicked(view, true)
 
+    private fun openBrokenUsbPage() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://etchdroid.depau.eu/broken_usb/"))
+        startActivity(intent)
+    }
+
     private fun onButtonClicked(view: View?, showDMGDialog: Boolean = true, showAndroidPieDialog: Boolean = true) {
-        if (view != null)
+        if (view != null) {
+            if (view.id == R.id.btn_broken_usb) {
+                openBrokenUsbPage()
+                return
+            }
+
             StateKeeper.flashMethod = when (view.id) {
                 R.id.btn_image_raw -> FlashMethod.FLASH_API
                 R.id.btn_image_dmg -> FlashMethod.FLASH_DMG_API
-                else -> null
+                else               -> null
             }
 
 //        if (showAndroidPieDialog && shouldShowAndroidPieAlertDialog) {
@@ -64,12 +75,13 @@ class StartActivity : ActivityBase() {
 //            return
 //        }
 
-        if (showDMGDialog && shouldShowDMGAlertDialog && StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API) {
-            showDMGBetaAlertDialog { onButtonClicked(view, false, showAndroidPieDialog) }
-            return
-        }
+            if (showDMGDialog && shouldShowDMGAlertDialog && StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API) {
+                showDMGBetaAlertDialog { onButtonClicked(view, false, showAndroidPieDialog) }
+                return
+            }
 
-        showFilePicker()
+            showFilePicker()
+        }
     }
 
     fun showDMGBetaAlertDialog(callback: () -> Unit) {
