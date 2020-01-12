@@ -85,7 +85,7 @@ class StartActivity : ActivityBase() {
     }
 
     fun showDMGBetaAlertDialog(callback: () -> Unit) {
-        val dialogFragment = DoNotShowAgainDialogFragment(nightModeHelper.nightMode)
+        val dialogFragment = DoNotShowAgainDialogFragment(isNightMode)
         dialogFragment.title = getString(R.string.here_be_dragons)
         dialogFragment.message = getString(R.string.dmg_alert_dialog_text)
         dialogFragment.positiveButton = getString(R.string.i_understand)

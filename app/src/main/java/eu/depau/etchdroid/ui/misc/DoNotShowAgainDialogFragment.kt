@@ -21,7 +21,7 @@ class DoNotShowAgainDialogFragment(nightMode: Boolean) : DialogFragment() {
     constructor() : this(false)
 
     init {
-        setStyle(DialogFragment.STYLE_NORMAL, dialogTheme)
+        setStyle(STYLE_NORMAL, dialogTheme)
     }
 
     interface DialogListener {

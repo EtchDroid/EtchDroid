@@ -43,7 +43,7 @@ class ConfirmationActivity : ActivityBase() {
 
 
     fun showDataLossAlertDialog() {
-        val dialogFragment = DoNotShowAgainDialogFragment(nightModeHelper.nightMode)
+        val dialogFragment = DoNotShowAgainDialogFragment(isNightMode)
         dialogFragment.title = getString(R.string.warning)
         dialogFragment.message = getString(R.string.dataloss_confirmation_dialog_message)
         dialogFragment.positiveButton = getString(R.string.confirm_flash_image)

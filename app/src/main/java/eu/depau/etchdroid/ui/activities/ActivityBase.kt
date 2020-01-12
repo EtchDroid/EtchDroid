@@ -3,6 +3,7 @@ package eu.depau.etchdroid.ui.activities
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -19,7 +20,7 @@ import me.jfenn.attribouter.Attribouter
 
 
 abstract class ActivityBase : AppCompatActivity() {
-    protected lateinit var nightModeHelper: NightModeHelper
+    protected var nightModeHelper: NightModeHelper? = null
     val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
     val READ_REQUEST_CODE = 42
     val READ_EXTERNAL_STORAGE_PERMISSION = 29
@@ -38,8 +39,11 @@ abstract class ActivityBase : AppCompatActivity() {
             editor.apply()
         }
 
+    internal val isNightMode: Boolean
+        get() = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_YES != 0
+
     fun showAndroidPieAlertDialog(callback: () -> Unit) {
-        val dialogFragment = DoNotShowAgainDialogFragment(nightModeHelper.nightMode)
+        val dialogFragment = DoNotShowAgainDialogFragment(isNightMode)
         dialogFragment.title = getString(R.string.android_pie_bug)
         dialogFragment.message = getString(R.string.android_pie_bug_dialog_text)
         dialogFragment.positiveButton = getString(R.string.i_understand)
@@ -72,7 +76,10 @@ abstract class ActivityBase : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        nightModeHelper = NightModeHelper(this, R.style.AppTheme)
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+            nightModeHelper = NightModeHelper(this, R.style.AppTheme)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -108,7 +115,7 @@ abstract class ActivityBase : AppCompatActivity() {
                 return true
             }
             R.id.action_nightmode -> {
-                nightModeHelper.toggle()
+                nightModeHelper?.toggle()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
