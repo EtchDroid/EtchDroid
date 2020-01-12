@@ -59,10 +59,10 @@ class StartActivity : ActivityBase() {
                 else -> null
             }
 
-        if (showAndroidPieDialog && shouldShowAndroidPieAlertDialog) {
-            showAndroidPieAlertDialog { onButtonClicked(view, showDMGDialog, false) }
-            return
-        }
+//        if (showAndroidPieDialog && shouldShowAndroidPieAlertDialog) {
+//            showAndroidPieAlertDialog { onButtonClicked(view, showDMGDialog, false) }
+//            return
+//        }
 
         if (showDMGDialog && shouldShowDMGAlertDialog && StateKeeper.flashMethod == FlashMethod.FLASH_DMG_API) {
             showDMGBetaAlertDialog { onButtonClicked(view, false, showAndroidPieDialog) }

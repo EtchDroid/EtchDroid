@@ -11,10 +11,6 @@ class ErrorActivity : ActivityBase() {
         setContentView(R.layout.activity_error)
         val msg = intent.getStringExtra("error")
         error_message.text = msg
-
-        if ("bulk only mass storage reset" in msg)
-            troubleshooting_info.text = getString(R.string.troubleshoot_sock_op_on_non_sock)
-        else
-            troubleshooting_info.text = getString(R.string.unknown_error)
+        troubleshooting_info.text = getString(R.string.unknown_error)
     }
 }
