@@ -8,11 +8,13 @@ import android.os.Environment
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.codekidlabs.storagechooser.StorageChooser
+import com.github.mjdev.libaums.usb.UsbCommunicationFactory
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.utils.enums.FlashMethod
 import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
+import eu.depau.etchdroid.utils.enums.FlashMethod
 import kotlinx.android.synthetic.main.activity_start.*
+import me.jahnen.libaums.libusbcommunication.LibusbCommunicationCreator
 import java.io.File
 
 
@@ -37,6 +39,14 @@ class StartActivity : ActivityBase() {
         setContentView(R.layout.activity_start)
         btn_image_raw.setOnClickListener(this::onButtonClicked)
         btn_image_dmg.setOnClickListener(this::onButtonClicked)
+
+        if (!StateKeeper.libusbRegistered) {
+            UsbCommunicationFactory.apply {
+                registerCommunication(LibusbCommunicationCreator())
+                underlyingUsbCommunication = UsbCommunicationFactory.UnderlyingUsbCommunication.OTHER
+            }
+            StateKeeper.libusbRegistered = true
+        }
     }
 
     fun onButtonClicked(view: View) = onButtonClicked(view, true)

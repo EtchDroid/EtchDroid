@@ -57,9 +57,8 @@ dependencies {
     implementation 'com.google.guava:guava:27.0.1-android'
     api 'com.github.codekidX:storage-chooser:2.0.4.2'
 
-//    implementation project(':libaums')
-//    api 'com.github.magnusja:libaums:v0.7.0'
-    api 'com.github.EtchDroid:libaums_wrapper:feature~bulk-only-reset-SNAPSHOT'
+    api 'com.github.EtchDroid:libaums_wrapper:v1.1'
+    api 'me.jahnen:libaums-libusbcommunication:0.1'
 
     implementation project(':dmg2img')
 

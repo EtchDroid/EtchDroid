@@ -10,6 +10,6 @@ object StateKeeper {
     var flashMethod: FlashMethod? = null
     var imageFile: Uri? = null
     var imageRepr: Image? = null
-
     var usbDevice: UsbDevice? = null
+    var libusbRegistered: Boolean = false
 }
