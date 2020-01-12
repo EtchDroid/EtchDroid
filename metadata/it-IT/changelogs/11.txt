@@ -1,0 +1,2 @@
+- EtchDroid ora utilizza libusb dietro le quinte. Ciò dovrebbe portare maggiore stabilità.
+- Opzione modalità scura disattivata su Android Pie e più recenti. Fatemi sapere se lo volete nuovamente.

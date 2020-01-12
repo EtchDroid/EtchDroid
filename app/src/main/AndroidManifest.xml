@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".activities.StartActivity"
+            android:name="eu.depau.etchdroid.ui.activities.StartActivity"
             android:label="@string/app_name"
             android:theme="@style/MaterialAppTheme">
             <intent-filter>
@@ -31,14 +31,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.UsbDrivePickerActivity"
+            android:name="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity"
             android:label="@string/title_activity_usb_drive_picker"
-            android:parentActivityName=".activities.StartActivity"
+            android:parentActivityName="eu.depau.etchdroid.ui.activities.StartActivity"
             android:theme="@style/MaterialAppTheme">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eu.depau.etchdroid.activities.StartActivity"/>
+                android:value="eu.depau.etchdroid.ui.activities.StartActivity"/>
 
             <!-- Open ISO files by mimetype -->
             <intent-filter android:label="@string/app_name">
@@ -126,17 +126,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.ConfirmationActivity"
+            android:name="eu.depau.etchdroid.ui.activities.ConfirmationActivity"
             android:label="@string/title_activity_confirmation"
-            android:parentActivityName=".activities.UsbDrivePickerActivity"
+            android:parentActivityName="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity"
             android:theme="@style/MaterialAppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eu.depau.etchdroid.activities.UsbDrivePickerActivity"/>
+                android:value="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity"/>
         </activity>
 
         <activity
-            android:name=".activities.ErrorActivity"
+            android:name="eu.depau.etchdroid.ui.activities.ErrorActivity"
             android:excludeFromRecents="true"
             android:label="@string/write_failed"
             android:launchMode="singleTask"
@@ -151,6 +151,12 @@
             android:name=".services.UsbApiDmgWriteService"
             android:exported="false"/>
 
-    </application>
+        <!--suppress AndroidDomInspection -->
+        <provider
+            android:name="com.github.mjdev.libaums.storageprovider.UsbDocumentProvider"
+            android:exported="false"
+            tools:node="remove">
+        </provider>
 
+    </application>
 </manifest>

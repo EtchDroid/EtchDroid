@@ -10,7 +10,7 @@
     android:paddingBottom="@dimen/row_padding"
     android:orientation="vertical"
     android:theme="@style/CardContentStyle"
-    tools:context=".activities.ErrorActivity">
+    tools:context=".ui.activities.ErrorActivity">
 
     <TextView
         android:layout_width="match_parent"

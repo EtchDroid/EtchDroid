@@ -61,7 +61,7 @@
     <string name="storagechooser_license_description">Selector de archivos DMG</string>
     <string name="result_channel_desc">Se utiliza para visualizar el resultado de una operación de escritura finalizada</string>
     <string name="result_channel_name">Notificaciones de resultados de escritura USB</string>
-    <string name="write_failed_tap_for_info">Escritura fallida • Toque para obtener información</string>
+    <string name="failed_tap_for_info">Escritura fallida • Toque para obtener información</string>
     <string name="write_finished">Escritura finalizada</string>
     <string name="error_notif_content_text">Es posible que se haya desconectado %1$s mientras escribía.</string>
     <string name="success_notif_content_text">%1$s escrito con éxito a %2$s</string>

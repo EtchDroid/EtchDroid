@@ -5,10 +5,10 @@ import android.net.Uri
 import com.google.common.util.concurrent.SimpleTimeLimiter
 import com.google.common.util.concurrent.TimeLimiter
 import com.google.common.util.concurrent.UncheckedTimeoutException
-import eu.depau.etchdroid.kotlin_exts.getBinary
-import eu.depau.etchdroid.kotlin_exts.getFileName
-import eu.depau.etchdroid.kotlin_exts.getFileSize
-import eu.depau.etchdroid.kotlin_exts.name
+import eu.depau.etchdroid.utils.ktexts.getBinary
+import eu.depau.etchdroid.utils.ktexts.getFileName
+import eu.depau.etchdroid.utils.ktexts.getFileSize
+import eu.depau.etchdroid.utils.ktexts.name
 import java.io.BufferedReader
 import java.io.InputStream
 import java.util.concurrent.Executors

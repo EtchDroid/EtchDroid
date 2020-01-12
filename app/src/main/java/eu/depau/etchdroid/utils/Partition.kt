@@ -1,7 +1,7 @@
 package eu.depau.etchdroid.utils
 
-import eu.depau.etchdroid.enums.FilesystemType
-import eu.depau.etchdroid.enums.PartitionType
+import eu.depau.etchdroid.utils.enums.FilesystemType
+import eu.depau.etchdroid.utils.enums.PartitionType
 
 data class Partition(
         val number: Int?,

@@ -91,7 +91,7 @@
     <string name="storagechooser_license_description">Selettore file DMG</string>
     <string name="result_channel_desc">Utilizzato per mostrare il risultato di un\'operazione di scrittura terminata</string>
     <string name="result_channel_name">Risultati scrittura USB</string>
-    <string name="write_failed_tap_for_info">Scrittura fallita • Tocca per i dettagli</string>
+    <string name="failed_tap_for_info">Scrittura fallita • Tocca per i dettagli</string>
     <string name="write_finished">Scrittura terminata</string>
     <string name="error_notif_content_text">%1$s potrebbe essere stato rimosso durante la scrittura.</string>
     <string name="success_notif_content_text">%1$s scritto con successo su %2$s</string>
@@ -133,4 +133,11 @@
     <string name="notif_channel_job_result_name">Risultato</string>
     <string name="notif_channel_job_progress_name">Progressi</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Mostra il progresso dell\'azione corrente</string>
+    <string name="broken_usb_title">Dispositivo USB non supportato?</string>
+    <string name="broken_usb_text">Se Android dice che c\'è un problema con il dispositivo USB o che non è supportato dopo aver usato EtchDroid, leggi questa pagina.</string>
+    <string name="write_x_to_y">Scrivi %1$s su %2$s</string>
+    <string name="i2o_action_name">Copia dati da %1$s a %2$s</string>
+    <string name="job_failed">Lavoro fallito.</string>
+    <string name="file_unknown">(sconosciuto)</string>
+    <string name="step_x_of_y">Passaggio %1$d di %2$d</string>
 </resources>

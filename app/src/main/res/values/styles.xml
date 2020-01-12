@@ -6,19 +6,31 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="coordinatorLayoutStyle">@style/Widget.Support.CoordinatorLayout</item>
         <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
+        <item name="alertDialogTheme">@style/DialogThemeLight</item>
     </style>
 
     <style name="DarkThemeOverlay" parent="DarkThemeOverlayBase"/>
 
     <style name="CardContentStyle" parent="CardContentStyleBase"/>
 
-    <style name="DialogThemeDark" parent="Theme.MaterialComponents.Dialog">
+    <style name="DialogThemeDark" parent="Theme.MaterialComponents.DayNight.Dialog">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
+
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">#fff</item>
     </style>
 
     <style name="DialogThemeLight" parent="Theme.MaterialComponents.Light.Dialog">
