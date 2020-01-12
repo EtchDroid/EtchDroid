@@ -1,0 +1,2 @@
+- EtchDroid now uses libusb under the hood. This should bring much improved stability
+- Night mode toggle disabled on Pie or newer as it would cause issues to many people. Please let me know if you want it back.
