@@ -33,13 +33,14 @@ You can use it to make a bootable GNU/Linux USB drive when your laptop is dead a
 
 ## Screenshots
 
-<img
-src="metadata/en-US/images/phoneScreenshots/0.png" width="100" height="178"> <img
-src="metadata/en-US/images/phoneScreenshots/2.png" width="100" height="178"> <img
-src="metadata/en-US/images/phoneScreenshots/3.png" width="100" height="178"> <img
-src="metadata/en-US/images/phoneScreenshots/4.png" width="100" height="178"> <img
-src="metadata/en-US/images/phoneScreenshots/5.png" width="100" height="178"> <img
-src="metadata/en-US/images/phoneScreenshots/6.png" width="100" height="178">
+<!-- Exact dimensions are specified to avoid the images jumping as they load -->
+<!-- The "force inline" comment ensures the images stay inline, the fact that it's needed might be a GFM bug -->
+<img src="metadata/en-US/images/phoneScreenshots/0.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/2.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/3.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/4.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/5.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/6.png" width="100" height="178"> <!-- Force inline -->
 
 ## Support the project
 
