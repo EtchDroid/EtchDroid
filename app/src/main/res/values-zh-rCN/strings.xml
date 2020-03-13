@@ -164,7 +164,7 @@
   <string name="file_unknown">(未知)</string>
   <string name="write_x_to_y">写入 %1$s 到 %2$s</string>
   <string name="i2o_action_name">"从\"%1$s\" 复制数据到 \"%2$s"</string>
-  <string name="broken_usb_text">如果Android提示您的USB有问题有问题或EtchDroid不支持它，请阅读此内容。（暂无中文翻译）</string>
-  <string name="broken_usb_title">你的USB设备不支持？</string>
+  <string name="broken_usb_text">如果Android提示您的USB有问题或写入镜像后出了问题，请阅读此内容。（暂无中文）</string>
+  <string name="broken_usb_title">USB设备有毛病？</string>
   <string name="step_x_of_y">第 %1$d 步 共 %2$d 步</string>
 </resources>
