@@ -1,2 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="flash_dmg_api">Восстановление образа macOS DMG на диск (с помощью Android API)</string>
+    <string name="here_be_dragons">Здесь будут драконы</string>
+    <string name="step_x_of_y">Шаг %1$d из %2$d</string>
+    <string name="broken_usb_title">Неподдерживаемый USB-накопитель\?</string>
+    <string name="broken_usb_text">Если Android говорит, что есть проблема с вашим USB-накопителем или что он не поддерживается после использования EtchDroid, прочитайте это.</string>
+    <string name="i2o_action_name">Скопируйте данные с %1$s на %2$s</string>
+    <string name="write_x_to_y">Запись %1$s на %2$ов</string>
+    <string name="file_unknown">(неизвестно)</string>
+    <string name="job_failed">Задание не выполнено.</string>
+    <string name="done">Готово!</string>
+    <string name="resuming_job">Возобновление работы с контрольной точки…</string>
+    <string name="starting_job">Начало работы…</string>
+    <string name="notif_starting_job">Начало работы…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Используется для демонстрации завершенного результата работы</string>
+    <string name="notif_channel_job_result_name">Результат работы</string>
+    <string name="notif_channel_job_progress_name">Ход работы</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Используется для выполнения текущего задания</string>
+    <string name="buy_me_a_coffee">Купи мне кофе</string>
+    <string name="app_desc">Приложение для записи образов ОС на USB-накопители, на Android, не требуется root.</string>
+    <string name="library_Material_libraryDescription">Делайте красивые продукты, быстрее. Материал - это система проектирования, подкрепленная открытым исходным кодом, которая помогает командам создавать цифровой опыт</string>
+    <string name="library_KotlinStdlib_libraryDescription">Стандартная библиотека Kotlin предоставляет предметы первой необходимости для повседневной работы с Kotlin</string>
+    <string name="library_KotlinStdlib_libraryName">Стандартная библиотека Kotlin</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX является основным усовершенствованием оригинальной библиотеки поддержки Android и обеспечивает обратную совместимость по всем выпускам Android</string>
+    <string name="storage_permission_required">Для чтения образов DMG требуется разрешение на хранение</string>
+    <string name="cannot_find_file_in_storage">Не удается найти файл во внутреннем хранилище. Попробуйте открыть его из приложения.</string>
+    <string name="file_type_not_supported">Тип файла не поддерживается</string>
+    <string name="warnings_reset">Все предупреждения восстанавливается</string>
+    <string name="reset_warnings">Сбросить все предупреждения</string>
+    <string name="android_pie_bug_dialog_text">Есть ошибка на Android 9, которая приводит к ошибке некоторых записей.
+\nЕсли написано \"Запись не удалась\", перезагрузите устройство и попробуйте еще раз.</string>
+    <string name="android_pie_bug">Android Pie ошибка</string>
+    <string name="nightmode_night">Отключить ночной режим</string>
+    <string name="nightmode">Включить ночной режим</string>
+    <string name="uncompressed">(несжатый)</string>
+    <string name="unknown_error">Неизвестная ошибка. Попробуйте подключить USB-накопитель заново или перезагрузить устройство. Пожалуйста, зарегистрируйте проблему на GitHub.</string>
+    <string name="write_failed">Запись не удалось</string>
+    <string name="reporting_issues_text">О проблемах можно сообщить на GitHub:
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues">Сообщить о неполадках</string>
+    <string name="operation_failed_because">Операция не могла быть завершена, так как произошла следующая ошибка:</string>
+    <string name="troubleshooting_info">Сведения об устранении неполадок</string>
+    <string name="success_notif_content_text">%1$s успешно записано на %2$s</string>
+    <string name="error_notif_content_text">% 1 может быть удален при написании.</string>
+    <string name="write_finished">Запись завершена</string>
+    <string name="failed_tap_for_info">Не удалось - Нажмите для информации</string>
+    <string name="result_channel_name">Уведомления о результатах записи USB</string>
+    <string name="result_channel_desc">Используется для отображения результата завершенной операции записи</string>
+    <string name="storagechooser_license_description">Выбор файла DMG</string>
+    <string name="cancel">Отмена</string>
+    <string name="warning">Внимание</string>
+    <string name="dataloss_confirmation_dialog_message">"Если продолжить, выбранный образ будет записан  и сохран на диске USB все данные будут утеряны навсегда!"</string>
+    <string name="confirm_flash_image">Установить образ</string>
+    <string name="dmg_alert_dialog_text">Хотя в большинстве случаев DMG-образы могут быть восстановлены просто отлично, иногда могут возникать несоответствия. Это предупреждение.</string>
+    <string name="i_understand">Я понимаю</string>
+    <string name="do_not_show_again">Не показывать снова</string>
+    <string name="no_usb_drives_detected">"Не обнаружены USB-накопители... 
+\nОбратите внимание, что вам потребуется SD-карта с  USB-адаптером для записи на SD-карты."</string>
+    <string name="dmg_image_desc">Восстановление образа, созданного с помощью утилиты macOS Disk Utility</string>
+    <string name="write_apple_dmg">Запись образа Apple® DMG</string>
+    <string name="raw_image_desc">Хорошо подходит для ISO-образов дистрибутивов GNU/Linux, образов Raspberry Pi и образов дисков, созданных под Windows или Linux.</string>
+    <string name="write_image_or_iso">Запись необработанного образа или ISO</string>
+    <string name="could_not_access_usb_error">Не удалось получить доступ к USB-устройству. Может быть, вы запустили приложение раньше, и оно вылетело с ошибкой\? Извлеките и снова вставьте USB-накопитель,а затем перезагрузите приложение.</string>
+    <string name="partition_table_title">Таблица разделов:</string>
+    <string name="check_notification_progress">Уведомление о прогрессе</string>
+    <string name="cannot_write">Не удается записать образ на USB-диск</string>
+    <string name="title_activity_confirmation">Готов написать</string>
+    <string name="title_activity_usb_drive_picker">Выберите USB-накопитель</string>
+    <string name="dmg2img_license_desc">Преобразует сжатые изображения Apple® DMG</string>
+    <string name="about">О</string>
+    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Пользовательские</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Пользовательские BSD-подобные</string>
+    <string name="libaums_wrapper_license_desc">Немного шима, чтобы сделать libaums работать лучше с EtchDroid</string>
+    <string name="libusb_license_desc">Кросс-платформная библиотека для доступа к USB-устройствам</string>
+    <string name="libaums_license_desc">Инструменты реализации устройства USB блок</string>
+    <string name="this_app">Это приложение</string>
+    <string name="part_size">Размер</string>
+    <string name="fs_type">Тип</string>
+    <string name="fs_label">Метка</string>
+    <string name="part_label">Имя</string>
+    <string name="fs_unknown">Неизвестный</string>
+    <string name="fs_unformatted">Неформатированный</string>
+    <string name="fs_free">Свободное место</string>
+    <string name="fs_linux_lvm_pv">Физический объем Linux LVM2</string>
+    <string name="fs_linux_swap">Раздел подкачки Linux</string>
+    <string name="fs_luks">LUKS зашифровано</string>
+    <string name="fs_apt_data">Данные APT</string>
+    <string name="ptt_mac">Таблица раздела Apple (APT)</string>
+    <string name="ptt_loop">Нет</string>
+    <string name="ptt_gpt">Таблица разделов GUID (GPT)</string>
+    <string name="image_is_not_dmg">Выбранный образ не является DMG-образом (возможно, оно повреждено)</string>
+    <string name="notif_writing_img">Запись образа…</string>
+    <string name="notif_initializing">Инициализация…</string>
+    <string name="notchan_writestatus_desc">Используется для отображения состояния образов, записываемых на USB-накопители</string>
+    <string name="notchan_writestatus_title">Состояние записи USB</string>
+    <string name="tap_next_to_write">Нажмите запись, чтобы записать изображение на USB-накопитель</string>
+    <string name="cant_read_usbdev">Не удается прочитать USB-устройство</string>
+    <string name="image_bigger_than_usb">Образ больше, чем USB-накопитель, поэтому его нельзя записать</string>
+    <string name="unknown_filename">Неизвестное имя файла</string>
+    <string name="selected_usbdev">Выбранное USB устройство:</string>
+    <string name="selected_method">Выбранный способ записи:</string>
+    <string name="selected_image">Выбранный образ:</string>
+    <string name="usb_perm_denied_noname">Отказано в разрешении для USB-устройства</string>
+    <string name="usb_perm_denied">Отказано в разрешении на</string>
+    <string name="action_refresh">Обновить</string>
+    <string name="flash_woeusb">Записать образ Windows (используя WoeUSB, Требуется root)</string>
+    <string name="flash_unetbootin">Стиль Unetbootin (только MBR, требуется root)</string>
+    <string name="flash_dd_usb_api">Запись образа непосредственно на диск (с помощью Android API)</string>
+</resources>
