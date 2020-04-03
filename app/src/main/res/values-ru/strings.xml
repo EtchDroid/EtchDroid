@@ -50,13 +50,13 @@
     <string name="storagechooser_license_description">Выбор файла DMG</string>
     <string name="cancel">Отмена</string>
     <string name="warning">Внимание</string>
-    <string name="dataloss_confirmation_dialog_message">"Если продолжить, выбранный образ будет записан  и сохран на диске USB все данные будут утеряны навсегда!"</string>
+    <string name="dataloss_confirmation_dialog_message">Если продолжить, выбранный образ будет записан и сохран на диске USB все данные будут утеряны навсегда!</string>
     <string name="confirm_flash_image">Установить образ</string>
     <string name="dmg_alert_dialog_text">Хотя в большинстве случаев DMG-образы могут быть восстановлены просто отлично, иногда могут возникать несоответствия. Это предупреждение.</string>
     <string name="i_understand">Я понимаю</string>
     <string name="do_not_show_again">Не показывать снова</string>
-    <string name="no_usb_drives_detected">"Не обнаружены USB-накопители... 
-\nОбратите внимание, что вам потребуется SD-карта с  USB-адаптером для записи на SD-карты."</string>
+    <string name="no_usb_drives_detected">Не обнаружены USB-накопители…
+\nОбратите внимание, что вам потребуется SD-карта с USB-адаптером для записи на SD-карты.</string>
     <string name="dmg_image_desc">Восстановление образа, созданного с помощью утилиты macOS Disk Utility</string>
     <string name="write_apple_dmg">Запись образа Apple® DMG</string>
     <string name="raw_image_desc">Хорошо подходит для ISO-образов дистрибутивов GNU/Linux, образов Raspberry Pi и образов дисков, созданных под Windows или Linux.</string>
