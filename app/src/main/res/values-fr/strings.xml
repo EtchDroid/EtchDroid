@@ -73,7 +73,7 @@
     <string name="cannot_write">Impossible d\'écrire l\'image sur le disque USB</string>
     <string name="check_notification_progress">Voir la notification pour suivre l\'état d\'avancement</string>
     <string name="partition_table_title">Table de partitions :</string>
-    <string name="could_not_access_usb_error">Impossible d\'accéder au périphérique USB. Peut-être que l\'application a planté la dernière fois\? Débranchez puis rebranchez le disque USB, puis redémarrez l\'application.</string>
+    <string name="could_not_access_usb_error">Impossible d\'accéder au périphérique USB. Peut-être que l\'application a planté la dernière fois \? Débranchez puis rebranchez la clé USB, puis redémarrez l\'application.</string>
     <string name="write_image_or_iso">Écrire une image brute ou ISO</string>
     <string name="raw_image_desc">Pour les ISOs des distibutions GNU/Linux, les images Raspberry Pi, et les images disque créées sur Windows ou Linux.</string>
     <string name="write_apple_dmg">Écrire une image DMG Apple®</string>
@@ -85,7 +85,7 @@
     <string name="i_understand">Je comprends</string>
     <string name="dmg_alert_dialog_text">Alors que dans la plupart des cas les images DMG peuvent être restaurées sans aucun problème, il peut parfois y avoir des incohérences. C\'est un avertissement.</string>
     <string name="confirm_flash_image">Flasher l\'image</string>
-    <string name="dataloss_confirmation_dialog_message">Si vous continuez, l\'image sélectionnée sera écrite et toutes les données stockées sur la clé USB seront perdues à jamais.</string>
+    <string name="dataloss_confirmation_dialog_message">Si vous continuez, l\'image sélectionnée sera écrite et toutes les données stockées sur la clé USB seront perdues à jamais !</string>
     <string name="warning">Avertissement</string>
     <string name="cancel">Annuler</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
@@ -110,8 +110,8 @@
 \n
 \nSi le problème persiste, merci d\'ouvrir un ticket sur GitHub.</string>
     <string name="reporting_issues">Rapporter des erreurs</string>
-    <string name="reporting_issues_text">Les erreurs peuvent être rapportés sur GitHub :
-\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Les erreurs peuvent être rapportés sur GitHub : 
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Écriture échouée</string>
     <string name="unknown_error">Erreur inconnue. Essayez de rebrancher la clé USB ou de redémarrer l\'appareil. Veuillez ouvrir un ticket sur GitHub.</string>
     <string name="uncompressed">(non compressé)</string>
@@ -133,7 +133,7 @@
     <string name="library_KotlinStdlib_author">JetBrains</string>
     <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
+    <string name="library_KotlinStdlib_libraryDescription">La bibliothèque standard de Kotlin fournit les éléments essentiels pour le travail quotidien avec Kotlin</string>
     <string name="library_KotlinStdlib_libraryWebsite">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
     <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
     <string name="library_KotlinStdlib_isOpenSource">true</string>
@@ -142,7 +142,7 @@
     <string name="library_Material_author">Google</string>
     <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
-    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
+    <string name="library_Material_libraryDescription">Fabriquez de beaux produits, plus rapidement. Le matériel est un système de conception – soutenu par un code open-source – qui aide les équipes à construire des expériences numériques</string>
     <string name="library_Material_libraryWebsite">https://material.io/develop/android/</string>
     <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
     <string name="library_Material_isOpenSource">true</string>
@@ -153,4 +153,18 @@
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Pour afficher la progression de la tâche courante</string>
     <string name="notif_channel_job_progress_name">Progression de la tâche</string>
     <string name="notif_channel_job_result_name">Résultat de la tâche</string>
+    <string name="step_x_of_y">Étape %1$d sur %2$d</string>
+    <string name="broken_usb_title">Clé USB non prise en charge \?</string>
+    <string name="broken_usb_text">Si Android dit qu\'il y a un problème avec votre clé USB ou qu\'elle n\'est pas pris en charge après avoir utilisé EtchDroid, lisez ceci.</string>
+    <string name="i2o_action_name">Copier les données depuis %1$s vers %2$s</string>
+    <string name="write_x_to_y">Écrire %1$s vers %2$s</string>
+    <string name="file_unknown">(inconnu)</string>
+    <string name="job_failed">Échec de la tâche.</string>
+    <string name="done">Terminé !</string>
+    <string name="resuming_job">Reprise depuis le point de contrôle…</string>
+    <string name="starting_job">Début de la tâche…</string>
+    <string name="notif_starting_job">Début de la tâche…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Utilisé pour montrer le résultat d’une tâche terminée</string>
+    <string name="libaums_wrapper_license_desc">Une petite cale pour améliorer le fonctionnement de libaums avec EtchDroid</string>
+    <string name="libusb_license_desc">Une bibliothèque multiplateforme pour accéder aux périphériques USB</string>
 </resources>
