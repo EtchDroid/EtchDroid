@@ -80,7 +80,7 @@
 \nSe o problema persistir, registre um relatório de problema no GitHub.</string>
     <string name="reporting_issues">Relatando problemas</string>
     <string name="reporting_issues_text">Problemas podem ser relatados no GitHub:
-\nhttps://github.com/Depau/EtchDroid/issues</string>
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Falha na gravação</string>
     <string name="unknown_error">Erro desconhecido. Tente reconectar a unidade USB ou reinicialize o dispositivo. Por favor, preencha um relatório de erro no GitHub.</string>
     <string name="uncompressed">(não comprimido)</string>
@@ -115,4 +115,7 @@
     <string name="write_x_to_y">Escrita %1$s até %2$s</string>
     <string name="i2o_action_name">Copiar dados de %1$s para %2$s</string>
     <string name="step_x_of_y">Em %1$d de %2$d</string>
+    <string name="broken_usb_title">Unidade USB sem suporte\?</string>
+    <string name="broken_usb_text">Se o Android disser que há um problema com a sua unidade USB ou que não é suportado após o uso do EtchDroid, leia isso.</string>
+    <string name="libusb_license_desc">Uma biblioteca de plataforma cruzada para acessar dispositivos USB</string>
 </resources>
