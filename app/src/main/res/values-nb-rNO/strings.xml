@@ -67,8 +67,8 @@
     <string name="troubleshooting_info">Feilsøkingsinfo</string>
     <string name="operation_failed_because">Operasjonen kunne ikke fullføres som følge av denne feilen:</string>
     <string name="reporting_issues">Innrapportering av feil</string>
-    <string name="reporting_issues_text">Feil kan innrapporteres på GitHub:
-\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Feil kan innrapporteres på GitHub: 
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Skriving mislyktes</string>
     <string name="unknown_error">Ukjent feil. Prøv å plugge inn USB-disken igjen, eller start enheten på ny. Innrapporter en feil om dette på GitHub.</string>
     <string name="uncompressed">(ukomprimert)</string>
