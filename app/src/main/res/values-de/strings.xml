@@ -109,7 +109,8 @@
 \n
 \nWenn das Problem weiterhin auftritt, reiche bitte ein Issue auf GitHub ein.</string>
     <string name="reporting_issues">Probleme melden</string>
-    <string name="reporting_issues_text">Probleme können auf Github gemeldet werden:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Probleme können auf GitHub gemeldet werden:
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Schreiben fehlgeschlagen</string>
     <string name="unknown_error">Unbekannter Fehler. Versuche, den USB-Datenträger erneut anzuschließen oder starte das Gerät neu. Bitte reiche ein Issue auf GitHub ein.</string>
     <string name="uncompressed">(unkomprimiert)</string>
@@ -171,4 +172,7 @@
     <string name="notif_channel_job_progress_name">Aufgabenfortschritt</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Zeigt Fortschritt der aktuellen Aufgabe</string>
     <string name="libaums_wrapper_license_desc">Eine kleine Hilfe, damit libaums besser mit EtchDroid funktioniert</string>
+    <string name="libusb_license_desc">Eine plattformunabhängige Bibliothek um auf USB Geräte zuzugreifen</string>
+    <string name="broken_usb_text">Lesen Sie dies, wenn Android sagt, dass es ein Problem mit Ihrem USB-Laufwerk gibt oder dass es nach der Verwendung von EtchDroid nicht unterstützt wird.</string>
+    <string name="broken_usb_title">Nicht unterstütztes USB-Laufwerk\?</string>
 </resources>

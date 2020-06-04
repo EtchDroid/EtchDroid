@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="flash_dd_usb_api">Escribir imagen directamente al disco (usando la API de Android)</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flash_dd_usb_api">Escribir imagen directamente al disco (usando la API de Android)</string>
     <string name="flash_dmg_api">Restaurar imagen DMG de macOS al disco (utilizando la API de Android)</string>
     <string name="flash_unetbootin">Flash estilo Unetbootin (sólo MBR, requiere root)</string>
     <string name="flash_woeusb">Escribir imagen de Windows (usando WoeUSB, requiere root)</string>
@@ -79,8 +80,8 @@
 \n
 \nSi el problema persiste, por favor envíe un mensaje en GitHub.</string>
     <string name="reporting_issues">Reportando problemas</string>
-    <string name="reporting_issues_text">Los problemas pueden ser reportados en GitHub:
-\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Los problemas pueden ser reportados en GitHub: 
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Escritura fallida</string>
     <string name="unknown_error">Error desconocido. Intente volver a conectar la unidad USB o reiniciar el dispositivo. Por favor, envíe un mensaje a GitHub.</string>
     <string name="uncompressed">(sin comprimir)</string>
@@ -94,13 +95,26 @@
     <string name="file_type_not_supported">Tipo de archivo no soportado</string>
     <string name="cannot_find_file_in_storage">No se puede encontrar el archivo en el almacenamiento interno. Intenta abrirlo desde dentro de la aplicación.</string>
     <string name="storage_permission_required">Se requiere permiso de almacenamiento para leer las imágenes DMG</string>
-
-
     <string name="library_AndroidX_libraryDescription">AndroidX es una importante mejora de la biblioteca de asistencia técnica de Android original y ofrece compatibilidad con versiones anteriores en todas las versiones de Android</string>
     <string name="library_KotlinStdlib_libraryName">Biblioteca estándar de Kotlin</string>
     <string name="library_KotlinStdlib_libraryDescription">La biblioteca estándar de Kotlin proporciona elementos esenciales para el trabajo diario con Kotlin</string>
     <string name="library_Material_libraryDescription">Haga productos hermosos, más rápido. Material es un sistema de diseño, respaldado por código abierto, que ayuda a los equipos a construir experiencias digitales</string>
     <string name="app_desc">Una aplicación para escribir imágenes de sistema operativo a unidades USB, en Android, sin necesidad de root.</string>
     <string name="buy_me_a_coffee">Cómprame un café</string>
-
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Se utiliza para mostrar el progreso del trabajo actual</string>
+    <string name="notif_channel_job_progress_name">Progreso</string>
+    <string name="notif_channel_job_result_name">Resultado</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Se usa para mostrar el resultado de un trabajo terminado</string>
+    <string name="notif_starting_job">Empezando el trabajo…</string>
+    <string name="starting_job">Empezando el trabajo…</string>
+    <string name="resuming_job">Reanudando desde el punto de control…</string>
+    <string name="done">¡Hecho!</string>
+    <string name="job_failed">El trabajo falló.</string>
+    <string name="file_unknown">(desconocido)</string>
+    <string name="write_x_to_y">Escribir %1$s a %2$s</string>
+    <string name="i2o_action_name">Copiar datos de %1$s a %2%s</string>
+    <string name="step_x_of_y">Paso %1$d de %2$d</string>
+    <string name="libusb_license_desc">Una biblioteca multiplataforma para acceder a los dispositivos USB</string>
+    <string name="broken_usb_text">Si Android dice que hay un problema con su unidad USB o que no es compatible después de usar EtchDroid, lea esto.</string>
+    <string name="broken_usb_title">¿Unidad USB no compatible\?</string>
 </resources>

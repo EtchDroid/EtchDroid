@@ -36,7 +36,7 @@
     <string name="this_app">Esse aplicativo</string>
     <string name="libaums_license_desc">Implementação de espaço de usuário de dispositivo de bloco USB</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Tipo BSD</string>
-    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personal.</string>
+    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Customizado</string>
     <string name="about">Sobre</string>
     <string name="dmg2img_license_desc">Converte imagens compactadas Apple® DMG</string>
     <string name="title_activity_usb_drive_picker">Selecionar unidade USB</string>
@@ -56,7 +56,7 @@
     <string name="i_understand">Eu entendo</string>
     <string name="dmg_alert_dialog_text">Enquanto na maioria dos casos as imagens DMG podem ser restauradas sem problemas, às vezes pode haver inconsistências. Isso é um aviso.</string>
     <string name="confirm_flash_image">Instalar imagem</string>
-    <string name="dataloss_confirmation_dialog_message">Se você continuar, a imagem selecionada será gravada e todos os dados armazenados na unidade USB serão perdidos para sempre.</string>
+    <string name="dataloss_confirmation_dialog_message">Se você continuar, a imagem selecionada será gravada e todos os dados armazenados na unidade USB serão perdidos para sempre!</string>
     <string name="warning">Aviso</string>
     <string name="cancel">Cancelar</string>
     <string name="storagechooser_license_description">Seletor de arquivo DMG</string>
@@ -80,7 +80,7 @@
 \nSe o problema persistir, registre um relatório de problema no GitHub.</string>
     <string name="reporting_issues">Relatando problemas</string>
     <string name="reporting_issues_text">Problemas podem ser relatados no GitHub:
-\nhttps://github.com/Depau/EtchDroid/issues</string>
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Falha na gravação</string>
     <string name="unknown_error">Erro desconhecido. Tente reconectar a unidade USB ou reinicialize o dispositivo. Por favor, preencha um relatório de erro no GitHub.</string>
     <string name="uncompressed">(não comprimido)</string>
@@ -95,9 +95,27 @@
     <string name="cannot_find_file_in_storage">Não foi possível localizar o arquivo no armazenamento interno. Tente abri-lo por meio do aplicativo.</string>
     <string name="storage_permission_required">Permissão de armazenamento é necessária para ler imagens DMG</string>
     <string name="library_AndroidX_libraryDescription">AndroidX é uma grande melhoria à biblioteca original de suporte do Android e oferece compatibilidade com versões anteriores dos lançamentos do Android</string>
-    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
+    <string name="library_KotlinStdlib_libraryName">Livraria padrão do Kotlin</string>
     <string name="library_KotlinStdlib_libraryDescription">A Kotlin Standard Library fornece elementos essenciais para o trabalho cotidiano com Kotlin</string>
     <string name="library_Material_libraryDescription">Faça produtos bonitos, mais rápido. Material é um sistema de design - apoiado por código-fonte aberto - que ajuda as equipes a construir experiências digitais</string>
     <string name="app_desc">Um aplicativo para gravar imagens de SO em unidades USB, no Android, sem precisar de root.</string>
     <string name="buy_me_a_coffee">Me compre um café</string>
+    <string name="libaums_wrapper_license_desc">Um pequeno calço para fazer com que os libaums funcionem melhor com o EtchDroid</string>
+    <string name="failed_tap_for_info">Falha · Toque para info</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Usado para mostrar o progresso do trabalho atual</string>
+    <string name="notif_channel_job_progress_name">Progresso da operação</string>
+    <string name="notif_channel_job_result_name">Resultado da operação</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Usado para mostrar uma operação completa</string>
+    <string name="notif_starting_job">Iniciando operação…</string>
+    <string name="starting_job">Iniciando operação…</string>
+    <string name="resuming_job">Resumindo do ponto de controle…</string>
+    <string name="done">Pronto!</string>
+    <string name="job_failed">Operação falhou.</string>
+    <string name="file_unknown">(desconhecido)</string>
+    <string name="write_x_to_y">Escrita %1$s até %2$s</string>
+    <string name="i2o_action_name">Copiar dados de %1$s para %2$s</string>
+    <string name="step_x_of_y">Em %1$d de %2$d</string>
+    <string name="broken_usb_title">Unidade USB sem suporte\?</string>
+    <string name="broken_usb_text">Se o Android disser que há um problema com a sua unidade USB ou que não é suportado após o uso do EtchDroid, leia isso.</string>
+    <string name="libusb_license_desc">Uma biblioteca de plataforma cruzada para acessar dispositivos USB</string>
 </resources>
