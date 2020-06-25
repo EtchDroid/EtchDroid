@@ -9,7 +9,7 @@
     <string name="notif_channel_job_result_name">Rezultat de acțiune</string>
     <string name="notif_channel_job_progress_name">Acțiune progres</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Folosit pentru afișare progres la curent acțiune</string>
-    <string name="i_understand">Ințeles</string>
+    <string name="i_understand">Am înțeles</string>
     <string name="cannot_write">Nu poate scrie imaginul la disc USB</string>
     <string name="title_activity_confirmation">Gata pentru scriere</string>
     <string name="title_activity_usb_drive_picker">Selectează disc USB</string>
@@ -50,4 +50,49 @@
     <string name="fs_apt_data">Datele APT</string>
     <string name="ptt_mac">Tabel Partiții Apple (APT)</string>
     <string name="ptt_gpt">Tabel Partiții GUID (GPT)</string>
+    <string name="step_x_of_y">Pas %1$d de %2$d</string>
+    <string name="broken_usb_title">Unitatea USB nesuportat\?</string>
+    <string name="broken_usb_text">Dacă Android zice ca există o problemă cu unitate USB tău sau ca este nesuportat după utilizarea EtchDroid, citește acest.</string>
+    <string name="i2o_action_name">Copiază datele de pe %1$s la %2$s</string>
+    <string name="write_x_to_y">Scrie %1$s la %2$s</string>
+    <string name="job_failed">Operație a eșuat.</string>
+    <string name="buy_me_a_coffee">Cumpărați o cafea pe mine</string>
+    <string name="app_desc">O aplicație pentru scriere imaginii de SO la unități USB, pe Android, fără root.</string>
+    <string name="library_KotlinStdlib_libraryDescription">Kotlin Standard Library furnizează funcții esențiale pentru să lucre cu Kotlin</string>
+    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
+    <string name="file_type_not_supported">Tip de fișier nesuportat</string>
+    <string name="android_pie_bug">Bug de Android Pie</string>
+    <string name="nightmode_night">Dezactivează modul de noapte</string>
+    <string name="nightmode">Activează modul de noapte</string>
+    <string name="uncompressed">(necomprimat)</string>
+    <string name="unknown_error">Eroare necunoscut. Încerca a reatașare unitate USB sau repornire dispozitivul. Vă rog să raportez problemul pe GitHub.</string>
+    <string name="write_failed">Scriere a eșuat</string>
+    <string name="reporting_issues_text">Probleme pot fi reportate pe GitHub:
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues">Raportare probleme</string>
+    <string name="troubleshooting_info">Informație pentru depanare</string>
+    <string name="success_notif_content_text">%1$s scris cu succes pe %2$s</string>
+    <string name="error_notif_content_text">%1$s poate să fi deconectat în timp ce scriere.</string>
+    <string name="write_finished">Operațiune de scriere terminat</string>
+    <string name="failed_tap_for_info">Eșuat • Atingeți pentru info</string>
+    <string name="result_channel_name">Notificări de rezultat de scriere pe unitate USB</string>
+    <string name="here_be_dragons">Hic sunt dracones</string>
+    <string name="libusb_license_desc">O multiplatformă bibliotecă pentru a accesa unități USB</string>
+    <string name="storagechooser_license_description">Selector de fișiere DMG</string>
+    <string name="cancel">Anulare</string>
+    <string name="warning">Avertizare</string>
+    <string name="dataloss_confirmation_dialog_message">Dacă continui, imaginea selectat va fi scris și toate datele pe discul USB vor fi pierdut pentru totdeauna!</string>
+    <string name="confirm_flash_image">Imagine flash</string>
+    <string name="dmg_alert_dialog_text">Chiar dacă de obicei imagini DMG poate să restaureze bine, uneori pot există neconcordanțe. Acest este o avertizare.</string>
+    <string name="do_not_show_again">Nu mai arată</string>
+    <string name="no_usb_drives_detected">Nu a fost selectat un disc USB.
+\nRețineți că necesitați un card SD la USB adaptor pentru să scrieți la carduri SD.</string>
+    <string name="dmg_image_desc">Restaurează o imagine creat cu Utilitar Disc de macOS</string>
+    <string name="write_apple_dmg">Scrie imagine Apple® DMG</string>
+    <string name="raw_image_desc">Bun pentru ISO de GNU/Linux distro, imagini de Raspberry Pi și imagini de discuri creat pe Windows sau Linux.</string>
+    <string name="write_image_or_iso">Scrie imagine brută sau ISO</string>
+    <string name="could_not_access_usb_error">Nu poate accesare dispozitivul USB. Poate că ar fi executat aplicație înainte și a închis neașteptat\? Scoateți și reintroduceți discul USB, apoi reporniți aplicarea.</string>
+    <string name="partition_table_title">Tabela de partiții:</string>
+    <string name="check_notification_progress">Vezi notificare pentru progres</string>
+    <string name="dmg2img_license_desc">Convertește imagini Apple® DMG comprimate</string>
 </resources>
