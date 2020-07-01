@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion '28.0.3'
@@ -46,29 +48,28 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.2.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
-    implementation 'com.google.android.material:material:1.2.0-alpha03'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.core:core:1.2.0-rc01'
     implementation 'androidx.fragment:fragment:1.2.0-rc05'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha03'
-    implementation 'com.github.Depau:kotlet-android:v0.2.5'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
     implementation 'com.google.guava:guava:27.0.1-android'
-    api 'com.github.codekidX:storage-chooser:2.0.4.2'
 
+    implementation 'com.github.Depau:kotlet-android:v0.2.5'
+    implementation project(':dmg2img')
+    implementation 'me.jfenn:Attribouter:0.1.5'
+
+    implementation 'androidx.room:room-runtime:2.2.3'
+    kapt 'androidx.room:room-compiler:2.2.3'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    api 'com.github.codekidX:storage-chooser:2.0.4.2'
     api 'com.github.EtchDroid:libaums_wrapper:v1.1'
     api 'me.jahnen:libaums-libusbcommunication:0.1'
 
-    implementation project(':dmg2img')
-
-    implementation 'me.jfenn:Attribouter:0.1.5'
-    implementation 'androidx.room:room-runtime:2.2.3'
-    annotationProcessor 'androidx.room:room-compiler:2.2.3'
-
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
     testImplementation 'junit:junit:4.13-beta-3'
     testImplementation 'androidx.test:core:1.2.0'
     testImplementation 'org.mockito:mockito-core:2.28.2'
