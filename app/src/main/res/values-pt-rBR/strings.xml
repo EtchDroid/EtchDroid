@@ -34,11 +34,11 @@
     <string name="fs_type">Tipo</string>
     <string name="part_size">Tamanho</string>
     <string name="this_app">Esse aplicativo</string>
-    <string name="libaums_license_desc">Implementação de espaço de usuário de dispositivo de bloco USB</string>
+    <string name="libaums_desc">Implementação de espaço de usuário de dispositivo de bloco USB</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Tipo BSD</string>
     <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personal.</string>
     <string name="about">Sobre</string>
-    <string name="dmg2img_license_desc">Converte imagens compactadas Apple® DMG</string>
+    <string name="license_dmg2img_desc">Converte imagens compactadas Apple® DMG</string>
     <string name="title_activity_usb_drive_picker">Selecionar unidade USB</string>
     <string name="title_activity_confirmation">Pronto para gravar</string>
     <string name="cannot_write">Não foi possível gravar a imagem na unidade USB</string>
@@ -59,7 +59,7 @@
     <string name="dataloss_confirmation_dialog_message">Se você continuar, a imagem selecionada será gravada e todos os dados armazenados na unidade USB serão perdidos para sempre.</string>
     <string name="warning">Aviso</string>
     <string name="cancel">Cancelar</string>
-    <string name="storagechooser_license_description">Seletor de arquivo DMG</string>
+    <string name="storagechooser_desc">Seletor de arquivo DMG</string>
     <string name="result_channel_desc">Usado para exibir o resultado de uma operação de gravação finalizada</string>
     <string name="result_channel_name">Notificação de resultado de gravação de USB</string>
     <string name="write_finished">Gravação finalizada</string>

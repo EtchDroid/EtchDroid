@@ -16,7 +16,7 @@
     <string name="confirm_flash_image">Записать образ</string>
     <string name="could_not_access_usb_error">Не удалось получить доступ к USB-устройству. Может быть, вы запускали приложение ранее, и оно \"вылетело\"? Переподключите USB-накопитель, а затем перезапустите приложение.</string>
     <string name="dataloss_confirmation_dialog_message">Если вы продолжите, выбранный образ будет записан на USB-накопитель, все данные будут безвозвратно удалены!</string>
-    <string name="dmg2img_license_desc">Конвертирует сжатые образы Apple® DMG</string>
+    <string name="license_dmg2img_desc">Конвертирует сжатые образы Apple® DMG</string>
     <string name="dmg_alert_dialog_text">Предупреждение: обычно образы DMG легко восстанавливаются, но иногда могут возникать несоответствия.</string>
     <string name="dmg_image_desc">Восстановление образа, созданного в дисковой утилите macOS</string>
     <string name="do_not_show_again">Больше не спрашивать</string>
@@ -44,11 +44,11 @@
     <string name="image_bigger_than_usb">Размер образа превышает размер USB-накопителя — запись невозможна</string>
     <string name="image_is_not_dmg">Выбранный образ не является образом DMG (возможно, он повреждён)</string>
     <string name="job_failed">Ошибка при выполнении задания.</string>
-    <string name="libaums_license_desc">Реализация блочного устройства USB в пространстве пользователя</string>
-    <string name="libaums_wrapper_license_desc">Небольшая обёртка, улучшающая работу libaums с EtchDroid</string>
+    <string name="libaums_desc">Реализация блочного устройства USB в пространстве пользователя</string>
+    <string name="libaums_wrapper_desc">Небольшая обёртка, улучшающая работу libaums с EtchDroid</string>
     <string name="library_AndroidX_libraryDescription">AndroidX — это значительное улучшение оригинальной Android Support Library, обеспечивающее обратную совместимость между версиями Android.</string>
     <string name="library_KotlinStdlib_libraryDescription">Стандартная библиотека Kotlin предоставляет все необходимое для повседневной работы с Kotlin</string>
-    <string name="library_KotlinStdlib_libraryName">Стандартная библиотека Kotlin</string>
+    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="library_Material_libraryDescription">Делайте красивые продукты быстрее. Material — это дизайн-система, основанная на открытом исходном коде, который помогает командам создавать цифровой опыт.</string>
     <string name="license_bzip2">Индивидуальная BSD-подобная</string>
     <string name="license_custom">Индивидуальная</string>
@@ -84,10 +84,10 @@
     <string name="starting_job">Начало выполнения задания…</string>
     <string name="step_x_of_y">Шаг %1$d из %2$d</string>
     <string name="storage_permission_required">Требуется разрешение на доступ к хранилищу для чтения образов DMG</string>
-    <string name="storagechooser_license_description">Селектор DMG-файла</string>
+    <string name="storagechooser_desc">Селектор DMG-файла</string>
     <string name="success_notif_content_text">%1$s успешно записан на %2$s</string>
     <string name="tap_next_to_write">Нажмите, чтобы записать образ на USB-накопитель</string>
-    <string name="this_app" translatable="false">Это приложение</string>
+    <string name="this_app">Это приложение</string>
     <string name="title_activity_confirmation">Готов к записи</string>
     <string name="title_activity_usb_drive_picker">Выбрать USB-накопитель</string>
     <string name="troubleshoot_sock_op_on_non_sock">Это известная проблема. Обычно это происходит, когда USB-накопитель извлекается во время процедуры записи, когда он подключён через USB-разветвитель или когда накопитель просто не подключён к устройству. На некоторых устройствах такое поведения может быть вызвано багом USB подсистемы Android — попробуйте перезагрузить устройство.</string>
@@ -104,4 +104,13 @@
     <string name="write_finished">Запись завершена</string>
     <string name="write_image_or_iso">Записать raw-образ или ISO</string>
     <string name="write_x_to_y">Записать %1$s на %2$s</string>
+    <string name="libusb_desc">Кроссплатформенная библиотека для доступа к USB устройствам</string>
+    <string name="license_other">Другая</string>
+    <string name="owner_task">Владелец</string>
+    <string name="owner_name">Давид Депау</string>
+    <string name="owner_bio">В парней и Arch Linux. Люблю Kotlin, Go, Python и спать.</string>
+    <string name="license_custom_foss">Специальная FOSS</string>
+    <string name="libressl_desc">LibreSSL это вилка OpenSSL 1.0.1g, разработанная под OpenBSD проектом.</string>
+    <string name="guava_desc">Guava-это набор основных библиотек Java от Google, который включает в себя новые типы коллекций (такие как multimap и multiset),неизменяемые коллекции, библиотеку графиков и утилиты для параллелизма, ввода-вывода, хэширования, кэширования, примитивов, строк и многое другое!</string>
+    <string name="bzip2_desc">bzip2-это библиотека сжатия данных с высокой степенью сжатия</string>
 </resources>

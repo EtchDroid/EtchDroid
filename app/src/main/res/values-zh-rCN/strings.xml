@@ -59,17 +59,17 @@
   <string name="fs_label">标签</string>
   <string name="fs_type">类型</string>
   <string name="part_size">大小</string>
-  <string name="license_gpl3" translatable="false">GNU GPLv3</string>
+  <string name="license_gpl3_name" translatable="false">GNU GPLv3</string>
   <string name="this_app">此app</string>
-  <string name="license_apache2_0" translatable="false">Apache 2.0</string>
-  <string name="libaums_license_desc">USB相关驱动支持</string>
-  <string name="libusb_license_desc">A cross-platform library to access USB devices</string>
-  <string name="libaums_wrapper_license_desc">A little shim to make libaums work better with EtchDroid</string>
+  <string name="license_apache_name" translatable="false">Apache 2.0</string>
+  <string name="libaums_desc">USB相关驱动支持</string>
+  <string name="libusb_desc">A cross-platform library to access USB devices</string>
+  <string name="libaums_wrapper_desc">A little shim to make libaums work better with EtchDroid</string>
   <string name="license_gpl2" translatable="false">GNU GPLv2</string>
   <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">自定义 BSD-like</string>
   <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">自定义</string>
   <string name="about">关于</string>
-  <string name="dmg2img_license_desc">转换压缩的Apple® DMG镜像</string>
+  <string name="license_dmg2img_desc">转换压缩的Apple® DMG镜像</string>
   <string name="title_activity_usb_drive_picker">选择USB驱动器</string>
   <string name="title_activity_confirmation">准备写入</string>
   <string name="cannot_write">无法写入镜像到USB设备</string>
@@ -91,7 +91,7 @@
   <string name="warning">警告⚠</string>
   <string name="cancel">取消</string>
   <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
-  <string name="storagechooser_license_description">DMG 文件选择</string>
+  <string name="storagechooser_desc">DMG 文件选择</string>
   <string name="result_channel_desc">用于显示完成写入的结果</string>
   <string name="result_channel_name">USB写入结果通知</string>
   <string name="failed_tap_for_info">哦嚯失败了·点击查看详情</string>
@@ -126,7 +126,7 @@
   <string name="library_AndroidX_libraryVersion" translatable="false">1.0.1</string>
   <string name="library_AndroidX_isOpenSource" translatable="false">true</string>
   <string name="library_AndroidX_repositoryLink" translatable="false">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
-  <string name="library_AndroidX_licenseId" translatable="false">apache_2_0</string>
+  <string name="license_androidx_library" translatable="false">apache_2_0</string>
   <!-- Kotlin Standard Library -->
   <string name="define_KotlinStdlib" translatable="false" />
   <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
@@ -137,7 +137,7 @@
   <string name="library_KotlinStdlib_libraryVersion" translatable="false">1.2.71</string>
   <string name="library_KotlinStdlib_isOpenSource" translatable="false">true</string>
   <string name="library_KotlinStdlib_repositoryLink" translatable="false">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
-  <string name="library_KotlinStdlib_licenseId" translatable="false">apache_2_0</string>
+  <string name="license_kotlin_stdlib" translatable="false">apache_2_0</string>
   <!-- Material Components -->
   <string name="define_Material" translatable="false" />
   <string name="library_Material_author" translatable="false">Google</string>
@@ -148,7 +148,7 @@
   <string name="library_Material_libraryVersion" translatable="false">1.1.0-alpha01</string>
   <string name="library_Material_isOpenSource" translatable="false">true</string>
   <string name="library_Material_repositoryLink" translatable="false">https://github.com/material-components/material-components-android</string>
-  <string name="library_Material_licenseId" translatable="false">apache_2_0</string>
+  <string name="license_material_library" translatable="false">apache_2_0</string>
   <string name="app_desc">在Android上将各种映像写入USB的应用，无需root权限。</string>
   <string name="buy_me_a_coffee">捐赠</string>
   <string name="notif_channel_job_progress_desc" comment="Notification channel description">用于显示当前处理的进度</string>
