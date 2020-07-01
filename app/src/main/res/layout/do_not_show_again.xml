@@ -7,7 +7,6 @@
               android:padding="10dp"
               android:theme="@style/CardContentStyle">
     <CheckBox
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/do_not_show_again"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -24,8 +24,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/relativeLayout"
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackground"
@@ -57,8 +57,8 @@
                     android:layout_below="@id/confirm_sel_method_title"/>
             </RelativeLayout>
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackground"
                             android:clickable="true"
@@ -97,8 +97,8 @@
             </RelativeLayout>
 
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:id="@+id/relativeLayout2"
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackground"
@@ -138,8 +138,8 @@
             </RelativeLayout>
 
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackground"
                             android:clickable="true"
