@@ -21,10 +21,8 @@ import eu.depau.etchdroid.utils.exception.CannotGetFilePathException
  * https://stackoverflow.com/a/27271131/1124621
  */
 fun Uri.getFilePath(context: Context): String? {
-    val isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-
     try {
-        if (isKitKat && DocumentsContract.isDocumentUri(context, this)) {
+        if (DocumentsContract.isDocumentUri(context, this)) {
             // DocumentProvider
 
             if (isExternalStorageDocument) {
