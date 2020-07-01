@@ -2,7 +2,7 @@
 <resources>
     <string name="about">О программе</string>
     <string name="action_refresh">Обновить</string>
-    <string name="android_pie_bug">Дефект Android 9</string>
+    <string name="android_pie_bug">Ошибка Android Pie</string>
     <string name="android_pie_bug_dialog_text">В Android 9 существует дефект, в некоторых случаях приводящий к ошибке записи.\\nЕсли возникает \\\"Ошибка записи\\\", перезагрузите устройство и попробуйте ещё раз.</string>
     <string name="app_desc">"Приложение, позволяющее записывать образы операционных систем на USB-устройства, не требующее root прав. "</string>
     <string name="broken_usb_text">Если система Android сообщает, что есть проблема с вашим USB-накопителем или что он не поддерживается после использования EtchDroid, прочитайте это.</string>
@@ -38,7 +38,7 @@
     <string name="fs_unformatted">Не отформатирован</string>
     <string name="fs_unknown">Неизвестный</string>
     <string name="error_notif_content_text">%1$s, возможно, был извлечён во время записи.</string>
-    <string name="here_be_dragons">Здесь, должны быть, драконы</string>
+    <string name="here_be_dragons">Здесь обитают драконы</string>
     <string name="i2o_action_name">Копирование данных из %1$s в %2$s</string>
     <string name="i_understand">Ок, понятно</string>
     <string name="image_bigger_than_usb">Размер образа превышает размер USB-накопителя — запись невозможна</string>
@@ -46,10 +46,10 @@
     <string name="job_failed">Ошибка при выполнении задания.</string>
     <string name="libaums_license_desc">Реализация блочного устройства USB в пространстве пользователя</string>
     <string name="libaums_wrapper_license_desc">Небольшая обёртка, улучшающая работу libaums с EtchDroid</string>
-    <string name="library_AndroidX_libraryDescription">AndroidX — это библиотека с новым пространством имён на замену Android Support Library, обеспечивающая обратную совместимость между версиями Android.</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX — это значительное улучшение оригинальной Android Support Library, обеспечивающее обратную совместимость между версиями Android.</string>
     <string name="library_KotlinStdlib_libraryDescription">Стандартная библиотека Kotlin предоставляет все необходимое для повседневной работы с Kotlin</string>
     <string name="library_KotlinStdlib_libraryName">Стандартная библиотека Kotlin</string>
-    <string name="library_Material_libraryDescription">Делайте красивые продукты быстрее. Material — это стиль графического дизайна, подкреплённый открытым исходным кодом, который помогает командам создавать цифровой опыт.</string>
+    <string name="library_Material_libraryDescription">Делайте красивые продукты быстрее. Material — это дизайн-система, основанная на открытом исходном коде, который помогает командам создавать цифровой опыт.</string>
     <string name="license_bzip2">Индивидуальная BSD-подобная</string>
     <string name="license_custom">Индивидуальная</string>
     <string name="nightmode">Включить ночной режим</string>
