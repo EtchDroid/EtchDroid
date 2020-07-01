@@ -2,8 +2,8 @@ package eu.depau.etchdroid.ui.misc
 
 import android.content.SharedPreferences
 import android.content.res.Configuration
-import android.preference.PreferenceManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import java.lang.ref.WeakReference
 
 
