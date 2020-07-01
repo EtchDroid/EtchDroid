@@ -7,7 +7,7 @@ fun <T> humanReadableTimeDelta(time: T): String where T : Number {
     var dbTime = time.toDouble() / 1000.0
     var outString = ""
 
-    for (i in 0..(timeDivs.size - 1)) {
+    for (i in timeDivs.indices) {
         val div = timeDivs[i]
         val str = timeStrings[i]
 
