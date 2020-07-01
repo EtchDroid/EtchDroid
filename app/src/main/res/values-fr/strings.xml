@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Écrire l\'image directement sur le disque (en utilisant l\'API Android)</string>
@@ -59,21 +59,21 @@
     <string name="fs_label">Libellé</string>
     <string name="fs_type">Type</string>
     <string name="part_size">Taille</string>
-    <string name="license_gpl3">GNU GPLv3</string>
+    <string name="license_gpl3_name">GNU GPLv3</string>
     <string name="this_app">Cette application</string>
-    <string name="license_apache2_0">Apache 2.0</string>
-    <string name="libaums_license_desc">Implémentation du bloc de périphérique USB dans l\'espace utilisateur</string>
+    <string name="license_apache_name">Apache 2.0</string>
+    <string name="libaums_desc">Implémentation du bloc de périphérique USB dans l\'espace utilisateur</string>
     <string name="license_gpl2">GNU GPLv2</string>
     <string name="license_bzip2">Personnalisée, inspirée de BSD</string>
     <string name="license_custom">Personnalisé</string>
     <string name="about">À propos</string>
-    <string name="dmg2img_license_desc">Convertit les images compressées Apple® DMG</string>
+    <string name="license_dmg2img_desc">Convertit les images compressées Apple® DMG</string>
     <string name="title_activity_usb_drive_picker">Sélectionner le disque USB</string>
     <string name="title_activity_confirmation">Prêt pour l\'écriture</string>
     <string name="cannot_write">Impossible d\'écrire l\'image sur le disque USB</string>
     <string name="check_notification_progress">Voir la notification pour suivre l\'état d\'avancement</string>
     <string name="partition_table_title">Table de partitions :</string>
-    <string name="could_not_access_usb_error">Impossible d\'accéder au périphérique USB. Peut-être que l\'application a planté la dernière fois \? Débranchez puis rebranchez la clé USB, puis redémarrez l\'application.</string>
+    <string name="could_not_access_usb_error">Impossible d\'accéder au périphérique USB. Peut-être que l\'application a planté la dernière fois\? Débranchez puis rebranchez le disque USB, puis redémarrez l\'application.</string>
     <string name="write_image_or_iso">Écrire une image brute ou ISO</string>
     <string name="raw_image_desc">Pour les ISOs des distibutions GNU/Linux, les images Raspberry Pi, et les images disque créées sur Windows ou Linux.</string>
     <string name="write_apple_dmg">Écrire une image DMG Apple®</string>
@@ -85,11 +85,11 @@
     <string name="i_understand">Je comprends</string>
     <string name="dmg_alert_dialog_text">Alors que dans la plupart des cas les images DMG peuvent être restaurées sans aucun problème, il peut parfois y avoir des incohérences. C\'est un avertissement.</string>
     <string name="confirm_flash_image">Flasher l\'image</string>
-    <string name="dataloss_confirmation_dialog_message">Si vous continuez, l\'image sélectionnée sera écrite et toutes les données stockées sur la clé USB seront perdues à jamais !</string>
+    <string name="dataloss_confirmation_dialog_message">Si vous continuez, l\'image sélectionnée sera écrite et toutes les données stockées sur la clé USB seront perdues à jamais.</string>
     <string name="warning">Avertissement</string>
     <string name="cancel">Annuler</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
-    <string name="storagechooser_license_description">Sélecteur de fichier DMG</string>
+    <string name="storagechooser_desc">Sélecteur de fichier DMG</string>
     <string name="result_channel_desc">Utilisé pour afficher le résultat d\'une opération d\'écriture aboutie</string>
     <string name="result_channel_name">Notifications pour les résultats d\'écriture sur l\'USB</string>
     <string name="failed_tap_for_info">Écriture échouée • Sélectionnez pour plus d\'infos</string>
@@ -110,8 +110,8 @@
 \n
 \nSi le problème persiste, merci d\'ouvrir un ticket sur GitHub.</string>
     <string name="reporting_issues">Rapporter des erreurs</string>
-    <string name="reporting_issues_text">Les erreurs peuvent être rapportés sur GitHub : 
-\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Les erreurs peuvent être rapportés sur GitHub :
+\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Écriture échouée</string>
     <string name="unknown_error">Erreur inconnue. Essayez de rebrancher la clé USB ou de redémarrer l\'appareil. Veuillez ouvrir un ticket sur GitHub.</string>
     <string name="uncompressed">(non compressé)</string>
@@ -125,6 +125,8 @@
     <string name="file_type_not_supported">Type de fichier non supporté</string>
     <string name="cannot_find_file_in_storage">Impossible de trouver le fichier dans la mémoire interne. Essayez de l\'ouvrir depuis l\'application.</string>
     <string name="storage_permission_required">La permission de stockage est nécessaire pour pouvoir lire les images DMG</string>
+
+
     <string name="library_AndroidX_libraryDescription">AndroidX est une amélioration majeure de la bibliothèque de support Android d\'origine et offre une rétrocompatibilité entre les versions d\'Android</string>
     <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
     <string name="library_AndroidX_libraryVersion">1.0.1</string>
@@ -133,38 +135,25 @@
     <string name="library_KotlinStdlib_author">JetBrains</string>
     <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_KotlinStdlib_libraryDescription">La bibliothèque standard de Kotlin fournit les éléments essentiels pour le travail quotidien avec Kotlin</string>
+    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
     <string name="library_KotlinStdlib_libraryWebsite">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
     <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
     <string name="library_KotlinStdlib_isOpenSource">true</string>
     <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
-    <string name="library_KotlinStdlib_licenseId">apache_2_0</string>
+    <string name="license_kotlin_stdlib">apache_2_0</string>
+
+
     <string name="library_Material_author">Google</string>
     <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
-    <string name="library_Material_libraryDescription">Fabriquez de beaux produits, plus rapidement. Le matériel est un système de conception – soutenu par un code open-source – qui aide les équipes à construire des expériences numériques</string>
+    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
     <string name="library_Material_libraryWebsite">https://material.io/develop/android/</string>
     <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
     <string name="library_Material_isOpenSource">true</string>
     <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
-    <string name="library_Material_licenseId">apache_2_0</string>
+    <string name="license_material_library">apache_2_0</string>
+
     <string name="app_desc">Une application pour écrire les images de systèmes d\'exploitation sur les clés USB, pas de root requis.</string>
     <string name="buy_me_a_coffee">M\'acheter un café</string>
-    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Pour afficher la progression de la tâche courante</string>
-    <string name="notif_channel_job_progress_name">Progression de la tâche</string>
-    <string name="notif_channel_job_result_name">Résultat de la tâche</string>
-    <string name="step_x_of_y">Étape %1$d sur %2$d</string>
-    <string name="broken_usb_title">Clé USB non prise en charge \?</string>
-    <string name="broken_usb_text">Si Android dit qu\'il y a un problème avec votre clé USB ou qu\'elle n\'est pas pris en charge après avoir utilisé EtchDroid, lisez ceci.</string>
-    <string name="i2o_action_name">Copier les données depuis %1$s vers %2$s</string>
-    <string name="write_x_to_y">Écrire %1$s vers %2$s</string>
-    <string name="file_unknown">(inconnu)</string>
-    <string name="job_failed">Échec de la tâche.</string>
-    <string name="done">Terminé !</string>
-    <string name="resuming_job">Reprise depuis le point de contrôle…</string>
-    <string name="starting_job">Début de la tâche…</string>
-    <string name="notif_starting_job">Début de la tâche…</string>
-    <string name="notif_channel_job_result_desc" comment="Notification channel description">Utilisé pour montrer le résultat d’une tâche terminée</string>
-    <string name="libaums_wrapper_license_desc">Une petite cale pour améliorer le fonctionnement de libaums avec EtchDroid</string>
-    <string name="libusb_license_desc">Une bibliothèque multiplateforme pour accéder aux périphériques USB</string>
+
 </resources>
