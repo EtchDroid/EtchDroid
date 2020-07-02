@@ -192,5 +192,4 @@
     <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom</string>
     <string name="license_dmg2img_desc">Converts compressed Apple® DMG images</string>
     <string name="libressl_desc">LibreSSL is a fork of OpenSSL 1.0.1g developed by the OpenBSD project.</string>
-    <string name="libressl_desc">LibreSSL is a fork of OpenSSL 1.0.1g developed by the OpenBSD project.</string>
 </resources>
