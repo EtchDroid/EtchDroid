@@ -20,10 +20,13 @@ import me.jfenn.attribouter.Attribouter
 
 
 abstract class ActivityBase : AppCompatActivity() {
-    protected var nightModeHelper: NightModeHelper? = null
-    val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
-    val READ_REQUEST_CODE = 42
-    val READ_EXTERNAL_STORAGE_PERMISSION = 29
+    private var nightModeHelper: NightModeHelper? = null
+
+    companion object {
+        const val DISMISSED_DIALOGS_PREFS = "dismissed_dialogs"
+        const val READ_REQUEST_CODE = 42
+        const val READ_EXTERNAL_STORAGE_PERMISSION = 29
+    }
 
     var shouldShowAndroidPieAlertDialog: Boolean
         get() {

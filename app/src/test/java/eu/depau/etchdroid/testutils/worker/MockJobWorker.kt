@@ -7,7 +7,7 @@ import eu.depau.etchdroid.utils.worker.impl.AbstractAutoProgressAsyncWorker
 open class MockJobWorker(val startAt: Int, val steps: Int) : AbstractAutoProgressAsyncWorker(
         startAt.toLong(), steps.toLong(), RateUnit.FURLONGS_PER_FORTNIGHT) {
 
-    var counter = startAt
+    private var counter = startAt
     private val sleepTime = (UPDATE_INTERVAL * 2.2 / steps).toLong()
 
     /**

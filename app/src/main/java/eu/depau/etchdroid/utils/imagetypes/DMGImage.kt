@@ -12,10 +12,6 @@ import eu.depau.etchdroid.utils.streams.AbstractSizedInputStream
 import eu.depau.etchdroid.utils.streams.SizedInputStream
 import java.io.File
 
-val SECTOR_SIZE = 512
-private val partRegex = Regex("partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s+(.*) \\((.+) : \\d+\\)", RegexOption.MULTILINE)
-private val partitionListRegex = Regex("\\s*partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s*")
-
 class DMGImage(private val uri: Uri, private val context: Context) : Image {
     private val libDir: String = context.applicationInfo.nativeLibraryDir
     private var loaded: Boolean = false
@@ -56,6 +52,10 @@ class DMGImage(private val uri: Uri, private val context: Context) : Image {
         get() = getRawImageInputStream(context, uri)
 
     companion object {
+        private const val SECTOR_SIZE = 512
+        private val partRegex = Regex("partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s+(.*) \\((.+) : \\d+\\)", RegexOption.MULTILINE)
+        private val partitionListRegex = Regex("\\s*partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s*")
+
         private fun getDmg2ImgProcessBuilder(context: Context, vararg args: String): ProcessBuilder =
                 ProcessBuilder(context.getBinary("dmg2img").path, *args)
                         .apply {

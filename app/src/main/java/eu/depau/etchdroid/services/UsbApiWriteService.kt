@@ -12,14 +12,18 @@ import java.io.BufferedInputStream
 import java.io.InputStream
 import java.nio.ByteBuffer
 
-abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
+abstract class UsbApiWriteService(usbApiWriteName: String) : UsbWriteService(usbApiWriteName) {
     // 512 * 32 bytes = USB max transfer size
-    val DD_BLOCKSIZE = 512 * 32 * 64  // 1 MB
+    companion object {
+        const val DD_BLOCK_SIZE = 512 * 32 * 64  // 1 MB
+    }
 
+/*
     class Action {
         val WRITE_IMAGE = "eu.depau.etchdroid.action.API_WRITE_IMAGE"
         val WRITE_CANCEL = "eu.depau.etchdroid.action.API_WRITE_CANCEL"
     }
+*/
 
     abstract fun getSendProgress(usbDevice: UsbDevice, uri: Uri): (Long) -> Unit
     abstract fun getInputStream(uri: Uri): InputStream
@@ -35,9 +39,9 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
         return null
     }
 
-    fun writeInputStream(inputStream: InputStream, msDev: EtchDroidUsbMassStorageDevice, sendProgress: (Long) -> Unit): Long {
+    private fun writeInputStream(inputStream: InputStream, msDev: EtchDroidUsbMassStorageDevice, sendProgress: (Long) -> Unit): Long {
         val blockDev = msDev.blockDevices[0]!!
-        val bsFactor = DD_BLOCKSIZE / blockDev.blockSize
+        val bsFactor = DD_BLOCK_SIZE / blockDev.blockSize
         val buffIS = BufferedInputStream(inputStream)
         val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bsFactor)
 
@@ -109,13 +113,13 @@ abstract class UsbApiWriteService(name: String) : UsbWriteService(name) {
             resultNotification(usbDevice.name, uri.getFileName(this)!!, null, writtenBytes, startTime)
         } catch (e: Exception) {
             resultNotification(usbDevice.name, uri.getFileName(this)!!, e, writtenBytes, startTime)
-            Log.e(TAG, "Could't write image to ${usbDevice.name}", e)
+            Log.e(usbWriteName, "Could't write image to ${usbDevice.name}", e)
         } finally {
             wakeLock(false)
             msDev.close()
         }
 
-        Log.d(TAG, "Written $writtenBytes bytes to ${usbDevice.name} using API")
+        Log.d(usbWriteName, "Written $writtenBytes bytes to ${usbDevice.name} using API")
         return writtenBytes
     }
 }

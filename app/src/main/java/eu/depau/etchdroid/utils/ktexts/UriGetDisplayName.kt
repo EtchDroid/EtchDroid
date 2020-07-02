@@ -4,9 +4,10 @@ import android.content.Context
 import android.net.Uri
 import android.provider.OpenableColumns
 
+const val TAG = "UriGetFileNameExt"
 
 fun Uri.getFileName(context: Context): String? {
-    val TAG = "UriGetFileNameExt"
+
     var result: String? = null
 
     if (this.scheme == "content") {

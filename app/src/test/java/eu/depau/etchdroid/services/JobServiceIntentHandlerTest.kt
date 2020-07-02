@@ -20,7 +20,6 @@ import eu.depau.etchdroid.utils.job.impl.JobProcedure
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 import java.util.*
@@ -41,25 +40,20 @@ internal class JobServiceIntentHandlerTest {
 
         // Mock eu.depau.etchdroid.services.job.JobService
         mockService = mock(JobService::class.java)
-        Mockito
-                .doReturn(mock(NotificationManager::class.java))
+        doReturn(mock(NotificationManager::class.java))
                 .`when`(mockService!!).getSystemService(Context.NOTIFICATION_SERVICE)
-        Mockito
-                .doReturn("penis")
+        doReturn("penis")
                 .`when`(mockService!!).getString(anyInt())
-        Mockito
-                .doNothing()
+        doNothing()
                 .`when`(mockService!!).startForeground(anyInt(), any())
-        Mockito
-                .doNothing()
+        doNothing()
                 .`when`(mockService!!).stopForeground(anyBoolean())
 
         jobRepo = mock(JobRepository::class.java)
 
         // Inject mock JobRepository into database mock instance
         val db = mock(EtchDroidDatabase::class.java)
-        Mockito
-                .`when`(db.jobRepository())
+        `when`(db.jobRepository())
                 .thenReturn(jobRepo!!)
 
         // Duct tape-inject database instance into database companion object
@@ -73,8 +67,8 @@ internal class JobServiceIntentHandlerTest {
     fun testBasicFlow() {
         // Create mock job
         val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
-            add(MockJobAction(StringResBuilder(0), 1.0, 0, 10, true, false))
-            add(MockJobAction(StringResBuilder(1), 1.0, 0, 10, true, false))
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 10, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(1), 1.0, 0, 10, showInGUI = true, runAlways = false))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
@@ -88,10 +82,10 @@ internal class JobServiceIntentHandlerTest {
     fun testCheckpointFlow() {
         // Create mock job
         val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
-            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, true, false))
-            add(MockJobAction(StringResBuilder(1), 1.0, 0, 15, true, false))
-            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, true, false))
-            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, true, false))
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(1), 1.0, 0, 15, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, showInGUI = true, runAlways = false))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
@@ -105,10 +99,10 @@ internal class JobServiceIntentHandlerTest {
     fun testCheckpointAlwaysRunFlow() {
         // Create mock job
         val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
-            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, true, true))
-            add(MockJobAction(StringResBuilder(1), 1.0, 0, 15, true, false))
-            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, true, false))
-            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, true, false))
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, showInGUI = true, runAlways = true))
+            add(MockJobAction(StringResBuilder(1), 1.0, 0, 15, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, showInGUI = true, runAlways = false))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
@@ -123,10 +117,10 @@ internal class JobServiceIntentHandlerTest {
     fun testErrorAlwaysRunFlow() {
         // Create mock job
         val jobProcedure = JobProcedure(StringResBuilder(-1)).apply {
-            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, true, false))
-            add(MockFailingJobAction(StringResBuilder(1), 1.0, 0, 15, true, false))
-            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, true, false))
-            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, true, true))
+            add(MockJobAction(StringResBuilder(0), 1.0, 0, 15, showInGUI = true, runAlways = false))
+            add(MockFailingJobAction(StringResBuilder(1), 1.0, 0, 15, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(2), 1.0, 7, 15, showInGUI = true, runAlways = false))
+            add(MockJobAction(StringResBuilder(3), 1.0, 0, 15, showInGUI = true, runAlways = true))
         }
         val job = Job(
                 jobId = abs(random.nextInt().toLong()),
@@ -140,12 +134,10 @@ internal class JobServiceIntentHandlerTest {
         val jobId = job.jobId
 
         // Add job to mock Repository
-        Mockito
-                .`when`(jobRepo!!.getById(jobId))
+        `when`(jobRepo!!.getById(jobId))
                 .thenReturn(job)
 
-        Mockito
-                .`when`(mockService!!.sendBroadcast(any()))
+        `when`(mockService!!.sendBroadcast(any()))
                 .thenAnswer {
                     val intent = it.arguments[0] as Intent
                     println("))) BROADCAST (((  ${intent.getSerializableExtra(JobProgressUpdateBroadcastDTO.EXTRA)}")
@@ -167,7 +159,7 @@ internal class JobServiceIntentHandlerTest {
                 .map { it.getWorker(mutableMapOf()) }
                 .toTypedArray()
 
-        val inOrder = Mockito.inOrder(mockService, *mockWorkers)
+        val inOrder = inOrder(mockService, *mockWorkers)
 
         inOrder
                 .verify(mockService!!, times(1))

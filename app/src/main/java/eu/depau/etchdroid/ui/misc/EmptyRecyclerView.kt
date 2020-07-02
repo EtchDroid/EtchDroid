@@ -13,7 +13,7 @@ class EmptyRecyclerView : RecyclerView {
             checkIfEmpty()
         }
 
-    private val observer: RecyclerView.AdapterDataObserver = object : RecyclerView.AdapterDataObserver() {
+    private val observer: AdapterDataObserver = object : AdapterDataObserver() {
         override fun onChanged() {
             super.onChanged()
             checkIfEmpty()
@@ -31,7 +31,7 @@ class EmptyRecyclerView : RecyclerView {
             emptyView!!.visibility = if (adapter?.itemCount ?: 0 > 0) View.GONE else View.VISIBLE
     }
 
-    override fun setAdapter(adapter: RecyclerView.Adapter<*>?) {
+    override fun setAdapter(adapter: Adapter<*>?) {
         val oldAdapter = this.adapter
         oldAdapter?.unregisterAdapterDataObserver(observer)
         super.setAdapter(adapter)

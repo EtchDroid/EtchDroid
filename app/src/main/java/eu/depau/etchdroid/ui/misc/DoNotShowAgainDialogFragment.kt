@@ -16,7 +16,7 @@ class DoNotShowAgainDialogFragment(nightMode: Boolean) : DialogFragment() {
     var negativeButton: String? = null
     var message: String? = null
     var listener: DialogListener? = null
-    val dialogTheme: Int = if (nightMode) R.style.DialogThemeDark else R.style.DialogThemeLight
+    private val dialogTheme: Int = if (nightMode) R.style.DialogThemeDark else R.style.DialogThemeLight
 
     constructor() : this(false)
 
@@ -31,7 +31,7 @@ class DoNotShowAgainDialogFragment(nightMode: Boolean) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Build the dialog and set up the button click handlers
-        val builder = AlertDialog.Builder(activity!!, dialogTheme)
+        val builder = AlertDialog.Builder(requireActivity(), dialogTheme)
         val inflater = LayoutInflater.from(this.context)
         val dnsaLayout = inflater.inflate(R.layout.do_not_show_again, null)
         val doNotShowAgainCB = dnsaLayout.do_not_show_again

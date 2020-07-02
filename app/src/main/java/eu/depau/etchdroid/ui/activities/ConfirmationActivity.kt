@@ -26,8 +26,8 @@ class ConfirmationActivity : ActivityBase() {
         const val TAG = ".ui.a.ConfActvt"
     }
 
-    var canContinue: Boolean = false
-    var issuesFound: String? = null
+    private var canContinue: Boolean = false
+    private var issuesFound: String? = null
 
     var shouldShowDataLossAlertDialog: Boolean
         get() {
@@ -42,7 +42,7 @@ class ConfirmationActivity : ActivityBase() {
         }
 
 
-    fun showDataLossAlertDialog() {
+    private fun showDataLossAlertDialog() {
         val dialogFragment = DoNotShowAgainDialogFragment(isNightMode)
         dialogFragment.title = getString(R.string.warning)
         dialogFragment.message = getString(R.string.dataloss_confirmation_dialog_message)
@@ -71,7 +71,7 @@ class ConfirmationActivity : ActivityBase() {
         displayDetails()
     }
 
-    fun displayDetails() {
+    private fun displayDetails() {
         confirm_sel_method.text = when (StateKeeper.flashMethod) {
             FlashMethod.FLASH_API -> getString(R.string.flash_dd_usb_api)
             FlashMethod.FLASH_DMG_API -> getString(R.string.flash_dmg_api)
@@ -133,7 +133,7 @@ class ConfirmationActivity : ActivityBase() {
         }
     }
 
-    fun displayImageLayout() {
+    private fun displayImageLayout() {
         val uri = StateKeeper.imageFile ?: return
         val text = uri.getFileName(this)
 
@@ -192,7 +192,7 @@ class ConfirmationActivity : ActivityBase() {
     }
 
 
-    fun onButtonClicked(view: View) {
+    private fun onButtonClicked(view: View) {
         when (view.id) {
             R.id.confirm_fab -> nextStep()
         }

@@ -4,7 +4,7 @@ import eu.depau.etchdroid.testutils.exception.TestJobFailException
 import eu.depau.etchdroid.utils.worker.enums.RateUnit
 import eu.depau.etchdroid.utils.worker.impl.AbstractAutoProgressAsyncWorker
 
-open class MockFailingJobWorker() : AbstractAutoProgressAsyncWorker(
+open class MockFailingJobWorker : AbstractAutoProgressAsyncWorker(
         0, 1, RateUnit.FURLONGS_PER_FORTNIGHT) {
 
 
