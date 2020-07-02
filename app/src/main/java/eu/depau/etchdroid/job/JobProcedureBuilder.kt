@@ -14,7 +14,7 @@ import eu.depau.etchdroid.utils.job.IJobProcedureBuilder
 import eu.depau.kotlet.android.parcelable.*
 
 class JobProcedureBuilder() : IJobProcedureBuilder, KotletParcelable {
-    lateinit var jobType: JobType
+    private lateinit var jobType: JobType
 
     internal var inputType: TargetType? = null
     internal var input: Any? = null

@@ -15,11 +15,14 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
-val plistRegex = Regex("\\s*partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s*")
-//val progressRegex = Regex("\\[?(\\d+)]\\s+(\\d+[.,]\\d+)%")
-
 class UsbApiDmgWriteService : UsbApiWriteService("UsbApiDmgWriteService") {
-    val SECTOR_SIZE = 512
+
+    companion object {
+        const val SECTOR_SIZE = 512
+
+        //val progressRegex = Regex("\\[?(\\d+)]\\s+(\\d+[.,]\\d+)%")
+        val plistRegex = Regex("\\s*partition (\\d+): begin=(\\d+), size=(\\d+), decoded=(\\d+), firstsector=(\\d+), sectorcount=(\\d+), blocksruncount=(\\d+)\\s*")
+    }
 
     private lateinit var uri: Uri
     private lateinit var process: Process

@@ -19,18 +19,21 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.github.mjdev.libaums.UsbMassStorageDevice
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
-import eu.depau.etchdroid.libaums_wrapper.EtchDroidUsbMassStorageDevice.Companion.getMassStorageDevices
 import eu.depau.etchdroid.ui.adapters.UsbDrivesRecyclerViewAdapter
-import eu.depau.etchdroid.utils.enums.FlashMethod
-import eu.depau.etchdroid.utils.ktexts.*
 import eu.depau.etchdroid.ui.misc.ClickListener
 import eu.depau.etchdroid.ui.misc.EmptyRecyclerView
 import eu.depau.etchdroid.ui.misc.RecyclerViewTouchListener
+import eu.depau.etchdroid.utils.enums.FlashMethod
+import eu.depau.etchdroid.utils.ktexts.*
 import kotlinx.android.synthetic.main.activity_usb_drive_picker.*
 import java.io.File
 
 class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListener {
-    val USB_PERMISSION = "eu.depau.etchdroid.USB_PERMISSION"
+
+    companion object {
+        const val USB_PERMISSION = "eu.depau.etchdroid.USB_PERMISSION"
+    }
+
     lateinit var mUsbPermissionIntent: PendingIntent
 
     private lateinit var recyclerView: EmptyRecyclerView
@@ -39,12 +42,12 @@ class UsbDrivePickerActivity : ActivityBase(), SwipeRefreshLayout.OnRefreshListe
     private lateinit var refreshLayout: SwipeRefreshLayout
 
 
-    fun handleIntent(intent: Intent) {
+    private fun handleIntent(intent: Intent) {
         if (intent.action == Intent.ACTION_VIEW) {
             val uri = intent.data
-            val ext = uri?.getExtension(contentResolver)
 
-            when (ext) {
+            // Extension check
+            when (uri?.getExtension(contentResolver)) {
                 in listOf("iso", "img") -> {
                     StateKeeper.flashMethod = FlashMethod.FLASH_API
                     StateKeeper.imageFile = uri

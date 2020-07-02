@@ -11,8 +11,8 @@ import eu.depau.kotlet.android.extensions.notification.NotificationImportanceCom
 import eu.depau.kotlet.android.extensions.notification.registerNotificationChannel
 
 object AppNotifications {
-    const val asyncProgressChannelId = "eu.depau.etchdroid.notifications.ASYNC)WORKER_PROGRESS"
-    const val asyncResultChannelId = "eu.depau.etchdroid.notifications.ASYNC_WORKER_RESULT"
+    private const val asyncProgressChannelId = "eu.depau.etchdroid.notifications.ASYNC)WORKER_PROGRESS"
+    private const val asyncResultChannelId = "eu.depau.etchdroid.notifications.ASYNC_WORKER_RESULT"
 
     private var channelsRegistered = false
 
@@ -40,7 +40,7 @@ object AppNotifications {
         channelsRegistered = true
     }
 
-    fun getNotificationBuilder(context: Context, channel: String): NotificationCompat.Builder {
+    private fun getNotificationBuilder(context: Context, channel: String): NotificationCompat.Builder {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationCompat.Builder(context, channel)
         } else {

@@ -14,20 +14,21 @@ import java.util.*
 import kotlin.math.max
 
 
-abstract class UsbWriteService(name: String) : IntentService(name) {
-    val TAG = name
-    val FOREGROUND_ID = Random().nextInt()
-    val RESULT_NOTIFICATION_ID = Random().nextInt()
-    val WRITE_PROGRESS_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_PROGRESS"
-    val WRITE_RESULT_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_RESULT"
-    val WAKELOCK_TAG = "eu.depau.etchdroid.wakelocks.USB_WRITING-$FOREGROUND_ID"
-
+abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWriteName) {
     private var prevTime = System.currentTimeMillis()
     private var prevBytes = 0L
     private var notifyChanRegistered = false
     private var mWakeLock: PowerManager.WakeLock? = null
     private var wlAcquireTime = -1L
-    private val WL_TIMEOUT = 10 * 60 * 1000L
+
+    companion object {
+        private const val WL_TIMEOUT = 10 * 60 * 1000L
+        const val WRITE_PROGRESS_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_PROGRESS"
+        const val WRITE_RESULT_CHANNEL_ID = "eu.depau.etchdroid.notifications.USB_WRITE_RESULT"
+        val FOREGROUND_ID = Random().nextInt()
+        val RESULT_NOTIFICATION_ID = Random().nextInt()
+        val WAKELOCK_TAG = "eu.depau.etchdroid.wakelocks.USB_WRITING-$FOREGROUND_ID"
+    }
 
     override fun onHandleIntent(intent: Intent?) {
         startForeground(FOREGROUND_ID, buildForegroundNotification(null, null, -1))
@@ -41,7 +42,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
 
     abstract fun writeImage(intent: Intent): Long
 
-    fun getNotificationBuilder(channel: String = WRITE_PROGRESS_CHANNEL_ID): NotificationCompat.Builder {
+    private fun getNotificationBuilder(channel: String = WRITE_PROGRESS_CHANNEL_ID): NotificationCompat.Builder {
         if (!notifyChanRegistered) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val statusChannel = NotificationChannel(
@@ -119,7 +120,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
         notificationManager.notify(RESULT_NOTIFICATION_ID, b.build())
     }
 
-    fun buildForegroundNotification(usbDevice: String?, filename: String?, progr: Int, subText: String? = null, title: String = getString(R.string.notif_writing_img)): Notification {
+    private fun buildForegroundNotification(usbDevice: String?, filename: String?, progr: Int, subText: String? = null, title: String = getString(R.string.notif_writing_img)): Notification {
         val indet: Boolean
         val prog: Int
 
@@ -138,7 +139,7 @@ abstract class UsbWriteService(name: String) : IntentService(name) {
                 .setProgress(100, prog, indet)
 
         if (usbDevice != null && filename != null)
-            b.setContentText("${filename} to $usbDevice")
+            b.setContentText("$filename to $usbDevice")
         else
             b.setContentText(getString(R.string.notif_initializing))
 

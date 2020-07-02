@@ -2,8 +2,8 @@ package eu.depau.etchdroid.ui.misc
 
 import android.content.SharedPreferences
 import android.content.res.Configuration
-import android.preference.PreferenceManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import java.lang.ref.WeakReference
 
 
@@ -50,14 +50,14 @@ import java.lang.ref.WeakReference
 class NightModeHelper {
 
     private var mActivity: WeakReference<AppCompatActivity>? = null
-    lateinit var mPrefs: SharedPreferences
+    private lateinit var mPrefs: SharedPreferences
 
     val nightMode: Boolean
         get() = uiNightMode == Configuration.UI_MODE_NIGHT_YES
 
-    private val PREF_KEY = "nightModeState"
 
     companion object {
+        private const val PREF_KEY = "nightModeState"
         var uiNightMode = Configuration.UI_MODE_NIGHT_UNDEFINED
     }
 
@@ -109,12 +109,12 @@ class NightModeHelper {
         }
     }
 
-    fun notNight() {
+    private fun notNight() {
         updateConfig(Configuration.UI_MODE_NIGHT_NO)
         mActivity!!.get()!!.recreate()
     }
 
-    fun night() {
+    private fun night() {
         updateConfig(Configuration.UI_MODE_NIGHT_YES)
         mActivity!!.get()!!.recreate()
     }

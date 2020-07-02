@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- TODO get rid of static strings -->
 <about>
     <me.jfenn.attribouter.wedges.AppWedge repo="Depau/EtchDroid">
         <me.jfenn.attribouter.wedges.link.LinkWedge
-            name="F-Droid"
+            name="@string/fdroid"
             icon="@drawable/ic_fdroid_logo_24dp"
             url="https://f-droid.org/en/packages/eu.depau.etchdroid/" />
         <me.jfenn.attribouter.wedges.link.LinkWedge id="playStore" />
         <me.jfenn.attribouter.wedges.link.LinkWedge
-            name="^GitHub"
+            name="^@string/github"
             id="github" />
     </me.jfenn.attribouter.wedges.AppWedge>
 
+    <!-- TODO loading avatar through network uses too much internet-->
     <me.jfenn.attribouter.wedges.ContributorsWedge showDefaults="false">
         <me.jfenn.attribouter.wedges.ContributorWedge
-            name="Davide Depau"
-            bio="My dream is meeting the love of my life here just to be able to say &quot;we met on GitHub&quot;. GNU/Linux and Python lover, gay as fuck."
-            email="davide@depau.eu"
-            login="Depau"
+            name="@string/owner_name"
+            avatar="https://avatars2.githubusercontent.com/u/1151321"
+            bio="@string/owner_bio"
+            email="@string/owner_email"
+            login="@string/owner_login"
             position="1"
-            task="Owner">
+            task="@string/owner_task">
             <me.jfenn.attribouter.wedges.link.LinkWedge
-                name="Instagram"
-                icon="https://instagram.com/favicon.ico"
+                name="@string/instagram"
+                icon="@drawable/ic_instagram"
                 url="https://instagram.com/depau.py" />
             <me.jfenn.attribouter.wedges.link.LinkWedge
-                name="StackOverflow"
-                icon="https://stackoverflow.com/favicon.ico"
+                name="@string/stackoverflow"
+                icon="@drawable/ic_stackoverflow"
                 url="https://stackoverflow.com/story/depau" />
             <me.jfenn.attribouter.wedges.link.LinkWedge
-                name="PayPal"
-                icon="https://paypal.com/favicon.ico"
+                name="@string/paypal"
+                icon="@drawable/ic_paypal"
                 url="https://paypal.me/DavideDepau/5" />
         </me.jfenn.attribouter.wedges.ContributorWedge>
     </me.jfenn.attribouter.wedges.ContributorsWedge>
@@ -39,102 +42,99 @@
         showDefaults="true">
 
         <me.jfenn.attribouter.wedges.LicenseWedge
-            description="An application to write OS images to USB drives, on Android, no root required."
-            license="gpl-3.0"
-            licenseName="GNU General Public License v3.0"
-            repo="Depau/EtchDroid"
-            title="This app"
-            website="https://etchdroid.depau.eu" />
-
-        <me.jfenn.attribouter.wedges.LicenseWedge
+            license="@string/license_gpl3"
             description="^@string/app_desc"
-            license="gpl-3.0"
-            licenseName="GNU GPL v3.0"
+            licenseName="@string/license_gpl3_name"
+            title="@string/app_name"
             repo="Depau/EtchDroid"
-            title="^@string/this_app"
             website="https://etchdroid.depau.eu" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
-            description="^@string/libaums_license_desc"
-            license="apache-2.0"
-            licenseName="Apache 2.0"
+            description="^@string/libaums_desc"
+            license="@string/license_apache"
+            licenseName="@string/license_apache_name"
             repo="magnusja/libaums"
-            title="libaums" />
+            title="@string/libaums_title" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
-            description="^@string/libaums_wrapper_license_desc"
-            license="apache-2.0"
-            licenseName="Apache 2.0"
+            description="^@string/libaums_wrapper_desc"
+            license="@string/license_apache"
+            licenseName="@string/license_apache_name"
             repo="EtchDroid/libaums_wrapper"
-            title="libaums-wrapper" />
+            title="@string/libaums_wrapper_title" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
-            description="^@string/libusb_license_desc"
-            license="LGPL-2.1"
-            licenseName="LGPL-2.1"
+            description="^@string/libusb_desc"
+            license="@string/license_lgpl"
+            licenseName="@string/license_lgpl"
             repo="libusb/libusb"
-            title="libusb" />
+            title="@string/libusb_title" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
-            description="^@string/storagechooser_license_description"
-            license="mpl-2.0"
-            licenseName="Mozilla Public License 2.0"
+            description="^@string/storagechooser_desc"
+            license="@string/license_mpl_2_0"
+            licenseName="@string/license_mpl_2_0_name"
             repo="codekidX/storage-chooser"
-            title="Storage Chooser" />
+            title="@string/storagechooser_title" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
-            description="^@string/dmg2img_license_desc"
-            license="gpl-2.0"
-            licenseName="GNU General Public License 2.0"
+            description="^@string/license_dmg2img_desc"
+            license="@string/license_gpl2"
+            licenseName="@string/license_gpl2_name"
             repo="Depau/dmg2img-cmake"
             title="dmg2img (fork)" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
             licenseBody="@string/license_bzip2"
-            licenseName="Other"
+            description="^@string/bzip2_desc"
             repo="LuaDist/bzip2"
-            title="bzip2" />
+            licenseName="@string/license_bsd"
+            title="@string/bzip2_title" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
-            licenseName="Custom FOSS"
+            description="@string/libressl_desc"
             repo="EtchDroid/libressl"
-            title="LibreSSL" />
+            licenseName="@string/license_custom_foss"
+            title="@string/libressl" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
             description="@string/library_AndroidX_libraryDescription"
-            license="apache-2.0"
-            licenseName="Apache License 2.0"
+            license="@string/license_apache"
+            licenseName="@string/license_apache_name"
             licenseUrl="https://choosealicense.com/licenses/apache-2.0/"
             title="@string/library_AndroidX_libraryName"
-            website="@string/library_AndroidX_libraryWebsite" />
+            website="https://developer.android.com/jetpack/androidx/" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
             description="@string/library_KotlinStdlib_libraryDescription"
-            license="apache-2.0"
-            licenseName="Apache License 2.0"
+            license="@string/license_apache"
+            licenseName="@string/license_apache_name"
             licenseUrl="https://choosealicense.com/licenses/apache-2.0/"
             title="@string/library_KotlinStdlib_libraryName"
-            website="@string/library_KotlinStdlib_libraryWebsite" />
+            website="https://kotlinlang.org/api/latest/jvm/stdlib/index.html" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
             description="@string/library_Material_libraryDescription"
-            license="apache-2.0"
-            licenseName="Apache License 2.0"
+            license="@string/license_apache"
+            licenseName="@string/license_apache_name"
             licenseUrl="https://choosealicense.com/licenses/apache-2.0/"
             title="@string/library_Material_libraryName"
-            website="@string/library_Material_libraryWebsite" />
+            website="https://material.io/develop/android/" />
 
         <me.jfenn.attribouter.wedges.LicenseWedge
+            description="^@string/guava_desc"
+            license="@string/license_apache"
+            licenseName="@string/license_apache_name"
+            licenseUrl="https://choosealicense.com/licenses/apache-2.0/"
             repo="google/guava"
-            license="apache-2.0"
-            licenseName="Apache License 2.0"
-            licenseUrl="https://choosealicense.com/licenses/apache-2.0/"/>
+            title="@string/guava_title" />
 
     </me.jfenn.attribouter.wedges.LicensesWedge>
 
     <me.jfenn.attribouter.wedges.TranslatorsWedge overflow="5">
         <me.jfenn.attribouter.wedges.TranslatorWedge
             name="Davide Depau"
+            avatar="https://avatars2.githubusercontent.com/u/1151321"
             locales="it"
             login="Depau" />
         <me.jfenn.attribouter.wedges.TranslatorWedge
@@ -157,5 +157,8 @@
             avatar="https://avatars3.githubusercontent.com/u/30341059"
             locales="zh"
             login="yzqzss" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Demetrio F. B."
+            locales="ro,de" />
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
 </about>

@@ -3,7 +3,6 @@ package eu.depau.etchdroid.utils.ktexts
 import android.content.ContentUris
 import android.content.Context
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
@@ -21,10 +20,8 @@ import eu.depau.etchdroid.utils.exception.CannotGetFilePathException
  * https://stackoverflow.com/a/27271131/1124621
  */
 fun Uri.getFilePath(context: Context): String? {
-    val isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-
     try {
-        if (isKitKat && DocumentsContract.isDocumentUri(context, this)) {
+        if (DocumentsContract.isDocumentUri(context, this)) {
             // DocumentProvider
 
             if (isExternalStorageDocument) {
@@ -59,9 +56,9 @@ fun Uri.getFilePath(context: Context): String? {
 
                 val docId = DocumentsContract.getDocumentId(this)
                 val split = docId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                val type = split[0]
 
-                val contentUri = when (type) {
+                // Type check
+                val contentUri = when (split[0]) {
                     "image" -> MediaStore.Images.Media.EXTERNAL_CONTENT_URI
                     "video" -> MediaStore.Video.Media.EXTERNAL_CONTENT_URI
                     "audio" -> MediaStore.Audio.Media.EXTERNAL_CONTENT_URI

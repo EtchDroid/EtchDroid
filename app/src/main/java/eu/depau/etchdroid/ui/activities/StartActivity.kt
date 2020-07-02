@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.codekidlabs.storagechooser.StorageChooser
 import com.github.mjdev.libaums.usb.UsbCommunicationFactory
 import eu.depau.etchdroid.R
@@ -19,8 +18,11 @@ import java.io.File
 
 
 class StartActivity : ActivityBase() {
-    val TAG = "StartActivity"
-    var delayedButtonClicked: Boolean = false
+    private var delayedButtonClicked: Boolean = false
+
+    companion object {
+        const val TAG = "StartActivity"
+    }
 
     var shouldShowDMGAlertDialog: Boolean
         get() {
@@ -50,7 +52,7 @@ class StartActivity : ActivityBase() {
         }
     }
 
-    fun onButtonClicked(view: View) = onButtonClicked(view, true)
+    private fun onButtonClicked(view: View) = onButtonClicked(view, true)
 
     private fun openBrokenUsbPage() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://etchdroid.depau.eu/broken_usb/"))
@@ -84,7 +86,7 @@ class StartActivity : ActivityBase() {
         }
     }
 
-    fun showDMGBetaAlertDialog(callback: () -> Unit) {
+    private fun showDMGBetaAlertDialog(callback: () -> Unit) {
         val dialogFragment = DoNotShowAgainDialogFragment(isNightMode)
         dialogFragment.title = getString(R.string.here_be_dragons)
         dialogFragment.message = getString(R.string.dmg_alert_dialog_text)
@@ -100,7 +102,7 @@ class StartActivity : ActivityBase() {
     }
 
 
-    fun showFilePicker() {
+    private fun showFilePicker() {
         when (StateKeeper.flashMethod) {
             FlashMethod.FLASH_API -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
@@ -153,7 +155,7 @@ class StartActivity : ActivityBase() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == READ_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK) {
+        if (requestCode == READ_REQUEST_CODE && resultCode == RESULT_OK) {
             // The document selected by the user won't be returned in the intent.
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.
@@ -167,7 +169,7 @@ class StartActivity : ActivityBase() {
         }
     }
 
-    fun nextStep() {
+    private fun nextStep() {
         val intent = Intent(this, UsbDrivePickerActivity::class.java)
         startActivity(intent)
     }

@@ -11,9 +11,9 @@ import java.io.Serializable
  * Mock reimplementation that shadows the original in order to return mock intents
  */
 object JobProgressUpdateBroadcast {
-    const val ACTION = "eu.depau.etchdroid.broadcast.JOB_PROGRESS_UPDATE"
+    private const val ACTION = "eu.depau.etchdroid.broadcast.JOB_PROGRESS_UPDATE"
 
-    fun getIntent(dto: JobProgressUpdateBroadcastDTO) = mock(Intent::class.java).apply {
+    fun getIntent(dto: JobProgressUpdateBroadcastDTO): Intent = mock(Intent::class.java).apply {
         action = ACTION
 
         // Simulate intent put/get extra logic

@@ -20,7 +20,7 @@ import eu.depau.etchdroid.utils.worker.IAsyncWorker
 
 class JobServiceIntentHandler(
         val context: JobService,
-        private val jobDTO: JobServiceIntentDTO
+        jobDTO: JobServiceIntentDTO
 ) : AbstractJobProgressSender() {
     private val jobId = jobDTO.jobId
     private val svcNotificationBuilder = JobServiceNotificationBuilder(context)
