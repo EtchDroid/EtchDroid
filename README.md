@@ -1,5 +1,8 @@
 # EtchDroid
 
+# WINDOWS ISOs ARE \*\*NOT\*\* SUPPORTED!
+# DO NOT REPORT ISSUES IF YOU'RE FLASHING A WINDOWS INSTALLER IMAGE. IT'S FUCKING SIMPLE. SEE ISSUE [#5](https://github.com/EtchDroid/EtchDroid/issues/5)
+
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) [![Build Status](https://travis-ci.org/EtchDroid/EtchDroid.svg?branch=develop)](https://travis-ci.org/EtchDroid/EtchDroid) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6335c20d4e214b6fb4d31c1e178ad628)](https://www.codacy.com/app/EtchDroid/EtchDroid?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EtchDroid/EtchDroid&amp;utm_campaign=Badge_Grade) [![Translation status](https://etchdroid-l10n.depau.eu/widgets/etchdroid/-/app/svg-badge.svg)](https://etchdroid-l10n.depau.eu/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social) 
 
 [![F-Droid](https://etchdroid.depau.eu/assets/img/get-from-fdroid-small.png)](https://f-droid.org/packages/eu.depau.etchdroid/) [![Google Play](https://etchdroid.depau.eu/assets/img/get-from-googleplay-small.png)](https://play.google.com/store/apps/details?id=eu.depau.etchdroid)
@@ -30,7 +33,14 @@ You can use it to make a bootable GNU/Linux USB drive when your laptop is dead a
 
 ## Screenshots
 
-[![screenshot0.png](https://s22.postimg.cc/pzx4pygy5/image.png)](https://postimg.cc/image/pzx4pygy5/) [![screenshot1.png](https://s22.postimg.cc/o845v25b1/image.png)](https://postimg.cc/image/o845v25b1/) [![screenshot2.png](https://s22.postimg.cc/cj0673m25/image.png)](https://postimg.cc/image/cj0673m25/) [![screenshot3.png](https://s22.postimg.cc/c68s0xbi5/image.png)](https://postimg.cc/image/c68s0xbi5/) [![screenshot4.png](https://s22.postimg.cc/77l9men4t/image.png)](https://postimg.cc/image/77l9men4t/) [![screenshot5.png](https://s22.postimg.cc/3nzbwlcp9/image.png)](https://postimg.cc/image/3nzbwlcp9/)
+<!-- Exact dimensions are specified to avoid the images jumping as they load -->
+<!-- The "force inline" comment ensures the images stay inline, the fact that it's needed might be a GFM bug -->
+<img src="metadata/en-US/images/phoneScreenshots/0.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/2.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/3.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/4.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/5.png" width="100" height="178"> <!-- Force inline -->
+<img src="metadata/en-US/images/phoneScreenshots/6.png" width="100" height="178"> <!-- Force inline -->
 
 ## Support the project
 
