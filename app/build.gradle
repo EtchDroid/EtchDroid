@@ -8,7 +8,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    buildToolsVersion '29.0.2'
     defaultConfig {
         applicationId "eu.depau.etchdroid"
         minSdkVersion 21
@@ -74,5 +74,4 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     testImplementation 'androidx.test:core:1.2.0'
     testImplementation 'org.mockito:mockito-core:2.28.2'
-
 }

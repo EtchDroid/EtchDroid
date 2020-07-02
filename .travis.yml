@@ -7,12 +7,12 @@ android:
 install:
   - yes | sdkmanager "tools" > /dev/null
   - yes | sdkmanager "platform-tools" > /dev/null
+  - yes | sdkmanager "platforms;android-29" > /dev/null
   - yes | sdkmanager "platforms;android-28" > /dev/null
   - yes | sdkmanager "ndk-bundle" > /dev/null
-  - yes | sdkmanager "ndk;20.0.5594570" > /dev/null
+  - yes | sdkmanager "ndk;21.0.6113669" > /dev/null
   - yes | sdkmanager "build-tools;29.0.2" > /dev/null
   - yes | sdkmanager "cmake;3.10.2.4988404" > /dev/null
-  - yes | sdkmanager "lldb;3.1" > /dev/null
   - yes | sdkmanager "extras;android;m2repository" > /dev/null
   - yes | sdkmanager "extras;google;m2repository" > /dev/null
 

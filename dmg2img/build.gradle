@@ -20,4 +20,5 @@ android {
 			assets.srcDirs = ['src/main/assets']
 		}
 	}
+    ndkVersion '21.0.6113669'
 }
