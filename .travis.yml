@@ -1,20 +1,39 @@
 language: android
+jdk: oraclejdk8
+
+env:
+  global:
+    - ANDROID_API_LEVEL=29
+    - ANDROID_BUILD_TOOLS_VERSION=29.0.3
+    - NDK_VERSION=21.0.6113669
+    - CMAKE_VERSION=3.10.2.4988404
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+install:
+  - echo y | sdkmanager "ndk-bundle"
+  - echo y | sdkmanager "ndk;$NDK_VERSION"
+  - echo y | sdkmanager "cmake;$CMAKE_VERSION"
 
 android:
   components:
-    - build-tools-29.0.2
+    - tools
+    - platform-tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+    - extra-android-m2repository
+    - extra-google-m2repository
 
-install:
-  - yes | sdkmanager "tools" > /dev/null
-  - yes | sdkmanager "platform-tools" > /dev/null
-  - yes | sdkmanager "platforms;android-29" > /dev/null
-  - yes | sdkmanager "platforms;android-28" > /dev/null
-  - yes | sdkmanager "ndk-bundle" > /dev/null
-  - yes | sdkmanager "ndk;21.3.6528147" > /dev/null
-  - yes | sdkmanager "build-tools;29.0.2" > /dev/null
-  - yes | sdkmanager "cmake;3.10.2.4988404" > /dev/null
-  - yes | sdkmanager "extras;android;m2repository" > /dev/null
-  - yes | sdkmanager "extras;google;m2repository" > /dev/null
+before_script:
+  - export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk-bundle
+  - export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
 
 script:
-  - ./gradlew build test
+  - ./gradlew clean test build
