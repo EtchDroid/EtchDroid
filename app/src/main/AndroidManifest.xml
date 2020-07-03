@@ -18,33 +18,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        android:theme="@style/MaterialAppTheme">
         <activity
             android:name="eu.depau.etchdroid.ui.activities.StartActivity"
-            android:label="@string/app_name"
-            android:theme="@style/MaterialAppTheme">
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity"
             android:label="@string/title_activity_usb_drive_picker"
-            android:parentActivityName="eu.depau.etchdroid.ui.activities.StartActivity"
-            android:theme="@style/MaterialAppTheme">
+            android:parentActivityName="eu.depau.etchdroid.ui.activities.StartActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eu.depau.etchdroid.ui.activities.StartActivity"/>
+                android:value="eu.depau.etchdroid.ui.activities.StartActivity" />
 
             <!-- Open ISO files by mimetype -->
             <intent-filter android:label="@string/app_name">
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE"/>
 
                 <data android:scheme="file"/>
@@ -128,11 +125,10 @@
         <activity
             android:name="eu.depau.etchdroid.ui.activities.ConfirmationActivity"
             android:label="@string/title_activity_confirmation"
-            android:parentActivityName="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity"
-            android:theme="@style/MaterialAppTheme">
+            android:parentActivityName="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity"/>
+                android:value="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity" />
         </activity>
 
         <activity
