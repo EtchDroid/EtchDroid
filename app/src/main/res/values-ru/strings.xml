@@ -113,4 +113,5 @@
     <string name="libressl_desc">LibreSSL это вилка OpenSSL 1.0.1g, разработанная под OpenBSD проектом.</string>
     <string name="guava_desc">Guava-это набор основных библиотек Java от Google, который включает в себя новые типы коллекций (такие как multimap и multiset),неизменяемые коллекции, библиотеку графиков и утилиты для параллелизма, ввода-вывода, хэширования, кэширования, примитивов, строк и многое другое!</string>
     <string name="bzip2_desc">bzip2-это библиотека сжатия данных с высокой степенью сжатия</string>
+    <string name="tag_item_beta">Статус бета</string>
 </resources>

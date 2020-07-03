@@ -39,9 +39,9 @@ class StartActivity : ActivityBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-        btn_image_raw.setOnClickListener(this::onButtonClicked)
-        btn_image_dmg.setOnClickListener(this::onButtonClicked)
-        btn_broken_usb.setOnClickListener(this::onButtonClicked)
+        buttonRaw.setOnClickListener(this::onButtonClicked)
+        buttonDmg.setOnClickListener(this::onButtonClicked)
+        buttonBrokenUsb.setOnClickListener(this::onButtonClicked)
 
         if (!StateKeeper.libusbRegistered) {
             UsbCommunicationFactory.apply {
@@ -61,15 +61,15 @@ class StartActivity : ActivityBase() {
 
     private fun onButtonClicked(view: View?, showDMGDialog: Boolean = true, showAndroidPieDialog: Boolean = true) {
         if (view != null) {
-            if (view.id == R.id.btn_broken_usb) {
+            if (view.id == R.id.buttonBrokenUsb) {
                 openBrokenUsbPage()
                 return
             }
 
             StateKeeper.flashMethod = when (view.id) {
-                R.id.btn_image_raw -> FlashMethod.FLASH_API
-                R.id.btn_image_dmg -> FlashMethod.FLASH_DMG_API
-                else               -> null
+                R.id.buttonRaw -> FlashMethod.FLASH_API
+                R.id.buttonDmg -> FlashMethod.FLASH_DMG_API
+                else -> null
             }
 
 //        if (showAndroidPieDialog && shouldShowAndroidPieAlertDialog) {
