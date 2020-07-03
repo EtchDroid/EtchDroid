@@ -108,4 +108,19 @@
     <string name="broken_usb_text">Druk hier als Android meldt dat er een probleem is met je USB-schijf of dat deze niet wordt ondersteund.</string>
     <string name="broken_usb_title">Niet-ondersteunde USB-schijf\?</string>
     <string name="step_x_of_y">Stap %1$d van %2$d</string>
+    <string name="libressl_desc">LibreSSL is een afsplitsing van OpenSSL 1.0.1g, ontwikkeld door het OpenBSD-project.</string>
+    <string name="license_dmg2img_desc">Converteert Apple® DMG-schijfafbeeldingen met compressie</string>
+    <string name="license_custom_foss">Ander soort FOSS</string>
+    <string name="license_other">Anders</string>
+    <string name="license_gpl2" translatable="false">gpl-2.0</string>
+    <string name="license_gpl3" translatable="false">gpl-3.0</string>
+    <string name="libusb_desc">Een cross-platformbibliotheek om USB-apparaten te benaderen</string>
+    <string name="libaums_wrapper_desc">Een kleine toevoeging om libaums beter te laten werken met EtchDroid</string>
+    <string name="libaums_desc">Userspace USB-blokapparaatimplementatie</string>
+    <string name="storagechooser_desc">DMG-bestandsselectie</string>
+    <string name="owner_task">Eigenaar</string>
+    <string name="owner_bio">Houdt van mannen en Arch Linux. Ik houd van Kotlin, Go, Python en slapen.</string>
+    <string name="owner_name">Davide Depau</string>
+    <string name="guava_desc">Guava is een reeks Java-kernbiblioteken, gemaakt door Google. De reeks bevat onder meer collectietypes (zoals multimap en multiset), immutable collecties, een grafiekbibliotheek en hulpmiddelen omtrent concurrency, I/O, hashing, caching, primitieven, tekenreeksen en meer!</string>
+    <string name="bzip2_desc">bzip2 is een compressiebibliotheek met een hoog gehalte</string>
 </resources>
