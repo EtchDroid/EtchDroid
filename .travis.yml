@@ -10,7 +10,7 @@ install:
   - yes | sdkmanager "platforms;android-29" > /dev/null
   - yes | sdkmanager "platforms;android-28" > /dev/null
   - yes | sdkmanager "ndk-bundle" > /dev/null
-  - yes | sdkmanager "ndk;21.0.6113669" > /dev/null
+  - yes | sdkmanager "ndk;21.3.6528147" > /dev/null
   - yes | sdkmanager "build-tools;29.0.2" > /dev/null
   - yes | sdkmanager "cmake;3.10.2.4988404" > /dev/null
   - yes | sdkmanager "extras;android;m2repository" > /dev/null
