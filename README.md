@@ -1,7 +1,6 @@
 # EtchDroid
 
-# WINDOWS ISOs ARE \*\*NOT\*\* SUPPORTED!
-# DO NOT REPORT ISSUES IF YOU'RE FLASHING A WINDOWS INSTALLER IMAGE. IT'S FUCKING SIMPLE. SEE ISSUE [#5](https://github.com/EtchDroid/EtchDroid/issues/5)
+# WINDOWS ISOs ARE \*\*NOT\*\* SUPPORTED! Do not report issues if you're flashing a Windows ISO.
 
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) [![Build Status](https://travis-ci.org/EtchDroid/EtchDroid.svg?branch=develop)](https://travis-ci.org/EtchDroid/EtchDroid) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6335c20d4e214b6fb4d31c1e178ad628)](https://www.codacy.com/app/EtchDroid/EtchDroid?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EtchDroid/EtchDroid&amp;utm_campaign=Badge_Grade) [![Translation status](https://etchdroid-l10n.depau.eu/widgets/etchdroid/-/app/svg-badge.svg)](https://etchdroid-l10n.depau.eu/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social) 
 
@@ -19,6 +18,12 @@ You can use it to make a bootable GNU/Linux USB drive when your laptop is dead a
 <p align="center">
 <a href="https://www.patreon.com/depau" rel="_noopener" target="_blank"><img alt="Become a Patron" src="https://etchdroid.depau.eu/assets/img/become_a_patron_button.png"/></a> &nbsp;&nbsp;&nbsp; <a href="https://flattr.com/@Depau" rel="_noopener" target="_blank"><img alt="Flattr this" src="https://api.flattr.com/button/flattr-badge-large.png"/></a>
 </p>
+
+
+
+Learn how to use EtchDroid with this [YouTube video](https://www.youtube.com/watch?v=6gM5SoNO0Fc):
+
+[![How to use EtchDroid](https://img.youtube.com/vi/6gM5SoNO0Fc/0.jpg)](https://www.youtube.com/watch?v=6gM5SoNO0Fc)
 
 ## Features
 - Supports raw disk images and most GNU/Linux distributions ISOs
