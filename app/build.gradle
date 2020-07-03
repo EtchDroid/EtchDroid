@@ -65,7 +65,7 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.2.5'
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    api 'com.github.codekidX:storage-chooser:2.0.4.2'
+    api 'com.github.codekidX:storage-chooser:2.0.4.4'
     api 'com.github.EtchDroid:libaums_wrapper:v1.1'
     api 'me.jahnen:libaums-libusbcommunication:0.1'
 
