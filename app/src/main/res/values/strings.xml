@@ -8,7 +8,7 @@
     <string name="write_apple_dmg">Write Apple® DMG image</string>
     <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
     <string name="broken_usb_title">Unsupported USB drive?</string>
-    <string name="broken_usb_text">If Android says there\'s an issue with your USB drive or that it\'s unsupported after using EtchDroid, read this.</string>
+    <string name="broken_usb_text">If Android says there\'s an issue with your USB drive or Windows does not detect it after using EtchDroid, read this.</string>
     <!--  Unordered  -->
     <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
     <string name="flash_dmg_api">Restore macOS DMG image to disk (using Android API)</string>
