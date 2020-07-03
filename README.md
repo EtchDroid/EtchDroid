@@ -5,7 +5,6 @@
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) [![Build Status](https://travis-ci.org/EtchDroid/EtchDroid.svg?branch=develop)](https://travis-ci.org/EtchDroid/EtchDroid) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6335c20d4e214b6fb4d31c1e178ad628)](https://www.codacy.com/app/EtchDroid/EtchDroid?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EtchDroid/EtchDroid&amp;utm_campaign=Badge_Grade) [![Translation status](https://etchdroid-l10n.depau.eu/widgets/etchdroid/-/app/svg-badge.svg)](https://etchdroid-l10n.depau.eu/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social) 
 
 ![EtchDroid](https://etchdroid.depau.eu/assets/img/playstore_banner.png)
-.
 
 <p align="center">
 <a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get-from-fdroid-small.png" alt="F-Droid"></a> <a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get-from-googleplay-small.png" alt="Google Play"></a>
