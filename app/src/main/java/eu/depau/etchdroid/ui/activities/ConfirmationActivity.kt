@@ -97,7 +97,7 @@ class ConfirmationActivity : ActivityBase() {
 
         confirm_sel_image_size.text = sizeStr
 
-        confirm_sel_usbdev.text = StateKeeper.usbDevice?.name
+        confirm_sel_usbdev.text = StateKeeper.usbDevice?.name?.trim()
 
         for (trial in 0..1) {
             val aumsDev = StateKeeper.usbDevice!!.getMassStorageDevices(this)[0]
