@@ -55,8 +55,9 @@ class JobServiceIntentHandler(
         try {
             withNotificationBroadcastReceiver {
                 job.attachAndRun { procedure ->
-                    procedure.forEachAction(sharedWorkerData) { _, _, _ ->
-
+                    procedure.forEachAction(sharedWorkerData) { _, _, worker ->
+                        while (worker.runStep()) {
+                        }
                     }
                 }
 
