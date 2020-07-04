@@ -150,11 +150,13 @@
             android:exported="false"/>
 
         <!--suppress AndroidDomInspection -->
+<!--
         <provider
             android:name="com.github.mjdev.libaums.storageprovider.UsbDocumentProvider"
             android:exported="false"
             tools:node="remove">
         </provider>
+-->
 
     </application>
 </manifest>

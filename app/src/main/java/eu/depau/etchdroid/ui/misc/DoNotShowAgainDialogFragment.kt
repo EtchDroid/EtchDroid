@@ -1,6 +1,5 @@
 package eu.depau.etchdroid.ui.misc
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +8,6 @@ import androidx.fragment.app.DialogFragment
 import eu.depau.etchdroid.R
 import kotlinx.android.synthetic.main.do_not_show_again.view.*
 
-@SuppressLint("ValidFragment")
 class DoNotShowAgainDialogFragment(nightMode: Boolean) : DialogFragment() {
     var title: String? = null
     var positiveButton: String? = null
