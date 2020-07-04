@@ -7,14 +7,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.3'
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
         applicationId "eu.depau.etchdroid"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 11
-        versionName "1.4"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -45,33 +45,33 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core:1.3.0'
-    implementation 'androidx.fragment:fragment:1.2.5'
-    implementation 'androidx.preference:preference:1.1.1'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'com.google.guava:guava:29.0-jre'
-
-    implementation 'com.github.Depau:kotlet-android:v0.2.5'
+    kapt "androidx.room:room-compiler:$roomVersion"
     implementation project(':dmg2img')
-    implementation 'me.jfenn:Attribouter:0.1.5'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "me.jfenn:Attribouter:$attribouterVersion"
+    implementation "com.google.guava:guava:$guavaVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "com.github.Depau:kotlet-android:$kotletAndroid"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayoutVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.preference:preference:$preferenceVersion"
+    implementation "androidx.gridlayout:gridlayout:$gridLayoutVersion"
+    implementation "androidx.fragment:fragment:$fragmentVersion"
+    implementation "androidx.core:core:$coreVersion"
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    api "me.jahnen:libaums-libusbcommunication:$libUsbCommunicationVersion"
+    api "com.github.EtchDroid:libaums_wrapper:$libaumsWrapperVersion"
+    api "com.github.codekidX:storage-chooser:$storageChooserVersion"
 
-    implementation 'androidx.room:room-runtime:2.2.5'
-    kapt 'androidx.room:room-compiler:2.2.5'
-    implementation 'com.google.code.gson:gson:2.8.6'
-
-    api 'com.github.codekidX:storage-chooser:2.0.4.4'
-    api 'com.github.EtchDroid:libaums_wrapper:v1.1'
-    api 'me.jahnen:libaums-libusbcommunication:0.1'
-
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    testImplementation 'junit:junit:4.13'
-    testImplementation 'androidx.test:core:1.2.0'
-    testImplementation 'org.mockito:mockito-core:2.28.2'
+    // Testing dependencies
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test:runner:$runnerVersion"
+    testImplementation "androidx.test:core:$testCoreVersion"
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
 }
