@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Kalıbı doğrudan diske yaz (Android API kullanarak)</string>
     <string name="flash_dmg_api">macOS DMG kalıbını diske yaz (Android API kullanarak)</string>
     <string name="flash_unetbootin">Unetbootin tarzı yazma (yalnızca MBR, root gerektirir)</string>
@@ -20,38 +19,13 @@
     <string name="notif_initializing">Başlatılıyor…</string>
     <string name="notif_writing_img">Kalıp yazılıyor…</string>
     <string name="image_is_not_dmg">Seçilen kalıp bir DMG kalıbı değil (bozulmuş olabilir)</string>
-    <string name="ptt_aix">IBM AIX</string>
-    <string name="ptt_amiga">AMIGA</string>
-    <string name="ptt_bsd">BSD</string>
-    <string name="ptt_dvh">DVH</string>
     <string name="ptt_gpt">GUID Bölüm Tablosu (GPT)</string>
     <string name="ptt_loop">Hiçbiri</string>
     <string name="ptt_mac">Apple Bölüm Tablosu (APT)</string>
-    <string name="ptt_msdos">Master Boot Record (MS-DOS)</string>
-    <string name="ptt_pc98">PC98</string>
-    <string name="ptt_sun">Sun</string>
-    <string name="fs_fat12">FAT12</string>
-    <string name="fs_fat16">FAT16</string>
-    <string name="fs_fat32">FAT32</string>
-    <string name="fs_exfat">ExFAT</string>
-    <string name="fs_ntfs">NTFS</string>
-    <string name="fs_refs">ReFS</string>
-    <string name="fs_hfs">macOS HFS</string>
-    <string name="fs_hfsplus">macOS HFS+</string>
-    <string name="fs_apfs">Apple Dosya Sistemi (APFS)</string>
     <string name="fs_apt_data">APT veri</string>
-    <string name="fs_iso9660">ISO 9660</string>
-    <string name="fs_ext2">Linux Ext2</string>
-    <string name="fs_ext3">Linux Ext3</string>
-    <string name="fs_ext4">Linux Ext4</string>
-    <string name="fs_btrfs">Btrfs</string>
-    <string name="fs_f2fs">f2fs</string>
     <string name="fs_luks">LUKS şifrelenmiş</string>
     <string name="fs_linux_swap">Linux swap</string>
     <string name="fs_linux_lvm_pv">Linux LVM2 fiziksel aygıt</string>
-    <string name="fs_ufs">UFS</string>
-    <string name="fs_xfs">XFS</string>
-    <string name="fs_zfs">ZFS</string>
     <string name="fs_free">Boş alan</string>
     <string name="fs_unformatted">Biçimlendirilmemiş</string>
     <string name="fs_unknown">Bilinmeyen</string>
@@ -59,11 +33,8 @@
     <string name="fs_label">Etiket</string>
     <string name="fs_type">Tür</string>
     <string name="part_size">Boyut</string>
-    <string name="license_gpl3_name">GNU GPLv3</string>
     <string name="this_app">Bu uygulama</string>
-    <string name="license_apache_name">Apache 2.0</string>
     <string name="libaums_desc">Kullanıcı alanı USB blok aygıtı uygulaması</string>
-    <string name="license_gpl2">gpl-2.0</string>
     <string name="license_bzip2">Özel BSD benzeri</string>
     <string name="license_custom">Özel</string>
     <string name="about">Lisanslar</string>
@@ -87,7 +58,6 @@
     <string name="dataloss_confirmation_dialog_message">Devam ederseniz, seçtiğiniz kalıp diske yazılacak ve USB bellekteki tüm veriler sonsuza kadar yok olacak!</string>
     <string name="warning">Uyarı</string>
     <string name="cancel">İptal</string>
-    <string name="license_mpl_2_0">MPL-2.0</string>
     <string name="storagechooser_desc">DMG dosya seçici</string>
     <string name="result_channel_desc">Bitmiş bir yazma işleminin sonucunu göstermek için kullanılır</string>
     <string name="result_channel_name">USB yazma sonucu bildirimleri</string>
@@ -97,7 +67,6 @@
     <string name="success_notif_content_text">%1$s başarıyla %2$s üzerine yazıldı</string>
     <string name="troubleshooting_info">Y</string>
     <string name="operation_failed_because">İşlem aşağıdaki hatadan dolayı tamamlanamadı:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Bu yaygın bir hatadır. genellikle yazma sırasında USB belleğin çıkarılması, yada bir USB çoklayıcı kullanarak bağlanması ile oluşur. Bazı cihazlarda bu bir Android USB altsistemi hatası olabilir: çoğu zaman cihaz yeniden başlatıldığında çözülebilir. \n\nBunları deneyin:\n• USB aygıtınızı çıkarıp takın, sonra uygulamayı yeniden başlatın.\n• Cihazınızı yeniden başlatın. (evet, deneyin.)\n• Başka bir USB aygıtı deneyin.\n• Gereksiz adaptörler, çoklayıcılar vb. kullanmaktan kaçının.\n• YAzma sırasında cihazınızı kullanmaktan kaçının.\n• Hasarlı OTG kablonuzu değiştirin.\n\nEğer sorununuz çözülmüyorsa GitHub üzerinden sorun bildirimi yapın.</string>
     <string name="reporting_issues">Sorun bildirimi</string>
     <string name="reporting_issues_text">Sorunlar GitHub üzerinden bildirilebilir:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Yazma başarısız</string>
