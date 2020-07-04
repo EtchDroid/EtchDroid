@@ -18,8 +18,8 @@
             name="@string/owner_name"
             avatar="https://avatars2.githubusercontent.com/u/1151321"
             bio="@string/owner_bio"
-            email="@string/owner_email"
-            login="@string/owner_login"
+            email="davide@depau.eu"
+            login="Depau"
             position="1"
             task="@string/owner_task">
             <me.jfenn.attribouter.wedges.link.LinkWedge
@@ -34,6 +34,19 @@
                 name="@string/paypal"
                 icon="@drawable/ic_paypal"
                 url="https://paypal.me/DavideDepau/5" />
+        </me.jfenn.attribouter.wedges.ContributorWedge>
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            name="@string/contributor_german_name"
+            avatar="https://avatars2.githubusercontent.com/u/16625266"
+            email="proshunin.german@yandex.ru"
+            login="anonlatte"
+            position="2"
+            task="@string/contributor_german_task">
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                name="@string/instagram"
+                icon="@drawable/ic_instagram"
+                url="https://instagram.com/anonlatte_" />
+
         </me.jfenn.attribouter.wedges.ContributorWedge>
     </me.jfenn.attribouter.wedges.ContributorsWedge>
 
@@ -160,5 +173,12 @@
         <me.jfenn.attribouter.wedges.TranslatorWedge
             name="Demetrio F. B."
             locales="ro,de" />
+
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="@string/contributor_german_name"
+            avatar="https://avatars2.githubusercontent.com/u/16625266"
+            locales="ru"
+            login="anonlatte" />
+
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
 </about>
