@@ -3,7 +3,6 @@ package eu.depau.etchdroid.services.job
 import android.app.Notification
 import android.app.Service
 import android.content.IntentFilter
-import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.broadcasts.JobProgressUpdateBroadcast
@@ -61,7 +60,8 @@ class JobServiceIntentHandler(
                 db.jobRepository().update(job)
             }
         } catch (e: Throwable) {
-            Log.e(TAG, "JobProcedure failed", e)
+            println("$TAG   -> JobProcedure failed")
+            e.printStackTrace()
         }
     }
 

@@ -6,7 +6,7 @@ import java.io.InputStream
 import java.io.OutputStream
 
 
-open class Input2OutputStreamCopyAsyncWorker(
+class Input2OutputStreamCopyAsyncWorker(
         private val source: InputStream,
         private val dest: OutputStream,
         private val seek: Long,
