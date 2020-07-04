@@ -1,7 +1,6 @@
 package eu.depau.etchdroid.services.job
 
 import android.content.Context
-import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.R
@@ -68,9 +67,9 @@ class ProgressBroadcastForwarder(
         val isCheckpoint = currentActionIdx!! > 0
         val messageResId = if (isCheckpoint) R.string.resuming_job else R.string.starting_job
 
-        Log.d(TAG, "-> onProcedureStart job $jobId, startAt $startActionIndex, " +
+        println("$TAG -> onProcedureStart job $jobId, startAt $startActionIndex, " +
                 "currentAction $currentActionIdx, prevProgress: $prevActionsProgressWeight")
-//context.getString(R.string.starting_job)
+
         val dto = JobProgressUpdateBroadcastDTO(
                 jobId = jobId,
                 indefinite = true,
@@ -88,7 +87,7 @@ class ProgressBroadcastForwarder(
     override fun onProcedureDone() {
         assertProcedureStarted()
 
-        Log.d(TAG, "-> onProcedureDone job $jobId action $currentActionIdx")
+        println("$TAG  -> onProcedureDone job $jobId action $currentActionIdx")
 
         // Ensure no more updates are sent after the procedure is done
         currentActionIdx = null
@@ -111,7 +110,7 @@ class ProgressBroadcastForwarder(
     override fun onProcedureError(error: Throwable) {
         assertProcedureStarted()
 
-        Log.d(TAG, "-> onProcedureError job $jobId action $currentActionIdx")
+        println("$TAG -> onProcedureError job $jobId action $currentActionIdx")
 
         // Ensure no more updates are sent after the procedure failed
         currentActionIdx = null
@@ -144,7 +143,7 @@ class ProgressBroadcastForwarder(
                 else
                     null
 
-        Log.d(TAG, "    -> onWorkerProgress job $jobId action $currentActionIdx dto $dto")
+        println("$TAG   -> onWorkerProgress job $jobId action $currentActionIdx dto $dto")
 
         val broadcastDTO = JobProgressUpdateBroadcastDTO(
                 jobId = jobId,
@@ -166,7 +165,7 @@ class ProgressBroadcastForwarder(
         assertProcedureStarted()
         currentActionIdx = actionIndex
 
-        Log.d(TAG, "  -> onActionStart job $jobId action $currentActionIdx")
+        println("$TAG  -> onActionStart job $jobId action $currentActionIdx")
 
         val dto = JobProgressUpdateBroadcastDTO(
                 jobId = jobId,
@@ -189,7 +188,7 @@ class ProgressBroadcastForwarder(
         assertProcedureStarted()
         prevActionsProgressWeight = prevActionsProgressWeight!!.plus(job.jobProcedure[currentActionIdx!!].progressWeight)
 
-        Log.d(TAG, "  -> onActionDone job $jobId action $currentActionIdx")
+        println("$TAG  -> onActionDone job $jobId action $currentActionIdx")
 
         // We don't really need to broadcast this event
     }
