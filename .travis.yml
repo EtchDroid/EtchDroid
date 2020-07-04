@@ -1,3 +1,6 @@
+# Disable container-based builds with max 4GB ram
+sudo: required
+
 language: android
 jdk: oraclejdk8
 
@@ -16,6 +19,7 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
+    - $TRAVIS_BUILD_DIR/dmg2img
 
 install:
   - echo y | sdkmanager "ndk-bundle"
@@ -36,4 +40,4 @@ before_script:
   - export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
 
 script:
-  - ./gradlew clean test build
+  - ./gradlew app:clean test build
