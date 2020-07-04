@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">EtchDroid</string>
     <string name="flash_dd_usb_api">直接写入镜像到磁盘(使用Android API)</string>
     <string name="flash_dmg_api">将macOS DMG映像还原到磁盘(使用Android API)</string>
     <string name="flash_unetbootin">Unetbootin-style flash (仅限 MBR, 需要 root)</string>
@@ -20,38 +19,13 @@
     <string name="notif_initializing">初始化中…</string>
     <string name="notif_writing_img">写入镜像中…</string>
     <string name="image_is_not_dmg">所选文件不是DMG镜像（可能已损坏）</string>
-    <string name="ptt_aix" translatable="false">IBM AIX</string>
-    <string name="ptt_amiga" translatable="false">AMIGA</string>
-    <string name="ptt_bsd" translatable="false">BSD</string>
-    <string name="ptt_dvh" translatable="false">DVH</string>
     <string name="ptt_gpt">GUID分区表(GPT)</string>
     <string name="ptt_loop">无</string>
     <string name="ptt_mac">Apple分区表(APT)</string>
-    <string name="ptt_msdos" translatable="false">Master Boot Record (MSDOS)</string>
-    <string name="ptt_pc98" translatable="false">PC98</string>
-    <string name="ptt_sun" translatable="false">Sun</string>
-    <string name="fs_fat12" translatable="false">FAT12</string>
-    <string name="fs_fat16" translatable="false">FAT16</string>
-    <string name="fs_fat32" translatable="false">FAT32</string>
-    <string name="fs_exfat" translatable="false">ExFAT</string>
-    <string name="fs_ntfs" translatable="false">NTFS</string>
-    <string name="fs_refs" translatable="false">ReFS</string>
-    <string name="fs_hfs" translatable="false">macOS HFS</string>
-    <string name="fs_hfsplus" translatable="false">macOS HFS+</string>
-    <string name="fs_apfs" translatable="false">Apple Filesystem (APFS)</string>
     <string name="fs_apt_data">APT 数据</string>
-    <string name="fs_iso9660" translatable="false">ISO 9660</string>
-    <string name="fs_ext2" translatable="false">Linux Ext2</string>
-    <string name="fs_ext3" translatable="false">Linux Ext3</string>
-    <string name="fs_ext4" translatable="false">Linux Ext4</string>
-    <string name="fs_btrfs" translatable="false">Btrfs</string>
-    <string name="fs_f2fs" translatable="false">f2fs</string>
     <string name="fs_luks">LUKS已加密(磁盘加密)</string>
     <string name="fs_linux_swap">Linux swap(虚拟内存)</string>
     <string name="fs_linux_lvm_pv">Linux LVM2 物理卷</string>
-    <string name="fs_ufs" translatable="false">UFS</string>
-    <string name="fs_xfs" translatable="false">XFS</string>
-    <string name="fs_zfs" translatable="false">ZFS</string>
     <string name="fs_free">空闲空间</string>
     <string name="fs_unformatted">未格式化</string>
     <string name="fs_unknown">未知</string>
@@ -59,13 +33,10 @@
     <string name="fs_label">标签</string>
     <string name="fs_type">类型</string>
     <string name="part_size">大小</string>
-    <string name="license_gpl3_name" translatable="false">GNU GPLv3</string>
     <string name="this_app">此app</string>
-    <string name="license_apache_name" translatable="false">Apache 2.0</string>
     <string name="libaums_desc">USB相关驱动支持</string>
     <string name="libusb_desc">A cross-platform library to access USB devices</string>
     <string name="libaums_wrapper_desc">A little shim to make libaums work better with EtchDroid</string>
-    <string name="license_gpl2" translatable="false">GNU GPLv2</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">自定义 BSD-like</string>
     <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">自定义</string>
     <string name="about">关于</string>
@@ -90,7 +61,6 @@
     <string name="dataloss_confirmation_dialog_message">如果继续，将写入所选镜像，并且USB设备上存储的现有数据被格式化！请注意备份！</string>
     <string name="warning">警告⚠</string>
     <string name="cancel">取消</string>
-    <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
     <string name="storagechooser_desc">DMG 文件选择</string>
     <string name="result_channel_desc">用于显示完成写入的结果</string>
     <string name="result_channel_name">USB写入结果通知</string>
@@ -117,38 +87,12 @@
     <string name="cannot_find_file_in_storage">无法在内部存储中找到文件。尝试在应用内打开它。</string>
     <string name="storage_permission_required">读取DMG镜像需要存储权限</string>
     <!-- AndroidX Jetpack -->
-    <string name="define_AndroidX" translatable="false" />
-    <string name="library_AndroidX_author" translatable="false">AOSP</string>
-    <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
-    <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容</string>
-    <string name="library_AndroidX_libraryWebsite" translatable="false">https://developer.android.com/jetpack/androidx/</string>
-    <string name="library_AndroidX_libraryVersion" translatable="false">1.0.1</string>
-    <string name="library_AndroidX_isOpenSource" translatable="false">true</string>
-    <string name="library_AndroidX_repositoryLink" translatable="false">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
-    <string name="license_androidx_library" translatable="false">apache_2_0</string>
     <!-- Kotlin Standard Library -->
-    <string name="define_KotlinStdlib" translatable="false" />
-    <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
-    <string name="library_KotlinStdlib_authorWebsite" translatable="false">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
-    <string name="library_KotlinStdlib_libraryWebsite" translatable="false">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
-    <string name="library_KotlinStdlib_libraryVersion" translatable="false">1.2.71</string>
-    <string name="library_KotlinStdlib_isOpenSource" translatable="false">true</string>
-    <string name="library_KotlinStdlib_repositoryLink" translatable="false">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
-    <string name="license_kotlin_stdlib" translatable="false">apache_2_0</string>
     <!-- Material Components -->
-    <string name="define_Material" translatable="false" />
-    <string name="library_Material_author" translatable="false">Google</string>
-    <string name="library_Material_authorWebsite" translatable="false">https://material.io/develop/</string>
-    <string name="library_Material_libraryName" translatable="false">Material Components</string>
     <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品</string>
-    <string name="library_Material_libraryWebsite" translatable="false">https://material.io/develop/android/</string>
-    <string name="library_Material_libraryVersion" translatable="false">1.1.0-alpha01</string>
-    <string name="library_Material_isOpenSource" translatable="false">true</string>
-    <string name="library_Material_repositoryLink" translatable="false">https://github.com/material-components/material-components-android</string>
-    <string name="license_material_library" translatable="false">apache_2_0</string>
     <string name="app_desc">在Android上将各种映像写入USB的应用，无需root权限。</string>
     <string name="buy_me_a_coffee">捐赠</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">用于显示当前处理的进度</string>
@@ -160,7 +104,6 @@
     <string name="resuming_job">从检查点恢复…</string>
     <string name="done">完成!</string>
     <string name="job_failed">处理失败.</string>
-    <string name="empty_string" translatable="false">%s</string>
     <string name="file_unknown">(未知)</string>
     <string name="write_x_to_y">写入 %1$s 到 %2$s</string>
     <string name="i2o_action_name">"从\"%1$s\" 复制数据到 \"%2$s"</string>

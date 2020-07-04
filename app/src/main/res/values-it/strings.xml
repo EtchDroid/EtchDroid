@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Scrivi immagine su dispositivo USB (utilizzando le API di Android)</string>
     <string name="flash_dmg_api">Ripristina immagine DMG macOS su dispositivo USB (utilizzando le API di Android)</string>
     <string name="flash_unetbootin">Scrittura in modalità Unetbootin (solo MBR, richiede root)</string>
@@ -20,38 +19,13 @@
     <string name="notif_initializing">Inizializzazione…</string>
     <string name="notif_writing_img">Scrittura immagine…</string>
     <string name="image_is_not_dmg">L\'immagine selezionata non è in formato DMG (probabilmente è corrotta)</string>
-    <string name="ptt_aix">IBM AIX</string>
-    <string name="ptt_amiga">AMIGA</string>
-    <string name="ptt_bsd">BSD</string>
-    <string name="ptt_dvh">DVH</string>
     <string name="ptt_gpt">Tabella Partizioni GUID (GPT)</string>
     <string name="ptt_loop">Nessuna</string>
     <string name="ptt_mac">Tabella Partizioni Apple (APT)</string>
-    <string name="ptt_msdos">Master Boot Record (MSDOS)</string>
-    <string name="ptt_pc98">PC98</string>
-    <string name="ptt_sun">Sun</string>
-    <string name="fs_fat12">FAT12</string>
-    <string name="fs_fat16">FAT16</string>
-    <string name="fs_fat32">FAT32</string>
-    <string name="fs_exfat">ExFAT</string>
-    <string name="fs_ntfs">NTFS</string>
-    <string name="fs_refs">ReFS</string>
-    <string name="fs_hfs">macOS HFS</string>
-    <string name="fs_hfsplus">macOS HFS+</string>
-    <string name="fs_apfs">Apple Filesystem (APFS)</string>
     <string name="fs_apt_data">Dati APT</string>
-    <string name="fs_iso9660">ISO 9660</string>
-    <string name="fs_ext2">Linux Ext2</string>
-    <string name="fs_ext3">Linux Ext3</string>
-    <string name="fs_ext4">Linux Ext4</string>
-    <string name="fs_btrfs">Btrfs</string>
-    <string name="fs_f2fs">f2fs</string>
     <string name="fs_luks">LUKS cifrato</string>
     <string name="fs_linux_swap">Linux swap</string>
     <string name="fs_linux_lvm_pv">Volume fisico Linux LVM2</string>
-    <string name="fs_ufs">UFS</string>
-    <string name="fs_xfs">XFS</string>
-    <string name="fs_zfs">ZFS</string>
     <string name="fs_free">Spazio libero</string>
     <string name="fs_unformatted">Non formattato</string>
     <string name="fs_unknown">Sconosciuto</string>
@@ -59,11 +33,8 @@
     <string name="fs_label">Etichetta</string>
     <string name="fs_type">Tipo</string>
     <string name="part_size">Dimensioni</string>
-    <string name="license_gpl3_name">GNU GPLv3</string>
     <string name="this_app">Quest\'app</string>
-    <string name="license_apache_name">Apache 2.0</string>
     <string name="libaums_desc">Implementazione dispositivi a blocchi in userspace</string>
-    <string name="license_gpl2">GNU GPLv2</string>
     <string name="license_bzip2">Simile a BSD</string>
     <string name="license_custom">Personalizzata</string>
     <string name="about">Informazioni</string>
@@ -87,7 +58,6 @@
     <string name="dataloss_confirmation_dialog_message">Se continui, l\'immagine verrà scritta e tutti i dati attualmente memorizzati sul dispositivo USB andranno persi!</string>
     <string name="warning">Attenzione</string>
     <string name="cancel">Annulla</string>
-    <string name="license_mpl_2_0">MPL-2.0</string>
     <string name="storagechooser_desc">Selettore file DMG</string>
     <string name="result_channel_desc">Utilizzato per mostrare il risultato di un\'operazione di scrittura terminata</string>
     <string name="result_channel_name">Risultati scrittura USB</string>
@@ -97,17 +67,7 @@
     <string name="success_notif_content_text">%1$s scritto con successo su %2$s</string>
     <string name="troubleshooting_info">Risoluzione dei problemi</string>
     <string name="operation_failed_because">L\'operazione non è stata completata a causa del seguente errore:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Questo è un errore comune. In genere succede quando il dispositivo USB viene scollegato mentre è in corso una scrittura o quando è connesso attraverso un hub USB. Su qualche dispositivo, invece, è presente un problema nel sottosistema USB di Android: solitamente un riavvio lo risolve per un po\' di tempo.
-\n
-\nProva questi suggerimenti:
-\n• Stacca e riattacca il dispositivo USB, quindi riavvia l\'app
-\n• Riavvia il dispositivo (davvero, fallo)
-\n• Prova un\'altro dispositivo USB
-\n• Evita di usare adattatori o hub se non necessari
-\n• Evita di usare il telefono mentre sta scrivendo immagini
-\n• Sostituisci un adattatore USB On-The-Go difettoso
-\n
-\nSe il problema persiste segnalacelo su GitHub cosicché possiamo sistemarlo.</string>
+
     <string name="reporting_issues">Segnalazione dei problemi</string>
     <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Scrittura fallita</string>

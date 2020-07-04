@@ -34,13 +34,9 @@
     <string name="fs_type">Type</string>
     <string name="part_size">Grootte</string>
     <string name="this_app">Deze app</string>
-    <string name="libaums_license_desc">Userspace USB-blokapparaatimplementatie</string>
-    <string name="libusb_license_desc">Een cross-platform bibliotheek voor het benaderen van USB-apparaten</string>
-    <string name="libaums_wrapper_license_desc">Een kleine pleister om libaums beter te laten werken met EtchDroid</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Aangepaste BSD-achtige licentie</string>
     <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Aangepast</string>
     <string name="about">Over</string>
-    <string name="dmg2img_license_desc">Converteert ingepakte Apple® DMG-schijfkopieën</string>
     <string name="title_activity_usb_drive_picker">USB-apparaat kiezen</string>
     <string name="title_activity_confirmation">Klaar om weg te schrijven</string>
     <string name="cannot_write">Kan schijfkopie niet wegschrijven naar USB-apparaat</string>
@@ -62,7 +58,6 @@
 \n verloren!</string>
     <string name="warning">Waarschuwing</string>
     <string name="cancel">Annuleren</string>
-    <string name="storagechooser_license_description">DMG-bestandskiezer</string>
     <string name="result_channel_desc">Wordt gebruikt om het resultaat van een afgeronde schrijfactie te tonen</string>
     <string name="result_channel_name">Resultaatmeldingen</string>
     <string name="failed_tap_for_info">Mislukt • Druk hier voor meer informatie</string>
@@ -112,8 +107,6 @@
     <string name="license_dmg2img_desc">Converteert Apple® DMG-schijfafbeeldingen met compressie</string>
     <string name="license_custom_foss">Ander soort FOSS</string>
     <string name="license_other">Anders</string>
-    <string name="license_gpl2" translatable="false">gpl-2.0</string>
-    <string name="license_gpl3" translatable="false">gpl-3.0</string>
     <string name="libusb_desc">Een cross-platformbibliotheek om USB-apparaten te benaderen</string>
     <string name="libaums_wrapper_desc">Een kleine toevoeging om libaums beter te laten werken met EtchDroid</string>
     <string name="libaums_desc">Userspace USB-blokapparaatimplementatie</string>

@@ -34,11 +34,9 @@
     <string name="fs_type">Type</string>
     <string name="part_size">Størrelse</string>
     <string name="this_app">Dette programmet</string>
-    <string name="libaums_license_desc">Implementasjon av USB-blokkenhet i brukerrom</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Egendefinert BSD-lignende</string>
     <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Egendefinert</string>
     <string name="about">Om</string>
-    <string name="dmg2img_license_desc">Konverterer sammenpakkede Apple®-DMG-oppstartsfiler</string>
     <string name="title_activity_usb_drive_picker">Velg USB-enhet</string>
     <string name="title_activity_confirmation">Klar til skriving</string>
     <string name="cannot_write">Kan ikke skrive oppstartsfil til USB-disk</string>
@@ -57,7 +55,6 @@
     <string name="dataloss_confirmation_dialog_message">Hvis du fortsetter vil valgt oppstartsfil bli skrevet og all data som er lagret på USB-disken gå tapt for alltid!</string>
     <string name="warning">Advarsel</string>
     <string name="cancel">Avbryt</string>
-    <string name="storagechooser_license_description">DMG-filvelger</string>
     <string name="result_channel_desc">Brukt til visning av resultat for fullført skriving</string>
     <string name="result_channel_name">Merknadsresultat for USB-skriving</string>
     <string name="failed_tap_for_info">Mislyktes • Trykk for info</string>
@@ -101,10 +98,8 @@
     <string name="write_x_to_y">Skriv %1$s til %2$s</string>
     <string name="i2o_action_name">Kopier data fra %1$s til %2$s</string>
     <string name="step_x_of_y">Steg %1$d av %2$d</string>
-    <string name="libaums_wrapper_license_desc">Et litte mellomlegg som gjør at libaums fungerer bedre med EtchDroid</string>
     <string name="could_not_access_usb_error">Fikk ikke tilgang til USB-enhet. Kanskje du kjørte programmet tidligere og det kræsjet\? Fjern og sett inn i USB-lagringsenheten, start så programmet på ny.</string>
     <string name="dmg_alert_dialog_text">I de fleste fall kan DMG-avbildninger gjennopprettes uten plunder, men noen ganger er det uoverenstemmelser. Dette er en advarsel.</string>
-    <string name="libusb_license_desc">Et multiplattformsbibliotek for tilgang til USB-enheter</string>
     <string name="broken_usb_text">Hvis Android sier det er et problem med din USB-lagringsenhet, eller at den er ustøttet etter å ha brukt EtchDroid, les dette.</string>
     <string name="broken_usb_title">Ustøttet USB-lagringsenhet\?</string>
 </resources>

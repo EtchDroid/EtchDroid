@@ -67,17 +67,7 @@
     <string name="success_notif_content_text">%1$s gravado com sucesso para %2$s</string>
     <string name="troubleshooting_info">Informações de solução de problemas</string>
     <string name="operation_failed_because">A operação não pôde ser concluída porque ocorreu o seguinte erro:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Este é um erro comum. Geralmente, isso acontece quando a unidade USB é desconectada enquanto está sendo gravada ou quando está conectada por meio de um hub USB. Em alguns dispositivos, pode haver um bug no subsistema USB do Android: geralmente, uma reinicialização consertará isso por algum tempo.
-\n
-\nTente isso:
-\n• Desconecte e reconecte o dispositivo USB e reinicie o aplicativo
-\n• Reinicialize seu dispositivo (sério, tente isso)
-\n• Tente outra unidade USB
-\n• Evite usar adaptadores desnecessários, dongles ou hubs
-\n• Evite usar o telefone enquanto ele estiver gravando
-\n• Substitua os adaptadores USB On-The-Go defeituosos
-\n
-\nSe o problema persistir, registre um relatório de problema no GitHub.</string>
+
     <string name="reporting_issues">Relatando problemas</string>
     <string name="reporting_issues_text">Problemas podem ser relatados no GitHub:
 \nhttps://github.com/EtchDroid/EtchDroid/issues</string>
@@ -100,7 +90,6 @@
     <string name="library_Material_libraryDescription">Faça produtos bonitos, mais rápido. Material é um sistema de design - apoiado por código-fonte aberto - que ajuda as equipes a construir experiências digitais</string>
     <string name="app_desc">Um aplicativo para gravar imagens de SO em unidades USB, no Android, sem precisar de root.</string>
     <string name="buy_me_a_coffee">Me compre um café</string>
-    <string name="libaums_wrapper_license_desc">Um pequeno calço para fazer com que os libaums funcionem melhor com o EtchDroid</string>
     <string name="failed_tap_for_info">Falha · Toque para info</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Usado para mostrar o progresso do trabalho atual</string>
     <string name="notif_channel_job_progress_name">Progresso da operação</string>
@@ -117,5 +106,4 @@
     <string name="step_x_of_y">Em %1$d de %2$d</string>
     <string name="broken_usb_title">Unidade USB sem suporte\?</string>
     <string name="broken_usb_text">Se o Android disser que há um problema com a sua unidade USB ou que não é suportado após o uso do EtchDroid, leia isso.</string>
-    <string name="libusb_license_desc">Uma biblioteca de plataforma cruzada para acessar dispositivos USB</string>
 </resources>
