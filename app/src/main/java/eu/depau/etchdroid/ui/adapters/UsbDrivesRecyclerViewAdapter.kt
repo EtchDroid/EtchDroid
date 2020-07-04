@@ -28,14 +28,18 @@ class UsbDrivesRecyclerViewAdapter(private val dataset: Array<UsbMassStorageDevi
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val usbDevice = dataset[position].usbDevice
+        val usbDeviceName = usbDevice.deviceName.trim()
+        val usbDeviceVidPid = usbDevice.vidpid
+        val usbDeviceManufacturer = usbDevice.manufacturerName?.trim()
+        val usbProductName = usbDevice.productName?.trim()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            holder.relLayout.usbdev_name.text = "${usbDevice.manufacturerName} ${usbDevice.productName}"
-            holder.relLayout.devpath.text = usbDevice.deviceName
-            holder.relLayout.vidpid.text = usbDevice.vidpid
+            holder.relLayout.usbdev_name.text = "$usbDeviceManufacturer $usbProductName"
+            holder.relLayout.devpath.text = usbDeviceName
+            holder.relLayout.vidpid.text = usbDeviceVidPid
         } else {
-            holder.relLayout.usbdev_name.text = usbDevice.deviceName
-            holder.relLayout.devpath.text = usbDevice.vidpid
+            holder.relLayout.usbdev_name.text = usbDeviceName
+            holder.relLayout.devpath.text = usbDeviceVidPid
         }
     }
 
