@@ -165,9 +165,9 @@
         utilities for concurrency, I/O, hashing, caching, primitives, strings, and more!</string>
     <string name="owner_name">Davide Depau</string>
     <string name="owner_bio">Into guys and Arch Linux. I like Kotlin, Go, Python and sleeping.</string>
-    <string name="owner_email" translatable="false">davide@depau.eu</string>
-    <string name="owner_login" translatable="false">Depau</string>
     <string name="owner_task">Owner</string>
+    <string name="contributor_german_name">German Proshunin</string>
+    <string name="contributor_german_task">Developer, ru translator</string>
     <string name="storagechooser_desc">DMG file selector</string>
     <string name="storagechooser_title" translatable="false">Storage Chooser</string>
     <string name="libaums_title" translatable="false">libaums</string>
