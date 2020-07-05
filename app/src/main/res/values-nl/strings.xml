@@ -105,7 +105,7 @@
     <string name="file_unknown">(onbekend)</string>
     <string name="write_x_to_y">%1$s wegschrijven naar %2$s</string>
     <string name="i2o_action_name">Gegevens kopiëren van %1$s naar %2$s</string>
-    <string name="broken_usb_text">Druk hier als Android meldt dat er een probleem is met je USB-schijf of dat deze niet wordt ondersteund.</string>
+    <string name="broken_usb_text">Druk hier als Android meldt dat er een probleem is met je USB-schijf of als Windows hem niet herkent.</string>
     <string name="broken_usb_title">Niet-ondersteunde USB-schijf\?</string>
     <string name="step_x_of_y">Stap %1$d van %2$d</string>
     <string name="libressl_desc">LibreSSL is een afsplitsing van OpenSSL 1.0.1g, ontwikkeld door het OpenBSD-project.</string>
@@ -123,4 +123,5 @@
     <string name="owner_name">Davide Depau</string>
     <string name="guava_desc">Guava is een reeks Java-kernbiblioteken, gemaakt door Google. De reeks bevat onder meer collectietypes (zoals multimap en multiset), immutable collecties, een grafiekbibliotheek en hulpmiddelen omtrent concurrency, I/O, hashing, caching, primitieven, tekenreeksen en meer!</string>
     <string name="bzip2_desc">bzip2 is een compressiebibliotheek met een hoog gehalte</string>
+    <string name="tag_item_beta">Bètastatus</string>
 </resources>
