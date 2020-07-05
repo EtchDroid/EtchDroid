@@ -144,4 +144,6 @@
     <string name="library_KotlinStdlib_libraryName">Kotlin Standart Kütüphanesi</string>
     <string name="library_AndroidX_libraryDescription">AndroidX, orijinal Android Destek Kütüphanesinin üzerine önemli bir iyileştirmedir ve Android sürümleri arasında geriye dönük uyumluluk sağlamaktadır</string>
     <string name="tag_item_beta">Beta durumu</string>
+    <string name="contributor_german_task">Geliştirici, Rusça çevirmeni</string>
+    <string name="contributor_german_name">German Proshunin</string>
 </resources>
