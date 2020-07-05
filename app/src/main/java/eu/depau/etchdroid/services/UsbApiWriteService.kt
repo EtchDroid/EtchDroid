@@ -40,7 +40,7 @@ abstract class UsbApiWriteService(usbApiWriteName: String) : UsbWriteService(usb
     }
 
     private fun writeInputStream(inputStream: InputStream, msDev: EtchDroidUsbMassStorageDevice, sendProgress: (Long) -> Unit): Long {
-        val blockDev = msDev.blockDevices[0]!!
+        val blockDev = msDev.blockDevices.getValue(0)
         val bsFactor = DD_BLOCK_SIZE / blockDev.blockSize
         val buffIS = BufferedInputStream(inputStream)
         val byteBuffer = ByteBuffer.allocate(blockDev.blockSize * bsFactor)

@@ -4,6 +4,7 @@ import android.content.Context
 import android.hardware.usb.UsbDevice
 import android.net.Uri
 import android.os.Parcel
+import eu.depau.etchdroid.BuildConfig
 import eu.depau.etchdroid.job.enums.JobType
 import eu.depau.etchdroid.job.enums.JobType.*
 import eu.depau.etchdroid.job.enums.TargetType
@@ -24,14 +25,16 @@ class JobProcedureBuilder() : IJobProcedureBuilder, KotletParcelable {
 
 
     override fun build(context: Context): IJobProcedure {
-        assert(::jobType.isInitialized) { "Job type not set, aborting" }
+        if (BuildConfig.DEBUG && !::jobType.isInitialized) {
+            error("Job type not set, aborting")
+        }
 
         return when (jobType) {
-            INOUT_STREAM_COPY           -> buildInOutStreamCopyProcedure(context)
+            INOUT_STREAM_COPY -> buildInOutStreamCopyProcedure(context)
             DMG_EXTRACT_TO_OUTPUTSTREAM -> TODO()
-            WINDOWS_INSTALLER           -> TODO()
-            MACOS_INSTALLER             -> TODO()
-            UNETBOOTIN                  -> TODO()
+            WINDOWS_INSTALLER -> TODO()
+            MACOS_INSTALLER -> TODO()
+            UNETBOOTIN -> TODO()
         }
     }
 

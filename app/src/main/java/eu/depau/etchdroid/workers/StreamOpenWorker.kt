@@ -60,7 +60,7 @@ class StreamOpenWorker(
     private fun getAUMSBlockDevStream(): Any {
         val usbDev = (targetDescriptor as UsbDevice)
         val aumsDev = getAUMSDevice(usbDev).apply { init() }
-        val blockDev = aumsDev.blockDevices[0]!!
+        val blockDev = aumsDev.blockDevices.getValue(0)
 
         return when (streamDirection) {
             INPUT  -> BlockDeviceInputStream(blockDev)

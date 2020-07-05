@@ -6,6 +6,7 @@ import android.content.IntentFilter
 import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import eu.depau.etchdroid.AppBuildConfig
+import eu.depau.etchdroid.BuildConfig
 import eu.depau.etchdroid.broadcasts.JobProgressUpdateBroadcast
 import eu.depau.etchdroid.db.EtchDroidDatabase
 import eu.depau.etchdroid.db.entity.Job
@@ -35,14 +36,18 @@ class JobServiceIntentHandler(
         Notification()
 
     init {
-        assert(jobId >= 0) { "Invalid jobId (jobId < 0)" }
+        if (BuildConfig.DEBUG && jobId < 0) {
+            error("Invalid jobId (jobId < 0)")
+        }
     }
 
     fun handle() = context.runForeground(jobId.toInt(), notification, true) {
         val db = EtchDroidDatabase.getDatabase(context)
 
         job = db.jobRepository().getById(jobId).also {
-            assert(!it.completed) { "Job $jobId already completed" }
+            if (BuildConfig.DEBUG && it.completed) {
+                error("Job $jobId already completed")
+            }
         }
 
         // Add service context to shared worker data
@@ -69,7 +74,7 @@ class JobServiceIntentHandler(
     private inline fun <T> Job.attachAndRun(body: (procedure: IJobProcedure) -> T): T {
         attachJobProgressListener(broadcastForwarder)
         try {
-            notifyJobProcedureStart(this.checkpointActionIndex ?: 0)
+            notifyJobProcedureStart(this.checkpointActionIndex)
             val result = body(this.jobProcedure)
             notifyJobProcedureDone()
             return result
