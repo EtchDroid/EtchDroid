@@ -124,4 +124,6 @@
     <string name="guava_desc">Guava is een reeks Java-kernbiblioteken, gemaakt door Google. De reeks bevat onder meer collectietypes (zoals multimap en multiset), immutable collecties, een grafiekbibliotheek en hulpmiddelen omtrent concurrency, I/O, hashing, caching, primitieven, tekenreeksen en meer!</string>
     <string name="bzip2_desc">bzip2 is een compressiebibliotheek met een hoog gehalte</string>
     <string name="tag_item_beta">Bètastatus</string>
+    <string name="contributor_german_task">Ontwikkelaar en Russische vertaler</string>
+    <string name="contributor_german_name">German Proshunin</string>
 </resources>
