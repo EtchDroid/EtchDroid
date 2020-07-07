@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">EtchDroid</string>
     <string name="flash_dd_usb_api">Écrire l\'image directement sur le disque (en utilisant l\'API Android)</string>
@@ -125,8 +125,6 @@
     <string name="file_type_not_supported">Type de fichier non supporté</string>
     <string name="cannot_find_file_in_storage">Impossible de trouver le fichier dans la mémoire interne. Essayez de l\'ouvrir depuis l\'application.</string>
     <string name="storage_permission_required">La permission de stockage est nécessaire pour pouvoir lire les images DMG</string>
-
-
     <string name="library_AndroidX_libraryDescription">AndroidX est une amélioration majeure de la bibliothèque de support Android d\'origine et offre une rétrocompatibilité entre les versions d\'Android</string>
     <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
     <string name="library_AndroidX_libraryVersion">1.0.1</string>
@@ -141,8 +139,6 @@
     <string name="library_KotlinStdlib_isOpenSource">true</string>
     <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
     <string name="license_kotlin_stdlib">apache_2_0</string>
-
-
     <string name="library_Material_author">Google</string>
     <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
@@ -152,8 +148,25 @@
     <string name="library_Material_isOpenSource">true</string>
     <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
     <string name="license_material_library">apache_2_0</string>
-
     <string name="app_desc">Une application pour écrire les images de systèmes d\'exploitation sur les clés USB, pas de root requis.</string>
     <string name="buy_me_a_coffee">M\'acheter un café</string>
-
+    <string name="owner_name">Davide Depau</string>
+    <string name="guava_desc">Guava est un ensemble de bibliothèques Java de Google qui inclut de nouveaux types de collection (tels que les multiensembles et les tableaux associatifs multiples), des collections immuables, une bibliothèque de graphes et des utilitaires pour la concurrence, les E/S, le hachage, le cache, les primitives, les chaînes de caractères et plus encore !</string>
+    <string name="bzip2_desc">bzip2 est une bibliothèque de compression de données avec un haut ratio de compression</string>
+    <string name="step_x_of_y">Étape %1$d de %2$d</string>
+    <string name="i2o_action_name">Copier les données depuis %1$s vers %2$s</string>
+    <string name="write_x_to_y">Écrire %1$s à %2$s</string>
+    <string name="file_unknown">(inconnu)</string>
+    <string name="job_failed">La tâche a échoué.</string>
+    <string name="done">Fait !</string>
+    <string name="resuming_job">Reprise depuis le point de contrôle…</string>
+    <string name="starting_job">Démarrage de la tâche…</string>
+    <string name="notif_starting_job">Démarrage de la tâche…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Utilisé pour afficher le résultat d’une tâche terminée</string>
+    <string name="notif_channel_job_result_name">Résultat de la tâche</string>
+    <string name="notif_channel_job_progress_name">Progression de la tâche</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Utilisé pour afficher la progression de la tâche courante</string>
+    <string name="broken_usb_text">Si Android affirme qu’il y a un problème avec votre clé USB ou que Windows ne la détecte après avoir utilisé EtchDroid, lisez ceci.</string>
+    <string name="broken_usb_title">Clé USB non prise en charge \?</string>
+    <string name="tag_item_beta">Statut bêta</string>
 </resources>
