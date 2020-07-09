@@ -16,11 +16,12 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".EtchDroidApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MaterialAppTheme">
         <activity
-            android:name="eu.depau.etchdroid.ui.activities.StartActivity"
+            android:name="eu.depau.etchdroid.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,11 +32,11 @@
         <activity
             android:name="eu.depau.etchdroid.ui.activities.UsbDrivePickerActivity"
             android:label="@string/title_activity_usb_drive_picker"
-            android:parentActivityName="eu.depau.etchdroid.ui.activities.StartActivity">
+            android:parentActivityName="eu.depau.etchdroid.MainActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eu.depau.etchdroid.ui.activities.StartActivity" />
+                android:value="eu.depau.etchdroid.MainActivity" />
 
             <!-- Open ISO files by mimetype -->
             <intent-filter android:label="@string/app_name">
