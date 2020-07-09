@@ -9,7 +9,7 @@ import android.content.Intent
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.broadcasts.JobProgressUpdateBroadcast
 import eu.depau.etchdroid.broadcasts.dto.JobProgressUpdateBroadcastDTO
-import eu.depau.etchdroid.db.entity.Job
+import eu.depau.etchdroid.db.model.Job
 import eu.depau.etchdroid.notification.IServiceNotificationBuilder
 import eu.depau.etchdroid.ui.activities.ErrorActivity
 import java.io.Serializable

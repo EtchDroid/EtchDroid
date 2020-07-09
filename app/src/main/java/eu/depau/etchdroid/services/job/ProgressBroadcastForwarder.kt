@@ -8,9 +8,13 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.broadcasts.JobProgressUpdateBroadcast
 import eu.depau.etchdroid.broadcasts.dto.JobProgressUpdateBroadcastDTO
 import eu.depau.etchdroid.db.EtchDroidDatabase
+import eu.depau.etchdroid.db.model.Job
+import eu.depau.etchdroid.repositories.MainRepository
+import eu.depau.etchdroid.utils.job.IJobProcedure
 import eu.depau.etchdroid.utils.job.IJobProgressListener
 import eu.depau.etchdroid.utils.worker.IWorkerProgressListener
 import eu.depau.etchdroid.utils.worker.dto.ProgressUpdateDTO
+import javax.inject.Inject
 
 /**
  * This class is subscribed to IAsyncWorker+IWorkerProgressSender events by the worker service.
@@ -22,15 +26,27 @@ class ProgressBroadcastForwarder(
         private val jobId: Long, private val context: Context
 ) : IJobProgressListener, IWorkerProgressListener {
 
-    private val db = EtchDroidDatabase.getDatabase(context)
-    private val job = db.jobRepository().getById(jobId)
-    private val procedure = job.jobProcedure
+    var repository: MainRepository? = null
+        @Inject set
 
-    private val totalProgressWeights = job.jobProcedure.map { it.progressWeight }.sum()
+    private val job: Job
+    private val procedure: IJobProcedure
+
+    private val totalProgressWeights: Double
 
     private var currentActionIdx: Int? = null
     private var prevActionsProgressWeight: Double? = null
 
+    init {
+        // TODO better determination if usage in unit test
+        if (repository == null) {
+            repository = MainRepository(EtchDroidDatabase.getDatabase(context).jobDao())
+        }
+        job = repository!!.getById(jobId)
+        procedure = job.jobProcedure
+
+        totalProgressWeights = job.jobProcedure.map { it.progressWeight }.sum()
+    }
 
     private fun assertProcedureStarted() {
         if (currentActionIdx == null || prevActionsProgressWeight == null) {
@@ -47,7 +63,7 @@ class ProgressBroadcastForwarder(
                 LocalBroadcastManager
                         .getInstance(context.applicationContext)
                         .sendBroadcast(intent)
-            else                                ->
+            else ->
                 context
                         .sendBroadcast(intent.apply { `package` = context.packageName })
         }

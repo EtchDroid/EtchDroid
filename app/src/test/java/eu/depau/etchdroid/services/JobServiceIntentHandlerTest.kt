@@ -6,8 +6,8 @@ import android.content.Intent
 import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.broadcasts.dto.JobProgressUpdateBroadcastDTO
 import eu.depau.etchdroid.db.EtchDroidDatabase
-import eu.depau.etchdroid.db.entity.Job
-import eu.depau.etchdroid.db.repository.JobRepository
+import eu.depau.etchdroid.db.dao.JobDao
+import eu.depau.etchdroid.db.model.Job
 import eu.depau.etchdroid.services.job.JobService
 import eu.depau.etchdroid.services.job.JobServiceIntentHandler
 import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
@@ -28,7 +28,7 @@ import kotlin.math.abs
 @RunWith(MockitoJUnitRunner::class)
 internal class JobServiceIntentHandlerTest {
     private var mockService: JobService? = null
-    private var jobRepo: JobRepository? = null
+    private var jobDao: JobDao? = null
     private var random = Random()
 
     @Before
@@ -49,12 +49,12 @@ internal class JobServiceIntentHandlerTest {
         doNothing()
                 .`when`(mockService!!).stopForeground(anyBoolean())
 
-        jobRepo = mock(JobRepository::class.java)
+        jobDao = mock(JobDao::class.java)
 
         // Inject mock JobRepository into database mock instance
         val db = mock(EtchDroidDatabase::class.java)
-        `when`(db.jobRepository())
-                .thenReturn(jobRepo!!)
+        `when`(db.jobDao())
+                .thenReturn(jobDao!!)
 
         // Duct tape-inject database instance into database companion object
         EtchDroidDatabase::class.java
@@ -134,7 +134,7 @@ internal class JobServiceIntentHandlerTest {
         val jobId = job.jobId
 
         // Add job to mock Repository
-        `when`(jobRepo!!.getById(jobId))
+        `when`(jobDao!!.getById(jobId))
                 .thenReturn(job)
 
         `when`(mockService!!.sendBroadcast(any()))

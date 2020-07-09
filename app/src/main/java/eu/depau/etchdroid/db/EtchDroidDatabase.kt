@@ -6,14 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import eu.depau.etchdroid.db.converter.JobProcedureConverter
-import eu.depau.etchdroid.db.entity.Job
-import eu.depau.etchdroid.db.repository.JobRepository
+import eu.depau.etchdroid.db.dao.JobDao
+import eu.depau.etchdroid.db.model.Job
 
+// TODO setup export schema
 @Database(entities = [Job::class], version = 1)
 @TypeConverters(JobProcedureConverter::class)
 abstract class EtchDroidDatabase : RoomDatabase() {
-    abstract fun jobRepository(): JobRepository
+    abstract fun jobDao(): JobDao
 
+    // TODO refactor instance creation with DI (is using in JobServiceIntentHandlerTest.kt)
     companion object {
         @Volatile
         private var INSTANCE: EtchDroidDatabase? = null

@@ -8,8 +8,9 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import eu.depau.etchdroid.AppBuildConfig
 import eu.depau.etchdroid.broadcasts.JobProgressUpdateBroadcast
 import eu.depau.etchdroid.db.EtchDroidDatabase
-import eu.depau.etchdroid.db.entity.Job
+import eu.depau.etchdroid.db.model.Job
 import eu.depau.etchdroid.notification.impl.JobServiceNotificationBuilder
+import eu.depau.etchdroid.repositories.MainRepository
 import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
 import eu.depau.etchdroid.services.job.exception.JobActionFailedException
 import eu.depau.etchdroid.utils.job.IJobAction
@@ -17,11 +18,16 @@ import eu.depau.etchdroid.utils.job.IJobProcedure
 import eu.depau.etchdroid.utils.job.enums.SharedDataType
 import eu.depau.etchdroid.utils.job.impl.AbstractJobProgressSender
 import eu.depau.etchdroid.utils.worker.IAsyncWorker
+import javax.inject.Inject
 
 class JobServiceIntentHandler(
         val context: JobService,
         jobDTO: JobServiceIntentDTO
 ) : AbstractJobProgressSender() {
+
+    var repository: MainRepository? = null
+        @Inject set
+
     private val jobId = jobDTO.jobId
     private val svcNotificationBuilder = JobServiceNotificationBuilder(context)
     private lateinit var job: Job
@@ -35,13 +41,17 @@ class JobServiceIntentHandler(
         Notification()
 
     init {
+        // TODO better determination if usage in unit test
+        if (repository == null) {
+            repository = MainRepository(EtchDroidDatabase.getDatabase(context).jobDao())
+        }
+
         assert(jobId >= 0) { "Invalid jobId (jobId < 0)" }
     }
 
     fun handle() = context.runForeground(jobId.toInt(), notification, true) {
-        val db = EtchDroidDatabase.getDatabase(context)
 
-        job = db.jobRepository().getById(jobId).also {
+        job = repository!!.getById(jobId).also {
             assert(!it.completed) { "Job $jobId already completed" }
         }
 
@@ -58,7 +68,7 @@ class JobServiceIntentHandler(
                 }
 
                 job.completed = true
-                db.jobRepository().update(job)
+                repository!!.update(job)
             }
         } catch (e: Throwable) {
             Log.e(TAG, "JobProcedure failed", e)

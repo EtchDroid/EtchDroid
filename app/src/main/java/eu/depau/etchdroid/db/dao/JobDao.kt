@@ -1,10 +1,10 @@
-package eu.depau.etchdroid.db.repository
+package eu.depau.etchdroid.db.dao
 
 import androidx.room.*
-import eu.depau.etchdroid.db.entity.Job
+import eu.depau.etchdroid.db.model.Job
 
 @Dao
-interface JobRepository {
+interface JobDao {
     @Query("SELECT * FROM job")
     fun getAll(): List<Job>
 
@@ -15,7 +15,7 @@ interface JobRepository {
     fun insert(job: Job): Long
 
     @Insert
-    fun insertAll(vararg jobs: Job)
+    fun insertAll(jobs: List<Job>)
 
     @Update
     fun update(job: Job)

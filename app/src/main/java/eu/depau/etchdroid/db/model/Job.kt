@@ -1,4 +1,4 @@
-package eu.depau.etchdroid.db.entity
+package eu.depau.etchdroid.db.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
