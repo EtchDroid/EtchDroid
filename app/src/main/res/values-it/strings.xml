@@ -134,7 +134,7 @@
     <string name="notif_channel_job_progress_name">Progressi</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Mostra il progresso dell\'azione corrente</string>
     <string name="broken_usb_title">Dispositivo USB non supportato?</string>
-    <string name="broken_usb_text">Se Android dice che c\'è un problema con il dispositivo USB o che non è supportato dopo aver usato EtchDroid, leggi questa pagina.</string>
+    <string name="broken_usb_text">Se Android dice che c\'è un problema con il dispositivo USB o Windows non lo riconosce dopo aver usato EtchDroid, leggi questa pagina.</string>
     <string name="write_x_to_y">Scrivi %1$s su %2$s</string>
     <string name="i2o_action_name">Copia dati da %1$s a %2$s</string>
     <string name="job_failed">Lavoro fallito.</string>

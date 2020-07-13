@@ -36,4 +36,4 @@ before_script:
   - export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
 
 script:
-  - ./gradlew clean test build
+  - ./gradlew clean build assembleDebug test

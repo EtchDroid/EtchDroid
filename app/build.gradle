@@ -54,7 +54,7 @@ dependencies {
     implementation project(':dmg2img')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     implementation "me.jfenn:Attribouter:$attribouterVersion"
-    implementation "com.google.guava:guava:29.0-jre"
+    implementation "com.google.guava:guava:$guavaVersion"
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     implementation "com.google.code.gson:gson:$gsonVersion"
