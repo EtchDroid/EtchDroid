@@ -79,19 +79,17 @@ abstract class ActivityBase : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-            nightModeHelper = NightModeHelper(this, R.style.AppTheme)
-        }
+        nightModeHelper = NightModeHelper(this, R.style.MaterialAppTheme)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
 
-        // Hide night mode menu on Android 10 as it causes weird issues
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            menu.findItem(R.id.action_nightmode).isVisible = false
+        menu.findItem(R.id.action_nightmode).title = if (isNightMode) {
+            getString(R.string.nightmode_night)
+        } else {
+            getString(R.string.nightmode)
         }
 
         return true

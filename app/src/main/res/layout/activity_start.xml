@@ -51,14 +51,16 @@
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/write_image_or_iso" />
+                android:text="@string/write_image_or_iso"
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/rawButtonDescription"
                 style="@style/TextAppearance.AppCompat.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/raw_image_desc" />
+                android:text="@string/raw_image_desc"
+                android:textColor="?attr/colorOnSurface" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -105,14 +107,16 @@
                 style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/write_apple_dmg" />
+                android:text="@string/write_apple_dmg"
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/dmgButtonDescription"
                 style="@style/TextAppearance.AppCompat.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dmg_image_desc" />
+                android:text="@string/dmg_image_desc"
+                android:textColor="?attr/colorOnSurface" />
 
         </LinearLayout>
 
@@ -149,7 +153,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_gap"
-            android:text="@string/broken_usb_title" />
+            android:text="@string/broken_usb_title"
+            android:textColor="?attr/colorOnSurface" />
 
         <TextView
             android:id="@+id/buttonUsbDescription"
@@ -157,7 +162,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/default_gap"
-            android:text="@string/broken_usb_text" />
+            android:text="@string/broken_usb_text"
+            android:textColor="?attr/colorOnSurface" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

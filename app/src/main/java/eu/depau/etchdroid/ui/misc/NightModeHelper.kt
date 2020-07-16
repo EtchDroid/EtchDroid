@@ -3,6 +3,7 @@ package eu.depau.etchdroid.ui.misc
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import java.lang.ref.WeakReference
 
@@ -94,10 +95,12 @@ class NightModeHelper {
     private fun updateConfig(uiNightMode: Int) {
         val activity = mActivity!!.get()
                 ?: throw IllegalStateException("Activity went away while switching theme")
-        val newConfig = Configuration(activity.resources.configuration)
-        newConfig.uiMode = newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK.inv()
-        newConfig.uiMode = newConfig.uiMode or uiNightMode
-        activity.resources.updateConfiguration(newConfig, null)
+
+        activity.delegate.localNightMode = when (uiNightMode) {
+            16 -> AppCompatDelegate.MODE_NIGHT_NO
+            32 -> AppCompatDelegate.MODE_NIGHT_YES
+            else -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+        }
         Companion.uiNightMode = uiNightMode
         mPrefs.edit()?.putInt(PREF_KEY, Companion.uiNightMode)?.apply()
     }
