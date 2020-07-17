@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="MissingTranslation" severity="ignore" />
+    <issue id="HardcodedText" severity="error" />
+    <issue id="Untranslatable" severity="informational" />
+    <!-- Attribouter style -->
+    <issue id="UnusedResources">
+        <ignore path="res/values-night/styles.xml" />
+    </issue>
+
+</lint>
