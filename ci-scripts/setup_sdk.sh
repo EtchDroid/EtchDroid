@@ -10,15 +10,11 @@ export ANDROID_BUILD_TOOLS_VERSION=29.0.3
 export NDK_VERSION=21.0.6113669
 export CMAKE_VERSION=3.10.2.4988404
 
-export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get install -qqy ca-certificates curl unzip
-
 mkdir -p "$ANDROID_HOME"
 
-curl --silent --show-error --location --fail --retry 3 --output /tmp/${SDK_FILENAME} https://dl.google.com/android/repository/${SDK_FILENAME}
-unzip -q /tmp/${SDK_FILENAME} -d ${ANDROID_HOME}
-rm /tmp/${SDK_FILENAME}
+curl --silent --show-error --location --fail --retry 3 --output "/tmp/${SDK_FILENAME}" "https://dl.google.com/android/repository/${SDK_FILENAME}"
+unzip -q "/tmp/${SDK_FILENAME}" -d "${ANDROID_HOME}"
+rm "/tmp/${SDK_FILENAME}"
 
 mkdir ~/.android
 echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
@@ -27,11 +23,11 @@ yes | sdkmanager --licenses && sdkmanager --update
 yes | sdkmanager \
   'tools' \
   'platform-tools' \
-  'build-tools;$ANDROID_BUILD_TOOLS_VERSION' \
-  'android-$ANDROID_API_LEVEL' \
+  "build-tools;$ANDROID_BUILD_TOOLS_VERSION" \
+  "android-$ANDROID_API_LEVEL" \
   'extra-android-m2repository' \
   'extra-google-m2repository' \
   'ndk-bundle' \
-  'ndk;$NDK_VERSION' \
-  'cmake;$CMAKE_VERSION'
+  "ndk;$NDK_VERSION" \
+  "cmake;$CMAKE_VERSION"
 
