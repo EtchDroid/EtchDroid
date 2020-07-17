@@ -19,6 +19,7 @@ data class JobServiceIntentDTO(
     }
 
     companion object {
+        @JvmField
         val CREATOR = parcelableCreator(::JobServiceIntentDTO)
         const val EXTRA = "eu.depau.etchdroid.broadcast.extras.JOB_SERVICE_DTO"
     }
