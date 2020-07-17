@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">EtchDroid</string>
     <string name="flash_dd_usb_api">直接写入镜像到磁盘(使用Android API)</string>
@@ -117,38 +117,32 @@
     <string name="cannot_find_file_in_storage">无法在内部存储中找到文件。尝试在应用内打开它。</string>
     <string name="storage_permission_required">读取DMG镜像需要存储权限</string>
     <!-- AndroidX Jetpack -->
-    <string name="define_AndroidX" translatable="false" />
+    <string name="define_AndroidX" translatable="false"/>
     <string name="library_AndroidX_author" translatable="false">AOSP</string>
     <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容</string>
-    <string name="library_AndroidX_libraryWebsite" translatable="false">https://developer.android.com/jetpack/androidx/</string>
     <string name="library_AndroidX_libraryVersion" translatable="false">1.0.1</string>
     <string name="library_AndroidX_isOpenSource" translatable="false">true</string>
     <string name="library_AndroidX_repositoryLink" translatable="false">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
-    <string name="license_androidx_library" translatable="false">apache_2_0</string>
     <!-- Kotlin Standard Library -->
-    <string name="define_KotlinStdlib" translatable="false" />
+    <string name="define_KotlinStdlib" translatable="false"/>
     <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
     <string name="library_KotlinStdlib_authorWebsite" translatable="false">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
-    <string name="library_KotlinStdlib_libraryWebsite" translatable="false">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
     <string name="library_KotlinStdlib_libraryVersion" translatable="false">1.2.71</string>
     <string name="library_KotlinStdlib_isOpenSource" translatable="false">true</string>
     <string name="library_KotlinStdlib_repositoryLink" translatable="false">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
-    <string name="license_kotlin_stdlib" translatable="false">apache_2_0</string>
     <!-- Material Components -->
-    <string name="define_Material" translatable="false" />
+    <string name="define_Material" translatable="false"/>
     <string name="library_Material_author" translatable="false">Google</string>
     <string name="library_Material_authorWebsite" translatable="false">https://material.io/develop/</string>
     <string name="library_Material_libraryName" translatable="false">Material Components</string>
     <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品</string>
-    <string name="library_Material_libraryWebsite" translatable="false">https://material.io/develop/android/</string>
     <string name="library_Material_libraryVersion" translatable="false">1.1.0-alpha01</string>
     <string name="library_Material_isOpenSource" translatable="false">true</string>
     <string name="library_Material_repositoryLink" translatable="false">https://github.com/material-components/material-components-android</string>
-    <string name="license_material_library" translatable="false">apache_2_0</string>
     <string name="app_desc">在Android上将各种映像写入USB的应用，无需root权限。</string>
     <string name="buy_me_a_coffee">捐赠</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">用于显示当前处理的进度</string>

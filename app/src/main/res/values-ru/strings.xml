@@ -90,7 +90,6 @@
     <string name="this_app">Это приложение</string>
     <string name="title_activity_confirmation">Готов к записи</string>
     <string name="title_activity_usb_drive_picker">Выбрать USB-накопитель</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Это известная проблема. Обычно это происходит, когда USB-накопитель извлекается во время процедуры записи, когда он подключён через USB-разветвитель или когда накопитель просто не подключён к устройству. На некоторых устройствах такое поведения может быть вызвано багом USB подсистемы Android — попробуйте перезагрузить устройство.</string>
     <string name="troubleshooting_info">Сведения об устранении неполадок</string>
     <string name="uncompressed">(несжатый)</string>
     <string name="unknown_error">Неизвестная ошибка — попробуйте переподключить USB-накопитель или перезагрузить устройство. Пожалуйста, сообщите о проблеме на GitHub.</string>
