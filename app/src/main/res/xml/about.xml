@@ -24,15 +24,15 @@
             task="@string/owner_task">
             <me.jfenn.attribouter.wedges.link.LinkWedge
                 name="@string/instagram"
-                icon="@drawable/ic_instagram"
+                icon="https://instagram.com/favicon.ico"
                 url="https://instagram.com/depau.py" />
             <me.jfenn.attribouter.wedges.link.LinkWedge
                 name="@string/stackoverflow"
-                icon="@drawable/ic_stackoverflow"
+                icon="https://stackoverflow.com/favicon.ico"
                 url="https://stackoverflow.com/story/depau" />
             <me.jfenn.attribouter.wedges.link.LinkWedge
                 name="@string/paypal"
-                icon="@drawable/ic_paypal"
+                icon="https://paypal.com/favicon.ico"
                 url="https://paypal.me/DavideDepau/5" />
         </me.jfenn.attribouter.wedges.ContributorWedge>
         <me.jfenn.attribouter.wedges.ContributorWedge
@@ -44,7 +44,7 @@
             task="@string/contributor_german_task">
             <me.jfenn.attribouter.wedges.link.LinkWedge
                 name="@string/instagram"
-                icon="@drawable/ic_instagram"
+                icon="https://instagram.com/favicon.ico"
                 url="https://instagram.com/anonlatte_" />
 
         </me.jfenn.attribouter.wedges.ContributorWedge>
