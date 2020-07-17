@@ -33,9 +33,7 @@
     <string name="fs_label">Etikett</string>
     <string name="fs_type">Type</string>
     <string name="part_size">Størrelse</string>
-    <string name="this_app">Dette programmet</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Egendefinert BSD-lignende</string>
-    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Egendefinert</string>
     <string name="about">Om</string>
     <string name="title_activity_usb_drive_picker">Velg USB-enhet</string>
     <string name="title_activity_confirmation">Klar til skriving</string>
@@ -83,7 +81,6 @@
     <string name="library_KotlinStdlib_libraryName">Forvalgt Kotlin-bibliotek</string>
     <string name="library_KotlinStdlib_libraryDescription">Det forvalgte Kotlin-biblioteket tilbyr husholdningsartikler for hverdagsarbeid med Kotlin</string>
     <string name="library_Material_libraryDescription">Lag flotte produkter, raskere. Materielt design er et system–drevet av fri programvare–som hjelper lag å bygge digitale opplevelser</string>
-    <string name="app_desc">Et program for skriving av operativsystemsoppstartsfiler til USB-disker, på Android, uten superbrukertilgang.</string>
     <string name="buy_me_a_coffee">Spander drikke</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Bruk for visning av nåværende jobb</string>
     <string name="notif_channel_job_progress_name">Jobb-framdrift</string>
@@ -102,17 +99,9 @@
     <string name="dmg_alert_dialog_text">I de fleste fall kan DMG-avbildninger gjennopprettes uten plunder, men noen ganger er det uoverenstemmelser. Dette er en advarsel.</string>
     <string name="broken_usb_text">Hvis Android sier det er et problem med din USB-lagringsenhet, eller at den er ustøttet etter å ha brukt EtchDroid, les dette.</string>
     <string name="broken_usb_title">Ustøttet USB-lagringsenhet\?</string>
-    <string name="libaums_wrapper_desc">Et lite hjelpeprogram for å få libaums til å fungere bedre med EtchDroid</string>
     <string name="license_custom_foss">Egendefinert, fri programvare</string>
-    <string name="libusb_desc">Bibliotek for tilgang til USB-enheter på flerfoldige plattformer</string>
-    <string name="license_other">Annet</string>
-    <string name="libaums_desc">USB-blokkenhetsimplementasjon fra brukerområde</string>
-    <string name="storagechooser_desc">DMG-filvelger</string>
     <string name="owner_task">Eier</string>
     <string name="owner_bio">Liker menn og Arch Linux. Jeg liker Kotlin, Go, Python og soving.</string>
-    <string name="guava_desc">Guava er et sett Java-kjernebibliotek fra Google som inneholder samlingstyper (som multimap og multiset), fastsatte samlinger, et diagramsbibliotek, og verktøy for samkjøring, I/O, sjekksummering, hurtiglagring, grunntall, strenger, og mer!</string>
-    <string name="bzip2_desc">bzip2 er et effektivt datakompresjonsbibliotek</string>
     <string name="owner_name">Davide Depau</string>
-    <string name="license_dmg2img_desc">Konverterer komprimerte Apple® DMG-avbildninger</string>
     <string name="libressl_desc">LibreSSL er en avgafling av OpenSSL 1.0.1g utviklet av OpenBSD-prosjektet.</string>
 </resources>

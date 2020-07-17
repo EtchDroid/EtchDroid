@@ -60,14 +60,10 @@
     <string name="fs_type">Tipo</string>
     <string name="part_size">Dimensioni</string>
     <string name="license_gpl3_name">GNU GPLv3</string>
-    <string name="this_app">Quest\'app</string>
     <string name="license_apache_name">Apache 2.0</string>
-    <string name="libaums_desc">Implementazione dispositivi a blocchi in userspace</string>
     <string name="license_gpl2">GNU GPLv2</string>
     <string name="license_bzip2">Simile a BSD</string>
-    <string name="license_custom">Personalizzata</string>
     <string name="about">Informazioni</string>
-    <string name="license_dmg2img_desc">Converte immagini Apple® DMG compresse</string>
     <string name="title_activity_usb_drive_picker">Seleziona dispositivo USB</string>
     <string name="title_activity_confirmation">Pronto a scrivere</string>
     <string name="cannot_write">Non è possibile scrivere l\'immagine sul dispositivo</string>
@@ -88,7 +84,6 @@
     <string name="warning">Attenzione</string>
     <string name="cancel">Annulla</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
-    <string name="storagechooser_desc">Selettore file DMG</string>
     <string name="result_channel_desc">Utilizzato per mostrare il risultato di un\'operazione di scrittura terminata</string>
     <string name="result_channel_name">Risultati scrittura USB</string>
     <string name="failed_tap_for_info">Scrittura fallita • Tocca per i dettagli</string>
@@ -114,7 +109,6 @@
     <string name="library_AndroidX_libraryDescription">AndroidX è una nuova versione della Libreria di Supporto Android e fornisce compatibilità con le precedenti versioni di Android</string>
     <string name="library_KotlinStdlib_libraryName">Libreria Standard Kotlin</string>
     <string name="library_KotlinStdlib_libraryDescription">La libreria standard Kotlin fornisce il materiale essenziale per lavorare con Kotlin</string>
-    <string name="app_desc">Un\'applicazione per scrivere immagini di sistemi operativi su chiavette USB, su Android, senza root.</string>
     <string name="buy_me_a_coffee">Offrimi un caffè</string>
     <string name="library_Material_libraryDescription">Crea bei prodotti, più velocemente. Material è un sistema di design che, con l\'aiuto di software open-source, aiuta i team a sviluppare esperienze digitali</string>
     <string name="done">Fatto!</string>

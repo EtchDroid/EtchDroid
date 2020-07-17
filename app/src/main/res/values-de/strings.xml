@@ -60,14 +60,10 @@
     <string name="fs_type">Typ</string>
     <string name="part_size">Größe</string>
     <string name="license_gpl3_name">GNU GPLv3</string>
-    <string name="this_app">Diese app</string>
     <string name="license_apache_name">Apache 2.0</string>
-    <string name="libaums_desc">Userspace USB Block Gerät Implementation</string>
     <string name="license_gpl2">GNU GPLv2</string>
     <string name="license_bzip2">BSD-ähnlich</string>
-    <string name="license_custom">personalisierte</string>
     <string name="about">Über</string>
-    <string name="license_dmg2img_desc">Kovertiert komprimierte Apple® DMG Abbilder</string>
     <string name="title_activity_usb_drive_picker">USB-Gerät auswählen</string>
     <string name="title_activity_confirmation">Bereit zum Schreiben</string>
     <string name="cannot_write">Abbild kann nicht auf USB-Datenträger geschrieben werden</string>
@@ -88,7 +84,6 @@
     <string name="warning">Warnung</string>
     <string name="cancel">Abbrechen</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
-    <string name="storagechooser_desc">DMG Dateiwähler</string>
     <string name="result_channel_desc">Zeigt das Ergebnis einer fertigen Schreiboperation an</string>
     <string name="result_channel_name">USB Schreibergebnis Benachrichtigungen</string>
     <string name="failed_tap_for_info">Fehlgeschlagen • Tippen für Info</string>
@@ -112,33 +107,14 @@
     <string name="cannot_find_file_in_storage">Datei kann im internen Speicher nicht gefunden werden. Versuche es innerhalb der App zu öffnen.</string>
     <string name="storage_permission_required">Speicherberechtigung ist notwendig, um DMG Abbilder zu lesen</string>
     <!-- AndroidX Jetpack -->
-    <string name="define_AndroidX" translatable="false"/>
-    <string name="library_AndroidX_author" translatable="false">AOSP</string>
-    <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX ist eine neue Version der originalen Android Unterstützungs-Bibliothek und gewährleistet Abwärtskompatibilität mit früheren Android-Versionen</string>
-    <string name="library_AndroidX_libraryVersion">1.0.1</string>
-    <string name="library_AndroidX_isOpenSource">true</string>
-    <string name="library_AndroidX_repositoryLink">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
     <!-- Kotlin Standard Library -->
-    <string name="define_KotlinStdlib"/>
-    <string name="library_KotlinStdlib_author">JetBrains</string>
-    <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standardbibliothek</string>
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standardbibliothek stellt das Notwendigste zur Verfügung, um mit Kotlin zu arbeiten</string>
-    <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
-    <string name="library_KotlinStdlib_isOpenSource">true</string>
-    <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
     <!-- Material Components -->
-    <string name="define_Material"/>
-    <string name="library_Material_author">Google</string>
-    <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
     <string name="library_Material_libraryDescription">Erstelle schöne Produkte, schneller. Material ist ein Designsystem, welches von open-source Code unterstützt wird und Teams beim bauen von digitalen Erfahrungen hilft</string>
-    <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
-    <string name="library_Material_isOpenSource">true</string>
-    <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
-    <string name="app_desc">Eine Anwendung, um Systemabbilder auf USB-Datenträger zu schreiben, auf Android und ohne Root-Pflicht.</string>
     <string name="buy_me_a_coffee">Kaufe mir einen Kaffee</string>
     <string name="step_x_of_y">Schritt %1$d von %2$d</string>
     <string name="i2o_action_name">Kopiere daten von %1$s zu %2$s</string>
@@ -153,5 +129,4 @@
     <string name="notif_channel_job_result_name">Aufgabenergebnis</string>
     <string name="notif_channel_job_progress_name">Aufgabenfortschritt</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Zeigt Fortschritt der aktuellen Aufgabe</string>
-    <string name="libaums_wrapper_desc">Eine kleine Hilfe, damit libaums besser mit EtchDroid funktioniert</string>
 </resources>

@@ -59,7 +59,6 @@
     <string name="fs_label">Label</string>
     <string name="fs_type">Type</string>
     <string name="part_size">Size</string>
-    <string name="this_app">This app</string>
     <string name="about">About</string>
     <string name="title_activity_usb_drive_picker">Select USB drive</string>
     <string name="title_activity_confirmation">Ready to write</string>
@@ -103,33 +102,14 @@
     <string name="cannot_find_file_in_storage">Cannot find file in internal storage. Try opening it from within the app.</string>
     <string name="storage_permission_required">Storage permission is required to read DMG images</string>
     <!-- AndroidX Jetpack -->
-    <string name="define_AndroidX" translatable="false" />
-    <string name="library_AndroidX_author" translatable="false">AOSP</string>
-    <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX is a major improvement to the original Android Support Library and provides backwards-compatibility across Android releases</string>
-    <string name="library_AndroidX_libraryVersion" translatable="false">1.0.1</string>
-    <string name="library_AndroidX_isOpenSource" translatable="false">true</string>
-    <string name="library_AndroidX_repositoryLink" translatable="false">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
     <!-- Kotlin Standard Library -->
-    <string name="define_KotlinStdlib" translatable="false" />
-    <string name="library_KotlinStdlib_author" translatable="false">JetBrains</string>
-    <string name="library_KotlinStdlib_authorWebsite" translatable="false">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
-    <string name="library_KotlinStdlib_libraryVersion" translatable="false">1.2.71</string>
-    <string name="library_KotlinStdlib_isOpenSource" translatable="false">true</string>
-    <string name="library_KotlinStdlib_repositoryLink" translatable="false">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
     <!-- Material Components -->
-    <string name="define_Material" translatable="false" />
-    <string name="library_Material_author" translatable="false">Google</string>
-    <string name="library_Material_authorWebsite" translatable="false">https://material.io/develop/</string>
     <string name="library_Material_libraryName" translatable="false">Material Components</string>
     <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
-    <string name="library_Material_libraryVersion" translatable="false">1.1.0-alpha01</string>
-    <string name="library_Material_isOpenSource" translatable="false">true</string>
-    <string name="library_Material_repositoryLink" translatable="false">https://github.com/material-components/material-components-android</string>
-    <string name="app_desc">An application to write OS images to USB drives, on Android, no root required.</string>
     <string name="buy_me_a_coffee">Buy me a coffee</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Used to show the progress of the current job</string>
     <string name="notif_channel_job_progress_name">Job progress</string>
@@ -149,47 +129,33 @@
     <string name="step_x_of_y">Step %1$d of %2$d</string>
     <!--  About  -->
     <string name="fdroid" translatable="false">F-Droid</string>
-    <string name="github" translatable="false">GitHub</string>
     <string name="paypal" translatable="false">PayPal</string>
     <string name="stackoverflow" translatable="false">StackOverflow</string>
     <string name="instagram" translatable="false">Instagram</string>
     <string name="libressl" translatable="false">LibreSSL</string>
     <string name="bzip2_title" translatable="false">bzip2</string>
-    <string name="bzip2_desc">bzip2 is a high compression ratio data compression library</string>
     <string name="guava_title" translatable="false">Guava</string>
-    <string name="guava_desc">Guava is a set of core Java libraries from Google that includes new
-        collection types (such as multimap and multiset),immutable collections, a graph library, and
-        utilities for concurrency, I/O, hashing, caching, primitives, strings, and more!</string>
     <string name="owner_name" translatable="false">Davide Depau</string>
     <string name="owner_bio">Into guys and Arch Linux. I like Kotlin, Go, Python and sleeping.</string>
     <string name="owner_task">Owner</string>
     <string name="contributor_german_name" translatable="false">German Proshunin</string>
     <string name="contributor_german_task">Developer, ru translator</string>
-    <string name="storagechooser_desc">DMG file selector</string>
     <string name="storagechooser_title" translatable="false">Storage Chooser</string>
     <string name="libaums_title" translatable="false">libaums</string>
-    <string name="libaums_desc">Userspace USB block device implementation</string>
     <string name="libaums_wrapper_title" translatable="false">libaums-wrapper</string>
-    <string name="libaums_wrapper_desc">A little shim to make libaums work better with EtchDroid</string>
     <string name="libusb_title" translatable="false">libusb</string>
-    <string name="libusb_desc">A cross-platform library to access USB devices</string>
     <!-- Licenses -->
     <string name="license_gpl3_name" translatable="false">GNU GPLv3</string>
     <string name="license_gpl3" translatable="false">gpl-3.0</string>
     <string name="license_gpl2_name" translatable="false">GNU General Public License 2.0</string>
     <string name="license_gpl2" translatable="false">gpl-2.0</string>
-    <string name="license_gpl_name" translatable="false">GNU General Public License v3.0</string>
     <string name="license_lgpl" translatable="false">LGPL-2.1</string>
     <string name="license_bsd" translatable="false">BSD</string>
-    <string name="license_mpl_name" translatable="false">Mozilla Public License 2.0</string>
-    <string name="license_other">Other</string>
     <string name="license_custom_foss">Custom FOSS</string>
     <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
     <string name="license_mpl_2_0_name" translatable="false">mpl-2.0</string>
     <string name="license_apache_name" translatable="false">Apache License 2.0</string>
     <string name="license_apache" translatable="false">apache-2.0</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom BSD-like</string>
-    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom</string>
-    <string name="license_dmg2img_desc">Converts compressed Apple® DMG images</string>
     <string name="libressl_desc">LibreSSL is a fork of OpenSSL 1.0.1g developed by the OpenBSD project.</string>
 </resources>

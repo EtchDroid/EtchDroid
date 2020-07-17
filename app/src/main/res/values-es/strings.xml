@@ -33,12 +33,8 @@
     <string name="fs_label">Etiqueta</string>
     <string name="fs_type">Tipo</string>
     <string name="part_size">Tamaño</string>
-    <string name="this_app">Esta aplicación</string>
-    <string name="libaums_desc">Implementación de dispositivos de bloqueo USB en el espacio de usuario</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personalizado como BSD</string>
-    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personalizado</string>
     <string name="about">Acerca de</string>
-    <string name="license_dmg2img_desc">Convierte imágenes comprimidas de Apple® DMG</string>
     <string name="title_activity_usb_drive_picker">Seleccionar unidad USB</string>
     <string name="title_activity_confirmation">Listo para escribir</string>
     <string name="cannot_write">No se puede escribir la imagen en la unidad USB</string>
@@ -59,7 +55,6 @@
     <string name="dataloss_confirmation_dialog_message">Si continúa, se escribirá la imagen seleccionada y todos los datos almacenados en la unidad USB se perderán para siempre.</string>
     <string name="warning">Advertencia</string>
     <string name="cancel">Cancelar</string>
-    <string name="storagechooser_desc">Selector de archivos DMG</string>
     <string name="result_channel_desc">Se utiliza para visualizar el resultado de una operación de escritura finalizada</string>
     <string name="result_channel_name">Notificaciones de resultados de escritura USB</string>
     <string name="failed_tap_for_info">Escritura fallida • Toque para obtener información</string>
@@ -88,7 +83,6 @@
     <string name="library_KotlinStdlib_libraryName">Biblioteca estándar de Kotlin</string>
     <string name="library_KotlinStdlib_libraryDescription">La biblioteca estándar de Kotlin proporciona elementos esenciales para el trabajo diario con Kotlin</string>
     <string name="library_Material_libraryDescription">Haga productos hermosos, más rápido. Material es un sistema de diseño, respaldado por código abierto, que ayuda a los equipos a construir experiencias digitales</string>
-    <string name="app_desc">Una aplicación para escribir imágenes de sistema operativo a unidades USB, en Android, sin necesidad de root.</string>
     <string name="buy_me_a_coffee">Cómprame un café</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Se utiliza para mostrar el progreso del trabajo actual</string>
     <string name="notif_channel_job_progress_name">Progreso</string>

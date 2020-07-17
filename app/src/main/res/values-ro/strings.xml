@@ -13,7 +13,6 @@
     <string name="cannot_write">Nu poate scrie imaginul la disc USB</string>
     <string name="title_activity_confirmation">Gata pentru scriere</string>
     <string name="title_activity_usb_drive_picker">Selectează disc USB</string>
-    <string name="this_app">Acest aplicația</string>
     <string name="part_size">Dimensiune</string>
     <string name="fs_type">Tip</string>
     <string name="fs_label">Etichete</string>
@@ -41,7 +40,6 @@
     <string name="action_refresh">Reîncarcă</string>
     <string name="flash_woeusb">Scrie imagine de Windows (utilizând WoeUSB, necesită root-ul)</string>
     <string name="about">Despre</string>
-    <string name="license_custom" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personalizat</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Similar la BSD</string>
     <string name="fs_unformatted">Neformatată</string>
     <string name="fs_linux_lvm_pv">Volumul fizic Linux LVM2</string>
@@ -57,7 +55,6 @@
     <string name="write_x_to_y">Scrie %1$s la %2$s</string>
     <string name="job_failed">Operație a eșuat.</string>
     <string name="buy_me_a_coffee">Cumpărați o cafea pe mine</string>
-    <string name="app_desc">O aplicație pentru scriere imaginii de SO la unități USB, pe Android, fără root.</string>
     <string name="library_KotlinStdlib_libraryDescription">Kotlin Standard Library furnizează funcții esențiale pentru să lucre cu Kotlin</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="file_type_not_supported">Tip de fișier nesuportat</string>
