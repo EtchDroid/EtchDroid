@@ -160,10 +160,10 @@
     <string name="guava_desc">Guava is a set of core Java libraries from Google that includes new
         collection types (such as multimap and multiset),immutable collections, a graph library, and
         utilities for concurrency, I/O, hashing, caching, primitives, strings, and more!</string>
-    <string name="owner_name">Davide Depau</string>
+    <string name="owner_name" translatable="false">Davide Depau</string>
     <string name="owner_bio">Into guys and Arch Linux. I like Kotlin, Go, Python and sleeping.</string>
     <string name="owner_task">Owner</string>
-    <string name="contributor_german_name">German Proshunin</string>
+    <string name="contributor_german_name" translatable="false">German Proshunin</string>
     <string name="contributor_german_task">Developer, ru translator</string>
     <string name="storagechooser_desc">DMG file selector</string>
     <string name="storagechooser_title" translatable="false">Storage Chooser</string>

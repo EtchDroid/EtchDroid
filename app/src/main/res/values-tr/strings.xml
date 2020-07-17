@@ -97,7 +97,6 @@
     <string name="success_notif_content_text">%1$s başarıyla %2$s üzerine yazıldı</string>
     <string name="troubleshooting_info">Y</string>
     <string name="operation_failed_because">İşlem aşağıdaki hatadan dolayı tamamlanamadı:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Bu yaygın bir hatadır. genellikle yazma sırasında USB belleğin çıkarılması, yada bir USB çoklayıcı kullanarak bağlanması ile oluşur. Bazı cihazlarda bu bir Android USB altsistemi hatası olabilir: çoğu zaman cihaz yeniden başlatıldığında çözülebilir. \n\nBunları deneyin:\n• USB aygıtınızı çıkarıp takın, sonra uygulamayı yeniden başlatın.\n• Cihazınızı yeniden başlatın. (evet, deneyin.)\n• Başka bir USB aygıtı deneyin.\n• Gereksiz adaptörler, çoklayıcılar vb. kullanmaktan kaçının.\n• YAzma sırasında cihazınızı kullanmaktan kaçının.\n• Hasarlı OTG kablonuzu değiştirin.\n\nEğer sorununuz çözülmüyorsa GitHub üzerinden sorun bildirimi yapın.</string>
     <string name="reporting_issues">Sorun bildirimi</string>
     <string name="reporting_issues_text">Sorunlar GitHub üzerinden bildirilebilir:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Yazma başarısız</string>
@@ -143,7 +142,6 @@
     <string name="library_KotlinStdlib_libraryDescription">Kotlin Standart Kütüphanesi, Kotlin ile günlük işler için temel ögeleri sağlamaktadır</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standart Kütüphanesi</string>
     <string name="library_AndroidX_libraryDescription">AndroidX, orijinal Android Destek Kütüphanesinin üzerine önemli bir iyileştirmedir ve Android sürümleri arasında geriye dönük uyumluluk sağlamaktadır</string>
-    <string name="tag_item_beta">Beta durumu</string>
     <string name="contributor_german_task">Geliştirici, Rusça çevirmeni</string>
     <string name="contributor_german_name">German Proshunin</string>
 </resources>

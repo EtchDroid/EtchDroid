@@ -98,17 +98,6 @@
     <string name="success_notif_content_text">%1$s a été écrit sur %2$s avec succès</string>
     <string name="troubleshooting_info">Informations de débogage</string>
     <string name="operation_failed_because">L\'opération n\'a pas pu aboutir à cause de l\'erreur suivante :</string>
-    <string name="troubleshoot_sock_op_on_non_sock">C\'est une erreur courante. Cela se produit généralement lorsque la clé USB est débranchée pendant l\'écriture ou lorsqu\'elle est connectée via un hub USB. Sur certains périphériques, il peut y avoir un bogue dans le sous-système USB d\'Android : en général, un redémarrage le corrigera pour un certain temps. 
-\n
-\nEssayez ceci :
-\n- Débranchez et rebranchez le périphérique USB, puis redémarrez l\'application.
-\n- Redémarrez votre appareil (vraiment, essayez-le)
-\n- Essayez une autre clé USB
-\n- Évitez d\'utiliser inutilement des adaptateurs, des dongles ou des hubs.
-\n- Évitez d\'utiliser votre téléphone pendant l\'écriture
-\n- Remplacez les adaptateurs USB On-The-Go défectueux.
-\n
-\nSi le problème persiste, merci d\'ouvrir un ticket sur GitHub.</string>
     <string name="reporting_issues">Rapporter des erreurs</string>
     <string name="reporting_issues_text">Les erreurs peuvent être rapportés sur GitHub :
 \nhttps://github.com/Depau/EtchDroid/issues</string>

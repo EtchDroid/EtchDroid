@@ -97,17 +97,6 @@
     <string name="success_notif_content_text">%1$s wurde erfolgreich auf %2$s geschrieben</string>
     <string name="troubleshooting_info">Informationen zur Fehlerbehebung</string>
     <string name="operation_failed_because">Die Operation konnte nicht fertiggestellt werden, da der folgende Fehler aufgetreten ist:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Dies ist ein häufiger Fehler. Er passiert normalerweise, wenn der USB-Datenträger während des Schreibens entfernt wird, oder wenn er mit einem USB-Hub verbunden ist. Auf manchen Geräten existiert möglicherweise ein Bug im USB-Subsystem von Android: ein Neustart des Geräts sollte es für einige Zeit beheben. 
-\n
-\nVersuche folgendes:
-\n• USB-Gerät abstecken und wieder anstecken, dann die App neu starten
-\n• Gerät neu starten (ernsthaft, versuche es)
-\n• Anderes USB-Gerät ausprobieren
-\n• Unnötige Adapter und Hubs vermeiden
-\n• Vermeide, dein Smart-Gerät während des Schreibens zu benutzen
-\n• Defekte USB-Adapter austauschen
-\n
-\nWenn das Problem weiterhin auftritt, reiche bitte ein Issue auf GitHub ein.</string>
     <string name="reporting_issues">Probleme melden</string>
     <string name="reporting_issues_text">Probleme können auf Github gemeldet werden:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Schreiben fehlgeschlagen</string>
@@ -128,33 +117,27 @@
     <string name="library_AndroidX_authorWebsite" translatable="false">https://developer.android.com</string>
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX ist eine neue Version der originalen Android Unterstützungs-Bibliothek und gewährleistet Abwärtskompatibilität mit früheren Android-Versionen</string>
-    <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
     <string name="library_AndroidX_libraryVersion">1.0.1</string>
     <string name="library_AndroidX_isOpenSource">true</string>
     <string name="library_AndroidX_repositoryLink">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
-    <string name="license_androidx_library" translatable="false">apache_2_0</string>
     <!-- Kotlin Standard Library -->
     <string name="define_KotlinStdlib"/>
     <string name="library_KotlinStdlib_author">JetBrains</string>
     <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standardbibliothek</string>
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standardbibliothek stellt das Notwendigste zur Verfügung, um mit Kotlin zu arbeiten</string>
-    <string name="library_KotlinStdlib_libraryWebsite">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
     <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
     <string name="library_KotlinStdlib_isOpenSource">true</string>
     <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
-    <string name="license_kotlin_stdlib">apache_2_0</string>
     <!-- Material Components -->
     <string name="define_Material"/>
     <string name="library_Material_author">Google</string>
     <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
     <string name="library_Material_libraryDescription">Erstelle schöne Produkte, schneller. Material ist ein Designsystem, welches von open-source Code unterstützt wird und Teams beim bauen von digitalen Erfahrungen hilft</string>
-    <string name="library_Material_libraryWebsite">https://material.io/develop/android/</string>
     <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
     <string name="library_Material_isOpenSource">true</string>
     <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
-    <string name="license_material_library">apache_2_0</string>
     <string name="app_desc">Eine Anwendung, um Systemabbilder auf USB-Datenträger zu schreiben, auf Android und ohne Root-Pflicht.</string>
     <string name="buy_me_a_coffee">Kaufe mir einen Kaffee</string>
     <string name="step_x_of_y">Schritt %1$d von %2$d</string>

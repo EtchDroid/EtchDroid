@@ -77,8 +77,6 @@
     <string name="failed_tap_for_info">Eșuat • Atingeți pentru info</string>
     <string name="result_channel_name">Notificări de rezultat de scriere pe unitate USB</string>
     <string name="here_be_dragons">Hic sunt dracones</string>
-    <string name="libusb_license_desc">O multiplatformă bibliotecă pentru a accesa unități USB</string>
-    <string name="storagechooser_license_description">Selector de fișiere DMG</string>
     <string name="cancel">Anulare</string>
     <string name="warning">Avertizare</string>
     <string name="dataloss_confirmation_dialog_message">Dacă continui, imaginea selectat va fi scris și toate datele pe discul USB vor fi pierdut pentru totdeauna!</string>

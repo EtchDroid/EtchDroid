@@ -68,17 +68,6 @@
     <string name="success_notif_content_text">%1$s escrito con éxito a %2$s</string>
     <string name="troubleshooting_info">Información para solucionar problemas</string>
     <string name="operation_failed_because">La operación no pudo completarse porque se produjo el siguiente error:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Este es un error común. Por lo general, esto sucede cuando la unidad USB está desconectada mientras se está escribiendo, o cuando está conectada a través de un concentrador USB. En algunos dispositivos puede haber un error en el subsistema USB de Android: normalmente un reinicio lo arreglará durante algún tiempo. 
-\n
-\nPruebe esto:
-\n• Desconecte y vuelva a conectar el dispositivo USB, a continuación, reinicie la aplicación.
-\n• Reinicie su dispositivo (realmente probarlo)
-\n• Pruebe otra unidad USB
-\n• Evite el uso de adaptadores, llaves o hubs innecesarios
-\n• Evite usar el teléfono mientras se escribe
-\n• Reemplace los adaptadores USB On-The-Go defectuosos
-\n
-\nSi el problema persiste, por favor envíe un mensaje en GitHub.</string>
     <string name="reporting_issues">Reportando problemas</string>
     <string name="reporting_issues_text">Los problemas pueden ser reportados en GitHub: 
 \nhttps://github.com/EtchDroid/EtchDroid/issues</string>
@@ -114,7 +103,6 @@
     <string name="write_x_to_y">Escribir %1$s a %2$s</string>
     <string name="i2o_action_name">Copiar datos de %1$s a %2%s</string>
     <string name="step_x_of_y">Paso %1$d de %2$d</string>
-    <string name="libusb_license_desc">Una biblioteca multiplataforma para acceder a los dispositivos USB</string>
     <string name="broken_usb_text">Si Android dice que hay un problema con su unidad USB o que no es compatible después de usar EtchDroid, lea esto.</string>
     <string name="broken_usb_title">¿Unidad USB no compatible\?</string>
 </resources>
