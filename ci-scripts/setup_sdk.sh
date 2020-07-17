@@ -18,7 +18,8 @@ rm "/tmp/${SDK_FILENAME}"
 
 mkdir ~/.android
 echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
-yes | sdkmanager --licenses && sdkmanager --update
+yes | sdkmanager --licenses >/dev/null 2>&1
+sdkmanager --update
 
 yes | sdkmanager \
   'tools' \
