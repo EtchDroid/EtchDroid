@@ -95,7 +95,7 @@
     <string name="job_failed">El trabajo falló.</string>
     <string name="file_unknown">(desconocido)</string>
     <string name="write_x_to_y">Escribir %1$s a %2$s</string>
-    <string name="i2o_action_name">Copiar datos de %1$s a %2%s</string>
+    <string name="i2o_action_name">Copiar datos de "%1$s" a "%2$s"</string>
     <string name="step_x_of_y">Paso %1$d de %2$d</string>
     <string name="broken_usb_text">Si Android dice que hay un problema con su unidad USB o que no es compatible después de usar EtchDroid, lea esto.</string>
     <string name="broken_usb_title">¿Unidad USB no compatible\?</string>
