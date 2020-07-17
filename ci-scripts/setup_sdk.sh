@@ -26,8 +26,8 @@ yes | sdkmanager \
   'platform-tools' \
   "build-tools;$ANDROID_BUILD_TOOLS_VERSION" \
   "platforms;android-$ANDROID_API_LEVEL" \
-  'extra-android-m2repository' \
-  'extra-google-m2repository' \
+  'extras;android;m2repository' \
+  'extras;google;m2repository' \
   'ndk-bundle' \
   "ndk;$NDK_VERSION" \
   "cmake;$CMAKE_VERSION"
