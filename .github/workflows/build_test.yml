@@ -37,27 +37,12 @@ jobs:
           java-version: 1.8
           
       - name: Install Android SDK
-        uses: kineticengines/setup-android-actions@v0.1
-        
-      - name: Install Android SDK components
-        env:
-          ANDROID_API_LEVEL: '29'
-          ANDROID_BUILD_TOOLS_VERSION: '29.0.3'
-          NDK_VERSION: '21.0.6113669'
-          CMAKE_VERSION: '3.10.2.4988404'
         run: |
-          yes | sdkmanager 'tools'
-          yes | sdkmanager 'platform-tools'
-          yes | sdkmanager 'build-tools-$ANDROID_BUILD_TOOLS_VERSION'
-          yes | sdkmanager 'android-$ANDROID_API_LEVEL'
-          yes | sdkmanager 'extra-android-m2repository'
-          yes | sdkmanager 'extra-google-m2repository'
-          yes | sdkmanager 'ndk-bundle'
-          yes | sdkmanager 'ndk;$NDK_VERSION'
-          yes | sdkmanager 'cmake;$CMAKE_VERSION'
+          ./ci-scripts/setup_sdk.sh
       
       - name: Build and test application
         run: |
+          source ./ci-scripts/vars.sh
           ./gradlew build assembleDebug test
 
 
