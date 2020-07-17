@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">EtchDroid</string>
-    <!--  Main activity  -->
-    <string name="tag_item_beta">Beta status</string>
-    <string name="write_image_or_iso">Write raw image or ISO</string>
-    <string name="raw_image_desc">Good for GNU/Linux distro ISOs, Raspberry Pi images, and disk images created on Windows or Linux.</string>
-    <string name="write_apple_dmg">Write Apple® DMG image</string>
-    <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
-    <string name="broken_usb_title">Unsupported USB drive?</string>
-    <string name="broken_usb_text">If Android says there\'s an issue with your USB drive or Windows does not detect it after using EtchDroid, read this.</string>
-    <!--  Unordered  -->
     <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
     <string name="flash_dmg_api">Restore macOS DMG image to disk (using Android API)</string>
     <string name="flash_unetbootin">Unetbootin-style flash (MBR only, requires root)</string>
@@ -76,6 +67,10 @@
     <string name="check_notification_progress">Check notification for progress</string>
     <string name="partition_table_title">Partition table:</string>
     <string name="could_not_access_usb_error">Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app.</string>
+    <string name="write_image_or_iso">Write raw image or ISO</string>
+    <string name="raw_image_desc">Good for GNU/Linux distro ISOs, Raspberry Pi images, and disk images created on Windows or Linux.</string>
+    <string name="write_apple_dmg">Write Apple® DMG image</string>
+    <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
     <string name="no_usb_drives_detected">No USB drives detected.\nNote that you need an SD card to USB adapter to write to SD cards.</string>
     <string name="do_not_show_again">Do not show again</string>
     <string name="here_be_dragons">Here be dragons</string>
@@ -149,6 +144,8 @@
     <string name="file_unknown">(unknown)</string>
     <string name="write_x_to_y">Write %1$s to %2$s</string>
     <string name="i2o_action_name">"Copy data from "%1$s" to "%2$s"</string>
+    <string name="broken_usb_text">If Android says there\'s an issue with your USB drive or that it\'s unsupported after using EtchDroid, read this.</string>
+    <string name="broken_usb_title">Unsupported USB drive?</string>
     <string name="step_x_of_y">Step %1$d of %2$d</string>
     <!--  About  -->
     <string name="fdroid" translatable="false">F-Droid</string>

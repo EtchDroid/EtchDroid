@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
@@ -25,16 +26,17 @@
 
             <RelativeLayout
                 android:id="@+id/relativeLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/row_padding"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingBottom="@dimen/row_padding">
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingTop="@dimen/row_padding"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:paddingBottom="@dimen/row_padding"
+                >
 
                 <TextView
                     android:id="@+id/confirm_sel_method_title"
@@ -46,26 +48,27 @@
                     android:text="@string/selected_method"
                     android:textColor="@color/name"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/confirm_sel_method"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/confirm_sel_method_title" />
+                    android:layout_below="@id/confirm_sel_method_title"/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/row_padding"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingBottom="@dimen/row_padding">
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingTop="@dimen/row_padding"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:paddingBottom="@dimen/row_padding"
+                >
 
                 <TextView
                     android:id="@+id/confirm_sel_image_title"
@@ -76,13 +79,13 @@
                     android:text="@string/selected_image"
                     android:textColor="@color/name"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/confirm_sel_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/confirm_sel_image_title" />
+                    android:layout_below="@id/confirm_sel_image_title"/>
 
 
                 <TextView
@@ -90,22 +93,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:textColor="@color/info" />
+                    android:textColor="@color/info"/>
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:id="@+id/relativeLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/row_padding"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingBottom="@dimen/row_padding">
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingTop="@dimen/row_padding"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:paddingBottom="@dimen/row_padding"
+                >
 
                 <TextView
                     android:id="@+id/confirm_sel_usbdev_title"
@@ -116,35 +120,36 @@
                     android:text="@string/selected_usbdev"
                     android:textColor="@color/name"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/confirm_sel_usbdev"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/confirm_sel_usbdev_title" />
+                    android:layout_below="@id/confirm_sel_usbdev_title"/>
 
                 <TextView
                     android:id="@+id/confirm_sel_usbdev_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:textColor="@color/info" />
+                    android:textColor="@color/info"/>
 
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/row_padding"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingBottom="@dimen/row_padding">
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingTop="@dimen/row_padding"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:paddingBottom="@dimen/row_padding"
+                >
 
                 <TextView
                     android:id="@+id/confirm_extra_info"
@@ -153,7 +158,7 @@
                     android:layout_alignParentTop="true"
                     android:ellipsize="end"
                     android:textColor="@color/name"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"/>
 
 
             </RelativeLayout>
@@ -169,7 +174,8 @@
                 android:paddingBottom="@dimen/row_padding"
                 android:textColor="@color/name"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/part_table_header_side"
@@ -179,7 +185,8 @@
                 android:paddingTop="@dimen/row_padding"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingBottom="@dimen/row_padding"
-                android:textColor="@color/info" />
+                android:textColor="@color/info"
+                />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -190,10 +197,12 @@
                 android:paddingTop="@dimen/row_padding"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingBottom="@dimen/row_padding"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+                />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/confirm_fab"
@@ -206,6 +215,6 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_twotone_save_alt_24px" />
+        app:srcCompat="@drawable/ic_twotone_save_alt_24px"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
