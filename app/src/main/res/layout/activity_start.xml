@@ -15,7 +15,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="?android:windowBackground"
-        tools:showIn="@layout/activity_start">
+        tools:showIn="@layout/activity_start"
+        tools:ignore="UselessParent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -34,7 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/CardContentStyle"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                tools:ignore="UnusedAttribute">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -45,7 +47,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/ic_raw"/>
+                    app:srcCompat="@drawable/ic_raw"
+                    tools:ignore="ContentDescription" />
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -97,7 +100,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/CardContentStyle"
-                android:foreground="?attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                tools:ignore="UnusedAttribute">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -108,15 +112,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="ContentDescription"
                     app:srcCompat="@drawable/ic_dmg"/>
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="-2dp"
+                    android:layout_marginEnd="-2dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription"
                     app:srcCompat="@drawable/ic_beta"/>
 
                 <RelativeLayout
@@ -163,6 +169,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/brokenUsbCardBackground"
                 android:foreground="?attr/selectableItemBackground"
+                tools:ignore="UnusedAttribute"
                 android:theme="@style/CardContentStyle">
 
                 <LinearLayout
