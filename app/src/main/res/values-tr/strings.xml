@@ -114,7 +114,7 @@
     <string name="owner_name">Davide Depau</string>
     <string name="step_x_of_y">Adım %1$d / %2$d</string>
     <string name="broken_usb_title">Desteklenmeyen USB bellek\?</string>
-    <string name="broken_usb_text">Android, USB belleğinizle ilgili bir sorun olduğunu söylüyorsa veya EtchDroid kullandıktan sonra Windows tarafından algılanmıyorsa, bunu okuyun.</string>
+    <string name="broken_usb_text">Android, USB belleğinizle ilgili bir sorun olduğunu veya EtchDroid kullandıktan sonra desteklenmediğini söylüyorsa, bunu okuyun.</string>
     <string name="i2o_action_name">Verileri %1$s üzerinden %2$s üzerine kopyala</string>
     <string name="write_x_to_y">%1$s dosyasını %2$s üzerine yaz</string>
     <string name="file_unknown">(bilinmeyen)</string>
