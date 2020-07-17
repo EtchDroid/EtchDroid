@@ -153,10 +153,15 @@
             android:exported="false"/>
 
         <!--suppress AndroidDomInspection -->
+        <!--
+            Some versions of libaums sneak in the UsbDocumentProvider which "steals" the USB
+            devices from EtchDroid. We unexport it just to be on the safe side.
+         -->
         <provider
             android:name="com.github.mjdev.libaums.storageprovider.UsbDocumentProvider"
             android:exported="false"
-            tools:node="remove">
+            tools:node="remove"
+            tools:ignore="MissingClass">
         </provider>
 
     </application>
