@@ -92,5 +92,4 @@
     <string name="could_not_access_usb_error">Nu poate accesare dispozitivul USB. Poate că ar fi executat aplicație înainte și a închis neașteptat\? Scoateți și reintroduceți discul USB, apoi reporniți aplicarea.</string>
     <string name="partition_table_title">Tabela de partiții:</string>
     <string name="check_notification_progress">Vezi notificare pentru progres</string>
-    <string name="dmg2img_license_desc">Convertește imagini Apple® DMG comprimate</string>
 </resources>

@@ -115,7 +115,6 @@
     <string name="cannot_find_file_in_storage">Impossible de trouver le fichier dans la mémoire interne. Essayez de l\'ouvrir depuis l\'application.</string>
     <string name="storage_permission_required">La permission de stockage est nécessaire pour pouvoir lire les images DMG</string>
     <string name="library_AndroidX_libraryDescription">AndroidX est une amélioration majeure de la bibliothèque de support Android d\'origine et offre une rétrocompatibilité entre les versions d\'Android</string>
-    <string name="library_AndroidX_libraryWebsite">https://developer.android.com/jetpack/androidx/</string>
     <string name="library_AndroidX_libraryVersion">1.0.1</string>
     <string name="library_AndroidX_isOpenSource">true</string>
     <string name="library_AndroidX_repositoryLink">https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/</string>
@@ -123,20 +122,16 @@
     <string name="library_KotlinStdlib_authorWebsite">https://kotlinlang.org/</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
-    <string name="library_KotlinStdlib_libraryWebsite">https://kotlinlang.org/api/latest/jvm/stdlib/index.html</string>
     <string name="library_KotlinStdlib_libraryVersion">1.2.71</string>
     <string name="library_KotlinStdlib_isOpenSource">true</string>
     <string name="library_KotlinStdlib_repositoryLink">https://github.com/JetBrains/kotlin/tree/master/libraries/stdlib</string>
-    <string name="license_kotlin_stdlib">apache_2_0</string>
     <string name="library_Material_author">Google</string>
     <string name="library_Material_authorWebsite">https://material.io/develop/</string>
     <string name="library_Material_libraryName">Material Components</string>
     <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
-    <string name="library_Material_libraryWebsite">https://material.io/develop/android/</string>
     <string name="library_Material_libraryVersion">1.1.0-alpha01</string>
     <string name="library_Material_isOpenSource">true</string>
     <string name="library_Material_repositoryLink">https://github.com/material-components/material-components-android</string>
-    <string name="license_material_library">apache_2_0</string>
     <string name="app_desc">Une application pour écrire les images de systèmes d\'exploitation sur les clés USB, pas de root requis.</string>
     <string name="buy_me_a_coffee">M\'acheter un café</string>
     <string name="owner_name">Davide Depau</string>
@@ -157,5 +152,4 @@
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Utilisé pour afficher la progression de la tâche courante</string>
     <string name="broken_usb_text">Si Android affirme qu’il y a un problème avec votre clé USB ou que Windows ne la détecte après avoir utilisé EtchDroid, lisez ceci.</string>
     <string name="broken_usb_title">Clé USB non prise en charge \?</string>
-    <string name="tag_item_beta">Statut bêta</string>
 </resources>

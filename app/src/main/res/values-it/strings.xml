@@ -97,17 +97,6 @@
     <string name="success_notif_content_text">%1$s scritto con successo su %2$s</string>
     <string name="troubleshooting_info">Risoluzione dei problemi</string>
     <string name="operation_failed_because">L\'operazione non è stata completata a causa del seguente errore:</string>
-    <string name="troubleshoot_sock_op_on_non_sock">Questo è un errore comune. In genere succede quando il dispositivo USB viene scollegato mentre è in corso una scrittura o quando è connesso attraverso un hub USB. Su qualche dispositivo, invece, è presente un problema nel sottosistema USB di Android: solitamente un riavvio lo risolve per un po\' di tempo.
-\n
-\nProva questi suggerimenti:
-\n• Stacca e riattacca il dispositivo USB, quindi riavvia l\'app
-\n• Riavvia il dispositivo (davvero, fallo)
-\n• Prova un\'altro dispositivo USB
-\n• Evita di usare adattatori o hub se non necessari
-\n• Evita di usare il telefono mentre sta scrivendo immagini
-\n• Sostituisci un adattatore USB On-The-Go difettoso
-\n
-\nSe il problema persiste segnalacelo su GitHub cosicché possiamo sistemarlo.</string>
     <string name="reporting_issues">Segnalazione dei problemi</string>
     <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
     <string name="write_failed">Scrittura fallita</string>
