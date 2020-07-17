@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="flash_dd_usb_api">Zapisz obraz bezpośrednio na dysk (za pomocą Android API)</string>
-    <string name="action_refresh">Odśwież</string>
-</resources>
