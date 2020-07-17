@@ -12,6 +12,7 @@ import eu.depau.etchdroid.db.entity.Job
 import eu.depau.etchdroid.notification.impl.JobServiceNotificationBuilder
 import eu.depau.etchdroid.services.job.dto.JobServiceIntentDTO
 import eu.depau.etchdroid.services.job.exception.JobActionFailedException
+import eu.depau.etchdroid.utils.assertDebug
 import eu.depau.etchdroid.utils.job.IJobAction
 import eu.depau.etchdroid.utils.job.IJobProcedure
 import eu.depau.etchdroid.utils.job.enums.SharedDataType
@@ -35,14 +36,14 @@ class JobServiceIntentHandler(
         Notification()
 
     init {
-        assert(jobId >= 0) { "Invalid jobId (jobId < 0)" }
+        assertDebug(jobId >= 0) { "Invalid jobId (jobId < 0)" }
     }
 
     fun handle() = context.runForeground(jobId.toInt(), notification, true) {
         val db = EtchDroidDatabase.getDatabase(context)
 
         job = db.jobRepository().getById(jobId).also {
-            assert(!it.completed) { "Job $jobId already completed" }
+            assertDebug(!it.completed) { "Job $jobId already completed" }
         }
 
         // Add service context to shared worker data
