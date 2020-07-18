@@ -97,7 +97,7 @@
     <string name="file_unknown">(onbekend)</string>
     <string name="write_x_to_y">%1$s wegschrijven naar %2$s</string>
     <string name="i2o_action_name">Gegevens kopiëren van %1$s naar %2$s</string>
-    <string name="broken_usb_text">Druk hier als Android meldt dat er een probleem is met je USB-schijf of als Windows hem niet herkent.</string>
+    <string name="broken_usb_text">Druk hier als Android meldt dat er een probleem is met je USB-schijf of als hij niet meer wordt herkend.</string>
     <string name="broken_usb_title">Niet-ondersteunde USB-schijf\?</string>
     <string name="step_x_of_y">Stap %1$d van %2$d</string>
     <string name="libressl_desc">LibreSSL is een afsplitsing van OpenSSL 1.0.1g, ontwikkeld door het OpenBSD-project.</string>
