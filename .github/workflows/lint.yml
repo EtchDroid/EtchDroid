@@ -22,16 +22,39 @@ jobs:
   android_lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
 
-      - name: 'Checkout repo'
+      - name: Prepare caches
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            ~/.android/build-cache
+            !~/.gradle/caches/modules-2/modules-2.lock
+            !~/.gradle/caches/*/plugin-resolution/
+            /opt/android
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Set up Java
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-
+          
+      - name: Install Android SDK
+        run: |
+          ./ci-scripts/setup_sdk.sh
+ 
       - name: 'Run lint'
-        run: ./gradlew lint
+        run: |
+          source ./ci-scripts/vars.sh
+          ./gradlew lint
 
       - uses: yutailang0119/action-android-lint@v1.0.2
         with:
-          xml_path: build/reports/lint-results.xml
+          xml_path: app/build/reports/lint-results.html
