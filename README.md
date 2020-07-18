@@ -39,6 +39,9 @@ See the website: https://etchdroid.depau.eu/donate/
 <p align="center">
 <a href="https://www.patreon.com/depau" rel="_noopener" target="_blank"><img alt="Become a Patron" src="https://etchdroid.depau.eu/assets/img/become_a_patron_button.png"/></a> &nbsp;&nbsp;&nbsp; <a href="https://flattr.com/@Depau" rel="_noopener" target="_blank"><img alt="Flattr this" src="https://api.flattr.com/button/flattr-badge-large.png"/></a>
   </p>
+  
+## Help out translating EtchDroid
+[![Translation status](https://hosted.weblate.org/widgets/etchdroid/-/app/open-graph.png)](https://hosted.weblate.org/engage/etchdroid/?utm_source=widget)
 
 ## Updates on development status
 Check out my blog: https://blog.depau.eu/tag/etchdroid/
