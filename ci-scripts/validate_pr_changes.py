@@ -12,7 +12,8 @@ import subprocess
 
 from os.path import dirname, basename
 
-GITHUB_BASE_REF = os.environ['GITHUB_BASE_REF']
+GITHUB_BASE_REMOTE = os.environ.get('GITHUB_BASE_REMOTE', 'origin')
+GITHUB_BASE_REF = f"{GITHUB_BASE_REMOTE}/{os.environ['GITHUB_BASE_REF']}"
 BASE_CHECKOUT = "../base"
 IGNORED_USERS = ['weblate']
 TRANSLATE_URL = 'https://hosted.weblate.org/projects/etchdroid/app/{lang}/'
