@@ -5,7 +5,6 @@ set +e
 
 echo "Trying to fetch remote repo"
 # Try to pull as much of the repo as we can
-git fetch origin --unshallow
 git fetch origin --recurse-submodules=no
 git fetch origin
 
@@ -19,6 +18,6 @@ cp -a "$repodir" "base"
 
 echo "Checkout base reference: $GITHUB_BASE_REF"
 cd base
-git checkout -b "origin/$GITHUB_BASE_REF"
+git checkout "origin/$GITHUB_BASE_REF"
 
 cd "../$repodir"
