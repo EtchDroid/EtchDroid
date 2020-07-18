@@ -1,7 +1,7 @@
 name: Lint
 
 on:
- push:
+  push:
      paths:
       - .github/workflows/android-lint.yml
       - '*/src/**'
