@@ -57,4 +57,4 @@ jobs:
 
       - uses: yutailang0119/action-android-lint@v1.0.2
         with:
-          xml_path: build/reports/lint-results.xml
+          xml_path: app/build/reports/lint-results.html
