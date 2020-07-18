@@ -3,9 +3,6 @@
 
 set -e
 
-echo "Fetch remote repo"
-git fetch origin
-
 repodir="$(basename "$PWD")"
 cd ..
 
