@@ -1,6 +1,14 @@
 #!/bin/bash
 # Checkout pull request base commit for use in validate_pr_changes.py
 
+set +e
+
+echo "Trying to fetch remote repo"
+# Try to pull as much of the repo as we can
+git fetch origin --unshallow
+git fetch origin --recurse-submodules=no
+git fetch origin
+
 set -e
 
 repodir="$(basename "$PWD")"
