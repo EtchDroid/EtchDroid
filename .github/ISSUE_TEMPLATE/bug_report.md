@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 **Smartphone (please complete the following information):**
  - Device: [e.g. OnePlus 5]
  - OS: [e.g. Android 8.0]
- - Version [e.g. 22]
+ - App version [e.g. 1.4, you can find it in the About screen or in system Settings]
  - Installed from: [Play Store, F-Droid, GitHub, self-built...]
 
 **Additional context**
