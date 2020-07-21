@@ -4,7 +4,7 @@
     <string name="action_refresh">Обновить</string>
     <string name="android_pie_bug">Ошибка Android Pie</string>
     <string name="android_pie_bug_dialog_text">В Android 9 существует дефект, в некоторых случаях приводящий к ошибке записи.\\nЕсли возникает \\\"Ошибка записи\\\", перезагрузите устройство и попробуйте ещё раз.</string>
-    <string name="broken_usb_text">Если система Android сообщает, что есть проблема с вашим USB-накопителем или что он не поддерживается после использования EtchDroid, прочитайте это.</string>
+    <string name="broken_usb_text">Если Android говорит, что есть проблема с вашим USB-накопителем или что он не поддерживается после использования EtchDroid, прочитайте это.</string>
     <string name="broken_usb_title">Неподдерживаемый USB-накопитель?</string>
     <string name="buy_me_a_coffee">Угостить разработчика чашкой кофе</string>
     <string name="cancel">Отмена</string>
