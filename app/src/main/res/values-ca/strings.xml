@@ -1,2 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="libressl_desc">El LibreSSL és una derivació de l\'OpenSSL 1.0.1g desenvolupada pel projecte OpenBSD.</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Inspirat en BSD</string>
+    <string name="contributor_german_task">Desenvolupador, traductor a rús</string>
+    <string name="owner_task">Autoria</string>
+    <string name="owner_bio">Into guys i Arch Linux. M\'agrada Kotlin, Go, Python i dormir.</string>
+    <string name="step_x_of_y">Pas %1$d de %2$d</string>
+    <string name="broken_usb_title">Dispositiu USB no suportat\?</string>
+    <string name="i2o_action_name">Copia les dades de %1$s a %2$s</string>
+    <string name="write_x_to_y">Escriu %1$s a %2$s</string>
+    <string name="file_unknown">(desconegut)</string>
+    <string name="job_failed">Ha fallat la tasca.</string>
+    <string name="done">Fet!</string>
+    <string name="starting_job">S\'està iniciant la tasca…</string>
+    <string name="notif_starting_job">S\'està iniciant la tasca…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Mostra el resultat de la tasca finalitzada</string>
+    <string name="notif_channel_job_result_name">Resultat</string>
+    <string name="notif_channel_job_progress_name">Progrés de la tasca</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Mostra el progrés de la tasca actual</string>
+    <string name="buy_me_a_coffee">Convideu-me a un cafè</string>
+    <string name="library_KotlinStdlib_libraryDescription">La llibreria estàndard Kotlin conté el necessari per treballar de forma bàsica amb el Kotlin</string>
+    <string name="library_KotlinStdlib_libraryName">Llibreria estàndard Kotlin</string>
+    <string name="storage_permission_required">Es requereix permís d\'emmagatzematge per llegir imatges DMG</string>
+    <string name="file_type_not_supported">Tipus de fitxer no suportat</string>
+    <string name="reset_warnings">Reinicia totes les advertències</string>
+    <string name="android_pie_bug_dialog_text">Hi ha un error en Android 9 que en alguns casos impedeix escriure correctament.
+\nSi es mostra el missatge «Escriptura fallida», reinicieu el dispositiu i torneu a provar.</string>
+    <string name="android_pie_bug">Error d\'Android Pie</string>
+    <string name="nightmode_night">Inhabilita el mode nit</string>
+    <string name="nightmode">Habilita el mode nit</string>
+    <string name="uncompressed">(cap compressió)</string>
+    <string name="write_failed">Ha fallat l\'escriptura</string>
+    <string name="reporting_issues_text">Podeu informar d\'errors al GitHub:
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues">Informe de problemes</string>
+    <string name="troubleshooting_info">Resolució de problemes</string>
+    <string name="success_notif_content_text">Ha finalitzat correctament l\'escriptura de %1$s a %2$s</string>
+    <string name="error_notif_content_text">És probable que %1$s s\'hagi desconnectat durant el procés d\'escriptura.</string>
+    <string name="write_finished">Ha finalitzat el procés</string>
+    <string name="failed_tap_for_info">Ha fallat • Toqueu per a més informació</string>
+    <string name="cancel">Cancel·la</string>
+    <string name="i_understand">Accepto el risc i vull continuar</string>
+    <string name="here_be_dragons">Aneu amb compte</string>
+    <string name="do_not_show_again">No tornis a mostrar</string>
+    <string name="no_usb_drives_detected">No s\'ha detectat cap unitat USB.
+\nTingueu en compte que necessiteu un adaptador USB per escriure en targetes SD.</string>
+    <string name="dmg_image_desc">Restaura una imatge creada amb la utilitat de discos del macOS</string>
+    <string name="write_apple_dmg">Escriu una imatge DMG d\'Apple®</string>
+    <string name="raw_image_desc">Recomanada per a fitxers ISO de distribucions GNU/Linux, Raspberry Pi i imatges creades a Windows o Linux.</string>
+    <string name="write_image_or_iso">Escriure una imatge ISO o en cru</string>
+    <string name="could_not_access_usb_error">No es pot accedir al dispositiu USB. Potser ha fallat anteriorment l\'aplicació\? Desconnecteu i torneu a connectar el dispositiu USB i reinicieu l\'aplicació.</string>
+    <string name="partition_table_title">Taula de particions:</string>
+    <string name="cannot_write">No es pot escriure la imatge al dispositiu USB</string>
+    <string name="about">Quant a…</string>
+    <string name="part_size">Mida</string>
+    <string name="fs_type">Tipus</string>
+    <string name="fs_unknown">Desconegut</string>
+    <string name="fs_unformatted">Sense format</string>
+    <string name="fs_free">Espai lliure</string>
+    <string name="fs_linux_lvm_pv">Volum físic LVM2 de Linux</string>
+    <string name="fs_linux_swap">Partició d\'intercanvi de Linux</string>
+    <string name="fs_luks">Xifrat LUKS</string>
+    <string name="fs_apt_data">Dades APT</string>
+    <string name="ptt_mac">Taula de particions d\'Apple (APT)</string>
+    <string name="ptt_loop">Cap</string>
+    <string name="ptt_gpt">Taula de particions GUID (GPT)</string>
+    <string name="image_is_not_dmg">La imatge seleccionada no és un fitxer DMG (o potser s\'ha malmès)</string>
+    <string name="notif_writing_img">S\'està escrivint la imatge…</string>
+    <string name="notif_initializing">S\'està iniciant…</string>
+    <string name="notchan_writestatus_title">Estat d\'escriptura a l\'USB</string>
+    <string name="fs_label">Etiqueta</string>
+    <string name="part_label">Nom</string>
+    <string name="title_activity_usb_drive_picker">Seleccioneu la unitat USB</string>
+    <string name="tap_next_to_write">Toqueu el botó Inicia per escriure la imatge al dispositiu USB</string>
+    <string name="cant_read_usbdev">No es pot llegir el dispositiu USB</string>
+    <string name="image_bigger_than_usb">El fitxer d\'imatge és més gran que el dispositiu USB i no es pot desar en ell</string>
+    <string name="unknown_filename">Nom de fitxer desconegut</string>
+    <string name="selected_usbdev">Dispositiu USB seleccionat:</string>
+    <string name="selected_method">Mètode seleccionat d\'escriptura:</string>
+    <string name="selected_image">Imatge seleccionada:</string>
+    <string name="usb_perm_denied_noname">S\'ha rebutjat el permís per al dispositiu USB</string>
+    <string name="usb_perm_denied">S\'ha rebutjat el permís per a</string>
+    <string name="action_refresh">Actualitza</string>
+    <string name="flash_woeusb">Grava una imatge de Windows (mitjançant WoeUSB, requereix permisos de root)</string>
+    <string name="flash_unetbootin">Estil Unetbootin (només MBR, requereix permisos de root)</string>
+    <string name="flash_dmg_api">Restaura una imatge DMG del macOS a disc (mitjançant l\'API d\'Android)</string>
+    <string name="flash_dd_usb_api">Escriu una imatge directament al disc (mitjançant l\'API d\'Android)</string>
+</resources>
