@@ -4,7 +4,7 @@
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Inspirat en BSD</string>
     <string name="contributor_german_task">Desenvolupador, traductor a rús</string>
     <string name="owner_task">Autoria</string>
-    <string name="owner_bio">Into guys i Arch Linux. M\'agrada Kotlin, Go, Python i dormir.</string>
+    <string name="owner_bio">Adoro els nois i l\'Arch Linux. M\'agrada Kotlin, Go, Python i dormir.</string>
     <string name="step_x_of_y">Pas %1$d de %2$d</string>
     <string name="broken_usb_title">Dispositiu USB no suportat\?</string>
     <string name="i2o_action_name">Copia les dades de %1$s a %2$s</string>
