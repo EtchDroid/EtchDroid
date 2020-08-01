@@ -4,7 +4,7 @@
     <string name="action_refresh">Обновить</string>
     <string name="android_pie_bug">Ошибка Android Pie</string>
     <string name="android_pie_bug_dialog_text">В Android 9 существует дефект, в некоторых случаях приводящий к ошибке записи.\\nЕсли возникает \\\"Ошибка записи\\\", перезагрузите устройство и попробуйте ещё раз.</string>
-    <string name="broken_usb_text">Если Android говорит, что есть проблема с вашим USB-накопителем или что он не поддерживается после использования EtchDroid, прочитайте это.</string>
+    <string name="broken_usb_text">Если Android сообщает о проблеме с вашим USB-накопителем или что он не поддерживается после использования EtchDroid, прочитайте это.</string>
     <string name="broken_usb_title">Неподдерживаемый USB-накопитель?</string>
     <string name="buy_me_a_coffee">Угостить разработчика чашкой кофе</string>
     <string name="cancel">Отмена</string>
@@ -98,7 +98,7 @@
     <string name="write_x_to_y">Записать %1$s на %2$s</string>
     <string name="owner_task">Владелец</string>
     <string name="owner_name">Давид Депау</string>
-    <string name="owner_bio">В парней и Arch Linux. Люблю Kotlin, Go, Python и спать.</string>
+    <string name="owner_bio">Нравятся парни и Arch Linux. Люблю Kotlin, Go, Python и спать.</string>
     <string name="license_custom_foss">Специальная FOSS</string>
     <string name="libressl_desc">LibreSSL это вилка OpenSSL 1.0.1g, разработанная под OpenBSD проектом.</string>
     <string name="contributor_german_name">Герман Прошунин</string>
