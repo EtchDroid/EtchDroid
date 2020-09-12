@@ -98,5 +98,10 @@
     <string name="i2o_action_name">Copiar dados de %1$s para %2$s</string>
     <string name="step_x_of_y">Em %1$d de %2$d</string>
     <string name="broken_usb_title">Unidade USB sem suporte\?</string>
-    <string name="broken_usb_text">Se o Android disser que há um problema com a sua unidade USB ou que não é suportado após o uso do EtchDroid, leia isso.</string>
+    <string name="broken_usb_text">Se o Android diz que há um problema com a sua unidade USB ou que não é suportado após o uso do EtchDroid, leia isso.</string>
+    <string name="libressl_desc">LibreSSL é um fork de OpenSSL 1.0.1g desenvolvido pelo projecto OpenBSD.</string>
+    <string name="license_custom_foss">FOSS personalizado</string>
+    <string name="contributor_german_task">Desenvolvedor, tradutor ru</string>
+    <string name="owner_task">Dono</string>
+    <string name="owner_bio">Into guys e Arch Linux. Gosto de Kotlin, Go, Python e dormir.</string>
 </resources>
