@@ -98,7 +98,7 @@ abstract class UsbApiWriteService(usbApiWriteName: String) : UsbWriteService(usb
         val uri: Uri = intent.data!!
         val inputStream = getInputStream(uri)
 
-        val usbDevice: UsbDevice = intent.getParcelableExtra("usbDevice")
+        val usbDevice: UsbDevice = intent.getParcelableExtra("usbDevice")!!
         val msDev = getUsbMSDevice(usbDevice)!!
         msDev.init()
 

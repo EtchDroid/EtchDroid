@@ -16,7 +16,7 @@ open class JobService(name: String) : IntentService(name) {
             return
 
         val jobDTO = intent.getParcelableExtra<JobServiceIntentDTO>(JobServiceIntentDTO.EXTRA)
-        JobServiceIntentHandler(this, jobDTO).handle()
+        JobServiceIntentHandler(this, jobDTO!!).handle()
     }
 
     companion object {
