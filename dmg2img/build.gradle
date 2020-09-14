@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-	compileSdkVersion rootProject.compileSdkVersion
+	compileSdkVersion 29
 	defaultConfig {
 		externalNativeBuild {
 			cmake {
@@ -20,5 +20,5 @@ android {
 			assets.srcDirs = ['src/main/assets']
 		}
 	}
-	ndkVersion rootProject.ndkVersion
+	ndkVersion '21.0.6113669'
 }
