@@ -123,4 +123,12 @@
     <string name="job_failed">Lavoro fallito.</string>
     <string name="file_unknown">(sconosciuto)</string>
     <string name="step_x_of_y">Passaggio %1$d di %2$d</string>
+    <string name="owner_bio">Interessi: ragazzi e Arch Linux. Mi piacciono Kotlin, Go, Python e dormire.</string>
+    <string name="libressl_desc">LibreSSL è un fork di OpenSSL 1.0.1g, sviluppato dal progetto OpenBSD.</string>
+    <string name="license_custom_foss">FOSS personalizzata</string>
+    <string name="contributor_german_task">Contributore, traduttore per il russo</string>
+    <string name="owner_task">Sviluppatore</string>
+    <string name="resuming_job">Ripresa dall\'ultimo salvataggio…</string>
+    <string name="starting_job">Avvio elaborazione…</string>
+    <string name="notif_starting_job">Avvio elaborazione…</string>
 </resources>
