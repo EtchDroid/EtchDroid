@@ -1,0 +1,1 @@
+Schrijf iso- en dmg-bestanden weg naar usb-schijven - geen root benodigd
