@@ -1,0 +1,1 @@
+Android 6.0'da herhangi bir düğmeye basıldığında uygulamanın çökmesine neden olan bir hata düzeltildi
