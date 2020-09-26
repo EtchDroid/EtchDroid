@@ -90,7 +90,7 @@
     <string name="write_finished">Yazma tamamlandı</string>
     <string name="error_notif_content_text">%1$s yazma sırasında çıkarılmış olabilir.</string>
     <string name="success_notif_content_text">%1$s başarıyla %2$s üzerine yazıldı</string>
-    <string name="troubleshooting_info">Y</string>
+    <string name="troubleshooting_info">Sorun giderme bilgileri</string>
     <string name="operation_failed_because">İşlem aşağıdaki hatadan dolayı tamamlanamadı:</string>
     <string name="reporting_issues">Sorun bildirimi</string>
     <string name="reporting_issues_text">Sorunlar GitHub üzerinden bildirilebilir:\nhttps://github.com/Depau/EtchDroid/issues</string>
@@ -127,7 +127,7 @@
     <string name="notif_channel_job_result_name">İş sonucu</string>
     <string name="notif_channel_job_progress_name">İş ilerlemesi</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Geçerli işin ilerleme durumunu göstermek için kullanılır</string>
-    <string name="library_Material_libraryDescription">Güzel ürünleri daha hızlı yapın. Materyal, ekiplerin dijital deneyimler oluşturmasına yardımcı olan açık kaynak koduyla desteklenen bir tasarım sistemidir</string>
+    <string name="library_Material_libraryDescription">Güzel ürünleri daha hızlı yapın. Materyal, ekiplerin dijital deneyimler oluşturmasına yardımcı olan özgür kodlarla desteklenmiş bir tasarım sistemidir</string>
     <string name="library_KotlinStdlib_libraryDescription">Kotlin Standart Kütüphanesi, Kotlin ile günlük işler için temel ögeleri sağlamaktadır</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standart Kütüphanesi</string>
     <string name="library_AndroidX_libraryDescription">AndroidX, orijinal Android Destek Kütüphanesinin üzerine önemli bir iyileştirmedir ve Android sürümleri arasında geriye dönük uyumluluk sağlamaktadır</string>
