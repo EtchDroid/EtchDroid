@@ -1,1 +1,1 @@
-Fixed a bug which caused the app to crash when pressing any button on Android 6.0
+• Fixed a bug which caused the app to crash when pressing any button on Android 6.0.
