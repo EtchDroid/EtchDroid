@@ -1,0 +1,2 @@
+- EtchDroid støtter nå libusb. Dette bør medføre økt stabilitet.
+- Nattmodusveksling avskrudd på Pie eller nyere siden det lager krøll for mange folk. La det komme til kjenne hvis du vil ha det tilbake.

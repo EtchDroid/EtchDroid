@@ -1,0 +1,2 @@
+- Oppdateringer og feilrettinger i libaums bringer med seg økt pålitelighet med "vanskelige" USB-pinner og Android-enheter
+- Nye oversettelser lagt til.

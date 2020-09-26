@@ -1,0 +1,1 @@
+Fikset en feil som forårsaker kræsj ved knappetrykk på Android 6.0
