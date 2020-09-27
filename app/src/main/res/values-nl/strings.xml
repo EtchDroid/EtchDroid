@@ -82,7 +82,7 @@
     <string name="library_AndroidX_libraryDescription">AndroidX is een enorme verbetering ten opzichte van de oorspronkelijke Android-ondersteuningsbibliotheek en biedt achterwaartse comptabiliteit tussen Android-versies</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin-standaardbibliotheek</string>
     <string name="library_KotlinStdlib_libraryDescription">De Kotlin-standaardbibliotheek biedt nuttige gereedschappen voor het dagelijkse Kotlin-werk</string>
-    <string name="library_Material_libraryDescription">Maak mooie producten in een kortere tijd. Material is een ontwerpsysteem, ondersteund door opensourcecode, dat teams helpt digitale gebruikservaringen te maken</string>
+    <string name="library_Material_libraryDescription">Maak mooie producten in een kortere tijd. Material is een ontwerpsysteem, ondersteund door vrije code, dat teams helpt digitale gebruikservaringen te maken</string>
     <string name="buy_me_a_coffee">Schenk me een kopje koffie</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Wordt gebruikt om de voortgang van de huidige taak te tonen</string>
     <string name="notif_channel_job_progress_name">Taakvoortgang</string>
