@@ -21,7 +21,7 @@
     <string name="notif_channel_job_progress_name">Progresso da operação</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Usado para mostrar o progresso do trabalho atual</string>
     <string name="buy_me_a_coffee">Me compre um café</string>
-    <string name="library_Material_libraryDescription">Faça produtos bonitos, mais rápido. Material é um sistema de design - apoiado por código-fonte aberto - que ajuda as equipas a construir experiências digitais</string>
+    <string name="library_Material_libraryDescription">Faça produtos bonitos, mais rápido. Material é um sistema de design - apoiado por código-fonte libre - que ajuda as equipas a construir experiências digitais</string>
     <string name="library_KotlinStdlib_libraryDescription">A biblioteca padrão do Kotlin fornece elementos essenciais para o trabalho cotidiano com Kotlin</string>
     <string name="library_KotlinStdlib_libraryName">Biblioteca padrão do Kotlin</string>
     <string name="library_AndroidX_libraryDescription">AndroidX é uma grande melhoria à biblioteca original de suporte do Android e oferece compatibilidade com versões anteriores dos lançamentos do Android</string>
