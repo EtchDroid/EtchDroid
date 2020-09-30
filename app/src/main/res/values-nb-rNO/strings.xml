@@ -104,4 +104,5 @@
     <string name="owner_bio">Liker menn og Arch Linux. Jeg liker Kotlin, Go, Python og soving.</string>
     <string name="owner_name">Davide Depau</string>
     <string name="libressl_desc">LibreSSL er en avgafling av OpenSSL 1.0.1g utviklet av OpenBSD-prosjektet.</string>
+    <string name="contributor_german_task">Utvikler, oversetter til russisk</string>
 </resources>

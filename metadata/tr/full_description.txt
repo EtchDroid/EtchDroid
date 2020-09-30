@@ -1,5 +1,5 @@
-EtchDroid, kalıpları USB belleklere yazmanıza yardımcı olan açık kaynaklı bir uygulamadır.
-Dizüstü bilgisayarınız bozulduğunda ve ıssız bir yerin ortasındayken önyüklenebilir bir GNU/Linux USB belleği yapmak için kullanabilirsiniz.
+EtchDroid, kalıpları USB belleklere yazmanıza yardımcı olan GPLv3+ copyleft özgür bir uygulamadır.
+Dizüstü bilgisayarınız bozulduğunda ve ıssız bir yerin ortasındayken önyüklenebilir bir GNU/Linux USB belleği yapmak için kullanın.
 
 Özellikler:
 • Ham disk kalıplarını ve çoğu GNU/Linux dağıtımının ISO dosyalarını destekler
@@ -8,7 +8,7 @@ Dizüstü bilgisayarınız bozulduğunda ve ıssız bir yerin ortasındayken ön
 • Root yok - her şey Android API sınırları içinde yapılır
 • Özgür yazılım
 
-Planlanan özellikler:
+Planlanan:
 • Aygıtta depolamadan yaygın GNU/Linux dağıtımlarını doğrudan internetten indirerek yazın
 • Windows kurulum ISO dosyası desteği (büyük olasılıkla root gerektirecek)
 • Unetbootin tarzı kalıp yazma

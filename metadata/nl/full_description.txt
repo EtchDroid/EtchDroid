@@ -1,4 +1,4 @@
-EtchDroid is een opensource-app waarmee je schijfkopieën kunt wegschrijven naar usb-schijven.
+EtchDroid is een vrije GPLv3+-app waarmee je schijfkopieën kunt wegschrijven naar usb-schijven.
 Zo kun je bijv. een opstartbare GNU/Linux usb-schijf maken voor als je laptop de geest geeft terwijl je in de middle of nowhere bent.
 
 Kenmerken:

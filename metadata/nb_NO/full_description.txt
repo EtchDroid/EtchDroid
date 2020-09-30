@@ -1,0 +1,16 @@
+EtchDroid er fri programvare som lar deg skrive avtrykk til USB-enheter.
+Du kan bruke det til å legge en oppstartbar Linux|GNU-distribusjon på din USB-pinne når din bærbare har dødd og du er ute i ingenmannsland.
+
+Funksjoner:
+• Støtter råe avtrykk og ISO-er fra de fleste Linux|GNU-distribusjoner
+• Støtter Raspberry Pi-avtrykk (pakk ut ZIP-filen først; bruk en SD-til-USB-adapter, intern SD-kortplass støttes ikke)
+• Støtter de fleste DMG-avtrykkene (beta)
+• Ingen rot-rettigheter. Alt gjøres innenfor Android-API-et
+• Fri som i ytringsfrihet
+
+Planlagte funksjoner:
+• Skriv populære Linux|GNU-distribusjoner ved å strømme dem fra Internett, uten å lagre dem på enheten
+• Støtte for ISO for Windows-installasjon (vil antagelig kreve rot-rettigheter)
+• Støtte for innbrenning i Unetbootin-stil
+
+Kildekode på GitHub: https://github.com/Depau/EtchDroid
