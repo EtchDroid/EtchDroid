@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="contributor_german_task">Desenvolvedor, tradutor ru</string>
-    <string name="libressl_desc">LibreSSL é um fork de OpenSSL 1.0.1g desenvolvido pelo projecto OpenBSD.</string>
+    <string name="libressl_desc">LibreSSL é uma bifurcação de OpenSSL 1.0.1g desenvolvido pelo projeto OpenBSD.</string>
     <string name="license_custom_foss">FOSS personalizado</string>
     <string name="owner_task">Dono</string>
     <string name="owner_bio">Into guys e Arch Linux. Gosto de Kotlin, Go, Python e dormir.</string>
