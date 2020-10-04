@@ -88,8 +88,8 @@
     <string name="image_is_not_dmg">A imagem selecionada não é uma imagem DMG (talvez ela esteja corrompida)</string>
     <string name="notif_writing_img">Gravando imagem…</string>
     <string name="notif_initializing">Inicializando…</string>
-    <string name="notchan_writestatus_desc">Usado para exibir o status de imagens sendo gravadas em unidades USB</string>
-    <string name="notchan_writestatus_title">Status de gravação em USB</string>
+    <string name="notchan_writestatus_desc">Usado para exibir o estado de imagens a ser gravadas em aparelhos USB</string>
+    <string name="notchan_writestatus_title">Estado de gravação em USB</string>
     <string name="tap_next_to_write">Toque em Gravar para gravar a imagem na unidade USB</string>
     <string name="cant_read_usbdev">Não foi possível ler o aparelho USB</string>
     <string name="image_bigger_than_usb">A imagem é maior que a unidade USB, então ela não pode ser gravada</string>
