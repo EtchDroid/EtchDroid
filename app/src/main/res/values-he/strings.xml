@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="library_AndroidX_libraryDescription">AndroidX מספק שיפור משמעותי לעומת ספריית התמיכה ב־Android ומספק תמיכה לאחור עבור מגוון מהדורות Android</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">דמוי BSD בהתאמה אישית</string>
+    <string name="license_custom_foss">קוד חופשי ופתוח בהתאמה אישית</string>
+    <string name="resuming_job">התהליך ממשיך מנקודת הביקורת…</string>
+    <string name="starting_job">המשימה מתחילה…</string>
+    <string name="notif_starting_job">המשימה מתחילה…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">משמש להצגת תוצרי המשימה שהושלמה</string>
+    <string name="notif_channel_job_result_name">תוצרי המשימה</string>
+    <string name="notif_channel_job_progress_name">התקדמות משימה</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">משמש להצגת התקדמות המשימה הנוכחית</string>
+    <string name="library_KotlinStdlib_libraryDescription">הספרייה התקנית של Kotlin מספקת צרכים חיוניים לעבודה יומיומית עם Kotlin</string>
+    <string name="done">בוצע!</string>
+    <string name="job_failed">המשימה נכשלה.</string>
+    <string name="file_unknown">(לא ידוע)</string>
+    <string name="i2o_action_name">העתקת נתונים מתוך %1$s אל %2$s</string>
+    <string name="write_x_to_y">כתיבת %1$s אל %2$s</string>
+    <string name="broken_usb_text">אם Android מציין שישנה תקלה בכונן ה־USB שלך או שאין תמיכה בו לאחר השימוש ב־EtchDroid, כדאי לקרוא את זה.</string>
+    <string name="broken_usb_title">כונן USB שאינו נתמך\?</string>
+    <string name="step_x_of_y">שלב %1$d מתוך %2$d</string>
+    <string name="library_KotlinStdlib_libraryName">הספרייה התקנית של Kotlin</string>
+    <string name="android_pie_bug_dialog_text">יש תקלה ידועה ב־Android 9 שגורמת לחלק מהכתיבות להיכשל.
+\nאם נתקלת בהודעה „כתיבה נכשלה” (Write failed), עליך להפעיל את המכשיר מחדש ולנסות שוב.</string>
+    <string name="reporting_issues_text">ניתן לדווח על תקלות ב־GitHub:
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues">דיווח על תקלות</string>
+    <string name="operation_failed_because">לא ניתן להשלים את הפעולה כיוון שקרתה התקלה הבאה:</string>
+    <string name="dataloss_confirmation_dialog_message">בחירה להמשיך תוביל לכך שהדמות הנבחרת תיכתב וכל הנתונים שמאוחסנים על כונן ה־USB יאבדו לעד!</string>
+    <string name="owner_task">בעלים</string>
+    <string name="contributor_german_task">מפתח, מתרגם לרוסית</string>
+    <string name="troubleshooting_info">פרטי פתרון תקלות</string>
+    <string name="success_notif_content_text">%1$s נכתבה בהצלחה אל %2$s</string>
+    <string name="error_notif_content_text">יכול להיות ש־%1$s התנתק במהלך הכתיבה.</string>
+    <string name="failed_tap_for_info">נכשלה • יש לגעת למידע נוסף</string>
+    <string name="write_finished">הכתיבה הושלמה</string>
+    <string name="result_channel_name">התראות תוצאת כתיבת USB</string>
+    <string name="result_channel_desc">משמש להצגת תוצאות פעולת כתיבה שהסתיימה</string>
+    <string name="cancel">ביטול</string>
+    <string name="warning">אזהרה</string>
+    <string name="storage_permission_required">נדרשת הרשאה לאחסון כדי לקרוא דמויות DMG</string>
+    <string name="cannot_find_file_in_storage">לא ניתן למצוא קובץ באחסון הפנימי. כדאי לנסות לפתוח אותו מתוך היישומון.</string>
+    <string name="file_type_not_supported">סוג הקובץ אינו נתמך</string>
+    <string name="warnings_reset">כל תיבות הדו־שיח שמזהירות שוחזרו</string>
+    <string name="reset_warnings">איפוס כל האזהרות</string>
+    <string name="uncompressed">(בלתי דחוס)</string>
+    <string name="unknown_error">שגיאה בלתי ידועה. נא לנסות לנתק את כונן ה־USB או להפעיל את המכשיר מחדש. נא לדווח על כך ב־GitHub.</string>
+    <string name="write_failed">הכתיבה נכשלה</string>
+    <string name="nightmode">הפעלת מצב חשוך</string>
+    <string name="android_pie_bug">תקלה ב־Android Pie</string>
+    <string name="nightmode_night">השבתת מצב חשוך</string>
+    <string name="dmg_image_desc">שחזור דמות שנכתבה עם כלי העזר לכוננים של macOS</string>
+    <string name="libressl_desc">LibreSSL פוצל מתוך OpenSSL 1.0.1g שפותח על ידי מיזם OpenBSD.</string>
+    <string name="confirm_flash_image">צריבת דמות</string>
+    <string name="dmg_alert_dialog_text">למרות שברוב המצבים ניתן לשחזר דמויות DMG ללא שום בעיה, לפעמים עלולים לקרות מצבי חוסר רציפות. הוזהרת.</string>
+    <string name="i_understand">ברור לי</string>
+    <string name="here_be_dragons">זהירות מוקשים</string>
+    <string name="do_not_show_again">לא להציג שוב</string>
+    <string name="no_usb_drives_detected">לא זוהו כונני USB.
+\nנא לשים לב שעליך להצטייד במתאם כרטיס SD ל־USB כדי לכתוב לכרטיסי SD.</string>
+    <string name="write_apple_dmg">כתיבת דמות DMG של Apple®‎</string>
+    <string name="raw_image_desc">מתאים ל־ISO של גנו/לינוקס, דמויות של ראספברי פאי ודמויות כונן שנוצרו על גבי Windows או לינוקס.</string>
+    <string name="write_image_or_iso">כתיבת דמות גולמית (raw) או ISO</string>
+    <string name="could_not_access_usb_error">לא ניתן לגשת להתקן ה־USB. אולי הרצת את היישומון בעבר והוא קרב\? יש לנתק ולחבר את כונן ה־USB ואז להפעיל את היישומון מחדש.</string>
+    <string name="partition_table_title">טבלת מחיצות:</string>
+    <string name="check_notification_progress">יש להסתכל על ההתראה כדי להתעדכן בהתקדמות</string>
+    <string name="cannot_write">לא ניתן לכתוב דמות לכונן USB</string>
+    <string name="title_activity_confirmation">ההכנות לכתיבה הסתיימו</string>
+    <string name="title_activity_usb_drive_picker">נא לבחור כונן USB</string>
+    <string name="about">על אודות</string>
+    <string name="part_size">גודל</string>
+    <string name="fs_type">סוג</string>
+    <string name="fs_label">תווית</string>
+    <string name="part_label">שם</string>
+    <string name="fs_unknown">לא ידוע</string>
+    <string name="fs_unformatted">אין מערכת קבצים</string>
+    <string name="fs_free">מקום פנוי</string>
+    <string name="fs_linux_lvm_pv">כרך פיזי ל־LVM2 עם לינוקס</string>
+    <string name="fs_linux_swap">שטח החלפה של לינוקס</string>
+    <string name="fs_luks">עם הצפנת LUKS</string>
+    <string name="fs_apt_data">נתוני APT</string>
+    <string name="ptt_mac">טבלת מחיצות של Apple‏ (APT)</string>
+    <string name="ptt_loop">ללא</string>
+    <string name="ptt_gpt">טבלת מחיצות עם מזהים ייחודיים גלובלית (GPT)</string>
+    <string name="image_is_not_dmg">הדמות הנבחרת אינה דמות DMG (או שנפגמה)</string>
+    <string name="notif_initializing">הכנות ראשוניות…</string>
+    <string name="notif_writing_img">הדמות נכתבת…</string>
+    <string name="notchan_writestatus_desc">משמש להצגת מצב הדמויות שנכתבות לכונני USB</string>
+    <string name="notchan_writestatus_title">מצב כתיבת USB</string>
+    <string name="tap_next_to_write">יש לגעת כדי לכתוב את הדמות לכונן ה־USB</string>
+    <string name="cant_read_usbdev">לא ניתן לקרוא את התקן ה־USB</string>
+    <string name="image_bigger_than_usb">קובץ הדמות גדול מכונן ה־USB, לכן לא ניתן לכתוב אותו</string>
+    <string name="unknown_filename">שם הקובץ לא ידוע</string>
+    <string name="selected_usbdev">התקן ה־USB הנבחר:</string>
+    <string name="selected_method">שיטת הכתיבה הנבחרת:</string>
+    <string name="selected_image">הדמות הנבחרת:</string>
+    <string name="usb_perm_denied_noname">ההרשאה נדחתה להתקן ה־USB</string>
+    <string name="usb_perm_denied">ההרשאות נדחו עבור</string>
+    <string name="action_refresh">רענון</string>
+    <string name="flash_woeusb">כתיבת דמויות Windows (בעזרת WoeUSB, נדרשות הרשאות על - root)</string>
+    <string name="flash_unetbootin">צריבה בסגנון Unetbootin ‏(MBR בלבד, נדרשות הרשאות על - root)</string>
+    <string name="flash_dmg_api">שחזור דמות DMG של macOS לכונן (באמצעות ה־API של Android)</string>
+    <string name="flash_dd_usb_api">לכתוב את הדמות ישירות לכונן (באמצעות ה־API של Android)</string>
+</resources>
