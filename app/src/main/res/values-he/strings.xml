@@ -101,4 +101,7 @@
     <string name="flash_unetbootin">צריבה בסגנון Unetbootin ‏(MBR בלבד, נדרשות הרשאות על - root)</string>
     <string name="flash_dmg_api">שחזור דמות DMG של macOS לכונן (באמצעות ה־API של Android)</string>
     <string name="flash_dd_usb_api">לכתוב את הדמות ישירות לכונן (באמצעות ה־API של Android)</string>
+    <string name="owner_bio">מתעניין בחברים וב־Arch לינוקס. חובב Kotlin,‏ Go,‏ Python ושינה.</string>
+    <string name="buy_me_a_coffee">להזמין אותי לקפה</string>
+    <string name="library_Material_libraryDescription">ליצור מוצרים יפים יותר, מהר יותר. Material היא מערכת עיצוב - שמגובה בקוד חופשי - ומסייעת לצוותים לגבש חוויות דיגיטלית</string>
 </resources>
