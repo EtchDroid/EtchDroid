@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">EtchDroid</string>
     <string name="flash_dd_usb_api">直接写入镜像到磁盘(使用Android API)</string>
@@ -12,7 +12,7 @@
     <string name="selected_method">选择的写入方式:</string>
     <string name="selected_usbdev">选择的USB设备:</string>
     <string name="unknown_filename">未知文件名</string>
-    <string name="image_bigger_than_usb">镜像文件大小大于USB设备，塞不进去</string>
+    <string name="image_bigger_than_usb">镜像文件大小大于USB设备，无法写入</string>
     <string name="cant_read_usbdev">无法读取USB设备</string>
     <string name="tap_next_to_write">点击“写入”按钮将镜像写入USB驱动器</string>
     <string name="notchan_writestatus_title">USB 写入状态</string>
@@ -91,11 +91,11 @@
     <string name="write_finished">写入完成</string>
     <string name="error_notif_content_text">%1$s 写入过程中USB设备可能被拔出.</string>
     <string name="success_notif_content_text">%1$s 成功写入到 %2$s</string>
-    <string name="troubleshooting_info">故障排除信息</string>
+    <string name="troubleshooting_info">故障诊断信息</string>
     <string name="operation_failed_because">由于发生以下错误，无法完成操作:</string>
     <string name="reporting_issues">报告问题</string>
-    <string name="reporting_issues_text">你可以在 GitHub 上发送issues以进行反馈:\n
-   https://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">你可以在 GitHub 上报告问题:
+\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">写入失败</string>
     <string name="unknown_error">未知错误。尝试重新连接USB设备或重新启动设备。请在GitHub上提交这个问题。</string>
     <string name="uncompressed">(未压缩)</string>
@@ -113,11 +113,11 @@
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容</string>
     <!-- Kotlin Standard Library -->
-    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
+    <string name="library_KotlinStdlib_libraryName">Kotlin 标准库</string>
+    <string name="library_KotlinStdlib_libraryDescription">Kotlin标准库提供了每天和Kotlin打交道的必需品</string>
     <!-- Material Components -->
     <string name="library_Material_libraryName" translatable="false">Material Components</string>
-    <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品</string>
+    <string name="library_Material_libraryDescription">Material是一个设计系统 - 由自由代码支持 - 帮助开发者构建制作精美的产品</string>
     <string name="buy_me_a_coffee">捐赠</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">用于显示当前处理的进度</string>
     <string name="notif_channel_job_progress_name">处理进度</string>
@@ -132,7 +132,11 @@
     <string name="file_unknown">(未知)</string>
     <string name="write_x_to_y">写入 %1$s 到 %2$s</string>
     <string name="i2o_action_name">"从\"%1$s\" 复制数据到 \"%2$s"</string>
-    <string name="broken_usb_text">如果Android提示您的USB有问题或写入镜像后出了问题，请阅读此内容。（暂无中文）</string>
+    <string name="broken_usb_text">如果在使用EtchDroid后Android系统提示你的USB驱动器有问题，或者不受支持，请阅读这篇文章。</string>
     <string name="broken_usb_title">USB设备有毛病？</string>
     <string name="step_x_of_y">第 %1$d 步 共 %2$d 步</string>
+    <string name="libressl_desc">LibreSSL是OpenBSD项目开发的OpenSSL 1.0.1g的一个分支。</string>
+    <string name="license_custom_foss">自定义 FOSS</string>
+    <string name="contributor_german_task">开发者, 俄语翻译者</string>
+    <string name="owner_task">所有者</string>
 </resources>
