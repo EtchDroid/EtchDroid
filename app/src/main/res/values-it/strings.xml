@@ -90,7 +90,7 @@
     <string name="write_finished">Scrittura terminata</string>
     <string name="error_notif_content_text">%1$s potrebbe essere stato rimosso durante la scrittura.</string>
     <string name="success_notif_content_text">%1$s scritto con successo su %2$s</string>
-    <string name="troubleshooting_info">Risoluzione dei problemi</string>
+    <string name="troubleshooting_info">Info sulla risoluzione dei problemi</string>
     <string name="operation_failed_because">L\'operazione non è stata completata a causa del seguente errore:</string>
     <string name="reporting_issues">Segnalazione dei problemi</string>
     <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
@@ -110,7 +110,7 @@
     <string name="library_KotlinStdlib_libraryName">Libreria Standard Kotlin</string>
     <string name="library_KotlinStdlib_libraryDescription">La libreria standard Kotlin fornisce il materiale essenziale per lavorare con Kotlin</string>
     <string name="buy_me_a_coffee">Offrimi un caffè</string>
-    <string name="library_Material_libraryDescription">Crea bei prodotti, più velocemente. Material è un sistema di design che, con l\'aiuto di software open-source, aiuta i team a sviluppare esperienze digitali</string>
+    <string name="library_Material_libraryDescription">Crea bei prodotti, più velocemente. Material è un sistema di concezione che, con l\'aiuto di software libero, aiuta le squadre a sviluppare esperienze digitali</string>
     <string name="done">Fatto!</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Mostra il risultato dell\'azione corrente</string>
     <string name="notif_channel_job_result_name">Risultato</string>
@@ -125,7 +125,7 @@
     <string name="step_x_of_y">Passaggio %1$d di %2$d</string>
     <string name="owner_bio">Interessi: ragazzi e Arch Linux. Mi piacciono Kotlin, Go, Python e dormire.</string>
     <string name="libressl_desc">LibreSSL è un fork di OpenSSL 1.0.1g, sviluppato dal progetto OpenBSD.</string>
-    <string name="license_custom_foss">FOSS personalizzata</string>
+    <string name="license_custom_foss">Software libero personalizzato</string>
     <string name="contributor_german_task">Contributore, traduttore per il russo</string>
     <string name="owner_task">Sviluppatore</string>
     <string name="resuming_job">Ripresa dall\'ultimo salvataggio…</string>

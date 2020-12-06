@@ -69,7 +69,7 @@
     <string name="cannot_write">Impossible d\'écrire l\'image sur le disque USB</string>
     <string name="check_notification_progress">Voir la notification pour suivre l\'état d\'avancement</string>
     <string name="partition_table_title">Table de partitions :</string>
-    <string name="could_not_access_usb_error">Impossible d\'accéder au périphérique USB. Peut-être que l\'application a planté la dernière fois\? Débranchez puis rebranchez le disque USB, puis redémarrez l\'application.</string>
+    <string name="could_not_access_usb_error">Impossible d\'accéder au périphérique USB. Peut-être que l\'application a planté la dernière fois \? Débranchez puis rebranchez le disque USB, puis redémarrez l\'application.</string>
     <string name="write_image_or_iso">Écrire une image brute ou ISO</string>
     <string name="raw_image_desc">Pour les ISOs des distibutions GNU/Linux, les images Raspberry Pi, et les images disque créées sur Windows ou Linux.</string>
     <string name="write_apple_dmg">Écrire une image DMG Apple®</string>
@@ -81,7 +81,7 @@
     <string name="i_understand">Je comprends</string>
     <string name="dmg_alert_dialog_text">Alors que dans la plupart des cas les images DMG peuvent être restaurées sans aucun problème, il peut parfois y avoir des incohérences. C\'est un avertissement.</string>
     <string name="confirm_flash_image">Flasher l\'image</string>
-    <string name="dataloss_confirmation_dialog_message">Si vous continuez, l\'image sélectionnée sera écrite et toutes les données stockées sur la clé USB seront perdues à jamais.</string>
+    <string name="dataloss_confirmation_dialog_message">Si vous continuez, l\'image sélectionnée sera écrite et toutes les données stockées sur la clé USB seront perdues à jamais !</string>
     <string name="warning">Avertissement</string>
     <string name="cancel">Annuler</string>
     <string name="license_mpl_2_0">MPL-2.0</string>
@@ -91,7 +91,7 @@
     <string name="write_finished">Écriture terminée</string>
     <string name="error_notif_content_text">%1$s a peut être été débranché pendant l\'écriture.</string>
     <string name="success_notif_content_text">%1$s a été écrit sur %2$s avec succès</string>
-    <string name="troubleshooting_info">Informations de débogage</string>
+    <string name="troubleshooting_info">Informations de dépannage</string>
     <string name="operation_failed_because">L\'opération n\'a pas pu aboutir à cause de l\'erreur suivante :</string>
     <string name="reporting_issues">Rapporter des erreurs</string>
     <string name="reporting_issues_text">Les erreurs peuvent être rapportés sur GitHub :
@@ -111,9 +111,9 @@
     <string name="storage_permission_required">La permission de stockage est nécessaire pour pouvoir lire les images DMG</string>
     <string name="library_AndroidX_libraryDescription">AndroidX est une amélioration majeure de la bibliothèque de support Android d\'origine et offre une rétrocompatibilité entre les versions d\'Android</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
+    <string name="library_KotlinStdlib_libraryDescription">La bibliothèque standard de Kotlin fournit des éléments essentiels pour le travail quotidien avec Kotlin</string>
     <string name="library_Material_libraryName">Material Components</string>
-    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
+    <string name="library_Material_libraryDescription">Fabriquez de beaux produits plus rapidement. Material est un système de conception – soutenu par du code libre – qui aide les équipes à créer des expériences numériques</string>
     <string name="buy_me_a_coffee">M\'acheter un café</string>
     <string name="owner_name">Davide Depau</string>
     <string name="step_x_of_y">Étape %1$d de %2$d</string>
@@ -129,6 +129,11 @@
     <string name="notif_channel_job_result_name">Résultat de la tâche</string>
     <string name="notif_channel_job_progress_name">Progression de la tâche</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Utilisé pour afficher la progression de la tâche courante</string>
-    <string name="broken_usb_text">Si Android affirme qu’il y a un problème avec votre clé USB ou que Windows ne la détecte après avoir utilisé EtchDroid, lisez ceci.</string>
+    <string name="broken_usb_text">Si Android dit qu\'il y a un problème avec votre clé USB ou qu\'elle n\'est pas prise en charge après avoir utilisé EtchDroid, lisez ceci.</string>
     <string name="broken_usb_title">Clé USB non prise en charge \?</string>
+    <string name="libressl_desc">LibreSSL est un fork d\'OpenSSL 1.0.1g développé par le projet OpenBSD.</string>
+    <string name="license_custom_foss">Logiciel libre personnalisé</string>
+    <string name="contributor_german_task">Développeur, traducteur russe</string>
+    <string name="owner_task">Propriétaire</string>
+    <string name="owner_bio">Je m\'intéresse aux mecs et à Arch Linux. J\'aime Kotlin, Go, Python et dormir.</string>
 </resources>
