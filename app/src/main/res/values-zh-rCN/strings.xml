@@ -139,4 +139,5 @@
     <string name="license_custom_foss">自定义 FOSS</string>
     <string name="contributor_german_task">开发者, 俄语翻译者</string>
     <string name="owner_task">所有者</string>
+    <string name="owner_bio">在同志们和Arch Linux上。我喜欢Kotlin，Go，Python和睡觉。</string>
 </resources>

@@ -1,0 +1,1 @@
+将 ISO和 DMG 镜像写入 USB 驱动器，无需 root
