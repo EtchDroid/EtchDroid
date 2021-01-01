@@ -1,0 +1,2 @@
+• EtchDroid agora usa libusb sob o capô. Isso deve trazer uma estabilidade muito melhor.
+• Alternar o modo noturno desativado no Pie ou mais recente, pois causaria problemas para muitas pessoas. Por favor, me avise se quiser de volta.

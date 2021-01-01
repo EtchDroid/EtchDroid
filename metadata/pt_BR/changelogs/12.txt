@@ -1,0 +1,2 @@
+• Atualizações e correções de bugs para libaums trarão maior confiabilidade com unidades USB e dispositivos Android "picky".
+• Atualizações de tradução.

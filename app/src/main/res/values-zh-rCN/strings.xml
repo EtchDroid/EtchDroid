@@ -117,7 +117,7 @@
     <string name="library_KotlinStdlib_libraryDescription">Kotlin标准库提供了每天和Kotlin打交道的必需品</string>
     <!-- Material Components -->
     <string name="library_Material_libraryName" translatable="false">Material Components</string>
-    <string name="library_Material_libraryDescription">Material是一个设计系统 - 由自由代码支持 - 帮助开发者构建制作精美的产品</string>
+    <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品</string>
     <string name="buy_me_a_coffee">捐赠</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">用于显示当前处理的进度</string>
     <string name="notif_channel_job_progress_name">处理进度</string>
