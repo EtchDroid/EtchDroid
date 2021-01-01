@@ -6,12 +6,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
+import android.widget.Toast
 import com.codekidlabs.storagechooser.StorageChooser
 import com.github.mjdev.libaums.usb.UsbCommunicationFactory
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
 import eu.depau.etchdroid.utils.enums.FlashMethod
+import eu.depau.etchdroid.utils.ktexts.toast
 import kotlinx.android.synthetic.main.activity_start.*
 import me.jahnen.libaums.libusbcommunication.LibusbCommunicationCreator
 import java.io.File
@@ -145,8 +147,10 @@ class StartActivity : ActivityBase() {
         when (requestCode) {
             READ_EXTERNAL_STORAGE_PERMISSION -> {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (delayedButtonClicked)
+                    if (delayedButtonClicked) {
                         onButtonClicked(null, showDMGDialog = false, showAndroidPieDialog = false)
+                        toast(getString(R.string.now_press_again), Toast.LENGTH_SHORT)
+                    }
                     return
                 }
             }
