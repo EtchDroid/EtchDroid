@@ -88,9 +88,9 @@
     <string name="troubleshooting_info">Troubleshooting information</string>
     <string name="operation_failed_because">The operation could not be completed because the following error occurred:</string>
     <string name="reporting_issues">Reporting issues</string>
-    <string name="reporting_issues_text">Issues can be reported on GitHub:\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Issues can be reported on GitHub:\nhttps://github.com/EtchDroid/EtchDroid/issues\nPlease copy and paste the following technical information, then add any comments at the end of the GitHub issue:</string>
     <string name="write_failed">Write failed</string>
-    <string name="unknown_error">Unknown error. Try to reattach the USB drive or reboot the device. Please file an issue on GitHub.</string>
+    <string name="unknown_error">Try to reattach the USB drive or reboot the device. Please file an issue on GitHub. Make sure you copy and paste the following information, then add your comments at the end:</string>
     <string name="uncompressed">(uncompressed)</string>
     <string name="nightmode">Enable night mode</string>
     <string name="nightmode_night">Disable night mode</string>

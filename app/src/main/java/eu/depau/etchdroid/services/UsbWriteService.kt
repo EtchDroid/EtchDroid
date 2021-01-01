@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.PowerManager
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import eu.depau.etchdroid.R
@@ -126,6 +127,8 @@ abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWrit
             val intent = Intent(this, ErrorActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             intent.putExtra("error", exception.message)
+            intent.putExtra("stacktrace", Log.getStackTraceString(exception))
+
             val pendingIntent = PendingIntent.getActivity(
                     this,
                     0,
