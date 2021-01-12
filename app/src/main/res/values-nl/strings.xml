@@ -65,9 +65,10 @@
     <string name="operation_failed_because">De actie kan niet worden voltooid omdat er een fout is opgetreden:</string>
     <string name="reporting_issues">Problemen melden</string>
     <string name="reporting_issues_text">Je kunt problemen melden op GitHub:
-\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nSluit onderstaande technische informatie bij en voeg je eigen opmerkingen daaronder toe:</string>
     <string name="write_failed">Wegschrijven mislukt</string>
-    <string name="unknown_error">Onbekende fout. Probeer de usb-schijf opnieuw in te pluggen of herstart je apparaat. Ook kun dit voorval melden op GitHub.</string>
+    <string name="unknown_error">Probeer de usb-schijf opnieuw in te pluggen of herstart je apparaat. Ook kun je dit voorval melden op GitHub, met inbegrip van de volgende informatie en daaronder je eigen opmerkingen:</string>
     <string name="uncompressed">(uitgepakt)</string>
     <string name="nightmode">Donker thema gebruiken</string>
     <string name="nightmode_night">Licht thema gebruiken</string>
@@ -108,4 +109,5 @@
     <string name="owner_name">Davide Depau</string>
     <string name="contributor_german_task">Ontwikkelaar en Russische vertaler</string>
     <string name="contributor_german_name">German Proshunin</string>
+    <string name="now_press_again">Druk nogmaals</string>
 </resources>
