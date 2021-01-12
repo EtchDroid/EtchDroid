@@ -1,0 +1,2 @@
+• libaums için yapılan güncellemeler ve hata düzeltmeleri, "seçici" USB bellekler ve Android aygıtlar için daha iyi güvenilirlik sağlayacaktır.
+• Çeviri güncellemeleri.

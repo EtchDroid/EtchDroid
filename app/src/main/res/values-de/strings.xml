@@ -114,7 +114,7 @@
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standardbibliothek stellt das Notwendigste zur Verfügung, um mit Kotlin zu arbeiten</string>
     <!-- Material Components -->
     <string name="library_Material_libraryName">Material Components</string>
-    <string name="library_Material_libraryDescription">Erstelle schöne Produkte, schneller. Material ist ein Designsystem, welches von open-source Code unterstützt wird und Teams beim bauen von digitalen Erfahrungen hilft</string>
+    <string name="library_Material_libraryDescription">Erstelle schöne Produkte, schneller. Material ist ein Konzeptionsystem, das von freien Code unterstützt wird und Teams beim bauen von digitalen Erfahrungen hilft</string>
     <string name="buy_me_a_coffee">Kaufe mir einen Kaffee</string>
     <string name="step_x_of_y">Schritt %1$d von %2$d</string>
     <string name="i2o_action_name">Kopiere daten von %1$s zu %2$s</string>
@@ -129,4 +129,11 @@
     <string name="notif_channel_job_result_name">Aufgabenergebnis</string>
     <string name="notif_channel_job_progress_name">Aufgabenfortschritt</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Zeigt Fortschritt der aktuellen Aufgabe</string>
+    <string name="broken_usb_title">Nicht unterstütztes USB-Laufwerk\?</string>
+    <string name="libressl_desc">LibreSSL ist eine Gabelung von OpenSSL 1.0.1g, die vom OpenBSD-Projekt entwickelt wurde.</string>
+    <string name="license_custom_foss">Benutzerdefinierte freie Software</string>
+    <string name="contributor_german_task">Entwickler, ru-Übersetzer</string>
+    <string name="owner_task">Besitzer</string>
+    <string name="owner_bio">Interessen: Jungs und Arch Linux. Ich mag Kotlin, Go, Python und schlafe.</string>
+    <string name="broken_usb_text">Dies lesen, wenn Android sagt, dass es ein Problem mit Ihrem USB-Laufwerk gibt oder dass es nach der Verwendung von EtchDroid nicht unterstützt wird.</string>
 </resources>

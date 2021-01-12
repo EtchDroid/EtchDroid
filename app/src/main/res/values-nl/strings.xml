@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="flash_dd_usb_api">Schijfkopie direct wegschrijven naar schijf (middels Android-API)</string>
-    <string name="flash_dmg_api">macOS DMG-schijfkopie herstellen naar schijf (middels Android-API)</string>
-    <string name="flash_unetbootin">Unetbootin-stijl (alleen MBR - root vereist)</string>
+    <string name="flash_dd_usb_api">Schijfkopie direct wegschrijven naar schijf (middels de Android-api)</string>
+    <string name="flash_dmg_api">macOS dmg-schijfkopie herstellen naar schijf (middels de Android-api)</string>
+    <string name="flash_unetbootin">Unetbootin-stijl (alleen mbr - root vereist)</string>
     <string name="flash_woeusb">Windows-schijfkopie wegschrijven (middels WoeUSB - root vereist)</string>
     <string name="action_refresh">Herladen</string>
     <string name="usb_perm_denied">Machtiging geweigerd voor</string>
-    <string name="usb_perm_denied_noname">Machtiging geweigerd voor USB-apparaat</string>
+    <string name="usb_perm_denied_noname">Machtiging geweigerd voor usb-apparaat</string>
     <string name="selected_image">Gekozen schijfkopie:</string>
     <string name="selected_method">Gekozen schrijfmethode:</string>
-    <string name="selected_usbdev">Gekozen USB-apparaat:</string>
+    <string name="selected_usbdev">Gekozen usb-apparaat:</string>
     <string name="unknown_filename">Onbekende bestandsnaam</string>
-    <string name="image_bigger_than_usb">De schijfkopie kan niet worden weggeschreven omdat deze groter is dan de USB-schijf</string>
-    <string name="cant_read_usbdev">Kan USB-schijf niet uitlezen</string>
-    <string name="tap_next_to_write">Druk op \'Wegschrijven\' om de schijfkopie weg te schrijven naar de USB-schijf</string>
+    <string name="image_bigger_than_usb">De schijfkopie kan niet worden weggeschreven omdat deze groter is dan de usb-schijf</string>
+    <string name="cant_read_usbdev">Kan usb-schijf niet uitlezen</string>
+    <string name="tap_next_to_write">Druk op \'Wegschrijven\' om de schijfkopie weg te schrijven naar de usb-schijf</string>
     <string name="notchan_writestatus_title">USB-schrijfstatus</string>
     <string name="notchan_writestatus_desc">Wordt gebruikt om de status te tonen van kopieën die worden weggeschreven</string>
     <string name="notif_initializing">Bezig met initialiseren…</string>
     <string name="notif_writing_img">Bezig met wegschrijven…</string>
-    <string name="image_is_not_dmg">De gekozen schijfkopie is geen DMG-afbeelding (wellicht is het bestand beschadigd)</string>
+    <string name="image_is_not_dmg">De gekozen schijfkopie is geen dmg-schijfkopie (wellicht is het bestand beschadigd)</string>
     <string name="ptt_gpt">GUID-partitietabel (GPT)</string>
     <string name="ptt_loop">Geen</string>
     <string name="ptt_mac">Apple-partitietabel (APT)</string>
@@ -37,23 +37,22 @@
     <string name="about">Over</string>
     <string name="title_activity_usb_drive_picker">USB-apparaat kiezen</string>
     <string name="title_activity_confirmation">Klaar om weg te schrijven</string>
-    <string name="cannot_write">Kan schijfkopie niet wegschrijven naar USB-apparaat</string>
+    <string name="cannot_write">Kan schijfkopie niet wegschrijven naar usb-apparaat</string>
     <string name="check_notification_progress">Bekijk de voortgang in de melding</string>
     <string name="partition_table_title">Partitietabel:</string>
-    <string name="could_not_access_usb_error">Geen toegang tot USB-apparaat. Heb je de app al eens gestart en is hij gecrasht\? Plug de USB-schijf opnieuw in en start de app opnieuw.</string>
-    <string name="write_image_or_iso">Schijfkopie of ISO wegschrijven</string>
-    <string name="raw_image_desc">Geschikt voor GNU/Linux-distributie-ISO\'s, Raspberry Pi-schijfkopieën, en andere op Windows of Linux gemaakte schijfkopieën.</string>
-    <string name="write_apple_dmg">Apple® DMG-schijfkopie wegschrijven</string>
+    <string name="could_not_access_usb_error">Geen toegang tot het usb-apparaat. Heb je de app al eens gestart en is hij gecrasht\? Plug de usb-schijf opnieuw in en start de app nogmaals.</string>
+    <string name="write_image_or_iso">Schijfkopie of iso wegschrijven</string>
+    <string name="raw_image_desc">Geschikt voor GNU/Linux-distributie-iso\'s, Raspberry Pi-schijfkopieën en andere op Windows of Linux gemaakte schijfkopieën.</string>
+    <string name="write_apple_dmg">Apple® dmg-schijfkopie wegschrijven</string>
     <string name="dmg_image_desc">Herstel een met macOS Schijfhulpprogramma gemaakte schijfkopie</string>
-    <string name="no_usb_drives_detected">Geen USB-apparaten aangetroffen.
-\nLet op: voor SD-kaarten heb je een SD-naar-USB-adapter nodig.</string>
+    <string name="no_usb_drives_detected">Geen usb-apparaten aangetroffen. 
+\nLet op: voor sd-kaarten heb je een sd-naar-usb-adapter nodig.</string>
     <string name="do_not_show_again">Niet meer tonen</string>
     <string name="here_be_dragons">Hier wordt het gevaarlijk</string>
     <string name="i_understand">Ik begrijp het</string>
-    <string name="dmg_alert_dialog_text">Doorgaans kunnen DMG-schijfkopieën goed worden hersteld, maar soms kan er wel eens een foutje insluipen. Je bent gewaarschuwd.</string>
+    <string name="dmg_alert_dialog_text">Doorgaans kunnen dmg-schijfkopieën goed worden hersteld, maar soms kan er wel eens een foutje insluipen. Je bent gewaarschuwd.</string>
     <string name="confirm_flash_image">Schijfkopie wegschrijven</string>
-    <string name="dataloss_confirmation_dialog_message">Als je doorgaat wordt de gekozen schijfkopie weggeschreven. Hierbij gaan alle op de USB-schijf opgeslagen gegevens
-\n verloren!</string>
+    <string name="dataloss_confirmation_dialog_message">Als je doorgaat, wordt de gekozen schijfkopie weggeschreven. Hierbij gaan alle op de usb-schijf opgeslagen gegevens verloren!</string>
     <string name="warning">Waarschuwing</string>
     <string name="cancel">Annuleren</string>
     <string name="result_channel_desc">Wordt gebruikt om het resultaat van een afgeronde schrijfactie te tonen</string>
@@ -68,7 +67,7 @@
     <string name="reporting_issues_text">Je kunt problemen melden op GitHub:
 \nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Wegschrijven mislukt</string>
-    <string name="unknown_error">Onbekende fout. Probeer de USB-schijf opnieuw in te pluggen of herstart je apparaat. Of meld dit voorval op GitHub.</string>
+    <string name="unknown_error">Onbekende fout. Probeer de usb-schijf opnieuw in te pluggen of herstart je apparaat. Ook kun dit voorval melden op GitHub.</string>
     <string name="uncompressed">(uitgepakt)</string>
     <string name="nightmode">Donker thema gebruiken</string>
     <string name="nightmode_night">Licht thema gebruiken</string>
@@ -79,11 +78,11 @@
     <string name="warnings_reset">Alle waarschuwingsvensters worden weer getoond</string>
     <string name="file_type_not_supported">Bestandstype wordt niet ondersteund</string>
     <string name="cannot_find_file_in_storage">Het bestand is niet aangetroffen op de interne opslag. Open het middels de app.</string>
-    <string name="storage_permission_required">De machtiging \'Opslag\' is vereist om DMG-schijfkopieën uit te lezen</string>
+    <string name="storage_permission_required">De machtiging \'Opslag\' is vereist om dmg-schijfkopieën uit te lezen</string>
     <string name="library_AndroidX_libraryDescription">AndroidX is een enorme verbetering ten opzichte van de oorspronkelijke Android-ondersteuningsbibliotheek en biedt achterwaartse comptabiliteit tussen Android-versies</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin-standaardbibliotheek</string>
     <string name="library_KotlinStdlib_libraryDescription">De Kotlin-standaardbibliotheek biedt nuttige gereedschappen voor het dagelijkse Kotlin-werk</string>
-    <string name="library_Material_libraryDescription">Maak mooie producten, en sneller. Material is een ontwerpsysteem, ondersteund door opensourcecode, dat teams helpt digitale gebruikservaringen te maken.</string>
+    <string name="library_Material_libraryDescription">Maak mooie producten in een kortere tijd. Material is een ontwerpsysteem, ondersteund door vrije code, dat teams helpt digitale gebruikservaringen te maken</string>
     <string name="buy_me_a_coffee">Schenk me een kopje koffie</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Wordt gebruikt om de voortgang van de huidige taak te tonen</string>
     <string name="notif_channel_job_progress_name">Taakvoortgang</string>
@@ -97,8 +96,8 @@
     <string name="file_unknown">(onbekend)</string>
     <string name="write_x_to_y">%1$s wegschrijven naar %2$s</string>
     <string name="i2o_action_name">Gegevens kopiëren van %1$s naar %2$s</string>
-    <string name="broken_usb_text">Druk hier als Android meldt dat er een probleem is met je USB-schijf of als hij niet meer wordt herkend.</string>
-    <string name="broken_usb_title">Niet-ondersteunde USB-schijf\?</string>
+    <string name="broken_usb_text">Druk hier als Android meldt dat er een probleem is met je usb-schijf of als hij niet meer wordt herkend.</string>
+    <string name="broken_usb_title">Niet-ondersteunde usb-schijf\?</string>
     <string name="step_x_of_y">Stap %1$d van %2$d</string>
     <string name="libressl_desc">LibreSSL is een afsplitsing van OpenSSL 1.0.1g, ontwikkeld door het OpenBSD-project.</string>
     <string name="license_custom_foss">Ander soort FOSS</string>

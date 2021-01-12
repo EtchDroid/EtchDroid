@@ -85,7 +85,7 @@
     <string name="write_finished">Write finished</string>
     <string name="error_notif_content_text">%1$s may have been unplugged while writing.</string>
     <string name="success_notif_content_text">%1$s successfully written to %2$s</string>
-    <string name="troubleshooting_info">Troubleshooting information</string>
+    <string name="troubleshooting_info">Troubleshooting info</string>
     <string name="operation_failed_because">The operation could not be completed because the following error occurred:</string>
     <string name="reporting_issues">Reporting issues</string>
     <string name="reporting_issues_text">Issues can be reported on GitHub:\nhttps://github.com/EtchDroid/EtchDroid/issues\nPlease copy and paste the following technical information, then add any comments at the end of the GitHub issue:</string>
@@ -109,7 +109,7 @@
     <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
     <!-- Material Components -->
     <string name="library_Material_libraryName" translatable="false">Material Components</string>
-    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by open-source code – that helps teams build digital experiences</string>
+    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by libre code – that helps teams build digital experiences</string>
     <string name="buy_me_a_coffee">Buy me a coffee</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Used to show the progress of the current job</string>
     <string name="notif_channel_job_progress_name">Job progress</string>

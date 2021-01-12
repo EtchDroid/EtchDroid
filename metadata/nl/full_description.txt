@@ -1,0 +1,16 @@
+EtchDroid is een vrije GPLv3+-app waarmee je schijfkopieën kunt wegschrijven naar usb-schijven.
+Zo kun je bijv. een opstartbare GNU/Linux usb-schijf maken voor als je laptop de geest geeft terwijl je in de middle of nowhere bent.
+
+Kenmerken:
+• Ondersteunt schijfkopieën en de meeste GNU/Linux-distributies (iso)
+• Ondersteunt Raspberry Pi-schijfkopieën (pak het zip-bestand vooraf uit en gebruik een sd-naar-usb-adapter - de interne schijf kan niet worden gebruikt)
+• Ondersteunt de meeste dmg-schijfkopieën (bèta)
+• Geen root benodigd - alles wordt aangestuurd door de standaard Android-api's
+• Gratis en vrij
+
+Toekomstige mogelijkheden:
+• Ondersteuning voor het wegschrijven van GNU/Linux-distributies door ze te streamen van het internet
+• Ondersteuning voor Windows-installatie-iso's (mogelijk is daar wél root voor benodigd)
+• Ondersteuning voor wegschrijven in Unetbootin-stijl
+
+De broncode is beschikbaar op GitHub: https://github.com/Depau/EtchDroid

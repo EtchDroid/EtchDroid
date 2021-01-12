@@ -89,7 +89,7 @@
     <string name="notif_channel_job_result_name">Resultado da operação</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Usado para mostrar uma operação completa</string>
     <string name="notif_starting_job">Iniciando operação…</string>
-    <string name="starting_job">Iniciando operação…</string>
+    <string name="starting_job">Começando o trabalho…</string>
     <string name="resuming_job">Resumindo do ponto de controle…</string>
     <string name="done">Pronto!</string>
     <string name="job_failed">Operação falhou.</string>

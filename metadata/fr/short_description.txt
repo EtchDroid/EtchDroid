@@ -1,0 +1,1 @@
+Écrire des images ISO et DMG sur des clés USB, aucune racine requise
