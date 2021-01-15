@@ -95,9 +95,10 @@
     <string name="operation_failed_because">由于发生以下错误，无法完成操作:</string>
     <string name="reporting_issues">报告问题</string>
     <string name="reporting_issues_text">你可以在 GitHub 上报告问题:
-\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\n请复制并粘贴以下技术信息，然后在GitHub问题的结尾添加评论：</string>
     <string name="write_failed">写入失败</string>
-    <string name="unknown_error">未知错误。尝试重新连接USB设备或重新启动设备。请在GitHub上提交这个问题。</string>
+    <string name="unknown_error">尝试重新连接USB设备或重新启动设备。请在GitHub上提交一个问题。请确保你复制并粘贴了以下信息，然后在结尾添加你的评论:</string>
     <string name="uncompressed">(未压缩)</string>
     <string name="nightmode">启用夜间模式</string>
     <string name="nightmode_night">关闭夜间模式</string>
