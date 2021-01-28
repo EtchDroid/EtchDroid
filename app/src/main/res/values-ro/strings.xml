@@ -51,7 +51,7 @@
     <string name="step_x_of_y">Pas %1$d de %2$d</string>
     <string name="broken_usb_title">Unitatea USB nesuportat\?</string>
     <string name="broken_usb_text">Dacă Android zice ca există o problemă cu unitate USB tău sau ca este nesuportat după utilizarea EtchDroid, citește acest.</string>
-    <string name="i2o_action_name">Copiază datele de pe %1$s la %2$s</string>
+    <string name="i2o_action_name">Copiați datele de la %1$s la %2$s</string>
     <string name="write_x_to_y">Scrie %1$s la %2$s</string>
     <string name="job_failed">Operație a eșuat.</string>
     <string name="buy_me_a_coffee">Cumpărați o cafea pe mine</string>
@@ -62,14 +62,15 @@
     <string name="nightmode_night">Dezactivează modul de noapte</string>
     <string name="nightmode">Activează modul de noapte</string>
     <string name="uncompressed">(necomprimat)</string>
-    <string name="unknown_error">Eroare necunoscut. Încerca a reatașare unitate USB sau repornire dispozitivul. Vă rog să raportez problemul pe GitHub.</string>
+    <string name="unknown_error">Încercați să atașați din nou unitatea USB sau reporniți dispozitivul. Vă rugăm să depuneți o problemă pe GitHub. Asigurați-vă că copiați și inserați următoarele informații, apoi adăugați comentariile la final:</string>
     <string name="write_failed">Scriere a eșuat</string>
-    <string name="reporting_issues_text">Probleme pot fi reportate pe GitHub:
-\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Problemele pot fi raportate pe GitHub:
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nVă rugăm să copiați și să lipiți următoarele informații tehnice, apoi adăugați orice comentarii la sfârșitul problemei GitHub:</string>
     <string name="reporting_issues">Raportare probleme</string>
-    <string name="troubleshooting_info">Informație pentru depanare</string>
+    <string name="troubleshooting_info">Informații de depanare</string>
     <string name="success_notif_content_text">%1$s scris cu succes pe %2$s</string>
-    <string name="error_notif_content_text">%1$s poate să fi deconectat în timp ce scriere.</string>
+    <string name="error_notif_content_text">Este posibil ca %1$s să fi fost deconectat în timpul scrierii.</string>
     <string name="write_finished">Operațiune de scriere terminat</string>
     <string name="failed_tap_for_info">Eșuat • Atingeți pentru info</string>
     <string name="result_channel_name">Notificări de rezultat de scriere pe unitate USB</string>
@@ -80,8 +81,8 @@
     <string name="confirm_flash_image">Imagine flash</string>
     <string name="dmg_alert_dialog_text">Chiar dacă de obicei imagini DMG poate să restaureze bine, uneori pot există neconcordanțe. Acest este o avertizare.</string>
     <string name="do_not_show_again">Nu mai arată</string>
-    <string name="no_usb_drives_detected">Nu a fost selectat un disc USB.
-\nRețineți că necesitați un card SD la USB adaptor pentru să scrieți la carduri SD.</string>
+    <string name="no_usb_drives_detected">Nu a fost detectată nicio unitate USB.
+\nRețineți că aveți nevoie de un card SD către adaptor USB pentru a scrie pe carduri SD.</string>
     <string name="dmg_image_desc">Restaurează o imagine creat cu Utilitar Disc de macOS</string>
     <string name="write_apple_dmg">Scrie imagine Apple® DMG</string>
     <string name="raw_image_desc">Bun pentru ISO de GNU/Linux distro, imagini de Raspberry Pi și imagini de discuri creat pe Windows sau Linux.</string>
@@ -89,4 +90,19 @@
     <string name="could_not_access_usb_error">Nu poate accesare dispozitivul USB. Poate că ar fi executat aplicație înainte și a închis neașteptat\? Scoateți și reintroduceți discul USB, apoi reporniți aplicarea.</string>
     <string name="partition_table_title">Tabela de partiții:</string>
     <string name="check_notification_progress">Vezi notificare pentru progres</string>
+    <string name="android_pie_bug_dialog_text">Există un defect pe Android 9 care face ca unele scrieri să eșueze.
+\nDacă scrie „Scriere eșuată”, reporniți dispozitivul și încercați din nou.</string>
+    <string name="now_press_again">Acum apăsați din nou</string>
+    <string name="libressl_desc">LibreSSL este un fork al OpenSSL 1.0.1g dezvoltat de proiectul OpenBSD.</string>
+    <string name="license_custom_foss">FOSS personalizat</string>
+    <string name="contributor_german_task">Dezvoltator, traducător ru</string>
+    <string name="owner_task">Proprietar</string>
+    <string name="library_Material_libraryDescription">Realizați produse frumoase, mai repede. Materialul este un sistem de proiectare - susținut de cod open-source - care ajută echipele să construiască experiențe digitale</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX este o îmbunătățire majoră a bibliotecii de asistență Android originale și oferă compatibilitate inversă între versiunile Android</string>
+    <string name="storage_permission_required">Este necesară permisiunea de stocare pentru a citi imaginile DMG</string>
+    <string name="cannot_find_file_in_storage">Nu se poate găsi fișierul în spațiul de stocare intern. Încercați să-l deschideți din aplicație.</string>
+    <string name="warnings_reset">Toate dialogurile de avertizare au fost restaurate</string>
+    <string name="reset_warnings">Resetați toate avertismentele</string>
+    <string name="operation_failed_because">Operațiunea nu a putut fi finalizată deoarece a apărut următoarea eroare:</string>
+    <string name="result_channel_desc">Folosit pentru a afișa rezultatul unei operații de scriere terminate</string>
 </resources>
