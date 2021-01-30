@@ -93,9 +93,11 @@
     <string name="troubleshooting_info">Sorun giderme bilgileri</string>
     <string name="operation_failed_because">İşlem aşağıdaki hatadan dolayı tamamlanamadı:</string>
     <string name="reporting_issues">Sorun bildirimi</string>
-    <string name="reporting_issues_text">Sorunlar GitHub üzerinden bildirilebilir:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Sorunlar GitHub üzerinden bildirilebilir:
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nLütfen aşağıdaki teknik bilgileri kopyalayıp yapıştırın, ardından GitHub sorununun sonuna yorumlarınızı ekleyin:</string>
     <string name="write_failed">Yazma başarısız</string>
-    <string name="unknown_error">Bilinmeyen hata. USB aygıtınızı çıkarıp tekrar takın veya cihazınızı yeniden başlatın. Lütfen GitHub üzerinden bir sorun bildirimi oluşturun.</string>
+    <string name="unknown_error">USB sürücüsünü yeniden takmayı veya aygıtı yeniden başlatmayı deneyin. Lütfen GitHub\'da bir sorun oluşturun. Aşağıdaki bilgileri kopyalayıp yapıştırdığınızdan emin olun, ardından sonunda yorumlarınızı ekleyin:</string>
     <string name="uncompressed">(sıkıştırılmamış)</string>
     <string name="nightmode">Gece modunu etkinleştir</string>
     <string name="nightmode_night">Gece modunu devre dışı bırak</string>
@@ -133,4 +135,5 @@
     <string name="library_AndroidX_libraryDescription">AndroidX, orijinal Android Destek Kütüphanesinin üzerine önemli bir iyileştirmedir ve Android sürümleri arasında geriye dönük uyumluluk sağlamaktadır</string>
     <string name="contributor_german_task">Geliştirici, Rusça çevirmeni</string>
     <string name="contributor_german_name">German Proshunin</string>
+    <string name="now_press_again">Şimdi tekrar basın</string>
 </resources>

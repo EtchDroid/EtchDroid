@@ -93,9 +93,11 @@
     <string name="troubleshooting_info">Info sulla risoluzione dei problemi</string>
     <string name="operation_failed_because">L\'operazione non è stata completata a causa del seguente errore:</string>
     <string name="reporting_issues">Segnalazione dei problemi</string>
-    <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:
+\nhttps://github.com/Depau/EtchDroid/issues
+\nCopia e incolla i seguenti dettagli tecnici, aggiungi eventuali commenti alla fine dell\'issue su GitHub:</string>
     <string name="write_failed">Scrittura fallita</string>
-    <string name="unknown_error">Errore sconosciuto. Prova a ricollegare il dispositivo USB o a riavviare il dispositivo. Per favore, segnala il problema su GitHub.</string>
+    <string name="unknown_error">Prova a ricollegare il dispositivo USB o a riavviare il dispositivo. Per favore, segnala il problema su GitHub. Assicurati di copiare e incollare le seguenti informazioni, poi aggiungi eventuali commenti alla fine:</string>
     <string name="uncompressed">(decompresso)</string>
     <string name="nightmode">Attiva modalità notturna</string>
     <string name="nightmode_night">Disattiva modalità notturna</string>

@@ -23,7 +23,8 @@
     <string name="android_pie_bug_dialog_text">יש תקלה ידועה ב־Android 9 שגורמת לחלק מהכתיבות להיכשל.
 \nאם נתקלת בהודעה „כתיבה נכשלה” (Write failed), עליך להפעיל את המכשיר מחדש ולנסות שוב.</string>
     <string name="reporting_issues_text">ניתן לדווח על תקלות ב־GitHub:
-\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nנא להעתיק ולהדביק את הפרטים הטכניים הבאים ולצרף הערות בסוף דיווח התקלה ב־GitHub:</string>
     <string name="reporting_issues">דיווח על תקלות</string>
     <string name="operation_failed_because">לא ניתן להשלים את הפעולה כיוון שקרתה התקלה הבאה:</string>
     <string name="dataloss_confirmation_dialog_message">בחירה להמשיך תוביל לכך שהדמות הנבחרת תיכתב וכל הנתונים שמאוחסנים על כונן ה־USB יאבדו לעד!</string>
@@ -44,7 +45,7 @@
     <string name="warnings_reset">כל תיבות הדו־שיח שמזהירות שוחזרו</string>
     <string name="reset_warnings">איפוס כל האזהרות</string>
     <string name="uncompressed">(בלתי דחוס)</string>
-    <string name="unknown_error">שגיאה בלתי ידועה. נא לנסות לנתק את כונן ה־USB או להפעיל את המכשיר מחדש. נא לדווח על כך ב־GitHub.</string>
+    <string name="unknown_error">נא לנסות לנתק ולחבר את כונן ה־USB או להפעיל את המכשיר מחדש. נא לדווח על כך ב־GitHub. עליך לוודא שהעתקת והדבקת את הפרטים הבאים ואז להוסיף את ההערות שלך בסוף:</string>
     <string name="write_failed">הכתיבה נכשלה</string>
     <string name="nightmode">הפעלת מצב חשוך</string>
     <string name="android_pie_bug">תקלה ב־Android Pie</string>
@@ -104,4 +105,5 @@
     <string name="owner_bio">מתעניין בחברים וב־Arch לינוקס. חובב Kotlin,‏ Go,‏ Python ושינה.</string>
     <string name="buy_me_a_coffee">להזמין אותי לקפה</string>
     <string name="library_Material_libraryDescription">ליצור מוצרים יפים יותר, מהר יותר. Material היא מערכת עיצוב - שמגובה בקוד חופשי - ומסייעת לצוותים לגבש חוויות דיגיטלית</string>
+    <string name="now_press_again">עכשיו ללחוץ שוב</string>
 </resources>
