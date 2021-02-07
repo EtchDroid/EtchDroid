@@ -90,7 +90,7 @@
     <string name="reporting_issues">Reporting issues</string>
     <string name="reporting_issues_text">Issues can be reported on GitHub:\nhttps://github.com/EtchDroid/EtchDroid/issues\nPlease copy and paste the following technical information, then add any comments at the end of the GitHub issue:</string>
     <string name="write_failed">Write failed</string>
-    <string name="unknown_error">Try to reattach the USB drive or reboot the device. Please file an issue on GitHub. Make sure you copy and paste the following information, then add your comments at the end:</string>
+    <string name="unknown_error">Try to reattach the USB drive or reboot the device. Please file an issue on GitHub containing the following info followed by your comments:</string>
     <string name="uncompressed">(uncompressed)</string>
     <string name="nightmode">Enable night mode</string>
     <string name="nightmode_night">Disable night mode</string>
@@ -124,7 +124,7 @@
     <string name="file_unknown">(unknown)</string>
     <string name="write_x_to_y">Write %1$s to %2$s</string>
     <string name="i2o_action_name">"Copy data from "%1$s" to "%2$s"</string>
-    <string name="broken_usb_text">If Android says there\'s an issue with your USB drive or that it\'s unsupported after using EtchDroid, read this.</string>
+    <string name="broken_usb_text">If Android says your USB drive has an issue or is unsupported after using EtchDroid, read this.</string>
     <string name="broken_usb_title">Unsupported USB drive?</string>
     <string name="step_x_of_y">Step %1$d of %2$d</string>
     <!--  About  -->
