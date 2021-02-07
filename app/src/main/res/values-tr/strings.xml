@@ -97,7 +97,7 @@
 \nhttps://github.com/EtchDroid/EtchDroid/issues
 \nLütfen aşağıdaki teknik bilgileri kopyalayıp yapıştırın, ardından GitHub sorununun sonuna yorumlarınızı ekleyin:</string>
     <string name="write_failed">Yazma başarısız</string>
-    <string name="unknown_error">USB sürücüsünü yeniden takmayı veya aygıtı yeniden başlatmayı deneyin. Lütfen GitHub\'da bir sorun oluşturun. Aşağıdaki bilgileri kopyalayıp yapıştırdığınızdan emin olun, ardından sonunda yorumlarınızı ekleyin:</string>
+    <string name="unknown_error">USB belleğinizi yeniden takmayı veya aygıtı yeniden başlatmayı deneyin. Lütfen GitHub\'da aşağıdaki bilgileri ve ardından yorumlarınızı içeren bir sorun bildirin:</string>
     <string name="uncompressed">(sıkıştırılmamış)</string>
     <string name="nightmode">Gece modunu etkinleştir</string>
     <string name="nightmode_night">Gece modunu devre dışı bırak</string>
@@ -116,7 +116,7 @@
     <string name="owner_name">Davide Depau</string>
     <string name="step_x_of_y">Adım %1$d / %2$d</string>
     <string name="broken_usb_title">Desteklenmeyen USB bellek\?</string>
-    <string name="broken_usb_text">Android, USB belleğinizle ilgili bir sorun olduğunu veya EtchDroid kullandıktan sonra desteklenmediğini söylüyorsa, bunu okuyun.</string>
+    <string name="broken_usb_text">Android, USB belleğinizde bir sorun olduğunu veya EtchDroid kullandıktan sonra desteklenmediğini söylüyorsa, bunu okuyun.</string>
     <string name="i2o_action_name">Verileri %1$s üzerinden %2$s üzerine kopyala</string>
     <string name="write_x_to_y">%1$s dosyasını %2$s üzerine yaz</string>
     <string name="file_unknown">(bilinmeyen)</string>
