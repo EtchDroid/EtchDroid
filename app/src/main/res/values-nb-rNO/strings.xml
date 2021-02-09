@@ -41,7 +41,7 @@
     <string name="check_notification_progress">Velg merknad for framdrift</string>
     <string name="partition_table_title">Partisjonstabell:</string>
     <string name="write_image_or_iso">Skriv rå oppstartsfil eller ISO</string>
-    <string name="raw_image_desc">Bra for ISO-er for Linux|GNU-distribusjoner, Raspberry PI-oppstartsfiler, og diskoppstartsfiler opprettet på Windows eller Linux.</string>
+    <string name="raw_image_desc">Bra for ISO-er for Linux|GNU-distribusjoner, Raspberry Pi-oppstartsfiler, og diskoppstartsfiler opprettet på Windows eller Linux.</string>
     <string name="write_apple_dmg">Skriv Apple®-DMG-oppstartsfil</string>
     <string name="dmg_image_desc">Gjenopprett oppstartsfil opprettet med macOS-diskverktøy</string>
     <string name="no_usb_drives_detected">Fant ingen tilkoblede USB-disker.
@@ -65,7 +65,7 @@
     <string name="reporting_issues_text">Feil kan innrapporteres på GitHub: 
 \nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Skriving mislyktes</string>
-    <string name="unknown_error">Ukjent feil. Prøv å plugge inn USB-disken igjen, eller start enheten på ny. Innrapporter en feil om dette på GitHub.</string>
+    <string name="unknown_error">Prøv å plugge inn USB-enheten igjen, eller start enheten på ny. Innrapporter en feil om dette på GitHub. Forsikre deg om at du kopierer og limer inne følgende info, og så legger til kommentarene dine til slutt:</string>
     <string name="uncompressed">(ukomprimert)</string>
     <string name="nightmode">Skru på nattmodus</string>
     <string name="nightmode_night">Skru av nattmodus</string>
@@ -97,7 +97,7 @@
     <string name="step_x_of_y">Steg %1$d av %2$d</string>
     <string name="could_not_access_usb_error">Fikk ikke tilgang til USB-enhet. Kanskje du kjørte programmet tidligere og det krasjet\? Fjern og sett inn i USB-lagringsenheten, start så programmet på ny.</string>
     <string name="dmg_alert_dialog_text">I de fleste fall kan DMG-avbildninger gjennopprettes uten plunder, men noen ganger er det uoverenstemmelser. Dette er en advarsel.</string>
-    <string name="broken_usb_text">Hvis Android sier det er et problem med din USB-lagringsenhet, eller at den er ustøttet etter å ha brukt EtchDroid, les dette.</string>
+    <string name="broken_usb_text">Hvis Android sier din USB-lagringsenhet har et problem eller er ustøttet etter å ha brukt EtchDroid, les dette.</string>
     <string name="broken_usb_title">Ustøttet USB-lagringsenhet\?</string>
     <string name="license_custom_foss">Egendefinert, fri programvare</string>
     <string name="owner_task">Eier</string>

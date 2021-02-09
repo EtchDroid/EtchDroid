@@ -141,4 +141,5 @@
     <string name="contributor_german_task">开发者, 俄语翻译者</string>
     <string name="owner_task">所有者</string>
     <string name="owner_bio">在同志们和Arch Linux上。我喜欢Kotlin，Go，Python和睡觉。</string>
+    <string name="now_press_again">现在再按一次</string>
 </resources>
