@@ -16,7 +16,7 @@
     <string name="file_unknown">(לא ידוע)</string>
     <string name="i2o_action_name">העתקת נתונים מתוך %1$s אל %2$s</string>
     <string name="write_x_to_y">כתיבת %1$s אל %2$s</string>
-    <string name="broken_usb_text">אם Android מציין שישנה תקלה בכונן ה־USB שלך או שאין תמיכה בו לאחר השימוש ב־EtchDroid, כדאי לקרוא את זה.</string>
+    <string name="broken_usb_text">אם Android מציין שיש תקלה בכונן ה־USB שלך או שאין תמיכה בו לאחר השימוש ב־EtchDroid, כדאי לקרוא את זה.</string>
     <string name="broken_usb_title">כונן USB שאינו נתמך\?</string>
     <string name="step_x_of_y">שלב %1$d מתוך %2$d</string>
     <string name="library_KotlinStdlib_libraryName">הספרייה התקנית של Kotlin</string>
@@ -45,7 +45,7 @@
     <string name="warnings_reset">כל תיבות הדו־שיח שמזהירות שוחזרו</string>
     <string name="reset_warnings">איפוס כל האזהרות</string>
     <string name="uncompressed">(בלתי דחוס)</string>
-    <string name="unknown_error">נא לנסות לנתק ולחבר את כונן ה־USB או להפעיל את המכשיר מחדש. נא לדווח על כך ב־GitHub. עליך לוודא שהעתקת והדבקת את הפרטים הבאים ואז להוסיף את ההערות שלך בסוף:</string>
+    <string name="unknown_error">נא לנסות לנתק ולחבר את כונן ה־USB או להפעיל את המכשיר מחדש. נא לדווח על כך ב־GitHub עם הפרטים הבאים וההערות שלך:</string>
     <string name="write_failed">הכתיבה נכשלה</string>
     <string name="nightmode">הפעלת מצב חשוך</string>
     <string name="android_pie_bug">תקלה ב־Android Pie</string>
