@@ -93,9 +93,11 @@
     <string name="troubleshooting_info">Informationen zur Fehlerbehebung</string>
     <string name="operation_failed_because">Die Operation konnte nicht fertiggestellt werden, da der folgende Fehler aufgetreten ist:</string>
     <string name="reporting_issues">Probleme melden</string>
-    <string name="reporting_issues_text">Probleme können auf Github gemeldet werden:\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Probleme können auf Github gemeldet werden:
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nBitte kopieren und fügen Sie die nachfolgenden technischen Infromationen ein, danach fügen Sie etwaige Kommentare am Ende des GitHub Issue hinzu:</string>
     <string name="write_failed">Schreiben fehlgeschlagen</string>
-    <string name="unknown_error">Unbekannter Fehler. Versuche, den USB-Datenträger erneut anzuschließen oder starte das Gerät neu. Bitte reiche ein Issue auf GitHub ein.</string>
+    <string name="unknown_error">Versuche, den USB-Datenträger erneut anzuschließen oder starte das Gerät neu. Bitte reiche ein Issue auf GitHub ein, welches die folgenden Informationen, gefolgt von Ihren Kommentaren enthält:</string>
     <string name="uncompressed">(unkomprimiert)</string>
     <string name="nightmode">Nachtmodus aktivieren</string>
     <string name="nightmode_night">Nachtmodus deaktivieren</string>
@@ -135,5 +137,6 @@
     <string name="contributor_german_task">Entwickler, ru-Übersetzer</string>
     <string name="owner_task">Besitzer</string>
     <string name="owner_bio">Interessen: Jungs und Arch Linux. Ich mag Kotlin, Go, Python und schlafe.</string>
-    <string name="broken_usb_text">Dies lesen, wenn Android sagt, dass es ein Problem mit Ihrem USB-Laufwerk gibt oder dass es nach der Verwendung von EtchDroid nicht unterstützt wird.</string>
+    <string name="broken_usb_text">Wenn Android sagt, dass es ein Problem mit Ihrem USB-Laufwerk gibt oder dass es nach der Verwendung von EtchDroid nicht unterstützt wird, lesen Sie dies.</string>
+    <string name="now_press_again">Drücken Sie jetzt erneut</string>
 </resources>
