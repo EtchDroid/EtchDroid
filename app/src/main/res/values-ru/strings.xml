@@ -45,7 +45,7 @@
     <string name="library_AndroidX_libraryDescription">AndroidX — это значительное улучшение оригинальной Android Support Library, обеспечивающее обратную совместимость между версиями Android.</string>
     <string name="library_KotlinStdlib_libraryDescription">Стандартная библиотека Kotlin предоставляет все необходимое для повседневной работы с Kotlin</string>
     <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_Material_libraryDescription">Делайте красивые продукты быстрее. Material — это дизайн-система, основанная на открытом исходном коде, который помогает командам создавать цифровой опыт.</string>
+    <string name="library_Material_libraryDescription">Делайте красивые продукты быстрее. Material design — это дизайн-система, основанная на открытом исходном коде, который помогает командам создавать цифровой опыт.</string>
     <string name="license_bzip2">Индивидуальная BSD-подобная</string>
     <string name="nightmode">Включить ночной режим</string>
     <string name="nightmode_night">Отключить ночной режим</string>
@@ -68,7 +68,9 @@
     <string name="ptt_mac">Таблица разделов Apple (APT)</string>
     <string name="raw_image_desc">Подойдёт для ISO-дистрибутивов GNU/Linux, образов Raspberry Pi и образов дисков, созданных в Windows или Linux.</string>
     <string name="reporting_issues">Сообщить о проблеме</string>
-    <string name="reporting_issues_text">Сообщить о проблеме можно на GitHub:\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Сообщить о проблеме можно на GitHub:
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nПожалуйста скопируйте и вставьте следующую техническую информацию, затем добавьте комментарии в конец запроса:</string>
     <string name="reset_warnings">Обнулить все предупреждения</string>
     <string name="result_channel_desc">Используется для отображения результата завершённой операции записи</string>
     <string name="result_channel_name">Уведомления результата записи на USB</string>
@@ -85,7 +87,7 @@
     <string name="title_activity_usb_drive_picker">Выбрать USB-накопитель</string>
     <string name="troubleshooting_info">Сведения об устранении неполадок</string>
     <string name="uncompressed">(несжатый)</string>
-    <string name="unknown_error">Неизвестная ошибка — попробуйте переподключить USB-накопитель или перезагрузить устройство. Пожалуйста, сообщите о проблеме на GitHub.</string>
+    <string name="unknown_error">Попробуйте переподключить USB-накопитель или перезагрузить устройство. Пожалуйста, сообщите о проблеме на GitHub, прилагая следующую информацию, и затем ваши комментарии:</string>
     <string name="unknown_filename">Неизвестное имя файла</string>
     <string name="usb_perm_denied">В доступе отказано для</string>
     <string name="usb_perm_denied_noname">В доступе к USB-накопителю отказано</string>
@@ -103,4 +105,5 @@
     <string name="libressl_desc">LibreSSL это вилка OpenSSL 1.0.1g, разработанная под OpenBSD проектом.</string>
     <string name="contributor_german_name">Герман Прошунин</string>
     <string name="contributor_german_task">Разработчик, рус. переводчик</string>
+    <string name="now_press_again">Теперь нажмите еще раз</string>
 </resources>
