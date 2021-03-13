@@ -17,8 +17,8 @@
     <string name="tap_next_to_write">Tippen, um Abbild auf USB-Datenträger zu schreiben</string>
     <string name="notchan_writestatus_title">USB Schreibstatus</string>
     <string name="notchan_writestatus_desc">Zeigt den Status der Abbilder an, die auf USB-Datenträger geschreiben werden</string>
-    <string name="notif_initializing">Initialisierung…</string>
-    <string name="notif_writing_img">Schreibt Abbild…</string>
+    <string name="notif_initializing">Initialisierung …</string>
+    <string name="notif_writing_img">Schreibt Abbild …</string>
     <string name="image_is_not_dmg">Ausgewähltes Abbild ist kein DMG Abbild (vielleicht ist es beschädigt)</string>
     <string name="ptt_aix">IBM AIX</string>
     <string name="ptt_amiga">AMIGA</string>
@@ -93,11 +93,11 @@
     <string name="troubleshooting_info">Informationen zur Fehlerbehebung</string>
     <string name="operation_failed_because">Die Operation konnte nicht fertiggestellt werden, da der folgende Fehler aufgetreten ist:</string>
     <string name="reporting_issues">Probleme melden</string>
-    <string name="reporting_issues_text">Probleme können auf Github gemeldet werden:
+    <string name="reporting_issues_text">Probleme können auf GitHub gemeldet werden:
 \nhttps://github.com/EtchDroid/EtchDroid/issues
-\nBitte kopieren und fügen Sie die nachfolgenden technischen Infromationen ein, danach fügen Sie etwaige Kommentare am Ende des GitHub Issue hinzu:</string>
+\nBitte kopieren Sie die folgenden technischen Informationen, fügen Sie sie ein und fügen Sie am Ende des GitHub-Problems Kommentare hinzu:</string>
     <string name="write_failed">Schreiben fehlgeschlagen</string>
-    <string name="unknown_error">Versuche, den USB-Datenträger erneut anzuschließen oder starte das Gerät neu. Bitte reiche ein Issue auf GitHub ein, welches die folgenden Informationen, gefolgt von Ihren Kommentaren enthält:</string>
+    <string name="unknown_error">Versuchen Sie, das USB-Laufwerk erneut anzuschließen oder das Gerät neu zu starten. Bitte reichen Sie ein Problem auf GitHub ein. Stellen Sie sicher, dass Sie die folgenden Informationen kopieren und einfügen, und fügen Sie am Ende Ihre Kommentare hinzu:</string>
     <string name="uncompressed">(unkomprimiert)</string>
     <string name="nightmode">Nachtmodus aktivieren</string>
     <string name="nightmode_night">Nachtmodus deaktivieren</string>
@@ -124,9 +124,9 @@
     <string name="file_unknown">(unbekannt)</string>
     <string name="job_failed">Aufgabe fehlgeschlagen.</string>
     <string name="done">Erledigt!</string>
-    <string name="resuming_job">Fortsetzung von Speicherpunkt…</string>
-    <string name="starting_job">Aufgabe wird gestartet…</string>
-    <string name="notif_starting_job">Aufgabe wird gestartet…</string>
+    <string name="resuming_job">Fortsetzung von Speicherpunkt …</string>
+    <string name="starting_job">Aufgabe wird gestartet …</string>
+    <string name="notif_starting_job">Aufgabe wird gestartet …</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Zeigt Ergebnis einer erledigten Aufgabe</string>
     <string name="notif_channel_job_result_name">Aufgabenergebnis</string>
     <string name="notif_channel_job_progress_name">Aufgabenfortschritt</string>
@@ -137,6 +137,6 @@
     <string name="contributor_german_task">Entwickler, ru-Übersetzer</string>
     <string name="owner_task">Besitzer</string>
     <string name="owner_bio">Interessen: Jungs und Arch Linux. Ich mag Kotlin, Go, Python und schlafe.</string>
-    <string name="broken_usb_text">Wenn Android sagt, dass es ein Problem mit Ihrem USB-Laufwerk gibt oder dass es nach der Verwendung von EtchDroid nicht unterstützt wird, lesen Sie dies.</string>
+    <string name="broken_usb_text">Wenn Android angibt, dass Ihr USB-Laufwerk ein Problem aufweist oder nach der Verwendung von EtchDroid nicht unterstützt wird, lesen Sie dies.</string>
     <string name="now_press_again">Drücken Sie jetzt erneut</string>
 </resources>
