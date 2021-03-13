@@ -14,7 +14,7 @@
     <string name="unknown_filename">Nom de fichier inconnu</string>
     <string name="image_bigger_than_usb">Image plus large que la clé USB, écriture impossible</string>
     <string name="cant_read_usbdev">Impossible de lire depuis le périphérique USB</string>
-    <string name="tap_next_to_write">Sélectionnez \"Écrire\" pour écrire l\'image sur le périphérique USB</string>
+    <string name="tap_next_to_write">Sélectionnez « Écrire » pour écrire l\'image sur le périphérique USB</string>
     <string name="notchan_writestatus_title">État d\'écriture sur l\'USB</string>
     <string name="notchan_writestatus_desc">Utilisé pour afficher l\'état d\'avancement de l\'écriture sur les périphériques USB</string>
     <string name="notif_initializing">Initialisation…</string>
@@ -94,10 +94,11 @@
     <string name="troubleshooting_info">Informations de dépannage</string>
     <string name="operation_failed_because">L\'opération n\'a pas pu aboutir à cause de l\'erreur suivante :</string>
     <string name="reporting_issues">Rapporter des erreurs</string>
-    <string name="reporting_issues_text">Les erreurs peuvent être rapportés sur GitHub :
-\nhttps://github.com/Depau/EtchDroid/issues</string>
+    <string name="reporting_issues_text">Les problèmes peuvent être signalés sur GitHub :
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nVeuillez copier et coller les informations techniques suivantes, puis ajouter des commentaires à la fin du problème GitHub :</string>
     <string name="write_failed">Écriture échouée</string>
-    <string name="unknown_error">Erreur inconnue. Essayez de rebrancher la clé USB ou de redémarrer l\'appareil. Veuillez ouvrir un ticket sur GitHub.</string>
+    <string name="unknown_error">Essayez de reconnecter la clé USB ou de redémarrer l\'appareil. Veuillez signaler un problème sur GitHub. Assurez-vous de copier et coller les informations suivantes, puis ajoutez vos commentaires à la fin :</string>
     <string name="uncompressed">(non compressé)</string>
     <string name="nightmode">Activer le mode nuit</string>
     <string name="nightmode_night">Désactiver le mode nuit</string>
@@ -129,11 +130,12 @@
     <string name="notif_channel_job_result_name">Résultat de la tâche</string>
     <string name="notif_channel_job_progress_name">Progression de la tâche</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Utilisé pour afficher la progression de la tâche courante</string>
-    <string name="broken_usb_text">Si Android dit qu\'il y a un problème avec votre clé USB ou qu\'elle n\'est pas prise en charge après avoir utilisé EtchDroid, lisez ceci.</string>
+    <string name="broken_usb_text">Si Android indique que votre clé USB a un problème ou n\'est pas prise en charge après l\'utilisation d\'EtchDroid, lisez ceci.</string>
     <string name="broken_usb_title">Clé USB non prise en charge \?</string>
     <string name="libressl_desc">LibreSSL est un fork d\'OpenSSL 1.0.1g développé par le projet OpenBSD.</string>
     <string name="license_custom_foss">Logiciel libre personnalisé</string>
     <string name="contributor_german_task">Développeur, traducteur russe</string>
     <string name="owner_task">Propriétaire</string>
     <string name="owner_bio">Je m\'intéresse aux mecs et à Arch Linux. J\'aime Kotlin, Go, Python et dormir.</string>
+    <string name="now_press_again">Maintenant appuyez à nouveau</string>
 </resources>
