@@ -94,8 +94,8 @@
     <string name="operation_failed_because">L\'operazione non è stata completata a causa del seguente errore:</string>
     <string name="reporting_issues">Segnalazione dei problemi</string>
     <string name="reporting_issues_text">I problemi possono essere segnalati su GitHub:
-\nhttps://github.com/Depau/EtchDroid/issues
-\nCopia e incolla i seguenti dettagli tecnici, aggiungi eventuali commenti alla fine dell\'issue su GitHub:</string>
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nCopia e incolla le seguenti informazioni tecniche, quindi aggiungi eventuali commenti alla fine del problema di GitHub:</string>
     <string name="write_failed">Scrittura fallita</string>
     <string name="unknown_error">Prova a ricollegare l\'unità USB o riavviare il dispositivo. Segnala un problema su GitHub. Assicurati di copiare e incollare le seguenti informazioni, quindi aggiungi i tuoi commenti alla fine:</string>
     <string name="uncompressed">(decompresso)</string>
