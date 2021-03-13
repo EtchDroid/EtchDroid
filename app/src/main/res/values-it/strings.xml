@@ -97,7 +97,7 @@
 \nhttps://github.com/Depau/EtchDroid/issues
 \nCopia e incolla i seguenti dettagli tecnici, aggiungi eventuali commenti alla fine dell\'issue su GitHub:</string>
     <string name="write_failed">Scrittura fallita</string>
-    <string name="unknown_error">Prova a ricollegare il dispositivo USB o a riavviare il dispositivo. Per favore, segnala il problema su GitHub. Assicurati di copiare e incollare le seguenti informazioni, poi aggiungi eventuali commenti alla fine:</string>
+    <string name="unknown_error">Prova a ricollegare l\'unità USB o riavviare il dispositivo. Segnala un problema su GitHub. Assicurati di copiare e incollare le seguenti informazioni, quindi aggiungi i tuoi commenti alla fine:</string>
     <string name="uncompressed">(decompresso)</string>
     <string name="nightmode">Attiva modalità notturna</string>
     <string name="nightmode_night">Disattiva modalità notturna</string>
@@ -119,7 +119,7 @@
     <string name="notif_channel_job_progress_name">Progressi</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Mostra il progresso dell\'azione corrente</string>
     <string name="broken_usb_title">Dispositivo USB non supportato?</string>
-    <string name="broken_usb_text">Se Android dice che c\'è un problema con il dispositivo USB o Windows non lo riconosce dopo aver usato EtchDroid, leggi questa pagina.</string>
+    <string name="broken_usb_text">Se Android dice che la tua unità USB ha un problema o non è supportata dopo aver utilizzato EtchDroid, leggi questo.</string>
     <string name="write_x_to_y">Scrivi %1$s su %2$s</string>
     <string name="i2o_action_name">Copia dati da %1$s a %2$s</string>
     <string name="job_failed">Lavoro fallito.</string>
