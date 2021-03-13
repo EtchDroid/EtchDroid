@@ -133,4 +133,5 @@
     <string name="resuming_job">Ripresa dall\'ultimo salvataggio…</string>
     <string name="starting_job">Avvio elaborazione…</string>
     <string name="notif_starting_job">Avvio elaborazione…</string>
+    <string name="now_press_again">Premi ancora</string>
 </resources>
