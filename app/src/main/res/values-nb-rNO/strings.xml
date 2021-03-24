@@ -65,7 +65,7 @@
     <string name="reporting_issues_text">Feil kan innrapporteres på GitHub: 
 \nhttps://github.com/EtchDroid/EtchDroid/issues</string>
     <string name="write_failed">Skriving mislyktes</string>
-    <string name="unknown_error">Prøv å plugge inn USB-enheten igjen, eller start enheten på ny. Innrapporter en feil om dette på GitHub. Forsikre deg om at du kopierer og limer inne følgende info, og så legger til kommentarene dine til slutt:</string>
+    <string name="unknown_error">Prøv å plugge inn USB-enheten igjen, eller start enheten på ny. Innrapporter en feil om dette på GitHub som inneholder følgende info, etterfulgt av din kommentar:</string>
     <string name="uncompressed">(ukomprimert)</string>
     <string name="nightmode">Skru på nattmodus</string>
     <string name="nightmode_night">Skru av nattmodus</string>
