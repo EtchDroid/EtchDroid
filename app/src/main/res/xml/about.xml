@@ -146,16 +146,6 @@
 
     <me.jfenn.attribouter.wedges.TranslatorsWedge overflow="5">
         <me.jfenn.attribouter.wedges.TranslatorWedge
-            name="Davide Depau"
-            avatar="https://avatars2.githubusercontent.com/u/1151321"
-            locales="it"
-            login="Depau" />
-        <me.jfenn.attribouter.wedges.TranslatorWedge
-            name="Can Berberoglu"
-            avatar="https://avatars1.githubusercontent.com/u/21688873"
-            locales="tr"
-            login="Exodus1831" />
-        <me.jfenn.attribouter.wedges.TranslatorWedge
             name="Jakob Senkl"
             avatar="https://avatars3.githubusercontent.com/u/8578362"
             locales="de"
@@ -166,19 +156,34 @@
             locales="fr"
             login="yassineim" />
         <me.jfenn.attribouter.wedges.TranslatorWedge
-            name="一座桥在水上"
-            avatar="https://avatars3.githubusercontent.com/u/30341059"
-            locales="zh"
-            login="yzqzss" />
+            name="Davide Depau"
+            avatar="https://avatars2.githubusercontent.com/u/1151321"
+            locales="it"
+            login="Depau" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Allan Nordhøy"
+            avatar="https://avatars1.githubusercontent.com/u/13802408"
+            locales="nb_NO"
+            login="comradekingu" />
         <me.jfenn.attribouter.wedges.TranslatorWedge
             name="Demetrio F. B."
             locales="ro,de" />
-
         <me.jfenn.attribouter.wedges.TranslatorWedge
             name="@string/contributor_german_name"
             avatar="https://avatars2.githubusercontent.com/u/16625266"
             locales="ru"
             login="anonlatte" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Can Berberoglu"
+            avatar="https://avatars1.githubusercontent.com/u/21688873"
+            locales="tr"
+            login="Exodus1831" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="一座桥在水上"
+            avatar="https://avatars3.githubusercontent.com/u/30341059"
+            locales="zh"
+            login="yzqzss" />
+
 
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
 </about>
