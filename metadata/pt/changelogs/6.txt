@@ -1,0 +1,1 @@
+- Corrigido um erro que fazia com que a aplicação encravasse ao pressionar qualquer botão no Android 6.0.

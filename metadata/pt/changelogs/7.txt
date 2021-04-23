@@ -1,0 +1,3 @@
+- Adicionada tradução em turco.
+- Atualização do LibreSSL para a versão mais recente.
+- Corrigido um erro que fazia com que a aplicação encravasse ao pressionar qualquer botão no Android 6.0.
