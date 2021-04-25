@@ -104,4 +104,5 @@
     <string name="contributor_german_task">Desenvolvedor, tradutor ru</string>
     <string name="owner_task">Dono</string>
     <string name="owner_bio">Into guys e Arch Linux. Gosto de Kotlin, Go, Python e dormir.</string>
+    <string name="now_press_again">Agora pressione novamente</string>
 </resources>
