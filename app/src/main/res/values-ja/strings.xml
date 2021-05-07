@@ -1,2 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="do_not_show_again">再度表示しない</string>
+    <string name="no_usb_drives_detected">USBドライブが検出されませんでした。
+\nSDカードに書き込むには、USBのSDカードリーダーが必要であることに注意してください。</string>
+    <string name="dmg_image_desc">macOSディスクユーティリティで作成したイメージを復元する</string>
+    <string name="write_apple_dmg">Apple® DMGイメージを書き込む</string>
+    <string name="raw_image_desc">GNU/LinuxディストリビューションのISO、Raspberry Piイメージ、およびWindowsまたはLinuxで作成されたディスクイメージに適しています。</string>
+    <string name="could_not_access_usb_error">USBデバイスにアクセスできませんでした。以前にアプリを実行してクラッシュした可能性がありますか？ USBドライブを取り外して再度挿入してから、アプリを再起動してください。</string>
+    <string name="partition_table_title">パーティションテーブル:</string>
+    <string name="cannot_write">イメージをUSBドライブに書き込めません</string>
+    <string name="title_activity_confirmation">書き込む準備ができました</string>
+    <string name="title_activity_usb_drive_picker">USB ドライブを選択</string>
+    <string name="about">詳細</string>
+    <string name="part_size">サイズ</string>
+    <string name="fs_type">タイプ</string>
+    <string name="fs_label">ラベル</string>
+    <string name="part_label">名前</string>
+    <string name="fs_unknown">不明</string>
+    <string name="fs_unformatted">未フォーマット</string>
+    <string name="fs_free">空き容量</string>
+    <string name="fs_linux_lvm_pv">Linux LVM2物理ボリューム</string>
+    <string name="image_is_not_dmg">選択したイメージはDMGイメージではありません(イメージが破損している可能性があります)</string>
+    <string name="fs_linux_swap">Linuxスワップ</string>
+    <string name="fs_luks">LUKS暗号化</string>
+    <string name="fs_apt_data">APTデータ</string>
+    <string name="ptt_mac">Appleパーティションテーブル(APT)</string>
+    <string name="ptt_loop">なし</string>
+    <string name="ptt_gpt">GUIDパーティションテーブル(GPT)</string>
+    <string name="notchan_writestatus_desc">USBドライブに書き込まれているイメージのステータスを表示するために使用されます</string>
+    <string name="notchan_writestatus_title">書き込み状況</string>
+    <string name="flash_dmg_api">macOS DMGイメージをディスクに復元する(Android APIを使用)</string>
+    <string name="flash_dd_usb_api">イメージをディスクに直接書き込む(Android APIを使用)</string>
+    <string name="selected_image">イメージ:</string>
+    <string name="notif_writing_img">イメージを書き込み中…</string>
+    <string name="notif_initializing">初期化中…</string>
+    <string name="tap_next_to_write">[書き込み]をタップして、イメージをUSBドライブに書き込みます</string>
+    <string name="cant_read_usbdev">USBドライブを読み込めません</string>
+    <string name="image_bigger_than_usb">イメージがUSBドライブの容量よりも大きいため、書き込みできません</string>
+    <string name="unknown_filename">不明なファイル名</string>
+    <string name="selected_usbdev">USBデバイス:</string>
+    <string name="selected_method">書き込み方法:</string>
+    <string name="usb_perm_denied_noname">USBデバイスへのアクセス権限が拒否されました</string>
+    <string name="usb_perm_denied">権限が拒否されました</string>
+    <string name="action_refresh">更新</string>
+</resources>
