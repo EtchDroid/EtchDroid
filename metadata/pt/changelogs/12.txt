@@ -1,2 +1,2 @@
-- Atualizações e correções de erros na libaums trarão maior confiabilidade com unidades USB "picuinhas" e dispositivos Android.
+- Atualizações e correções de erros na libaums trarão maior confiabilidade com unidades USB "picuinhas" e aparelhos Android.
 - Atualizações de traduções.
