@@ -111,7 +111,7 @@
     <string name="cannot_find_file_in_storage">Impossible de trouver le fichier dans la mémoire interne. Essayez de l\'ouvrir depuis l\'application.</string>
     <string name="storage_permission_required">La permission de stockage est nécessaire pour pouvoir lire les images DMG</string>
     <string name="library_AndroidX_libraryDescription">AndroidX est une amélioration majeure de la bibliothèque de support Android d\'origine et offre une rétrocompatibilité entre les versions d\'Android</string>
-    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
+    <string name="library_KotlinStdlib_libraryName">Bibliothèque standard Kotlin</string>
     <string name="library_KotlinStdlib_libraryDescription">La bibliothèque standard de Kotlin fournit des éléments essentiels pour le travail quotidien avec Kotlin</string>
     <string name="library_Material_libraryName">Material Components</string>
     <string name="library_Material_libraryDescription">Fabriquez de beaux produits plus rapidement. Material est un système de conception – soutenu par du code libre – qui aide les équipes à créer des expériences numériques</string>
