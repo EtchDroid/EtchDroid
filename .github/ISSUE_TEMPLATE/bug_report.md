@@ -48,10 +48,10 @@ By using this app, or any of my software you do it AT YOUR OWN risk.
 ==========================================================================
 -->
 
-**Describe the bug**
+## Description
 <!-- MANDATORY - Write a clear and concise description of your issue -->
 
-**To Reproduce**
+## To reproduce
 <!-- MANDATORY - Add a list of steps to be taken to reproduce the issue
  you are experiencing. If your issue only happens occasionally, say so.
  If your issue occurs once in a while, please say so and also how often it
@@ -66,17 +66,17 @@ Example:
 
 How many times have you tried? (type a number greater than 1):
 
-**Expected behavior**
+## Expected behavior
 <!-- OPTIONAL, unless it's a subjective issue. A clear and concise description
  of what you expected to happen. -->
 
 
-**Screenshots or logs**
+## Screenshots or logs
 <!-- Either a screenshot of the ERROR SCREEN, or a FULL logcat MUST BE PROVIDED.
 Right under this text box there's a button to attach files. -->
 
 
-**Smartphone information:**
+## Smartphone information
 <!-- ALL FIELDS ARE MANDATORY. -->
 
  - Device type (smartphone, tablet, laptop, etc): 
@@ -92,14 +92,14 @@ Right under this text box there's a button to attach files. -->
    - ROM version (i.e. OneUI 3.0):
 
 
-**App information:**
+## App information
 <!-- ALL FIELDS ARE MANDATORY. -->
 
 - App version (find it in the About screen inside the app):
 - Installed from (Play Store, F-Droid, GitHub or self-built): 
 
 
-**USB drive information:**
+## USB drive information
 <!-- This information is MANDATORY only if your issue is actually related
 to USB writing.
 
@@ -116,7 +116,7 @@ a random file.
 Take note of all text that appears in the USB selection list. Or just send a
 screenshot -->
 
-**USB port info**
+## USB port info
 
 - Does the USB drive plug directly into your device without any adapters? (Yes/No): 
 
@@ -136,7 +136,7 @@ screenshot -->
     - [ ] USB-C dock with > 1 USB port (usually advertised for laptops)
     - [ ] Other type of USB hub with > 1 port
 
-**ISO or image file information**
+## ISO or image file information
 
 <!-- ALL FIELDS ARE MANDATORY.
 The "Linux distribution" field is mandatory if you are flashing a Linux
@@ -150,6 +150,6 @@ DAMN SMALL LINUX is not supported and it WON'T BE SUPPORTED any time soon.
 - Linux distribution name and version (if it applies, i.e. Ubuntu 20.04): 
 - Is this image for a Raspberry Pi or similar? (Yes/No): 
 
-**Additional context**
-<!-- OPTIONAL - Add any other info you may have below,
+## Additional info
+<!-- OPTIONAL - Add any other info that you may have below,
 otherwise delete this section. -->
