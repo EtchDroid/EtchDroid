@@ -6,7 +6,7 @@
     <string name="owner_task">Dono</string>
     <string name="owner_bio">Em pessoas e Arch Linux. Gosto de Kotlin, Go, Python e dormir.</string>
     <string name="broken_usb_title">Unidade USB sem suporte\?</string>
-    <string name="broken_usb_text">Se o Android diz que a sua unidade USB tem um problema ou não é suportada depois de usar o EtchDroid, leia isto.</string>
+    <string name="broken_usb_text">Se o Android indicar que a sua unidade USB tem um problema ou não é suportada depois de usar o EtchDroid, leia isto.</string>
     <string name="step_x_of_y">Em %1$d de %2$d</string>
     <string name="i2o_action_name">Copiar dados de %1$s para %2$s</string>
     <string name="write_x_to_y">Escrita %1$s até %2$s</string>

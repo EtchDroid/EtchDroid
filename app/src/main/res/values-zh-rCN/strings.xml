@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">EtchDroid</string>
-    <string name="flash_dd_usb_api">直接写入镜像到磁盘(使用Android API)</string>
-    <string name="flash_dmg_api">将macOS DMG映像还原到磁盘(使用Android API)</string>
+    <string name="flash_dd_usb_api">直接写入镜像到磁盘(使用 Android API)</string>
+    <string name="flash_dmg_api">将 macOS DMG 镜像还原到磁盘(使用 Android API)</string>
     <string name="flash_unetbootin">Unetbootin-style flash (仅限 MBR, 需要 root)</string>
-    <string name="flash_woeusb">写入Windows映像(使用WoeUSB，需要root)</string>
+    <string name="flash_woeusb">写入 Windows 镜像(使用 WoeUSB，需要 root)</string>
     <string name="action_refresh">刷新</string>
     <string name="usb_perm_denied">权限被拒绝</string>
-    <string name="usb_perm_denied_noname">USB设备权限被拒绝</string>
+    <string name="usb_perm_denied_noname">USB 设备权限被拒绝</string>
     <string name="selected_image">选择的镜像:</string>
     <string name="selected_method">选择的写入方式:</string>
-    <string name="selected_usbdev">选择的USB设备:</string>
+    <string name="selected_usbdev">选择的 USB 设备:</string>
     <string name="unknown_filename">未知文件名</string>
-    <string name="image_bigger_than_usb">镜像文件大小大于USB设备，无法写入</string>
-    <string name="cant_read_usbdev">无法读取USB设备</string>
-    <string name="tap_next_to_write">点击“写入”按钮将镜像写入USB驱动器</string>
+    <string name="image_bigger_than_usb">镜像文件大小大于 USB 设备，无法写入</string>
+    <string name="cant_read_usbdev">无法读取 USB 设备</string>
+    <string name="tap_next_to_write">点击“写入”按钮将镜像写入 USB 驱动器</string>
     <string name="notchan_writestatus_title">USB 写入状态</string>
-    <string name="notchan_writestatus_desc">用于显示写入USB驱动器的镜像的状态</string>
+    <string name="notchan_writestatus_desc">用于显示写入 USB 驱动器的镜像的状态</string>
     <string name="notif_initializing">初始化中…</string>
     <string name="notif_writing_img">写入镜像中…</string>
-    <string name="image_is_not_dmg">所选文件不是DMG镜像（可能已损坏）</string>
+    <string name="image_is_not_dmg">所选文件不是 DMG 镜像（可能已损坏）</string>
     <string name="ptt_aix" translatable="false">IBM AIX</string>
     <string name="ptt_amiga" translatable="false">AMIGA</string>
     <string name="ptt_bsd" translatable="false">BSD</string>
     <string name="ptt_dvh" translatable="false">DVH</string>
-    <string name="ptt_gpt">GUID分区表(GPT)</string>
+    <string name="ptt_gpt">GUID 分区表(GPT)</string>
     <string name="ptt_loop">无</string>
-    <string name="ptt_mac">Apple分区表(APT)</string>
+    <string name="ptt_mac">Apple 分区表(APT)</string>
     <string name="ptt_msdos" translatable="false">Master Boot Record (MSDOS)</string>
     <string name="ptt_pc98" translatable="false">PC98</string>
     <string name="ptt_sun" translatable="false">Sun</string>
@@ -46,8 +46,8 @@
     <string name="fs_ext4" translatable="false">Linux Ext4</string>
     <string name="fs_btrfs" translatable="false">Btrfs</string>
     <string name="fs_f2fs" translatable="false">f2fs</string>
-    <string name="fs_luks">LUKS已加密(磁盘加密)</string>
-    <string name="fs_linux_swap">Linux swap(虚拟内存)</string>
+    <string name="fs_luks">LUKS 已加密(磁盘加密)</string>
+    <string name="fs_linux_swap">Linux swap(交换内存)</string>
     <string name="fs_linux_lvm_pv">Linux LVM2 物理卷</string>
     <string name="fs_ufs" translatable="false">UFS</string>
     <string name="fs_xfs" translatable="false">XFS</string>
@@ -64,58 +64,58 @@
     <string name="license_gpl2" translatable="false">GNU GPLv2</string>
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">自定义 BSD-like</string>
     <string name="about">关于</string>
-    <string name="title_activity_usb_drive_picker">选择USB驱动器</string>
+    <string name="title_activity_usb_drive_picker">选择 USB 驱动器</string>
     <string name="title_activity_confirmation">准备写入</string>
-    <string name="cannot_write">无法写入镜像到USB设备</string>
+    <string name="cannot_write">无法写入镜像到 USB 设备</string>
     <string name="check_notification_progress">在通知中查看处理进度</string>
     <string name="partition_table_title">分区表:</string>
-    <string name="could_not_access_usb_error">无法访问USB设备。 也许你之前运行应用程序时崩溃了？ 重新插入USB设备，然后重启应用试试。</string>
-    <string name="write_image_or_iso">写入原始镜像或ISO</string>
-    <string name="raw_image_desc">适用于Windows或Linux上的GNU / Linux发行版ISO，树莓派映像和磁盘映像。</string>
+    <string name="could_not_access_usb_error">无法访问 USB 设备。 也许你之前运行应用程序时崩溃了？ 重新插入 USB 设备，然后重启应用试试。</string>
+    <string name="write_image_or_iso">写入原始镜像或 ISO</string>
+    <string name="raw_image_desc">适用于 Windows 或 Linux 上的 GNU / Linux 发行版 ISO，树莓派镜像和磁盘镜像。</string>
     <string name="write_apple_dmg">写入 Apple® DMG 镜像</string>
-    <string name="dmg_image_desc">使用macOS Disk Utility创建的映像文件还原</string>
-    <string name="no_usb_drives_detected">未检测到USB驱动器。\n
-    请注意，如果要写入SD卡，您需要使用SD卡读卡器曲线救国。</string>
+    <string name="dmg_image_desc">使用 macOS Disk Utility 创建的镜像文件还原</string>
+    <string name="no_usb_drives_detected">未检测到 USB 驱动器。
+\n 请注意，如果要写入 SD 卡，您需要使用 SD 卡读卡器曲线救国。</string>
     <string name="do_not_show_again">不再提示</string>
     <string name="here_be_dragons">地狱无门</string>
     <string name="i_understand">清楚明白</string>
-    <string name="dmg_alert_dialog_text">警告:在大多数情况下DMG镜像可以很好地解压还原，但有时可能会出现问题。</string>
+    <string name="dmg_alert_dialog_text">警告:在大多数情况下 DMG 镜像可以很好地解压还原，但有时可能会出现问题。</string>
     <string name="confirm_flash_image">写入镜像</string>
-    <string name="dataloss_confirmation_dialog_message">如果继续，将写入所选镜像，并且USB设备上存储的现有数据被格式化！请注意备份！</string>
+    <string name="dataloss_confirmation_dialog_message">如果继续，将写入所选镜像，并且 USB 设备上存储的现有数据被格式化！请注意备份！</string>
     <string name="warning">警告⚠</string>
     <string name="cancel">取消</string>
     <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
     <string name="result_channel_desc">用于显示完成写入的结果</string>
-    <string name="result_channel_name">USB写入结果通知</string>
+    <string name="result_channel_name">USB 写入结果通知</string>
     <string name="failed_tap_for_info">哦嚯失败了·点击查看详情</string>
     <string name="write_finished">写入完成</string>
-    <string name="error_notif_content_text">%1$s 写入过程中USB设备可能被拔出.</string>
+    <string name="error_notif_content_text">%1$s 写入过程中 USB 设备可能被拔出.</string>
     <string name="success_notif_content_text">%1$s 成功写入到 %2$s</string>
     <string name="troubleshooting_info">故障诊断信息</string>
     <string name="operation_failed_because">由于发生以下错误，无法完成操作:</string>
     <string name="reporting_issues">报告问题</string>
     <string name="reporting_issues_text">你可以在 GitHub 上报告问题:
 \nhttps://github.com/EtchDroid/EtchDroid/issues
-\n请复制并粘贴以下技术信息，然后在GitHub问题的结尾添加评论：</string>
+\n请复制并粘贴以下技术信息，然后在 GitHub 问题的结尾添加评论：</string>
     <string name="write_failed">写入失败</string>
-    <string name="unknown_error">尝试重新连接USB驱动器或重新启动设备。 请在GitHub上提交问题，其中包含以下信息以及您的评论：</string>
+    <string name="unknown_error">尝试重新连接 USB 驱动器或重新启动设备。 请在 GitHub上提交问题，其中包含以下信息以及您的评论：</string>
     <string name="uncompressed">(未压缩)</string>
     <string name="nightmode">启用夜间模式</string>
     <string name="nightmode_night">关闭夜间模式</string>
     <string name="android_pie_bug">Android 9 bug</string>
-    <string name="android_pie_bug_dialog_text">Android 9上有个错误，导致一些写入失败。\n
-        如果提示“写入失败”，请重启手机并重试。</string>
+    <string name="android_pie_bug_dialog_text">Android 9 上有个错误，导致一些写入失败。
+\n 如果提示“写入失败”，请重启手机并重试。</string>
     <string name="reset_warnings">重置警告</string>
     <string name="warnings_reset">所有警告对话框已重置</string>
     <string name="file_type_not_supported">文件类型不支持</string>
     <string name="cannot_find_file_in_storage">无法在内部存储中找到文件。尝试在应用内打开它。</string>
-    <string name="storage_permission_required">读取DMG镜像需要存储权限</string>
+    <string name="storage_permission_required">读取 DMG 镜像需要存储权限</string>
     <!-- AndroidX Jetpack -->
     <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
     <string name="library_AndroidX_libraryDescription">AndroidX 对原始 Android 支持库进行了重大改进，并与各个 Android 版本向后兼容</string>
     <!-- Kotlin Standard Library -->
     <string name="library_KotlinStdlib_libraryName">Kotlin 标准库</string>
-    <string name="library_KotlinStdlib_libraryDescription">Kotlin标准库提供了每天和Kotlin打交道的必需品</string>
+    <string name="library_KotlinStdlib_libraryDescription">Kotlin 标准库提供了每天和 Kotlin 打交道的必需品</string>
     <!-- Material Components -->
     <string name="library_Material_libraryName" translatable="false">Material Components</string>
     <string name="library_Material_libraryDescription">Material是一个设计系统 - 由开源代码支持 - 帮助开发者构建制作精美的产品</string>
@@ -133,13 +133,13 @@
     <string name="file_unknown">(未知)</string>
     <string name="write_x_to_y">写入 %1$s 到 %2$s</string>
     <string name="i2o_action_name">"从\"%1$s\" 复制数据到 \"%2$s"</string>
-    <string name="broken_usb_text">如果Android使用EtchDroid后说你的USB驱动器有问题或不受支持，请阅读此内容。</string>
-    <string name="broken_usb_title">USB设备有毛病？</string>
+    <string name="broken_usb_text">如果 Android 使用 EtchDroid 后说你的 USB 驱动器有问题或不受支持，请阅读此内容。</string>
+    <string name="broken_usb_title">USB 设备有毛病？</string>
     <string name="step_x_of_y">第 %1$d 步 共 %2$d 步</string>
-    <string name="libressl_desc">LibreSSL是OpenBSD项目开发的OpenSSL 1.0.1g的一个分支。</string>
+    <string name="libressl_desc">LibreSSL是 OpenBSD 项目开发的 OpenSSL 1.0.1g 的一个分支。</string>
     <string name="license_custom_foss">自定义 FOSS</string>
     <string name="contributor_german_task">开发者, 俄语翻译者</string>
     <string name="owner_task">所有者</string>
-    <string name="owner_bio">在同志们和Arch Linux上。我喜欢Kotlin，Go，Python和睡觉。</string>
+    <string name="owner_bio">在同志们和 Arch Linux 上。我喜欢 Kotlin，Go，Python 和睡觉。</string>
     <string name="now_press_again">现在再按一次</string>
 </resources>
