@@ -1,0 +1,1 @@
+- Correction d'un bogue qui entraînait le crash de l'application lorsqu'on appuyait sur un bouton sous Android 6.0.
