@@ -1,0 +1,3 @@
+• Přidán turecký překlad.
+• Aktualizace LibreSSL na nejnovější verzi.
+• Opravena chyba, která způsobila pád aplikace na Androidu 6.0 po zmáčknutí jakéhokoliv tlačítka.

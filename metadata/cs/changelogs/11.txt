@@ -1,0 +1,2 @@
+• EtchDroid nyní používá libusb. To by mělo přinést značné zlepšení stability.
+• Noční
