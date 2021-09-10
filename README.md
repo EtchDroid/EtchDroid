@@ -1,3 +1,9 @@
+This project is no longer being actively maintained.
+
+If you'd like to adopt it and keep the development going you can get started by sending pull requests, implementing features and resolving issues.
+
+----
+
 # EtchDroid
 
 # WINDOWS ISOs ARE \*\*NOT\*\* SUPPORTED! Do not report issues if you're flashing a Windows ISO.
