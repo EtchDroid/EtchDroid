@@ -1,0 +1,2 @@
+• Pembaruan dan perbaikan bug pada libaums akan meningkatkan keandalan dengan drive USB "pilih-pilih" dan perangkat Android.
+• Pembaruan terjemahan.

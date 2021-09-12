@@ -1,0 +1,2 @@
+• EtchDroid sekarang menggunakan libusb dibawah tenda. Ini harus membawa stabilitas yang jauh lebih baik.
+• Pengalih mode malam dinonaktifkan pada Pie atau yang lebih baru karena akan menyebabkan masalah bagi banyak orang. Tolong beri tahu saya jika Anda menginginkannya kembali.
