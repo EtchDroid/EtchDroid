@@ -1,0 +1,16 @@
+EtchDroid adalah aplikasi gratis GPLv3+ copyleft yang membantu Anda menulis image ke drive USB.
+Gunakan untuk membuat drive USB GNU/Linux yang dapat di-boot ketika laptop Anda mati dan Anda berada di antah berantah.
+
+Fitur:
+• Mendukung image disk mentah dan sebagian besar ISO distribusi GNU/Linux
+• Mendukung image Raspberry Pi (ekstrak file ZIP terlebih dahulu; gunakan adaptor SD ke USB, slot SD internal tidak didukung)
+• Mendukung sebagian besar image disk DMG (beta)
+• Tanpa root - semuanya dilakukan dalam batas-batas Android API
+• Bebas seperti dalam kebebasan
+
+Rencana:
+• Tulis distro GNU/Linux umum dalam streaming dari Internet tanpa menyimpannya di perangkat
+• Dukungan untuk ISO instalasi Windows (kemungkinan akan membutuhkan root)
+• Dukungan untuk flashing image Unetbootin-style
+
+Kode sumber ada di GitHub: https://github.com/Depau/EtchDroid

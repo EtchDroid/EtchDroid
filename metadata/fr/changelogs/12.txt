@@ -1,0 +1,2 @@
+- Les mises à jour et les corrections de bogues apportées à libaums amélioreront la fiabilité des clés USB et des appareils Android "difficiles".
+- Mises à jour des traductions.

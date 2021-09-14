@@ -1,0 +1,3 @@
+- Ajout de la traduction turque.
+- Mise à jour de LibreSSL à la dernière version.
+- Correction d'un bogue qui entraînait le crash de l'application lors de l'appui sur un bouton sous Android 6.0.

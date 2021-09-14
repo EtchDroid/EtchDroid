@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fs_unknown">Tidak dikenali</string>
+    <string name="cannot_write">Tidak dapat menulis image ke drive USB</string>
+    <string name="title_activity_confirmation">Siap menulis</string>
+    <string name="fs_type">Jenis</string>
+    <string name="fs_unformatted">Belum diformat</string>
+    <string name="notif_starting_job">Memulai pekerjaan…</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">Digunakan untuk menunjukkan hasil pekerjaan yang telah selesai</string>
+    <string name="notif_channel_job_result_name">Hasil pekerjaan</string>
+    <string name="notif_channel_job_progress_name">Kemajuan pekerjaan</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Digunakan untuk menunjukkan kemajuan pekerjaan saat ini</string>
+    <string name="buy_me_a_coffee">Belikan saya kopi</string>
+    <string name="library_Material_libraryDescription">Membuat produk yang indah, cepat. Material adalah sistem desain – didukung oleh kode gratis – yang membantu tim membangun pengalaman digital</string>
+    <string name="library_KotlinStdlib_libraryDescription">Perpustakaan Standar Kotlin menyediakan kebutuhan hidup untuk pekerjaan sehari-hari dengan Kotlin</string>
+    <string name="library_KotlinStdlib_libraryName">Perpustakaan Standar Kotlin</string>
+    <string name="library_AndroidX_libraryDescription">AndroidX adalah peningkatan besar pada Pustaka Dukungan Android asli dan menyediakan kompatibilitas mundur di seluruh rilis Android</string>
+    <string name="storage_permission_required">Izin penyimpanan diperlukan untuk membaca image DMG</string>
+    <string name="cannot_find_file_in_storage">Tidak dapat menemukan file di penyimpanan internal. Coba buka dari dalam aplikasi.</string>
+    <string name="file_type_not_supported">Jenis file tidak didukung</string>
+    <string name="warnings_reset">Semua dialog peringatan dipulihkan</string>
+    <string name="reset_warnings">Atur ulang semua peringatan</string>
+    <string name="android_pie_bug_dialog_text">Ada bug di Android 9 yang menyebabkan beberapa penulisan gagal.
+\nJika tertulis \"Tulis gagal\", reboot perangkat Anda dan coba lagi.</string>
+    <string name="android_pie_bug">Bug Android Pie</string>
+    <string name="nightmode_night">Nonaktifkan mode malam</string>
+    <string name="nightmode">Aktifkan mode malam</string>
+    <string name="uncompressed">(tidak terkompresi)</string>
+    <string name="unknown_error">Coba pasang kembali drive USB atau reboot perangkat. Silakan ajukan masalah di GitHub yang berisi info berikut diikuti dengan komentar Anda:</string>
+    <string name="write_failed">Penulisan gagal</string>
+    <string name="reporting_issues_text">Masalah dapat dilaporkan di GitHub:
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nHarap salin dan tempel informasi teknis berikut, lalu tambahkan komentar apa pun di akhir masalah GitHub:</string>
+    <string name="reporting_issues">Melaporkan masalah</string>
+    <string name="operation_failed_because">Operasi tidak dapat diselesaikan karena terjadi galat berikut:</string>
+    <string name="troubleshooting_info">Info pemecahan masalah</string>
+    <string name="success_notif_content_text">%1$s berhasil ditulis ke %2$s</string>
+    <string name="error_notif_content_text">%1$s mungkin telah dicabut saat menulis.</string>
+    <string name="write_finished">Penulisan selesai</string>
+    <string name="failed_tap_for_info">Gagal • Ketuk untuk info</string>
+    <string name="result_channel_name">Pemberitahuan hasil tulis USB</string>
+    <string name="result_channel_desc">Digunakan untuk menampilkan hasil dari operasi tulis yang telah selesai</string>
+    <string name="cancel">Batal</string>
+    <string name="warning">Peringatan</string>
+    <string name="dataloss_confirmation_dialog_message">Jika Anda melanjutkan, image yang dipilih akan ditulis dan semua data yang disimpan di drive USB akan hilang selamanya!</string>
+    <string name="confirm_flash_image">Flash image</string>
+    <string name="dmg_alert_dialog_text">Meskipun dalam kebanyakan kasus, image DMG dapat dipulihkan dengan baik, terkadang ada inkonsistensi. Ini adalah peringatan.</string>
+    <string name="i_understand">Saya mengerti</string>
+    <string name="here_be_dragons">Inilah naga</string>
+    <string name="do_not_show_again">Jangan tunjukkan lagi</string>
+    <string name="no_usb_drives_detected">Tidak ada drive USB yang terdeteksi.
+\nPerhatikan bahwa Anda memerlukan kartu SD ke adaptor USB untuk menulis ke kartu SD.</string>
+    <string name="dmg_image_desc">Pulihkan gambar yang dibuat dengan Utilitas Disk macOS</string>
+    <string name="write_apple_dmg">Tulis image Apple® DMG</string>
+    <string name="raw_image_desc">Baik untuk ISO distro GNU/Linux, image Raspberry Pi, dan image disk yang dibuat di Windows atau Linux.</string>
+    <string name="write_image_or_iso">Tulis image mentah atau ISO</string>
+    <string name="could_not_access_usb_error">Tidak dapat mengakses perangkat USB. Mungkin Anda menjalankan aplikasi sebelumnya dan macet\? Lepaskan dan masukkan kembali drive USB, lalu mulai ulang aplikasi.</string>
+    <string name="partition_table_title">Tabel partisi:</string>
+    <string name="check_notification_progress">Periksa pemberitahuan untuk kemajuan</string>
+    <string name="title_activity_usb_drive_picker">Pilih drive USB</string>
+    <string name="about">Tentang</string>
+    <string name="part_size">Ukuran</string>
+    <string name="fs_label">Label</string>
+    <string name="part_label">Nama</string>
+    <string name="fs_linux_lvm_pv">Volume fisik Linux LVM2</string>
+    <string name="fs_linux_swap">Swap Linux</string>
+    <string name="notif_initializing">Inisialisasi…</string>
+    <string name="fs_free">Ruangan bebas</string>
+    <string name="now_press_again">Sekarang tekan lagi</string>
+    <string name="libressl_desc">LibreSSL adalah cabang dari OpenSSL 1.0.1g yang dikembangkan oleh proyek OpenBSD.</string>
+    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">BSD-like kustom</string>
+    <string name="license_custom_foss">FOSS Kustom</string>
+    <string name="contributor_german_task">Pengembang, penerjemah ru</string>
+    <string name="owner_task">Pemilik</string>
+    <string name="owner_bio">Menjadi pria dan Arch Linux. Saya suka Kotlin, Go, Python, dan tidur.</string>
+    <string name="step_x_of_y">Langkah %1$d dari %2$d</string>
+    <string name="broken_usb_title">Drive USB tidak didukung\?</string>
+    <string name="broken_usb_text">Jika Android mengatakan drive USB Anda bermasalah atau tidak didukung setelah menggunakan EtchDroid, baca ini.</string>
+    <string name="i2o_action_name">Salin data dari %1$s ke %2$s</string>
+    <string name="write_x_to_y">Tulis %1$s ke %2$s</string>
+    <string name="file_unknown">(tidak dikenal)</string>
+    <string name="job_failed">Pekerjaan gagal.</string>
+    <string name="done">Selesai!</string>
+    <string name="resuming_job">Melanjutkan dari tempat pemeriksaan…</string>
+    <string name="starting_job">Memulai pekerjaan…</string>
+    <string name="fs_luks">LUKS dienkripsi</string>
+    <string name="fs_apt_data">Data APT</string>
+    <string name="ptt_mac">Tabel Partisi Apple (APT)</string>
+    <string name="ptt_loop">Tidak ada</string>
+    <string name="ptt_gpt">Tabel Partisi GUID (GPT)</string>
+    <string name="image_is_not_dmg">Gambar yang dipilih bukan image DMG (mungkin rusak)</string>
+    <string name="notif_writing_img">Menulis image…</string>
+    <string name="notchan_writestatus_desc">Digunakan untuk menampilkan status image yang sedang ditulis ke drive USB</string>
+    <string name="notchan_writestatus_title">Status tulis USB</string>
+    <string name="tap_next_to_write">Ketuk Tulis untuk menulis image ke drive USB</string>
+    <string name="cant_read_usbdev">Tidak dapat membaca perangkat USB</string>
+    <string name="image_bigger_than_usb">Image lebih besar dari drive USB, sehingga tidak dapat ditulis</string>
+    <string name="unknown_filename">Nama file tidak diketahui</string>
+    <string name="selected_usbdev">Perangkat USB yang dipilih:</string>
+    <string name="selected_method">Metode penulisan yang dipilih:</string>
+    <string name="selected_image">Image yang dipilih:</string>
+    <string name="usb_perm_denied_noname">Izin ditolak untuk perangkat USB</string>
+    <string name="usb_perm_denied">Izin ditolak untuk</string>
+    <string name="action_refresh">Segarkan</string>
+    <string name="flash_woeusb">Tulis image Windows (menggunakan WoeUSB, membutuhkan root)</string>
+    <string name="flash_unetbootin">Flash gaya Unetbootin (hanya MBR, membutuhkan root)</string>
+    <string name="flash_dmg_api">Pulihkan image macOS DMG ke disk (menggunakan Android API)</string>
+    <string name="flash_dd_usb_api">Tulis image langsung ke disk (menggunakan Android API)</string>
+</resources>

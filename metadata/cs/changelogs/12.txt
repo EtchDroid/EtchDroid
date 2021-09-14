@@ -1,0 +1,2 @@
+• Aktualizace a opravy libaums přinesou zlepšenou spolehlivost s "vybíravými" zařízeními USB a zařízeními Android.
+• Aktualizace překladů.

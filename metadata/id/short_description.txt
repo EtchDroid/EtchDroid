@@ -1,0 +1,1 @@
+Tulis image ISO dan DMG ke drive USB, tidak perlu root

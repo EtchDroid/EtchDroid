@@ -1,0 +1,1 @@
+• Memperbaiki bug yang menyebabkan aplikasi mogok saat menekan tombol apa saja di Android 6.0.
