@@ -1,0 +1,3 @@
+• Lade till Turkisk översättning.
+• Uppdaterade LibreSSL till den senaste versionen.
+• Åtgärdade en bugg som orsakade att appen kraschade vid tryckning på någon knapp i Android 6.0.
