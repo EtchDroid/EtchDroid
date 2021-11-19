@@ -64,9 +64,10 @@
     <string name="operation_failed_because">A operação não pôde ser concluída porque ocorreu o seguinte erro:</string>
     <string name="reporting_issues">Relatando problemas</string>
     <string name="reporting_issues_text">Problemas podem ser relatados no GitHub:
-\nhttps://github.com/EtchDroid/EtchDroid/issues</string>
+\nhttps://github.com/EtchDroid/EtchDroid/issues
+\nPor favor, copie e cole as seguintes informações técnicas, depois adicione quaisquer comentários no final do relatório de erro do GitHub:</string>
     <string name="write_failed">Falha na gravação</string>
-    <string name="unknown_error">Erro desconhecido. Tente reconectar a unidade USB ou reinicialize o dispositivo. Por favor, preencha um relatório de erro no GitHub.</string>
+    <string name="unknown_error">Tente reconectar a unidade USB ou reinicialize o dispositivo. Por favor, preencha um relatório de erro no GitHub contendo as seguintes informações seguidas pelos seus comentários:</string>
     <string name="uncompressed">(não comprimido)</string>
     <string name="nightmode">Ativar modo noturno</string>
     <string name="nightmode_night">Desativar modo noturno</string>
@@ -98,7 +99,7 @@
     <string name="i2o_action_name">Copiar dados de %1$s para %2$s</string>
     <string name="step_x_of_y">Em %1$d de %2$d</string>
     <string name="broken_usb_title">Unidade USB sem suporte\?</string>
-    <string name="broken_usb_text">Se o Android diz que há um problema com a sua unidade USB ou que não é suportado após o uso do EtchDroid, leia isso.</string>
+    <string name="broken_usb_text">Se o Android disser que sua unidade USB tem um problema ou não é compatível após usar o EtchDroid, leia isso.</string>
     <string name="libressl_desc">LibreSSL é um fork de OpenSSL 1.0.1g desenvolvido pelo projecto OpenBSD.</string>
     <string name="license_custom_foss">FOSS personalizado</string>
     <string name="contributor_german_task">Desenvolvedor, tradutor ru</string>
