@@ -43,4 +43,5 @@
     <string name="usb_perm_denied_noname">USBデバイスへのアクセス権限が拒否されました</string>
     <string name="usb_perm_denied">権限が拒否されました</string>
     <string name="action_refresh">更新</string>
+    <string name="flash_woeusb">Windowsイメージの書き込み(WoeUSBを使用、root権限が必要)</string>
 </resources>
