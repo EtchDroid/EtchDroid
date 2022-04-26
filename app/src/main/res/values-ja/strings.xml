@@ -29,8 +29,8 @@
     <string name="ptt_gpt">GUIDパーティションテーブル（GPT）</string>
     <string name="notchan_writestatus_desc">USBドライブに書き込まれているイメージのステータスを表示するために使用されます</string>
     <string name="notchan_writestatus_title">USBの書き込み状況</string>
-    <string name="flash_dmg_api">macOS DMGイメージをディスクに復元する(Android APIを使用)</string>
-    <string name="flash_dd_usb_api">イメージをディスクに直接書き込む(Android APIを使用)</string>
+    <string name="flash_dmg_api">macOS DMGイメージをディスクに復元する（Android APIを使用）</string>
+    <string name="flash_dd_usb_api">イメージをディスクに直接書き込む（Android APIを使用）</string>
     <string name="selected_image">イメージ:</string>
     <string name="notif_writing_img">イメージを書き込み中…</string>
     <string name="notif_initializing">初期化中…</string>
