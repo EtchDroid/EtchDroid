@@ -20,13 +20,13 @@
     <string name="fs_unformatted">未フォーマット</string>
     <string name="fs_free">空き容量</string>
     <string name="fs_linux_lvm_pv">Linux LVM2物理ボリューム</string>
-    <string name="image_is_not_dmg">選択したイメージはDMGイメージではありません(イメージが破損している可能性があります)</string>
+    <string name="image_is_not_dmg">選択したイメージはDMGイメージではありません（イメージが破損している可能性があります）</string>
     <string name="fs_linux_swap">Linuxスワップ</string>
     <string name="fs_luks">LUKS暗号化</string>
     <string name="fs_apt_data">APTデータ</string>
-    <string name="ptt_mac">Appleパーティションテーブル(APT)</string>
+    <string name="ptt_mac">Appleパーティションテーブル（APT）</string>
     <string name="ptt_loop">なし</string>
-    <string name="ptt_gpt">GUIDパーティションテーブル(GPT)</string>
+    <string name="ptt_gpt">GUIDパーティションテーブル（GPT）</string>
     <string name="notchan_writestatus_desc">USBドライブに書き込まれているイメージのステータスを表示するために使用されます</string>
     <string name="notchan_writestatus_title">USBの書き込み状況</string>
     <string name="flash_dmg_api">macOS DMGイメージをディスクに復元する(Android APIを使用)</string>
@@ -43,7 +43,7 @@
     <string name="usb_perm_denied_noname">USBデバイスへのアクセス権限が拒否されました</string>
     <string name="usb_perm_denied">権限が拒否されました</string>
     <string name="action_refresh">更新</string>
-    <string name="flash_woeusb">Windowsイメージの書き込み(WoeUSBを使用、root権限が必要)</string>
+    <string name="flash_woeusb">Windowsイメージの書き込み（WoeUSBを使用、rootが必要）</string>
     <string name="flash_unetbootin">Unetbootinスタイルのフラッシュ（MBRのみ、rootが必要）</string>
     <string name="write_image_or_iso">RAWイメージもしくはISOを書き込む</string>
     <string name="warning">警告</string>
@@ -82,7 +82,7 @@
     <string name="owner_task">オーナー</string>
     <string name="dmg_alert_dialog_text">ほとんどの場合、DMGイメージは問題なく復元できますが、不整合がある場合もあります。これは警告です。</string>
     <string name="license_custom_foss">カスタムFOSS</string>
-    <string name="dataloss_confirmation_dialog_message">続行すると、選択したイメージが書き込まれ、USBドライブに保存されているすべてのデータが完全に失われます。</string>
+    <string name="dataloss_confirmation_dialog_message">続行すると、選択したイメージが書き込まれ、USBドライブに保存されているすべてのデータが完全に失われます！</string>
     <string name="operation_failed_because">次のエラーが発生したため、操作を完了できませんでした。</string>
     <string name="reporting_issues_text">問題はGitHubで報告できます：
 \nhttps://github.com/EtchDroid/EtchDroid/issues
@@ -93,4 +93,8 @@
     <string name="write_x_to_y">%1$sを%2$sに書き込む</string>
     <string name="contributor_german_task">開発者、ロシア語翻訳者</string>
     <string name="libressl_desc">LibreSSLは、OpenBSDプロジェクトによって開発されたOpenSSL1.0.1gのフォークです。</string>
+    <string name="i_understand">わかりました</string>
+    <string name="library_KotlinStdlib_libraryDescription">Kotlin 標準ライブラリは、Kotlinでの日常業務に必要な基本的な機能を提供します</string>
+    <string name="buy_me_a_coffee">コーヒーをおごる</string>
+    <string name="resuming_job">チェックポイントからの再開…</string>
 </resources>
