@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="flash_dd_usb_api">"فایل ایمیج داخل مسیر رو در  محل ذخیره بنویس"</string>
+</resources>
