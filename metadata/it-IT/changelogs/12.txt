@@ -1,2 +1,2 @@
-- Il recente aggiornamento di libaums porterà maggiore stabilità su chiavette di scarsa qualità e dispositivi Android "speciali"
-- Aggiornamento delle traduzioni
+• Il recente aggiornamento di libaums porterà maggiore stabilità su chiavette di scarsa qualità e dispositivi Android "speciali".
+• Aggiornamento delle traduzioni.
