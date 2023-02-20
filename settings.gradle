@@ -1,1 +1,1 @@
-include ':app', ':dmg2img'
+include ':app'

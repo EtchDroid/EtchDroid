@@ -11,7 +11,6 @@ import eu.depau.etchdroid.R
 import eu.depau.etchdroid.StateKeeper
 import eu.depau.etchdroid.libaums_wrapper.EtchDroidUsbMassStorageDevice.Companion.getMassStorageDevices
 import eu.depau.etchdroid.libaums_wrapper.kotlinexts.size
-import eu.depau.etchdroid.services.UsbApiDmgWriteService
 import eu.depau.etchdroid.services.UsbApiImgWriteService
 import eu.depau.etchdroid.ui.adapters.PartitionTableRecyclerViewAdapter
 import eu.depau.etchdroid.ui.misc.DoNotShowAgainDialogFragment
@@ -175,7 +174,6 @@ class ConfirmationActivity : ActivityBase() {
 
         val intent: Intent = when (StateKeeper.flashMethod) {
             FlashMethod.FLASH_API -> Intent(this, UsbApiImgWriteService::class.java)
-            FlashMethod.FLASH_DMG_API -> Intent(this, UsbApiDmgWriteService::class.java)
             else -> null!!
         }
 

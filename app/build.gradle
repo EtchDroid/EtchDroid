@@ -61,7 +61,6 @@ dependencies {
     implementation 'com.google.guava:guava:29.0-jre'
 
     implementation 'com.github.Depau:kotlet-android:v0.2.5'
-    implementation project(':dmg2img')
     implementation 'me.jfenn:Attribouter:0.1.5'
 
     implementation 'androidx.room:room-runtime:2.2.6'
