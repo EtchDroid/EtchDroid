@@ -21,4 +21,5 @@ android {
 		}
 	}
 	ndkVersion '21.0.6113669'
+    namespace 'org.eu.vu1tur.dmg2img'
 }

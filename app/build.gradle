@@ -7,12 +7,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion '29.0.3'
     defaultConfig {
         applicationId "eu.depau.etchdroid"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 13
         versionName "1.5.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -31,7 +31,9 @@ android {
         }
     }
     packagingOptions {
-        exclude 'META-INF/libaums_release.kotlin_module'
+        resources {
+            excludes += ['META-INF/libaums_release.kotlin_module']
+        }
     }
     compileOptions {
         encoding = 'UTF-8'
@@ -41,6 +43,7 @@ android {
     lintOptions {
         abortOnError false
     }
+    namespace 'eu.depau.etchdroid'
 }
 
 dependencies {
