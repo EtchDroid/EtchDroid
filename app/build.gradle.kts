@@ -49,8 +49,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    lintOptions {
-        isAbortOnError = false
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0"
     }
 }
 
@@ -59,14 +65,24 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.9.0")
 
+    // Compose
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
+    implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
+    implementation("androidx.compose.material3:material3:1.1.0-alpha06")
+
+    // Core dependencies
+    implementation("me.jahnen.libaums:core:0.9.1")
     implementation("com.github.Depau:kotlet-android:v0.2.5")
 
-    api("com.github.EtchDroid:libaums_wrapper:v0.8.0")
-    api("me.jahnen.libaums:libusbcommunication:0.2.2")
-
+    // Test dependencies
     androidTestImplementation("androidx.test:runner:1.5.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.5.0")
     testImplementation("org.mockito:mockito-core:5.1.1")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
+    debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
 }
