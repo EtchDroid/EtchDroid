@@ -69,8 +69,7 @@ object AppNotifications {
             builder.setContentText(contentText)
         else
             builder.setContentText(context.getString(R.string.notif_initializing))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            builder.setSmallIcon(smallIcon)
+        builder.setSmallIcon(smallIcon)
 
         builder.setOngoing(ongoing)
         builder.setProgress(100, progressPercent, indeterminate)
