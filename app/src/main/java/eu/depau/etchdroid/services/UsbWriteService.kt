@@ -5,11 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.PowerManager
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import eu.depau.etchdroid.R
-import eu.depau.etchdroid.ui.activities.ErrorActivity
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.ktexts.toHRTime
 import java.util.*
@@ -47,10 +45,10 @@ abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWrit
     abstract fun writeImage(intent: Intent): Long
 
     private fun calculateWriteSpeed(bytes: Long): Double =
-            max((bytes - previousBytes).toDouble() / (time - previousTime) * 1000, 0.0)
+        max((bytes - previousBytes).toDouble() / (time - previousTime) * 1000, 0.0)
 
     private fun calculateLastWriteSpeed(bytes: Long, deltaTime: Long): Double =
-            max(bytes.toDouble() / deltaTime * 1000, 0.0)
+        max(bytes.toDouble() / deltaTime * 1000, 0.0)
 
     // Notification rate limiting
     private fun shouldUpdateNotification(): Boolean {
@@ -61,17 +59,17 @@ abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWrit
     private fun createNotificationChannels() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val statusChannel = NotificationChannel(
-                    WRITE_PROGRESS_CHANNEL_ID,
-                    getString(R.string.notchan_writestatus_title),
-                    NotificationManager.IMPORTANCE_LOW
+                WRITE_PROGRESS_CHANNEL_ID,
+                getString(R.string.notchan_writestatus_title),
+                NotificationManager.IMPORTANCE_LOW
             ).apply {
                 description = getString(R.string.notchan_writestatus_desc)
             }
 
             val resultChannel = NotificationChannel(
-                    WRITE_RESULT_CHANNEL_ID,
-                    getString(R.string.result_channel_name),
-                    NotificationManager.IMPORTANCE_DEFAULT
+                WRITE_RESULT_CHANNEL_ID,
+                getString(R.string.result_channel_name),
+                NotificationManager.IMPORTANCE_DEFAULT
             ).apply {
                 description = getString(R.string.result_channel_desc)
             }
@@ -102,65 +100,72 @@ abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWrit
         previousBytes = bytes
 
         with(NotificationManagerCompat.from(this)) {
-            notify(FOREGROUND_ID, buildForegroundNotification(
+            notify(
+                FOREGROUND_ID, buildForegroundNotification(
                     usbDevice,
                     filename,
                     progr,
                     "$progr% • $speed/s"
-            ))
+                )
+            )
         }
     }
 
     fun resultNotification(
-            usbDevice: String,
-            filename: String,
-            exception: Throwable?,
-            bytes: Long = 0,
-            startTime: Long = 0
+        usbDevice: String,
+        filename: String,
+        exception: Throwable?,
+        bytes: Long = 0,
+        startTime: Long = 0
     ) {
         val notificationCompatBuilder = getNotificationBuilder(WRITE_RESULT_CHANNEL_ID)
-                .setOngoing(false)
+            .setOngoing(false)
 
         val deltaTime = System.currentTimeMillis() - startTime
 
         if (exception != null) {
-            val intent = Intent(this, ErrorActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            intent.putExtra("error", exception.message)
-            intent.putExtra("stacktrace", Log.getStackTraceString(exception))
-
-            val pendingIntent = PendingIntent.getActivity(
-                    this,
-                    0,
-                    intent,
-                    PendingIntent.FLAG_UPDATE_CURRENT
-            )
-
-            notificationCompatBuilder.setContentTitle(getString(R.string.failed_tap_for_info))
-                    .setContentText(getString(R.string.error_notif_content_text, usbDevice))
-                    .setStyle(NotificationCompat.BigTextStyle()
-                            .bigText(getString(R.string.error_notif_content_text, usbDevice)))
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-                    .setSubText(deltaTime.toHRTime())
+            TODO("Error notification")
+//            val intent = Intent(this, ErrorActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            intent.putExtra("error", exception.message)
+//            intent.putExtra("stacktrace", Log.getStackTraceString(exception))
+//
+//            val pendingIntent = PendingIntent.getActivity(
+//                    this,
+//                    0,
+//                    intent,
+//                    PendingIntent.FLAG_UPDATE_CURRENT
+//            )
+//
+//            notificationCompatBuilder.setContentTitle(getString(R.string.failed_tap_for_info))
+//                    .setContentText(getString(R.string.error_notif_content_text, usbDevice))
+//                    .setStyle(NotificationCompat.BigTextStyle()
+//                            .bigText(getString(R.string.error_notif_content_text, usbDevice)))
+//                    .setContentIntent(pendingIntent)
+//                    .setAutoCancel(true)
+//                    .setSubText(deltaTime.toHRTime())
         } else {
             val formattedLastWriteSpeed =
-                    calculateLastWriteSpeed(bytes, deltaTime).toHRSize() + "/s"
+                calculateLastWriteSpeed(bytes, deltaTime).toHRSize() + "/s"
 
             notificationCompatBuilder.setContentTitle(getString(R.string.write_finished))
-                    .setContentText(getString(
-                            R.string.success_notif_content_text,
-                            filename,
-                            usbDevice
-                    ))
-                    .setSubText("%1s • %2s • %3s".format(
-                            deltaTime.toHRTime(),
-                            bytes.toHRSize(),
-                            formattedLastWriteSpeed
-                    ))
+                .setContentText(
+                    getString(
+                        R.string.success_notif_content_text,
+                        filename,
+                        usbDevice
+                    )
+                )
+                .setSubText(
+                    "%1s • %2s • %3s".format(
+                        deltaTime.toHRTime(),
+                        bytes.toHRSize(),
+                        formattedLastWriteSpeed
+                    )
+                )
         }
 
-        notificationCompatBuilder.setSmallIcon(R.drawable.ic_usb_white_24dp)
+        notificationCompatBuilder.setSmallIcon(R.drawable.ic_usb)
 
         with(NotificationManagerCompat.from(this)) {
             notify(RESULT_NOTIFICATION_ID, notificationCompatBuilder.build())
@@ -168,11 +173,11 @@ abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWrit
     }
 
     private fun buildForegroundNotification(
-            usbDevice: String?,
-            filename: String?,
-            progress: Int,
-            subText: String? = null,
-            title: String = getString(R.string.notif_writing_img)
+        usbDevice: String?,
+        filename: String?,
+        progress: Int,
+        subText: String? = null,
+        title: String = getString(R.string.notif_writing_img)
     ): Notification {
 
         val notificationBuilder = getNotificationBuilder()
@@ -194,7 +199,7 @@ abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWrit
                 setContentText(getString(R.string.notif_initializing))
             }
 
-            setSmallIcon(R.drawable.ic_usb_white_24dp)
+            setSmallIcon(R.drawable.ic_usb)
 
             if (subText != null)
                 setSubText(subText)
@@ -204,8 +209,8 @@ abstract class UsbWriteService(val usbWriteName: String) : IntentService(usbWrit
     }
 
     private fun istTimeoutExpired(acquire: Boolean): Boolean =
-            acquire && mWakeLock != null && wlAcquireTime > 0 &&
-                    System.currentTimeMillis() < wlAcquireTime + WL_TIMEOUT - 5000
+        acquire && mWakeLock != null && wlAcquireTime > 0 &&
+                System.currentTimeMillis() < wlAcquireTime + WL_TIMEOUT - 5000
 
     fun wakeLock(acquire: Boolean) {
         // Do not reacquire wakelock if timeout not expired

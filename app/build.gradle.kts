@@ -74,7 +74,6 @@ dependencies {
 
     // Core dependencies
     implementation("me.jahnen.libaums:core:0.9.1")
-    implementation("com.github.Depau:kotlet-android:v0.2.5")
 
     // Test dependencies
     androidTestImplementation("androidx.test:runner:1.5.2")
@@ -85,4 +84,10 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
     debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
     debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
+
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
 }

@@ -56,7 +56,7 @@ object AppNotifications {
             ongoing: Boolean = true,
             progressPercent: Int = 0,
             indeterminate: Boolean = false,
-            smallIcon: Int = R.drawable.ic_usb_white_24dp
+            smallIcon: Int = R.drawable.ic_usb
     ): Notification {
 
         val builder = getNotificationBuilder(context, asyncProgressChannelId)
