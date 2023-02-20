@@ -1,7 +1,0 @@
-<resources>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="row_padding">10dp</dimen>
-    <dimen name="grid_padding">5dp</dimen>
-    <dimen name="card_margin">12dp</dimen>
-</resources>

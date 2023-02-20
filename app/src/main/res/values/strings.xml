@@ -159,4 +159,5 @@
     <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom BSD-like</string>
     <string name="libressl_desc">LibreSSL is a fork of OpenSSL 1.0.1g developed by the OpenBSD project.</string>
     <string name="now_press_again">Now press again</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

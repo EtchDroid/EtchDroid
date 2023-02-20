@@ -4,7 +4,7 @@
     <me.jfenn.attribouter.wedges.AppWedge repo="Depau/EtchDroid">
         <me.jfenn.attribouter.wedges.link.LinkWedge
             name="@string/fdroid"
-            icon="@drawable/ic_fdroid_logo_24dp"
+            icon="@drawable/ic_fdroid"
             url="https://f-droid.org/en/packages/eu.depau.etchdroid/" />
         <me.jfenn.attribouter.wedges.link.LinkWedge id="playStore" />
         <me.jfenn.attribouter.wedges.link.LinkWedge
