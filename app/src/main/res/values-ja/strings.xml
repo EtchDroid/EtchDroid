@@ -1,100 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="do_not_show_again">再度表示しない</string>
-    <string name="no_usb_drives_detected">USBドライブが検出されませんでした。
-\nSDカードに書き込むには、USBのSDカードリーダーが必要であることに注意してください。</string>
-    <string name="dmg_image_desc">macOSディスクユーティリティで作成したイメージを復元する</string>
-    <string name="write_apple_dmg">Apple® DMGイメージを書き込む</string>
-    <string name="raw_image_desc">GNU/LinuxディストリビューションのISO、Raspberry Piイメージ、およびWindowsまたはLinuxで作成されたディスクイメージに適しています。</string>
-    <string name="could_not_access_usb_error">USBデバイスにアクセスできませんでした。以前にアプリを実行してクラッシュした可能性がありますか？ USBドライブを取り外して再度挿入してから、アプリを再起動してください。</string>
-    <string name="partition_table_title">パーティションテーブル:</string>
-    <string name="cannot_write">イメージをUSBドライブに書き込めません</string>
-    <string name="title_activity_confirmation">書き込む準備ができました</string>
-    <string name="title_activity_usb_drive_picker">USB ドライブを選択</string>
-    <string name="about">詳細</string>
-    <string name="part_size">サイズ</string>
-    <string name="fs_type">タイプ</string>
-    <string name="fs_label">ラベル</string>
-    <string name="part_label">名前</string>
-    <string name="fs_unknown">不明</string>
-    <string name="fs_unformatted">未フォーマット</string>
-    <string name="fs_free">空き容量</string>
-    <string name="fs_linux_lvm_pv">Linux LVM2物理ボリューム</string>
-    <string name="image_is_not_dmg">選択したイメージはDMGイメージではありません（イメージが破損している可能性があります）</string>
-    <string name="fs_linux_swap">Linuxスワップ</string>
-    <string name="fs_luks">LUKS暗号化</string>
-    <string name="fs_apt_data">APTデータ</string>
-    <string name="ptt_mac">Appleパーティションテーブル（APT）</string>
-    <string name="ptt_loop">なし</string>
-    <string name="ptt_gpt">GUIDパーティションテーブル（GPT）</string>
-    <string name="notchan_writestatus_desc">USBドライブに書き込まれているイメージのステータスを表示するために使用されます</string>
-    <string name="notchan_writestatus_title">USBの書き込み状況</string>
-    <string name="flash_dmg_api">macOS DMGイメージをディスクに復元する（Android APIを使用）</string>
-    <string name="flash_dd_usb_api">イメージをディスクに直接書き込む（Android APIを使用）</string>
-    <string name="selected_image">イメージ:</string>
-    <string name="notif_writing_img">イメージを書き込み中…</string>
-    <string name="notif_initializing">初期化中…</string>
-    <string name="tap_next_to_write">[書き込み]をタップして、イメージをUSBドライブに書き込みます</string>
-    <string name="cant_read_usbdev">USBドライブを読み込めません</string>
-    <string name="image_bigger_than_usb">イメージがUSBドライブの容量よりも大きいため、書き込みできません</string>
     <string name="unknown_filename">不明なファイル名</string>
-    <string name="selected_usbdev">USBデバイス:</string>
-    <string name="selected_method">書き込み方法:</string>
-    <string name="usb_perm_denied_noname">USBデバイスへのアクセス権限が拒否されました</string>
-    <string name="usb_perm_denied">権限が拒否されました</string>
-    <string name="action_refresh">更新</string>
-    <string name="flash_woeusb">Windowsイメージの書き込み（WoeUSBを使用、rootが必要）</string>
-    <string name="flash_unetbootin">Unetbootinスタイルのフラッシュ（MBRのみ、rootが必要）</string>
-    <string name="write_image_or_iso">RAWイメージもしくはISOを書き込む</string>
-    <string name="warning">警告</string>
     <string name="cancel">キャンセル</string>
-    <string name="result_channel_desc">完了した書き込み操作の結果を表示するために使用されます</string>
-    <string name="result_channel_name">USB書き込み結果の通知</string>
-    <string name="failed_tap_for_info">失敗 • タップして情報を表示</string>
     <string name="write_finished">書き込み終了</string>
-    <string name="error_notif_content_text">%1$sの書き込み中にプラグが抜かれた可能性があります。</string>
     <string name="success_notif_content_text">%1$sは%2$sに正常に書き込まれました</string>
-    <string name="troubleshooting_info">トラブルシューティング情報</string>
-    <string name="reporting_issues">問題の報告</string>
     <string name="write_failed">書き込みに失敗しました</string>
-    <string name="uncompressed">（非圧縮）</string>
-    <string name="nightmode">ナイトモードを有効にする</string>
-    <string name="nightmode_night">ナイトモードを無効にする</string>
-    <string name="android_pie_bug">Android Pieのバグ</string>
-    <string name="android_pie_bug_dialog_text">Android 9にはバグがあり、一部の書き込みが失敗します。
-\n「書き込みに失敗しました」と表示された場合は、デバイスを再起動して再試行してください。</string>
-    <string name="reset_warnings">すべての警告をリセットする</string>
-    <string name="warnings_reset">すべての警告ダイアログが復元されました</string>
-    <string name="file_type_not_supported">対応していないファイル形式</string>
-    <string name="cannot_find_file_in_storage">内部ストレージにファイルが見つかりません。アプリ内から開いてみてください。</string>
-    <string name="storage_permission_required">DMGイメージを読み取るには、ストレージの許可が必要です</string>
-    <string name="library_KotlinStdlib_libraryName">Kotlin標準ライブラリ</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">現在のジョブの進行状況を表示するために使用されます</string>
     <string name="notif_channel_job_progress_name">ジョブの進捗状況</string>
-    <string name="notif_starting_job">ジョブを開始しています…</string>
-    <string name="starting_job">ジョブを開始しています…</string>
-    <string name="done">完了!</string>
-    <string name="i2o_action_name">%1$sから%2$sにデータをコピーします</string>
-    <string name="job_failed">ジョブの失敗。</string>
-    <string name="file_unknown">(不明)</string>
-    <string name="broken_usb_text">EtchDroidの使用後にUSBドライブに問題がある、またはサポートされていないとAndroidが判断した場合は、こちらをお読みください。</string>
-    <string name="broken_usb_title">USBドライブがサポートされていませんか\?</string>
-    <string name="owner_task">オーナー</string>
-    <string name="dmg_alert_dialog_text">ほとんどの場合、DMGイメージは問題なく復元できますが、不整合がある場合もあります。これは警告です。</string>
-    <string name="license_custom_foss">カスタムFOSS</string>
-    <string name="dataloss_confirmation_dialog_message">続行すると、選択したイメージが書き込まれ、USBドライブに保存されているすべてのデータが完全に失われます！</string>
-    <string name="operation_failed_because">次のエラーが発生したため、操作を完了できませんでした。</string>
-    <string name="reporting_issues_text">問題はGitHubで報告できます：
-\nhttps://github.com/EtchDroid/EtchDroid/issues
-\n次の技術情報をコピーして貼り付け、GitHubのissueの最後にコメントを追加してください。</string>
-    <string name="library_AndroidX_libraryDescription">AndroidXは、元のAndroidサポートライブラリの大幅な改善であり、Androidリリース間での下位互換性を提供します</string>
-    <string name="unknown_error">USBドライブを再接続するか、デバイスを再起動してみてください。次の情報とそれに続くコメントを含むissueをGitHubに提出してください。</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">完了したジョブの結果を表示するために使用されます</string>
-    <string name="write_x_to_y">%1$sを%2$sに書き込む</string>
-    <string name="contributor_german_task">開発者、ロシア語翻訳者</string>
-    <string name="libressl_desc">LibreSSLは、OpenBSDプロジェクトによって開発されたOpenSSL1.0.1gのフォークです。</string>
-    <string name="i_understand">わかりました</string>
-    <string name="library_KotlinStdlib_libraryDescription">Kotlin 標準ライブラリは、Kotlinでの日常業務に必要な基本的な機能を提供します</string>
-    <string name="buy_me_a_coffee">コーヒーをおごる</string>
-    <string name="resuming_job">チェックポイントからの再開…</string>
 </resources>

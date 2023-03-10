@@ -1,108 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="file_unknown">(necunoscut)</string>
-    <string name="done">Terminat!</string>
-    <string name="resuming_job">Începere din checkpoint…</string>
-    <string name="starting_job">Începere acțiune…</string>
-    <string name="notif_starting_job">Începere acțiune…</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Folosit pentru afișare rezultat de acțiune terminat</string>
     <string name="notif_channel_job_result_name">Rezultat de acțiune</string>
     <string name="notif_channel_job_progress_name">Acțiune progres</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Folosit pentru afișare progres la curent acțiune</string>
-    <string name="i_understand">Am înțeles</string>
-    <string name="cannot_write">Nu poate scrie imaginul la disc USB</string>
-    <string name="title_activity_confirmation">Gata pentru scriere</string>
-    <string name="title_activity_usb_drive_picker">Selectează disc USB</string>
-    <string name="part_size">Dimensiune</string>
-    <string name="fs_type">Tip</string>
-    <string name="fs_label">Etichete</string>
-    <string name="part_label">Nume</string>
-    <string name="fs_unknown">Necunoscut</string>
-    <string name="fs_free">Stocare disponibil</string>
-    <string name="ptt_loop">Nimic</string>
-    <string name="image_is_not_dmg">Imagine selectat nu este DMG imaginul (poate este stricat)</string>
-    <string name="notif_writing_img">Scrie imagine…</string>
-    <string name="notif_initializing">Inițializând…</string>
-    <string name="notchan_writestatus_desc">Utilizat pentru afișati statul de imagineuri în scriere la discuri USB</string>
-    <string name="notchan_writestatus_title">Stat de scriere pentru USB</string>
-    <string name="tap_next_to_write">Atingeți Scrie pentru scriere imaginul la discul USB</string>
-    <string name="cant_read_usbdev">Nu poate citire dispozitiv USB</string>
-    <string name="flash_unetbootin">Unetbootin flash stilul (Numai MBR, necesită root-ul)</string>
-    <string name="flash_dmg_api">Restabilește macOS DMG imagine la discul (utilizând Android API)</string>
-    <string name="flash_dd_usb_api">Scrie imagine la discul (utilizând Android API)</string>
-    <string name="image_bigger_than_usb">Nu poate scrie imagine deoarece el este mai mare ca dispozitiv USB</string>
     <string name="unknown_filename">Nume de fișier neconosciut</string>
-    <string name="usb_perm_denied">Acces refuzat pentru</string>
-    <string name="selected_usbdev">Dispozitiv USB selectat:</string>
-    <string name="selected_method">Mod de scrie selectat:</string>
-    <string name="selected_image">Imagine selectat:</string>
-    <string name="usb_perm_denied_noname">Acces refuzat pentru dispozitiv USB</string>
-    <string name="action_refresh">Reîncarcă</string>
-    <string name="flash_woeusb">Scrie imagine de Windows (utilizând WoeUSB, necesită root-ul)</string>
-    <string name="about">Despre</string>
-    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Similar la BSD</string>
-    <string name="fs_unformatted">Neformatată</string>
-    <string name="fs_linux_lvm_pv">Volumul fizic Linux LVM2</string>
-    <string name="fs_linux_swap">Swap Linux</string>
-    <string name="fs_luks">LUKS criptat</string>
-    <string name="fs_apt_data">Datele APT</string>
-    <string name="ptt_mac">Tabel Partiții Apple (APT)</string>
-    <string name="ptt_gpt">Tabel Partiții GUID (GPT)</string>
-    <string name="step_x_of_y">Pas %1$d de %2$d</string>
-    <string name="broken_usb_title">Unitatea USB nesuportat\?</string>
-    <string name="broken_usb_text">Dacă Android zice ca există o problemă cu unitate USB tău sau ca este nesuportat după utilizarea EtchDroid, citește acest.</string>
-    <string name="i2o_action_name">Copiați datele de la %1$s la %2$s</string>
-    <string name="write_x_to_y">Scrie %1$s la %2$s</string>
-    <string name="job_failed">Operație a eșuat.</string>
-    <string name="buy_me_a_coffee">Cumpărați o cafea pe mine</string>
-    <string name="library_KotlinStdlib_libraryDescription">Kotlin Standard Library furnizează funcții esențiale pentru să lucre cu Kotlin</string>
-    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="file_type_not_supported">Tip de fișier nesuportat</string>
-    <string name="android_pie_bug">Bug de Android Pie</string>
-    <string name="nightmode_night">Dezactivează modul de noapte</string>
-    <string name="nightmode">Activează modul de noapte</string>
-    <string name="uncompressed">(necomprimat)</string>
-    <string name="unknown_error">Încercați să atașați din nou unitatea USB sau reporniți dispozitivul. Vă rugăm să depuneți o problemă pe GitHub. Asigurați-vă că copiați și inserați următoarele informații, apoi adăugați comentariile la final:</string>
     <string name="write_failed">Scriere a eșuat</string>
-    <string name="reporting_issues_text">Problemele pot fi raportate pe GitHub:
-\nhttps://github.com/EtchDroid/EtchDroid/issues
-\nVă rugăm să copiați și să lipiți următoarele informații tehnice, apoi adăugați orice comentarii la sfârșitul problemei GitHub:</string>
-    <string name="reporting_issues">Raportare probleme</string>
-    <string name="troubleshooting_info">Informații de depanare</string>
     <string name="success_notif_content_text">%1$s scris cu succes pe %2$s</string>
-    <string name="error_notif_content_text">Este posibil ca %1$s să fi fost deconectat în timpul scrierii.</string>
     <string name="write_finished">Operațiune de scriere terminat</string>
-    <string name="failed_tap_for_info">Eșuat • Atingeți pentru info</string>
-    <string name="result_channel_name">Notificări de rezultat de scriere pe unitate USB</string>
-    <string name="here_be_dragons">Hic sunt dracones</string>
     <string name="cancel">Anulare</string>
-    <string name="warning">Avertizare</string>
-    <string name="dataloss_confirmation_dialog_message">Dacă continui, imaginea selectat va fi scris și toate datele pe discul USB vor fi pierdut pentru totdeauna!</string>
-    <string name="confirm_flash_image">Imagine flash</string>
-    <string name="dmg_alert_dialog_text">Chiar dacă de obicei imagini DMG poate să restaureze bine, uneori pot există neconcordanțe. Acest este o avertizare.</string>
-    <string name="do_not_show_again">Nu mai arată</string>
-    <string name="no_usb_drives_detected">Nu a fost detectată nicio unitate USB.
-\nRețineți că aveți nevoie de un card SD către adaptor USB pentru a scrie pe carduri SD.</string>
-    <string name="dmg_image_desc">Restaurează o imagine creat cu Utilitar Disc de macOS</string>
-    <string name="write_apple_dmg">Scrie imagine Apple® DMG</string>
-    <string name="raw_image_desc">Bun pentru ISO de GNU/Linux distro, imagini de Raspberry Pi și imagini de discuri creat pe Windows sau Linux.</string>
-    <string name="write_image_or_iso">Scrie imagine brută sau ISO</string>
-    <string name="could_not_access_usb_error">Nu poate accesare dispozitivul USB. Poate că ar fi executat aplicație înainte și a închis neașteptat\? Scoateți și reintroduceți discul USB, apoi reporniți aplicarea.</string>
-    <string name="partition_table_title">Tabela de partiții:</string>
-    <string name="check_notification_progress">Vezi notificare pentru progres</string>
-    <string name="android_pie_bug_dialog_text">Există un defect pe Android 9 care face ca unele scrieri să eșueze.
-\nDacă scrie „Scriere eșuată”, reporniți dispozitivul și încercați din nou.</string>
-    <string name="now_press_again">Acum apăsați din nou</string>
-    <string name="libressl_desc">LibreSSL este un fork al OpenSSL 1.0.1g dezvoltat de proiectul OpenBSD.</string>
-    <string name="license_custom_foss">FOSS personalizat</string>
-    <string name="contributor_german_task">Dezvoltator, traducător ru</string>
-    <string name="owner_task">Proprietar</string>
-    <string name="library_Material_libraryDescription">Realizați produse frumoase, mai repede. Materialul este un sistem de proiectare - susținut de cod open-source - care ajută echipele să construiască experiențe digitale</string>
-    <string name="library_AndroidX_libraryDescription">AndroidX este o îmbunătățire majoră a bibliotecii de asistență Android originale și oferă compatibilitate inversă între versiunile Android</string>
-    <string name="storage_permission_required">Este necesară permisiunea de stocare pentru a citi imaginile DMG</string>
-    <string name="cannot_find_file_in_storage">Nu se poate găsi fișierul în spațiul de stocare intern. Încercați să-l deschideți din aplicație.</string>
-    <string name="warnings_reset">Toate dialogurile de avertizare au fost restaurate</string>
-    <string name="reset_warnings">Resetați toate avertismentele</string>
-    <string name="operation_failed_because">Operațiunea nu a putut fi finalizată deoarece a apărut următoarea eroare:</string>
-    <string name="result_channel_desc">Folosit pentru a afișa rezultatul unei operații de scriere terminate</string>
 </resources>

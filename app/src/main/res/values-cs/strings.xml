@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="flash_dd_usb_api">Zápis obrazu přímo na disk (pomocí Android API)</string>
     <string name="write_failed">Zápis selhal</string>
-    <string name="reporting_issues_text">Problémy lze hlásit na GitHubu:
-\nhttps://github.com/EtchDroid/EtchDroid/issues
-\nProsíme, zkopírujte a vložte následující technické informace a potom vložte jakékoliv komentáře na konec:</string>
-    <string name="reporting_issues">Hlášení problémů</string>
-    <string name="operation_failed_because">Operaci nebylo možné dokončit, protože došlo k následující chybě:</string>
-    <string name="troubleshooting_info">Informace o řešení problému</string>
     <string name="success_notif_content_text">%1$s úspěšně zapsán na %2$s</string>
-    <string name="error_notif_content_text">%1$s mohl být odpojen při zápisu.</string>
     <string name="write_finished">Zápis dokončen</string>
     <string name="cancel">Zrušit</string>
-    <string name="warning">Varování</string>
-    <string name="dataloss_confirmation_dialog_message">Pokud budete pokračovat, vybraný obraz bude zapsán a všechna data na úložišti USB budou navždy ztracena!</string>
-    <string name="dmg_alert_dialog_text">I když obrazy DMG mohou být obnoveny v pořádku, někdy mohou nastat nesrovnalosti. Toto je varování.</string>
-    <string name="i_understand">Chápu</string>
-    <string name="no_usb_drives_detected">Nebyla detekována žádná úložiště USB.
-\nMějte na paměti, že abyste mohli zapisovat na SD karty, potřebujete USB adaptér.</string>
-    <string name="write_apple_dmg">Zapsat obraz Apple® DMG</string>
-    <string name="raw_image_desc">Vhodné pro ISO distribucí GNU/Linux, obrazy Raspberry Pi a obrazů disků vytvořených na systémech Windows nebo Linux.</string>
-    <string name="could_not_access_usb_error">Přístup k zařízení USB se nedařil. Možná jste předtím použili aplikaci a spadla\? Odpojte a připojte zařízení USB a potom restartujte aplikaci.</string>
-    <string name="cannot_write">Nelze zapsat obraz na úložiště USB</string>
-    <string name="title_activity_confirmation">Připraveno k zápisu</string>
-    <string name="part_size">Velikost</string>
-    <string name="fs_type">Typ</string>
-    <string name="fs_label">Štítek</string>
-    <string name="part_label">Název</string>
-    <string name="fs_unknown">Neznámý</string>
-    <string name="fs_free">Volné místo</string>
-    <string name="image_is_not_dmg">Vybraný obraz není DMG (možná je poškozen)</string>
-    <string name="notif_writing_img">Zapisování obrazu…</string>
-    <string name="notif_initializing">Inicializace…</string>
-    <string name="cant_read_usbdev">Nelze číst zařízení USB</string>
-    <string name="image_bigger_than_usb">Obraz je větší než úložiště USB, proto nemůže být zapsán</string>
     <string name="unknown_filename">Neznámý název souboru</string>
-    <string name="selected_usbdev">Vybrané zařízení USB:</string>
 </resources>

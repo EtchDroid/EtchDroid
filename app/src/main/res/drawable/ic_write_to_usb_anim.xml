@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/ic_write_to_usb"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/ic_write_to_usb_f1"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/ic_write_to_usb_f2"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/ic_write_to_usb_f3"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/ic_write_to_usb_f4"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/ic_write_to_usb_f5"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/ic_write_to_usb_f6"
+        android:duration="200" />
+</animation-list>

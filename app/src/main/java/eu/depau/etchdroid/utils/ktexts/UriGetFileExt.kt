@@ -11,6 +11,6 @@ fun Uri.getExtension(contentResolver: ContentResolver): String {
             val mime = MimeTypeMap.getSingleton()
             mime.getExtensionFromMimeType(contentResolver.getType(this))!!
         }
-        else -> MimeTypeMap.getFileExtensionFromUrl(Uri.fromFile(File(path)).toString())
+        else -> MimeTypeMap.getFileExtensionFromUrl(Uri.fromFile(File(path!!)).toString())
     }
 }

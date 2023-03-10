@@ -7,14 +7,14 @@ import android.provider.OpenableColumns
 const val TAG = "UriGetFileNameExt"
 
 fun Uri.getFileName(context: Context): String? {
-
     var result: String? = null
 
     if (this.scheme == "content") {
         val cursor = context.contentResolver.query(this, null, null, null, null)
         cursor.use {
             if (it != null && it.moveToFirst()) {
-                result = it.getString(it.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+                val colIndex = it.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                result = it.getString(colIndex)
             }
         }
     }

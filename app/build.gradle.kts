@@ -39,6 +39,16 @@ android {
             )
         }
     }
+    flavorDimensions += "store"
+    productFlavors {
+        create("foss") {
+            isDefault = true
+            dimension = "store"
+        }
+        create("gplay") {
+            dimension = "store"
+        }
+    }
     packagingOptions {
         resources {
             excludes += "META-INF/libaums_release.kotlin_module"
@@ -64,16 +74,43 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${rootProject.extra["kotlin_version"]}")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.9.0")
+    implementation("com.google.android.material:material:1.9.0-alpha02")
+    implementation("androidx.lifecycle:lifecycle-service:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
 
     // Compose
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
     implementation("androidx.activity:activity-compose:1.6.1")
     implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
-    implementation("androidx.compose.material3:material3:1.1.0-alpha06")
+    implementation("androidx.compose.material3:material3:1.1.0-alpha07")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.29.1-alpha")
+    implementation("com.google.accompanist:accompanist-permissions:0.29.1-alpha")
+    implementation("androidx.compose.material:material-icons-extended:1.4.0-beta02")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation("com.airbnb.android:lottie-compose:6.0.0")
+    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation("io.coil-kt:coil-gif:2.1.0")
 
     // Core dependencies
-    implementation("me.jahnen.libaums:core:0.9.1")
+//    implementation("me.jahnen.libaums:core:0.9.1")
+//    implementation("me.jahnen.libaums:libusbcommunication:0.2.2")
+    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
+    implementation("androidx.compose.ui:ui-graphics")
+
+    // TODO: Remove this once libaums is updated
+    implementation(
+        files("/home/depau/StudioProjects/libaums/libaums/build/outputs/aar/libaums-release.aar")
+    )
+    implementation(
+        files(
+            "/home/depau/StudioProjects/libaums/libusbcommunication/build/outputs/aar/libusbcommunication-release.aar"
+        )
+    )
+
+    // Google Play
+    "gplayImplementation"("com.google.android.play:review:2.0.1")
+    "gplayImplementation"("com.google.android.play:review-ktx:2.0.1")
 
     // Test dependencies
     androidTestImplementation("androidx.test:runner:1.5.2")
@@ -81,9 +118,14 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.5.0")
     testImplementation("org.mockito:mockito-core:5.1.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
+    androidTestImplementation(
+        "androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}"
+    )
+    androidTestImplementation(platform("androidx.compose:compose-bom:2022.10.00"))
     debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
+    debugImplementation(
+        "androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}"
+    )
 
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {

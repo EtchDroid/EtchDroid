@@ -9,7 +9,7 @@ private fun <T> humanReadableByteCount(bytes: T, si: Boolean = true): String whe
     val unit: Long = if (si) 1000 else 1024
     if (bytes.toLong() < unit) return String.format("%.1f B", bytes.toDouble())
     val exp = (ln(bytes.toDouble()) / ln(unit.toDouble())).toInt()
-    val pre = (if (si) "kMGTPE" else "KMGTPE")[exp - 1] + if (si) "" else "i"
+    val pre = "KMGTPE"[exp - 1] + if (si) "" else "i"
     return String.format("%.1f %sB", bytes.toDouble() / unit.toDouble().pow(exp.toDouble()), pre)
 }
 

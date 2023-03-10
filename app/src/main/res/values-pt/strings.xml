@@ -1,109 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="contributor_german_task">Desenvolvedor, tradutor ru</string>
-    <string name="libressl_desc">LibreSSL é uma bifurcação de OpenSSL 1.0.1g desenvolvido pelo projeto OpenBSD.</string>
-    <string name="license_custom_foss">FOSS personalizado</string>
-    <string name="owner_task">Dono</string>
-    <string name="owner_bio">Em pessoas e Arch Linux. Gosto de Kotlin, Go, Python e dormir.</string>
-    <string name="broken_usb_title">Unidade USB sem suporte\?</string>
-    <string name="broken_usb_text">Se o Android indicar que a sua unidade USB tem um problema ou não é suportada depois de usar o EtchDroid, leia isto.</string>
-    <string name="step_x_of_y">Em %1$d de %2$d</string>
-    <string name="i2o_action_name">Copiar dados de %1$s para %2$s</string>
-    <string name="write_x_to_y">Escrita %1$s até %2$s</string>
-    <string name="file_unknown">(desconhecido)</string>
-    <string name="job_failed">Operação falhou.</string>
-    <string name="done">Pronto!</string>
-    <string name="resuming_job">A resumir a partir do ponto de controlo…</string>
-    <string name="starting_job">A iniciar a operação…</string>
-    <string name="notif_starting_job">A iniciar a operação…</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Usado para mostrar uma operação completa</string>
     <string name="notif_channel_job_result_name">Resultado da operação</string>
     <string name="notif_channel_job_progress_name">Progresso da operação</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Usado para mostrar o progresso do trabalho atual</string>
-    <string name="buy_me_a_coffee">Compre-me um café</string>
-    <string name="library_Material_libraryDescription">Faça produtos bonitos, mais rápido. Material é um sistema de design - apoiado por código-fonte livre - que ajuda as equipas a construir experiências digitais</string>
-    <string name="library_KotlinStdlib_libraryDescription">A biblioteca padrão do Kotlin fornece elementos essenciais para o trabalho quotidiano com Kotlin</string>
-    <string name="library_KotlinStdlib_libraryName">Biblioteca padrão do Kotlin</string>
-    <string name="library_AndroidX_libraryDescription">AndroidX é uma grande melhoria à biblioteca original de suporte do Android e oferece compatibilidade com versões anteriores dos lançamentos do Android</string>
-    <string name="storage_permission_required">É necessária permissão de armazenamento para ler imagens DMG</string>
-    <string name="cannot_find_file_in_storage">Não foi possível localizar o ficheiro no armazenamento interno. Tente abri-lo por meio da app.</string>
-    <string name="file_type_not_supported">Sem suporte ao tipo de ficheiro</string>
-    <string name="warnings_reset">Todos os diálogos de aviso foram restaurados</string>
-    <string name="reset_warnings">Restaurar todos avisos</string>
-    <string name="android_pie_bug_dialog_text">Há um erro no Android 9 que faz com que algumas gravações falhem.
-\nSe disser \"Falha na gravação\", reinicie o aparelho e tente novamente.</string>
-    <string name="android_pie_bug">Erro no Android Pie</string>
-    <string name="nightmode_night">Desativar modo noturno</string>
-    <string name="nightmode">Ativar modo noturno</string>
-    <string name="uncompressed">(não comprimido)</string>
-    <string name="unknown_error">Tente reconectar a unidade USB ou reinicialize o aparelho. Por favor, preencha um relatório de erro no GitHub contendo a seguinte informação seguida pelos seus comentários:</string>
     <string name="write_failed">Falha na gravação</string>
-    <string name="reporting_issues_text">Os problemas podem ser relatados no GitHub:
-\nhttps://github.com/EtchDroid/EtchDroid/issues
-\nPor favor, copie e cole as seguintes informações técnicas, depois adicione qualquer comentário no final do relatório de erro no GitHub:</string>
-    <string name="reporting_issues">Relatar problemas</string>
-    <string name="operation_failed_because">A operação não pôde ser concluída porque ocorreu o seguinte erro:</string>
-    <string name="troubleshooting_info">Informações de solução de problemas</string>
     <string name="success_notif_content_text">%1$s gravado com sucesso para %2$s</string>
-    <string name="error_notif_content_text">%1$s pode ter sido desconectado durante a gravação.</string>
     <string name="write_finished">Gravação finalizada</string>
-    <string name="failed_tap_for_info">Falha · Toque para info</string>
-    <string name="result_channel_name">Notificação de resultado de gravação de USB</string>
-    <string name="result_channel_desc">Usado para mostrar o resultado de uma operação de gravação finalizada</string>
     <string name="cancel">Cancelar</string>
-    <string name="warning">Aviso</string>
-    <string name="dataloss_confirmation_dialog_message">Se continuar, a imagem selecionada será gravada e todos os dados armazenados na unidade USB serão perdidos para sempre!</string>
-    <string name="confirm_flash_image">Instalar imagem</string>
-    <string name="dmg_alert_dialog_text">Enquanto que na maioria dos casos as imagens DMG podem ser restauradas sem problemas, às vezes pode haver inconsistências. Isto é um aviso.</string>
-    <string name="i_understand">Entendo</string>
-    <string name="here_be_dragons">Aqui há dragões</string>
-    <string name="do_not_show_again">Não mostrar novamente</string>
-    <string name="no_usb_drives_detected">Nenhuma imagem USB detetada.
-\nNote que precisa de um adaptador de cartão SD para USB para gravar em cartões SD.</string>
-    <string name="dmg_image_desc">Restaure uma imagem criada com Utilitário de Disco do macOS</string>
-    <string name="write_apple_dmg">Gravar imagem Apple DMG</string>
-    <string name="raw_image_desc">Bom para ISOs de distribuições GNU/Linux, imagens Raspberry Pi e imagens de disco criadas em Windows ou Linux.</string>
-    <string name="write_image_or_iso">Gravar imagem raw ou ISO</string>
-    <string name="could_not_access_usb_error">Não foi possível aceder à unidade USB. Talvez tenha usado a app anteriormente e ela encravou\? Remova e torne a inserir a unidade USB e reinicie a app.</string>
-    <string name="partition_table_title">Tabela de partição:</string>
-    <string name="check_notification_progress">Verificar notificação do progresso</string>
-    <string name="cannot_write">Não foi possível gravar a imagem na unidade USB</string>
-    <string name="title_activity_confirmation">Pronto para gravar</string>
-    <string name="title_activity_usb_drive_picker">Selecionar unidade USB</string>
-    <string name="about">Sobre</string>
-    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Tipo BSD</string>
-    <string name="part_size">Tamanho</string>
-    <string name="fs_type">Tipo</string>
-    <string name="fs_label">Rótulo</string>
-    <string name="part_label">Nome</string>
-    <string name="fs_unknown">Desconhecido</string>
-    <string name="fs_unformatted">Não formatado</string>
-    <string name="fs_free">Espaço livre</string>
-    <string name="fs_linux_lvm_pv">Volume físico de LVM2 Linux</string>
-    <string name="fs_linux_swap">Swap do Linux</string>
-    <string name="fs_luks">Criptografado com LUKS</string>
-    <string name="fs_apt_data">Dados APT</string>
-    <string name="ptt_mac">Tabela de Partição Apple (APT)</string>
-    <string name="ptt_loop">Nenhuma</string>
-    <string name="ptt_gpt">Tabela de Partição GUID (GPT)</string>
-    <string name="image_is_not_dmg">A imagem selecionada não é uma imagem DMG (talvez ela esteja corrompida)</string>
-    <string name="notif_writing_img">A gravar a imagem…</string>
-    <string name="notif_initializing">A inicializar…</string>
-    <string name="notchan_writestatus_desc">Usado para mostrar o estado das imagens a serem gravadas em unidades USB</string>
-    <string name="notchan_writestatus_title">Estado de gravação em USB</string>
-    <string name="tap_next_to_write">Toque em Gravar para gravar a imagem na unidade USB</string>
-    <string name="cant_read_usbdev">Não foi possível ler a unidade USB</string>
-    <string name="image_bigger_than_usb">A imagem ocupa mais espaço que a unidade USB, por isso não pode ser gravada</string>
     <string name="unknown_filename">Nome de ficheiro desconhecido</string>
-    <string name="selected_usbdev">Aparelho USB selecionado:</string>
-    <string name="selected_method">Método de gravação selecionado:</string>
-    <string name="selected_image">Imagem selecionada:</string>
-    <string name="usb_perm_denied_noname">Permissão negada para a unidade USB</string>
-    <string name="usb_perm_denied">Permissão negada para</string>
-    <string name="action_refresh">Atualizar</string>
-    <string name="flash_woeusb">Gravar imagem Windows (usando WoeUSB, requer root)</string>
-    <string name="flash_unetbootin">Instalação de imagem no estilo Unetbootin (MBR apenas, requer root)</string>
-    <string name="flash_dmg_api">Restaurar imagem DMG de macOS para o disco (a usar o API do Android)</string>
-    <string name="flash_dd_usb_api">Gravar imagens diretamente para o disco (a usar o API do Android)</string>
-    <string name="now_press_again">Agora pressione novamente</string>
 </resources>

@@ -1,163 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--  App name, please do not translate  -->
     <string name="app_name" translatable="false">EtchDroid</string>
-    <string name="flash_dd_usb_api">Write image directly to disk (using Android API)</string>
-    <string name="flash_dmg_api">Restore macOS DMG image to disk (using Android API)</string>
-    <string name="flash_unetbootin">Unetbootin-style flash (MBR only, requires root)</string>
-    <string name="flash_woeusb">Write Windows image (using WoeUSB, requires root)</string>
-    <string name="action_refresh">Refresh</string>
-    <string name="usb_perm_denied">Permission denied for</string>
-    <string name="usb_perm_denied_noname">Permission denied for USB device</string>
-    <string name="selected_image">Selected image:</string>
-    <string name="selected_method">Selected writing method:</string>
-    <string name="selected_usbdev">Selected USB device:</string>
-    <string name="unknown_filename">Unknown filename</string>
-    <string name="image_bigger_than_usb">Image is bigger than the USB drive, so it can\'t be written</string>
-    <string name="cant_read_usbdev">Cannot read USB device</string>
-    <string name="tap_next_to_write">Tap Write to write the image to the USB drive</string>
-    <string name="notchan_writestatus_title">USB write status</string>
-    <string name="notchan_writestatus_desc">Used to display the status of images being written to USB drives</string>
-    <string name="notif_initializing">Initializing…</string>
-    <string name="notif_writing_img">Writing image…</string>
-    <string name="image_is_not_dmg">Selected image is not a DMG image (maybe it\'s corrupted)</string>
-    <string name="ptt_aix" translatable="false">IBM AIX</string>
-    <string name="ptt_amiga" translatable="false">AMIGA</string>
-    <string name="ptt_bsd" translatable="false">BSD</string>
-    <string name="ptt_dvh" translatable="false">DVH</string>
-    <string name="ptt_gpt">GUID Partition Table (GPT)</string>
-    <string name="ptt_loop">None</string>
-    <string name="ptt_mac">Apple Partition Table (APT)</string>
-    <string name="ptt_msdos" translatable="false">Master Boot Record (MSDOS)</string>
-    <string name="ptt_pc98" translatable="false">PC98</string>
-    <string name="ptt_sun" translatable="false">Sun</string>
-    <string name="fs_fat12" translatable="false">FAT12</string>
-    <string name="fs_fat16" translatable="false">FAT16</string>
-    <string name="fs_fat32" translatable="false">FAT32</string>
-    <string name="fs_exfat" translatable="false">ExFAT</string>
-    <string name="fs_ntfs" translatable="false">NTFS</string>
-    <string name="fs_refs" translatable="false">ReFS</string>
-    <string name="fs_hfs" translatable="false">macOS HFS</string>
-    <string name="fs_hfsplus" translatable="false">macOS HFS+</string>
-    <string name="fs_apfs" translatable="false">Apple Filesystem (APFS)</string>
-    <string name="fs_apt_data">APT data</string>
-    <string name="fs_iso9660" translatable="false">ISO 9660</string>
-    <string name="fs_ext2" translatable="false">Linux Ext2</string>
-    <string name="fs_ext3" translatable="false">Linux Ext3</string>
-    <string name="fs_ext4" translatable="false">Linux Ext4</string>
-    <string name="fs_btrfs" translatable="false">Btrfs</string>
-    <string name="fs_f2fs" translatable="false">f2fs</string>
-    <string name="fs_luks">LUKS encrypted</string>
-    <string name="fs_linux_swap">Linux swap</string>
-    <string name="fs_linux_lvm_pv">Linux LVM2 physical volume</string>
-    <string name="fs_ufs" translatable="false">UFS</string>
-    <string name="fs_xfs" translatable="false">XFS</string>
-    <string name="fs_zfs" translatable="false">ZFS</string>
-    <string name="fs_free">Free space</string>
-    <string name="fs_unformatted">Unformatted</string>
-    <string name="fs_unknown">Unknown</string>
-    <string name="part_label">Name</string>
-    <string name="fs_label">Label</string>
-    <string name="fs_type">Type</string>
-    <string name="part_size">Size</string>
-    <string name="about">About</string>
-    <string name="title_activity_usb_drive_picker">Select USB drive</string>
-    <string name="title_activity_confirmation">Ready to write</string>
-    <string name="cannot_write">Cannot write image to USB drive</string>
-    <string name="check_notification_progress">Check notification for progress</string>
-    <string name="partition_table_title">Partition table:</string>
-    <string name="could_not_access_usb_error">Could not access USB device. Maybe you ran the app previously and it crashed? Remove and reinsert the USB drive, then restart the app.</string>
-    <string name="write_image_or_iso">Write raw image or ISO</string>
-    <string name="raw_image_desc">Good for GNU/Linux distro ISOs, Raspberry Pi images, and disk images created on Windows or Linux.</string>
-    <string name="write_apple_dmg">Write Apple® DMG image</string>
-    <string name="dmg_image_desc">Restore an image created with macOS Disk Utility</string>
-    <string name="no_usb_drives_detected">No USB drives detected.\nNote that you need an SD card to USB adapter to write to SD cards.</string>
-    <string name="do_not_show_again">Do not show again</string>
-    <string name="here_be_dragons">Here be dragons</string>
-    <string name="i_understand">I understand</string>
-    <string name="dmg_alert_dialog_text">While in most cases DMG images can be restored just fine, sometimes there may be inconsistencies. This is a warning.</string>
-    <string name="confirm_flash_image">Flash image</string>
-    <string name="dataloss_confirmation_dialog_message">If you continue, the selected image will be written and all data stored on the USB drive will be lost forever!</string>
-    <string name="warning">Warning</string>
+
+    <!-- Cancel string, used all over the place -->
     <string name="cancel">Cancel</string>
-    <string name="result_channel_desc">Used to display the result of a finished write operation</string>
-    <string name="result_channel_name">USB write result notifications</string>
-    <string name="failed_tap_for_info">Failed • Tap for info</string>
+
+    <!-- Notification title when the write operation is successful -->
     <string name="write_finished">Write finished</string>
-    <string name="error_notif_content_text">%1$s may have been unplugged while writing.</string>
+
+    <!--  Notification title when the write operation is successful. Parameters: filename, device name -->
     <string name="success_notif_content_text">%1$s successfully written to %2$s</string>
-    <string name="troubleshooting_info">Troubleshooting info</string>
-    <string name="operation_failed_because">The operation could not be completed because the following error occurred:</string>
-    <string name="reporting_issues">Reporting issues</string>
-    <string name="reporting_issues_text">Issues can be reported on GitHub:\nhttps://github.com/EtchDroid/EtchDroid/issues\nPlease copy and paste the following technical information, then add any comments at the end of the GitHub issue:</string>
+
+    <!-- Notification title when a non-recoverable error occurs -->
     <string name="write_failed">Write failed</string>
-    <string name="unknown_error">Try to reattach the USB drive or reboot the device. Please file an issue on GitHub containing the following info followed by your comments:</string>
-    <string name="uncompressed">(uncompressed)</string>
-    <string name="nightmode">Enable night mode</string>
-    <string name="nightmode_night">Disable night mode</string>
-    <string name="android_pie_bug">Android Pie bug</string>
-    <string name="android_pie_bug_dialog_text">There is a bug on Android 9 which causes some writes to fail.\nIf it says \"Write failed\", reboot your device and try again.</string>
-    <string name="reset_warnings">Reset all warnings</string>
-    <string name="warnings_reset">All warning dialogs restored</string>
-    <string name="file_type_not_supported">File type not supported</string>
-    <string name="cannot_find_file_in_storage">Cannot find file in internal storage. Try opening it from within the app.</string>
-    <string name="storage_permission_required">Storage permission is required to read DMG images</string>
-    <!-- AndroidX Jetpack -->
-    <string name="library_AndroidX_libraryName" translatable="false">AndroidX Jetpack</string>
-    <string name="library_AndroidX_libraryDescription">AndroidX is a major improvement to the original Android Support Library and provides backwards-compatibility across Android releases</string>
-    <!-- Kotlin Standard Library -->
-    <string name="library_KotlinStdlib_libraryName">Kotlin Standard Library</string>
-    <string name="library_KotlinStdlib_libraryDescription">The Kotlin Standard Library provides living essentials for everyday work with Kotlin</string>
-    <!-- Material Components -->
-    <string name="library_Material_libraryName" translatable="false">Material Components</string>
-    <string name="library_Material_libraryDescription">Make beautiful products, faster. Material is a design system – backed by libre code – that helps teams build digital experiences</string>
-    <string name="buy_me_a_coffee">Buy me a coffee</string>
+
+    <!-- Notification title when a recoverable error occurs -->
+    <string name="action_required">Action required</string>
+
+    <!--  Notification channel description for long-running job progress, shown in Android settings -->
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Used to show the progress of the current job</string>
+
+    <!--  Notification channel name for long-running job progress, shown in Android settings -->
     <string name="notif_channel_job_progress_name">Job progress</string>
+
+    <!--  Notification channel description for job outcome notifications, shown in Android settings -->
+    <string name="notif_channel_job_result_desc">Used to show a completed job outcome</string>
+
+    <!--  Notification channel name for job outcome notifications, shown in Android settings -->
     <string name="notif_channel_job_result_name">Job outcome</string>
-    <string name="notif_channel_job_result_desc" comment="Notification channel description">Used to show a completed job outcome</string>
-    <string name="notif_starting_job">Starting job…</string>
-    <string name="starting_job">Starting job…</string>
-    <string name="resuming_job">Resuming from checkpoint…</string>
-    <string name="done">Done!</string>
-    <string name="job_failed">Job failed.</string>
-    <string name="empty_string" translatable="false">%s</string>
-    <string name="file_unknown">(unknown)</string>
-    <string name="write_x_to_y">Write %1$s to %2$s</string>
-    <string name="i2o_action_name">"Copy data from "%1$s" to "%2$s"</string>
-    <string name="broken_usb_text">If Android says your USB drive has an issue or is unsupported after using EtchDroid, read this.</string>
-    <string name="broken_usb_title">Unsupported USB drive?</string>
-    <string name="step_x_of_y">Step %1$d of %2$d</string>
-    <!--  About  -->
-    <string name="fdroid" translatable="false">F-Droid</string>
-    <string name="paypal" translatable="false">PayPal</string>
-    <string name="stackoverflow" translatable="false">StackOverflow</string>
-    <string name="instagram" translatable="false">Instagram</string>
-    <string name="libressl" translatable="false">LibreSSL</string>
-    <string name="bzip2_title" translatable="false">bzip2</string>
-    <string name="guava_title" translatable="false">Guava</string>
-    <string name="owner_name" translatable="false">Davide Depau</string>
-    <string name="owner_bio">Into guys and Arch Linux. I like Kotlin, Go, Python and sleeping.</string>
-    <string name="owner_task">Owner</string>
-    <string name="contributor_german_name" translatable="false">German Proshunin</string>
-    <string name="contributor_german_task">Developer, ru translator</string>
-    <string name="storagechooser_title" translatable="false">Storage Chooser</string>
-    <string name="libaums_title" translatable="false">libaums</string>
-    <string name="libaums_wrapper_title" translatable="false">libaums-wrapper</string>
-    <string name="libusb_title" translatable="false">libusb</string>
-    <!-- Licenses -->
-    <string name="license_gpl3_name" translatable="false">GNU GPLv3</string>
-    <string name="license_gpl3" translatable="false">gpl-3.0</string>
-    <string name="license_gpl2_name" translatable="false">GNU General Public License 2.0</string>
-    <string name="license_gpl2" translatable="false">gpl-2.0</string>
-    <string name="license_lgpl" translatable="false">LGPL-2.1</string>
-    <string name="license_bsd" translatable="false">BSD</string>
-    <string name="license_custom_foss">Custom FOSS</string>
-    <string name="license_mpl_2_0" translatable="false">MPL-2.0</string>
-    <string name="license_mpl_2_0_name" translatable="false">mpl-2.0</string>
-    <string name="license_apache_name" translatable="false">Apache License 2.0</string>
-    <string name="license_apache" translatable="false">apache-2.0</string>
-    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom BSD-like</string>
-    <string name="libressl_desc">LibreSSL is a fork of OpenSSL 1.0.1g developed by the OpenBSD project.</string>
-    <string name="now_press_again">Now press again</string>
-    <string name="title_activity_main">MainActivity</string>
+
+    <!--  Notification title used for long-running job status -->
+    <string name="notification_write_progress_title">Writing image…</string>
+
+    <!--  Notification title used for long-running job status -->
+    <string name="notification_verify_progress_title">Verifying image…</string>
+
+    <!--  Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name -->
+    <string name="notification_write_no_notifications_text">Enable notifications for progress • Writing %1$s to %2$s</string>
+
+    <!--  Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the device name, the second one with the image file name -->
+    <string name="notification_verify_no_notifications_text">Enable notifications for progress • Verifying %1$s against %2$s</string>
+
+    <!--  Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name -->
+    <string name="notification_write_tap_for_progress_text">Tap for progress • Writing %1$s to %2$s</string>
+
+    <!--  Notification content: "{file name} to {device name}", used when the user has granted the notification permission; The notification title will be: "Writing image…" and this string will show up right below it. -->
+    <string name="notification_write_progress_content">%1$s to %2$s</string>
+
+    <!--  Notification content: "{device name} against {file name}", used when the user has granted the notification permission; The notification title will be: "Verifying image…" and this string will show up right below it. -->
+    <string name="notification_verify_progress_content">%1$s against %2$s</string>
+
+    <!-- Placeholder file name -->
+    <string name="unknown_filename">Unknown file name</string>
+
+    <!-- Displayed in a toast when the usb permission is denied -->
+    <string name="permission_denied_for_usb_device">"Permission denied for USB device %1$s"</string>
+
+    <!-- Displayed in a toast when the USB device is unplugged -->
+    <string name="usb_device_was_unplugged">USB device was unplugged</string>
+
+    <!-- Displayed in the home page main call-to-action button -->
+    <string name="write_an_image">Write an image</string>
+
+    <!-- Displayed in the homepage; opens a page that lists all the supported devices and formats -->
+    <string name="whats_supported">What\'s supported?</string>
+
+    <!-- Title of the menu that allows selecting the app color scheme -->
+    <string name="style">Style</string>
+
+    <!-- Style menu option that selects the device default light/dark theme -->
+    <string name="device_setting">Device setting</string>
+
+    <!-- Style menu option that selects the light theme -->
+    <string name="light">Light</string>
+
+    <!-- Style menu option that selects the dark theme -->
+    <string name="dark">Dark</string>
+
+    <!-- Style menu option that selects the Material You dynamic color scheme -->
+    <string name="dynamic_colors">Dynamic colors</string>
+
+    <!-- Menu option that opens the about page -->
+    <string name="about">About</string>
+
+    <!-- Dialog title; the dialog alerts the user that Windows images are not supported -->
+    <string name="is_this_a_windows_iso">Is this a Windows ISO?</string>
+
+    <!-- Dialog message; the dialog alerts the user that Windows images are not supported -->
+    <string name="a_regular_windows_iso_won_t_work">A regular Windows ISO won\'t work with EtchDroid, unless it has specifically been prepared for use with Etcher, dd or EtchDroid.</string>
+
+    <!-- Dialog button text: if the user clicks it, the app ignores the warning and continues -->
+    <string name="continue_anyway">Continue anyway</string>
+
+    <!-- Title of the dialog listing the available USB drives -->
+    <string name="select_a_usb_drive">Select a USB drive</string>
+
+    <!-- Title of the dialog listing the available USB drives, when no USB drive is connected -->
+    <string name="connect_a_usb_drive">Connect a USB drive</string>
+
+    <string name="looking_for_usb_drives">Looking for USB drives</string>
+
+    <!-- Title of the page where the operation details are listed; the user can confirm or cancel the operation from here -->
+    <string name="confirm_operation">Confirm operation</string>
+
+    <string name="disk_image">Disk image</string>
+
+    <!-- Label for the card that displays the details about the image that is about to be written -->
+    <string name="image_to_write">Image to write</string>
+
+    <string name="usb_drive">USB drive</string>
+
+    <!-- Label for the card that displays the details about the USB drive that is about to be used -->
+    <string name="destination_usb_device">Destination USB device</string>
+
+    <!-- Device name placeholder -->
+    <string name="unknown_device">Unknown device</string>
+
+    <!-- Displayed on the button to request the permission to write to the USB drive. Keep it short. -->
+    <string name="grant_access">Grant access</string>
+
+    <string name="permission_granted">Permission granted</string>
+
+    <!-- Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost -->
+    <string name="be_careful">Be careful!</string>
+
+    <!-- Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost -->
+    <string name="writing_the_image_will_erase">Writing the image will erase all data on the selected drive</string>
+
+    <!-- Confirmation button; when pressed, the operation starts -->
+    <string name="write_image">Write image</string>
+
+    <!-- Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor -->
+    <string name="lay_your_device_flat_no_accel">Lay your device flat on a table before continuing.</string>
+
+    <!-- Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts. -->
+    <string name="continue_">Continue</string>
+
+    <!-- Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor -->
+    <string name="lay_your_device_flat">Lay your device flat on a table and don\'t touch it</string>
+
+    <!-- Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts. -->
+    <string name="skip">Skip</string>
+
+    <!-- Description of a device or image type that is supported -->
+    <string name="supported">Supported</string>
+
+    <!-- Description of a device or image type that might be supported -->
+    <string name="maybe_supported">Maybe supported</string>
+
+    <!-- Description of a device or image type that is not supported -->
+    <string name="not_supported">Not supported</string>
+
+    <!-- Title of the page that lists all the supported devices and images -->
+    <string name="supported_devices_and_images">Supported devices and images</string>
+
+    <!-- Title of the section that lists all the supported device types -->
+    <string name="devices">Devices</string>
+
+    <!-- Device type -->
+    <string name="usb_flash_drives">USB flash drives</string>
+
+    <!-- Device type -->
+    <string name="memory_cards_using_a_usb_adapter">Memory cards, using a USB adapter</string>
+
+    <!-- Device type -->
+    <string name="usb_hard_drives_ssds_some_might_work">USB hard drives / SSDs (some might work)</string>
+
+    <!-- Device type -->
+    <string name="usb_docks_and_hubs_might_have_power_issues">USB docks and hubs (might have power issues)</string>
+
+    <!-- Device type -->
+    <string name="memory_cards_using_the_internal_slot">Memory cards, using the internal slot</string>
+
+    <!-- Device type -->
+    <string name="optical_disk_drives">Optical disk drives</string>
+
+    <!-- Device type -->
+    <string name="floppy_disk_drives">Floppy disk drives</string>
+
+    <!-- Device type -->
+    <string name="any_thunderbolt_only_device">Any Thunderbolt-only device</string>
+
+    <!-- Title of the section that lists all the supported image types -->
+    <string name="disk_images">Disk images</string>
+
+    <!-- Image type -->
+    <string name="microsoft_windows_isos_any_version">Microsoft Windows ISOs (any version)</string>
+
+    <!-- Image type -->
+    <string name="apple_dmg_disk_images">Apple DMG disk images</string>
+
+    <!-- Image type -->
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD etc.</string>
+
+    <!-- Image type -->
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Other modern GNU/Linux and BSD distributions\' live ISOs</string>
+
+    <!-- Image type -->
+    <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD card images (unzip first!)</string>
+
+    <!-- Image type -->
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd">Any other image that works with Balena Etcher or dd</string>
+
+    <!-- Image type -->
+    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[Older GNU/Linux distributions\' ISOs (< 2010)]]></string>
+
+    <!-- At the end of the supported devices and images page we state that DMGs are no longer supported; the parameter is replaced with the word "GitHub" -->
+    <string name="support_for_dmg_images_was_removed">Support for DMG images was removed in EtchDroid 2.0. Older versions can be downloaded from %1$s.</string>
+
+    <!-- Displayed in the about page; parameters are: author name, the word "contributors" (translated separately), "GitHub" -->
+    <string name="developed_by">Developed by %1$s and other %2$s.\nSource code available on %3$s.\nLicensed under the GNU GPLv3 license.</string>
+
+    <!-- Part of the following sentence: "Developed by Author Name and other contributors" -->
+    <string name="contributors">contributors</string>
+
+    <!-- Displayed in the about page links; keep it very short! -->
+    <string name="website">Website</string>
+
+    <!-- Displayed in the about page links; keep it very short! -->
+    <string name="donate">Donate</string>
+
+    <!-- "Review" as in "Write a review". Displayed in the about page links; keep it very short! -->
+    <string name="review">Review</string>
+
+    <!-- Title of the progress page while an image is being verified -->
+    <string name="verifying_image">Verifying image</string>
+
+    <!-- Title of the progress page while an image is being written -->
+    <string name="writing_image">Writing image</string>
+
+    <!-- Subtitle of the progress page while an image is being written -->
+    <string name="please_avoid_using_your_device">Please avoid using your device</string>
+
+    <!-- Displayed in a card in the progress page; keep it concise, there's not much space -->
+    <string name="would_you_like_to_be_notified">Would you like to be notified when done? Only progress updates, no spam or ads.</string>
+
+    <!-- Button to reject receiving notifications -->
+    <string name="no_thanks">No, thanks</string>
+
+    <!-- Button to accept receiving notifications -->
+    <string name="sure">Sure</string>
+
+    <!-- As part of the sentence: "Verifying DeviceName against FileName.iso"; keep the same word order as English. Open an issue if it's not possible in your language. -->
+    <string name="verifying">Verifying</string>
+
+    <!-- As part of the sentence: "Copying FileName.iso to DeviceName"; keep the same word order as English. Open an issue if it's not possible in your language. -->
+    <string name="copying">Copying</string>
+
+    <!-- As part of the sentence: "Verifying DeviceName against FileName.iso"; keep the same word order as English. Open an issue if it's not possible in your language. -->
+    <string name="against">against</string>
+
+    <!-- As part of the sentence: "Copying FileName.iso to DeviceName"; keep the same word order as English. Open an issue if it's not possible in your language. -->
+    <string name="to">to</string>
+
+    <!-- Displayed in the progress info indicator while no progress data is available -->
+    <string name="getting_ready">Getting ready…</string>
+
+    <!-- Displayed on a button that, when pressed, skips the verification of the written image -->
+    <string name="skip_verification">Skip verification</string>
+
+    <!-- Title of the success page -->
+    <string name="image_written_successfully">Image written successfully!</string>
+
+    <!-- Displayed in a button on the success page -->
+    <string name="write_a_review">Write a review</string>
+
+    <!-- Displayed in a button on the success page -->
+    <string name="star_on_github">Star on GitHub</string>
+
+    <!-- Title of the card that teaches the user about any "Unsupported drive" notifications -->
+    <string name="got_an_unsupported_drive_notification">Got an \"Unsupported drive\" notification?</string>
+
+    <!-- Message of the card that teaches the user about any "Unsupported drive" notifications; the parameter will be replaced with the translation of "Learn what it means" -->
+    <string name="it_s_safe_to_ignore">It\'s safe to ignore! Just unplug your drive and use it normally. %1$s and see how to format your drive later.</string>
+
+    <!-- Part of the message of the card that teaches the user about any "Unsupported drive" notifications; the full sentence is "Learn what it means and see how to format your drive later" -->
+    <string name="learn_what_it_means">Learn what it means</string>
+
+    <!-- Title of the non-recoverable error page -->
+    <string name="there_was_an_error">There was an error</string>
+
+    <string name="error">Error</string>
+
+    <!-- Button in the error page that, when pressed, restarts the app -->
+    <string name="start_over">Start over</string>
+
+    <!-- Button in the error page that, when pressed, retries the write from scratch -->
+    <string name="try_again">Try again</string>
+
+    <!-- Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently -->
+    <string name="i_did_not_unplug_it">I did not unplug it!</string>
+
+    <!-- Title of the card that, when a recoverable error occurs, teaches the user why it could have happened -->
+    <string name="how_did_this_happen">How did this happen?</string>
+
+    <!-- Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently -->
+    <string name="perhaps_your_usb_port_is_dirty">Perhaps your USB port is dirty, your adapter is defective, or your device can\'t provide enough electrical power. Consider trying a different adapter or device.</string>
+
+    <!-- Message of the card that, when a recoverable error occurs, teaches the user why it could have happened -->
+    <string name="usb_drives_are_unreliable">USB drives are unreliable, and Android doesn\'t grant enough permissions to recover automatically. We have to make do with what we have!</string>
+
+    <!-- Message of the card about a recoverable unknown error -->
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">This is unexpected, it\'s probably a bug. Please report it!</string>
+
+    <!-- Text that explains what to do when a recoverable error has occurred -->
+    <string name="to_recover_unplug">To recover, unplug your USB drive, plug it back in and grant the permission to access it again.</string>
+    <string name="representation_of_the_required_steps">Representation of the required steps: unplug, reconnect, grant permission</string>
+
+    <!-- Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device -->
+    <string name="plug_in_the_same_usb">Plug in the same USB device you used before!</string>
+
+    <string name="usb_device_reconnected_resuming">USB device reconnected, resuming</string>
+
+    <!-- Error message -->
+    <string name="the_device_is_not_responding">The device is not responding</string>
+
+    <!-- Error message -->
+    <string name="missing_permission_to_access_the_usb_device">Missing permission to access the USB device</string>
+
+    <!-- Error message; parameters are the image file size and the device size -->
+    <string name="the_image_is_is_larger_than_the_device">The image (%1$s) is larger than the device (%2$s)</string>
+
+    <!-- Error message -->
+    <string name="could_not_open_the_source_file">Could not open the source file</string>
+
+    <!-- Error message; parameter is the underlying error message -->
+    <string name="an_unknown_error_occurred">An unknown error occurred: %1$s</string>
+
+    <!-- Error message -->
+    <string name="the_usb_drive_was_unplugged">The USB drive was unplugged</string>
+
+    <!-- Error message -->
+    <string name="the_usb_drive_stopped_responding">The USB drive stopped responding</string>
+
+    <!-- Error message displayed when the verification failed -->
+    <string name="the_usb_device_content_does_not_match_the_image">The USB device content does not match the image</string>
 </resources>

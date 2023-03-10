@@ -1,109 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="broken_usb_text">Jeśli Android mówi, że twój dysk USB ma problem lub nie jest obsługiwany po użyciu EtchDroid, przeczytaj to.</string>
-    <string name="now_press_again">Naciśnij jeszcze raz</string>
-    <string name="done">Gotowe!</string>
-    <string name="image_is_not_dmg">Wybrany obraz nie jest obrazem DMG (może jest uszkodzony)</string>
     <string name="cancel">Anuluj</string>
-    <string name="contributor_german_task">Developer, ru tłumacz</string>
-    <string name="owner_task">Właściciel</string>
-    <string name="owner_bio">Into guys and Arch Linux. I like Kotlin, Go, Python and sleeping.</string>
-    <string name="broken_usb_title">Nieobsługiwany dysk USB\?</string>
-    <string name="step_x_of_y">Krok %1$d z %2$d</string>
-    <string name="i2o_action_name">Kopiuj dane z %1$s do %2$s</string>
     <string name="notif_channel_job_result_name">Wynik pracy</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Służy do pokazania zakończonego wyniku pracy</string>
-    <string name="buy_me_a_coffee">Kup mi kawę</string>
-    <string name="library_KotlinStdlib_libraryName">Standardowa biblioteka Kotlin</string>
-    <string name="file_type_not_supported">Nieobsługiwany typ pliku</string>
-    <string name="reset_warnings">Zresetuj wszystkie ostrzeżenia</string>
-    <string name="android_pie_bug">Błąd Android Pie</string>
-    <string name="android_pie_bug_dialog_text">W Androidzie 9 jest błąd, który powoduje, że niektóre zapisy są nieudane.
-\nJeśli pojawi się komunikat „Zapis nieudany”, uruchom ponownie urządzenie i spróbuj ponownie.</string>
-    <string name="nightmode">Włącz tryb ciemny</string>
-    <string name="reporting_issues">Zgłaszanie problemów</string>
-    <string name="reporting_issues_text">Problemy można zgłaszać na GitHub (tylko angielki):
-\nhttps://github.com/EtchDroid/EtchDroid/issues
-\nSkopiuj i wklej następujące informacje techniczne, a następnie dodaj komentarze na końcu wydania GitHub:</string>
     <string name="write_failed">Zapis nieudany</string>
-    <string name="operation_failed_because">Nie można ukończyć operacji, ponieważ wystąpił następujący błąd:</string>
-    <string name="failed_tap_for_info">Niepowodzenie • Dotknij po więcej informacji</string>
     <string name="write_finished">Wgrywanie zakończone</string>
-    <string name="error_notif_content_text">%1$s mogło zostać odłączone podczas wgrywania.</string>
     <string name="success_notif_content_text">%1$s pomyślnie wgrane na %2$s</string>
-    <string name="result_channel_name">Powiadomienie rezultatu wgrania USB</string>
-    <string name="dataloss_confirmation_dialog_message">Jeśli będziesz kontynuować, wybrany obraz zostanie wgrany, a wszystkie dane zapisane na dysku USB zostaną na zawsze utracone!</string>
-    <string name="warning">Ostrzeżenie</string>
-    <string name="i_understand">Zrozumiałem</string>
-    <string name="dmg_alert_dialog_text">Podczas gdy w większości przypadków obrazy DMG można przywrócić bez problemów, czasem są niespójności. To jest ostrzeżenie.</string>
-    <string name="no_usb_drives_detected">Dysk USB nie został wykryty.
-\nPamiętaj, aby wgrywać na karty SD, potrzebujesz adaptera USB do SD.</string>
-    <string name="do_not_show_again">Nie pokazuj ponownie</string>
-    <string name="here_be_dragons">Tutaj są smoki</string>
-    <string name="write_apple_dmg">Wgraj obraz Apple® DMG</string>
-    <string name="dmg_image_desc">Przywróć obraz utworzony przez MacOS \"Narzędzie dyskowe\"</string>
-    <string name="write_image_or_iso">Wgraj surowy (raw) obraz lub ISO</string>
-    <string name="raw_image_desc">Dobry dla plików ISO dystrybucji GNU/Linux, obrazów Raspberry Pi, oraz obrazów utworzonych na Windowsie lub Linux\'ie.</string>
-    <string name="cannot_write">Nie można zapisać obrazu na dysk USB</string>
-    <string name="fs_label">Etykieta</string>
-    <string name="fs_type">Typ</string>
-    <string name="fs_linux_lvm_pv">Linux LVM2 physical volume</string>
-    <string name="notif_initializing">Inicjowanie…</string>
-    <string name="tap_next_to_write">Dotknij \"Wgraj\" aby wgrać obraz na dysk USB</string>
-    <string name="notchan_writestatus_title">Stan zapisu USB</string>
-    <string name="selected_usbdev">Wybierz urządzenie USB:</string>
     <string name="unknown_filename">Nieznana nazwa pliku</string>
-    <string name="image_bigger_than_usb">Obraz jest większy niż dysk USB, nie pozwala to na wgranie</string>
-    <string name="usb_perm_denied_noname">Obmówiono uprawnień dla urządzenia USB</string>
-    <string name="selected_image">Wybierz obraz:</string>
-    <string name="action_refresh">Odśwież</string>
-    <string name="flash_dd_usb_api">Wgraj obraz bezpośrednio na dysk (używając Android API)</string>
-    <string name="flash_unetbootin">Wgranie w stylu Unetbootin (tylko MBR, wymaga root\'a)</string>
-    <string name="flash_woeusb">Wgraj obraz Windows\'a (używając WoeUSB, wymaga root\'a)</string>
-    <string name="notchan_writestatus_desc">Używane do wyświetlania statusu obrazów wgrywanych na dyski USB</string>
-    <string name="job_failed">Zadanie nieudane.</string>
-    <string name="flash_dmg_api">Przywróć MacOS plik DMG na dysk (używając Android API)</string>
-    <string name="usb_perm_denied">Obmówiono uprawnień dla</string>
-    <string name="selected_method">Wybierz sposób wgrywania:</string>
-    <string name="cant_read_usbdev">Nie można odczytać urządzenia USB</string>
-    <string name="partition_table_title">Tablica partycji:</string>
-    <string name="unknown_error">Spróbuj ponownie podłączyć dysk USB lub ponownie uruchomić urządzenie. Zgłoś problem w serwisie GitHub zawierający następujące informacje wraz z komentarzem:</string>
-    <string name="library_AndroidX_libraryDescription">AndroidX to dużym rozwinięciem dla oryginalnej biblioteki obsługi systemu Android i zapewnia zgodność wsteczną w różnych wersjach systemu Android</string>
-    <string name="library_Material_libraryDescription">Twórz piękne produkty szybciej. Material to system projektowania – wspierany przez libre code – który pomaga zespołom budować cyfrowe doświadczenia</string>
-    <string name="notif_writing_img">Wgrywanie obrazu…</string>
-    <string name="fs_free">Wolne miejsce</string>
-    <string name="fs_unformatted">Niesformatowany</string>
-    <string name="fs_unknown">Nieznany</string>
-    <string name="part_label">Nazwa</string>
-    <string name="part_size">Rozmiar</string>
-    <string name="about">O</string>
-    <string name="check_notification_progress">Sprawdź powiadomienie o postępie</string>
-    <string name="could_not_access_usb_error">Brak dostępu do dysku USB. Może poprzednio uruchomiona aplikacja uległa awarii\? Odłącz i podłącz jeszcze raz dysk USB i zrestartuj aplikację.</string>
-    <string name="title_activity_usb_drive_picker">Wybierz dysk USB</string>
-    <string name="title_activity_confirmation">Gotowy do wgrania</string>
-    <string name="confirm_flash_image">Wgraj obraz</string>
-    <string name="file_unknown">(nieznane)</string>
-    <string name="fs_linux_swap">Linux swap</string>
-    <string name="license_custom_foss">Custom FOSS</string>
-    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Custom BSD-like</string>
-    <string name="result_channel_desc">Służy do wyświetlania wyniku zakończonej operacji zapisu</string>
-    <string name="troubleshooting_info">Informacje dotyczące rozwiązywania problemów</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Służy do pokazywania postępów w bieżącej pracy</string>
     <string name="notif_channel_job_progress_name">Postęp pracy</string>
-    <string name="notif_starting_job">Rozpoczynanie pracy…</string>
-    <string name="starting_job">Rozpoczynanie pracy…</string>
-    <string name="ptt_gpt">GUID Partition Table (GPT)</string>
-    <string name="ptt_mac">Apple Partition Table (APT)</string>
-    <string name="libressl_desc">LibreSSL is a fork of OpenSSL 1.0.1g developed by the OpenBSD project.</string>
-    <string name="uncompressed">(nieskompresowany)</string>
-    <string name="nightmode_night">Wyłącz tryb ciemny</string>
-    <string name="warnings_reset">Przywrócono wszystkie dialogi z ostrzeżeniami</string>
-    <string name="cannot_find_file_in_storage">Nie można znaleźć pliku w pamięci wewnętrznej. Spróbuj otworzyć go z poziomu aplikacji.</string>
-    <string name="storage_permission_required">Do odczytu obrazów DMG wymagane jest uprawnienie do dostępu do pamięci</string>
-    <string name="library_KotlinStdlib_libraryDescription">Biblioteka Standardowa Kotlin zapewnia niezbędne środki do codziennej pracy z Kotlin</string>
-    <string name="resuming_job">Wznawianie od punktu kontrolnego…</string>
-    <string name="write_x_to_y">Wgraj %1$s do %2$s</string>
-    <string name="ptt_loop">Nic</string>
-    <string name="fs_apt_data">APT data</string>
-    <string name="fs_luks">Szyfrowanie LUKS</string>
 </resources>

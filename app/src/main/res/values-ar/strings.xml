@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="selected_usbdev">تحديد جهاز USB:</string>
-    <string name="selected_method">تحديد طريقة الكتابة:</string>
-    <string name="selected_image">تحديد الصورة:</string>
-</resources>
+<resources></resources>

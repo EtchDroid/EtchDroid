@@ -1,109 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="flash_dd_usb_api">Escribir imagen directamente al disco (usando la API de Android)</string>
-    <string name="flash_dmg_api">Restaurar imagen DMG de macOS al disco (utilizando la API de Android)</string>
-    <string name="flash_unetbootin">Instalación estilo Unetbootin (solo MBR, requiere «root»)</string>
-    <string name="flash_woeusb">Escribir imagen de Windows (usando WoeUSB, requiere root)</string>
-    <string name="action_refresh">Actualizar</string>
-    <string name="usb_perm_denied">Permiso denegado para</string>
-    <string name="usb_perm_denied_noname">Permiso denegado para dispositivo USB</string>
-    <string name="selected_image">Imagen seleccionada:</string>
-    <string name="selected_method">Método de escritura seleccionado:</string>
-    <string name="selected_usbdev">Dispositivo USB seleccionado:</string>
     <string name="unknown_filename">Nombre de archivo desconocido</string>
-    <string name="image_bigger_than_usb">La imagen es más grande que la unidad USB, por lo que no se puede escribir</string>
-    <string name="cant_read_usbdev">No puede leer el dispositivo USB</string>
-    <string name="tap_next_to_write">Toque Escribir para escribir la imagen en la unidad USB</string>
-    <string name="notchan_writestatus_title">Estado de escritura USB</string>
-    <string name="notchan_writestatus_desc">Se utiliza para mostrar el estado de las imágenes que se escriben en las unidades USB</string>
-    <string name="notif_initializing">Inicializando…</string>
-    <string name="notif_writing_img">Escribiendo imagen…</string>
-    <string name="image_is_not_dmg">La imagen seleccionada no es una imagen DMG (tal vez esté dañada)</string>
-    <string name="ptt_gpt">Tabla de particiones GUID (GPT)</string>
-    <string name="ptt_loop">Ninguno</string>
-    <string name="ptt_mac">Tabla de particiones de Apple (APT)</string>
-    <string name="fs_apt_data">Datos de APT</string>
-    <string name="fs_luks">LUKS cifrado</string>
-    <string name="fs_linux_swap">Intercambio de Linux</string>
-    <string name="fs_linux_lvm_pv">Volumen físico de Linux LVM2</string>
-    <string name="fs_free">Espacio libre</string>
-    <string name="fs_unformatted">Sin formato</string>
-    <string name="fs_unknown">Desconocido</string>
-    <string name="part_label">Nombre</string>
-    <string name="fs_label">Etiqueta</string>
-    <string name="fs_type">Tipo</string>
-    <string name="part_size">Tamaño</string>
-    <string name="license_bzip2" comment="This string must be very short: it is displayed in a small badge and long strings will be truncated">Personalizado como BSD</string>
-    <string name="about">Acerca de</string>
-    <string name="title_activity_usb_drive_picker">Seleccionar unidad USB</string>
-    <string name="title_activity_confirmation">Listo para escribir</string>
-    <string name="cannot_write">No se puede escribir la imagen en la unidad USB</string>
-    <string name="check_notification_progress">Verificar notificación de progreso</string>
-    <string name="partition_table_title">Tabla de particiones:</string>
-    <string name="could_not_access_usb_error">No se pudo acceder al dispositivo USB. ¿Quizás ejecutó la aplicación anteriormente y se estrelló\? Retire y vuelva a insertar la unidad USB, luego reinicie la aplicación.</string>
-    <string name="write_image_or_iso">Escribir imagen cruda o ISO</string>
-    <string name="raw_image_desc">Adecuado para las distribuciones ISO de GNU/Linux, las imágenes de Raspberry Pi y las imágenes de disco creadas en Windows o Linux.</string>
-    <string name="write_apple_dmg">Escribir imagen DMG de Apple</string>
-    <string name="dmg_image_desc">Restaurar una imagen creada con la Utilidad de discos de macOS</string>
-    <string name="no_usb_drives_detected">No se detectan unidades USB.
-\nTenga en cuenta que necesita un adaptador de tarjeta SD a USB para escribir en tarjetas SD.</string>
-    <string name="do_not_show_again">No mostrar de nuevo</string>
-    <string name="here_be_dragons">Aquí hay dragones</string>
-    <string name="i_understand">Entiendo</string>
-    <string name="dmg_alert_dialog_text">Aunque en la mayoría de los casos las imágenes DMG se pueden restaurar sin problemas, a veces puede haber inconsistencias. Esto es una advertencia.</string>
-    <string name="confirm_flash_image">Instalar imagen</string>
-    <string name="dataloss_confirmation_dialog_message">¡Si continúa, se escribirá la imagen seleccionada y todos los datos almacenados en la unidad USB se perderán para siempre!</string>
-    <string name="warning">Advertencia</string>
     <string name="cancel">Cancelar</string>
-    <string name="result_channel_desc">Se utiliza para visualizar el resultado de una operación de escritura finalizada</string>
-    <string name="result_channel_name">Notificaciones de resultados de escritura USB</string>
-    <string name="failed_tap_for_info">Escritura fallida • Toque para obtener información</string>
     <string name="write_finished">Escritura finalizada</string>
-    <string name="error_notif_content_text">Es posible que se haya desconectado %1$s mientras escribía.</string>
     <string name="success_notif_content_text">%1$s escrito con éxito a %2$s</string>
-    <string name="troubleshooting_info">Información de solución de problemas</string>
-    <string name="operation_failed_because">La operación no pudo completarse porque se produjo el siguiente error:</string>
-    <string name="reporting_issues">Reportando problemas</string>
-    <string name="reporting_issues_text">Los problemas pueden ser reportados en GitHub:
-\nhttps://github.com/EtchDroid/EtchDroid/issues
-\nPor favor, copie y pegue la siguiente información técnica, y luego añada cualquier comentario al final de la incidencia en GitHub:</string>
     <string name="write_failed">Escritura fallida</string>
-    <string name="unknown_error">Intenta volver a conectar la unidad USB o reiniciar el dispositivo. Por favor, presenta una incidencia en GitHub con la siguiente información seguida de tus comentarios:</string>
-    <string name="uncompressed">(sin comprimir)</string>
-    <string name="nightmode">Activar modo nocturno</string>
-    <string name="nightmode_night">Desactivar modo nocturno</string>
-    <string name="android_pie_bug">Defecto de Android Pie</string>
-    <string name="android_pie_bug_dialog_text">Hay un error en Android 9 que hace que algunas escrituras fallen. 
-\nSi dice «Escritura fallida», reinicie el dispositivo e inténtelo de nuevo.</string>
-    <string name="reset_warnings">Reiniciar todas las advertencias</string>
-    <string name="warnings_reset">Todos los diálogos de advertencia restaurados</string>
-    <string name="file_type_not_supported">Tipo de archivo no admitido</string>
-    <string name="cannot_find_file_in_storage">No se puede encontrar el archivo en el almacenamiento interno. Intente abrirlo desde dentro de la aplicación.</string>
-    <string name="storage_permission_required">Se requiere permiso de almacenamiento para leer las imágenes DMG</string>
-    <string name="library_AndroidX_libraryDescription">AndroidX es una importante mejora de la biblioteca de servicio de Android original y ofrece retrocompatibilidad para todas las versiones de Android</string>
-    <string name="library_KotlinStdlib_libraryName">Biblioteca estándar de Kotlin</string>
-    <string name="library_KotlinStdlib_libraryDescription">La biblioteca estándar de Kotlin proporciona elementos esenciales para el trabajo diario con Kotlin</string>
-    <string name="library_Material_libraryDescription">Haga productos hermosos, más rápido. Material es un sistema de diseño, respaldado por código abierto, que ayuda a los equipos a construir experiencias digitales</string>
-    <string name="buy_me_a_coffee">Cómpreme un café</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Se utiliza para mostrar el progreso del trabajo actual</string>
     <string name="notif_channel_job_progress_name">Progreso</string>
     <string name="notif_channel_job_result_name">Resultado</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Se usa para mostrar el resultado de un trabajo terminado</string>
-    <string name="notif_starting_job">Empezando el trabajo…</string>
-    <string name="starting_job">Empezando el trabajo…</string>
-    <string name="resuming_job">Reanudando desde el punto de control…</string>
-    <string name="done">¡Hecho!</string>
-    <string name="job_failed">El trabajo falló.</string>
-    <string name="file_unknown">(desconocido)</string>
-    <string name="write_x_to_y">Escribir %1$s a %2$s</string>
-    <string name="i2o_action_name">Copiar datos de "%1$s" a "%2$s"</string>
-    <string name="step_x_of_y">Paso %1$d de %2$d</string>
-    <string name="broken_usb_text">Si Android dice que su unidad USB tiene un problema o no es compatible después de usar EtchDroid, lea esto.</string>
-    <string name="broken_usb_title">¿Unidad USB no compatible\?</string>
-    <string name="libressl_desc">LibreSSL es una bifurcación de OpenSSL 1.0.1g que desarrolla el proyecto OpenBSD.</string>
-    <string name="license_custom_foss">FOSS personalizada</string>
-    <string name="contributor_german_task">Programador, traductor al ruso</string>
-    <string name="owner_task">Autoría</string>
-    <string name="owner_bio">Me gustan los chicos y Arch Linux. Tengo interés por Kotlin, Go, Python y dormir.</string>
-    <string name="now_press_again">Ahora pulse de nuevo</string>
 </resources>
