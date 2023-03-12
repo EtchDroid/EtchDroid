@@ -107,4 +107,13 @@
     <string name="there_was_an_error">Er is een fout opgetreden</string>
     <string name="i_did_not_unplug_it">Ik heb hem niet afgekoppeld!</string>
     <string name="plug_in_the_same_usb">Koppel hetzelfde usb-apparaat als eerder aan!</string>
+    <string name="usb_device_reconnected_resuming">De usb-schijf is heraangekoppeld - de actie wordt hervat</string>
+    <string name="could_not_open_the_source_file">Het bronbestand kan niet worden geopend</string>
+    <string name="an_unknown_error_occurred">Er is een onbekende fout opgetreden: %1$s</string>
+    <string name="the_usb_drive_was_unplugged">De usb-schijf is ontkoppeld</string>
+    <string name="the_usb_drive_stopped_responding">De usb-schijf reageert niet meer</string>
+    <string name="the_usb_device_content_does_not_match_the_image">De usb-apparaatinhoud komt niet overeen met de schijfkopie</string>
+    <string name="the_device_is_not_responding">Het apparaat reageert niet</string>
+    <string name="missing_permission_to_access_the_usb_device">Geen toegang tot usb-apparaat verleend</string>
+    <string name="the_image_is_is_larger_than_the_device">De schijfkopie (%1$s) is groter dan de omvang van het apparaat (%2$s)</string>
 </resources>
