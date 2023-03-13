@@ -82,4 +82,38 @@
     <string name="usb_device_was_unplugged">התקן USB נותק</string>
     <string name="select_a_usb_drive">בחירת כונן USB</string>
     <string name="a_regular_windows_iso_won_t_work">ISO רגיל של Windows לא יעבוד עם EtchDroid, אלא אם כן עבר הכנות במיוחד לשימוש עם Etcher,‏ dd או EtchDroid.</string>
+    <string name="lay_your_device_flat_no_accel">יש להניח את המכשיר שלך במאוזן על שולחן בטרם המשך בתהליך.</string>
+    <string name="usb_flash_drives">החסני הבזק USB</string>
+    <string name="memory_cards_using_a_usb_adapter">כרטיסי זיכרון, באמצעות מתאם USB</string>
+    <string name="usb_hard_drives_ssds_some_might_work">כוננים קשיחים/SSD דרך USB (חלקם עובדים)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues">מעגני ומפצלי USB (יכולות להיות בעיות חשמל)</string>
+    <string name="memory_cards_using_the_internal_slot">כרטיסי זיכרון, דרך החריץ המובנה</string>
+    <string name="optical_disk_drives">כוננים אופטיים</string>
+    <string name="floppy_disk_drives">כונני דיסקטים</string>
+    <string name="microsoft_windows_isos_any_version">ISO של Windows מבית Microsoft (כל גרסה שהיא)</string>
+    <string name="apple_dmg_disk_images">דמויות כוננים של Apple מסוג DMG</string>
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">ISO להמחשה של הפצות גנו/לינוקס או BSD מודרניות</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first">דמויות כרטיס SD של Raspberry Pi (חובה לחלץ תחילה!)</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd">כל דמות אחרת שעובדת עם Balena Etcher או dd</string>
+    <string name="older_gnu_linux_distributions_isos_2010">ISO של הפצות גנו/לינוקס ישנות יותר (טרום 2012)</string>
+    <string name="support_for_dmg_images_was_removed">התמיכה בדמויות DMG של Apple הוסרה ב־EtchDroid 2.0. אפשר להוריד גרסאות ישנות יותר מ־%1$s.</string>
+    <string name="developed_by">פותח ע״י %1$s ו%2$s נוספים.
+\nקוד המקור זמין ב־%3$s.
+\nבכפוף לרישיון GPLv3 מבית גנו.</string>
+    <string name="contributors">מתנדבים</string>
+    <string name="website">אתר</string>
+    <string name="donate">תרומה</string>
+    <string name="review">סקירה</string>
+    <string name="verifying_image">התמונה מאומתת</string>
+    <string name="got_an_unsupported_drive_notification">קיבלת התראת „כונן לא נתמך”\?</string>
+    <string name="it_s_safe_to_ignore">אפשר פשוט להתעלם ממנה! צריך רק לנתק את הכונן ולהשתמש בו כרגיל. אפשר %1$s ולראות איך לפרמט את הכונן שלך בהמשך.</string>
+    <string name="perhaps_your_usb_port_is_dirty">כנראה שחיבור ה־USB שלך מלוכלך, המתאם שלך פגום או שההתקן שלך לא יכול לספק מספיק חשמל. כדאי לנסות מתאם או התקן אחר.</string>
+    <string name="usb_device_reconnected_resuming">התקן ה־USB חובר מחדש, התהליך ממשיך</string>
+    <string name="to_recover_unplug">כדי לשקם, יש לנתק את כונן ה־USB, לחבר אותו בחזרה ולהעניק את ההרשאה לגשת אליו מחדש.</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">תקלה בלתי צפויה, כנראה תקלה. עדיף לדווח עליה!</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">לינוקס ארץ׳, אובונטו, דביאן, פדורה, pop!_OS, לינוקס מינט, FreeBSD ועוד.</string>
+    <string name="any_thunderbolt_only_device">כל התקן עם חיבור Thunderbolt בלבד</string>
+    <string name="disk_images">דמויות כונן</string>
+    <string name="plug_in_the_same_usb">יש לחבר את אותו התקן ה־USB בו השתמשת קודם לכן!</string>
+    <string name="usb_drives_are_unreliable">כונני USB אינם אמינים, ומערכת Android לא מעניקה מספיק הרשאות לשחזור אוטומטי. עלינו להסתפק במה שיש!</string>
 </resources>
