@@ -593,6 +593,15 @@ fun SuccessView() {
                 }) {
                     Text(stringResource(R.string.support_the_project))
                 }
+                val context = LocalContext.current
+                OutlinedButton(onClick = {
+                    context.startActivity(Intent(context, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    })
+                    activity?.finish()
+                }) {
+                    Text(stringResource(R.string.write_another_image))
+                }
             }
         }
         Card(

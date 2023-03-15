@@ -336,4 +336,7 @@
 
     <!-- Error message displayed when the verification failed -->
     <string name="the_usb_device_content_does_not_match_the_image">The USB device content does not match the image</string>
+
+    <!-- Displayed in the successful write page, when clicked the app goes back to the initial page -->
+    <string name="write_another_image">Write another image</string>
 </resources>
