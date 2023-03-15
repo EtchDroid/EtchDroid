@@ -58,7 +58,7 @@
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Overige schijfkopiëen die met Balena Etcher of dd werken</string>
     <string name="older_gnu_linux_distributions_isos_2010">Oudere GNU/Linuxdistributies (&lt; 2010)</string>
     <string name="contributors">bijdragers</string>
-    <string name="donate">Doneren</string>
+    <string name="support_the_project">Doneren</string>
     <string name="please_avoid_using_your_device">Gebruik je apparaat in de tussentijd niet</string>
     <string name="would_you_like_to_be_notified">Wil je een melding ontvangen als alles is afgerond\? Deze functie wordt niet gebruikt voor spam of reclame.</string>
     <string name="no_thanks">Nee, bedankt</string>

@@ -218,8 +218,8 @@
     <!-- Displayed in the about page links; keep it very short! -->
     <string name="website">Website</string>
 
-    <!-- Displayed in the about page links; keep it very short! -->
-    <string name="donate">Donate</string>
+    <!-- Displayed in the about page links; keep it short! -->
+    <string name="support_the_project">Support financially</string>
 
     <!-- "Review" as in "Write a review". Displayed in the about page links; keep it very short! -->
     <string name="review">Review</string>

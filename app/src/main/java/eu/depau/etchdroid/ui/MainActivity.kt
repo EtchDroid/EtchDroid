@@ -1225,7 +1225,7 @@ fun AboutView(viewModel: MainActivityViewModel) {
                 }
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(48.dp)
         ) {
             Text(
                 text = "${stringResource(R.string.app_name)} v${BuildConfig.VERSION_NAME}",
@@ -1362,14 +1362,14 @@ fun AboutView(viewModel: MainActivityViewModel) {
                         )
                     }
                 ) {
-                    Text(stringResource(R.string.donate))
+                    Text(stringResource(R.string.support_the_project))
                 }
                 val reviewHelper = remember { activity?.let { WriteReviewHelper(it) } }
                 if (reviewHelper != null) {
                     OutlinedButton(onClick = { reviewHelper.launchReviewFlow() }) {
                         Text(
-                            text = if (reviewHelper.isGPlayFlavor) stringResource(R.string.review)
-                            else "GitHub"
+                            text = if (reviewHelper.isGPlayFlavor) stringResource(R.string.write_a_review)
+                            else stringResource(R.string.star_on_github)
                         )
                     }
                 }

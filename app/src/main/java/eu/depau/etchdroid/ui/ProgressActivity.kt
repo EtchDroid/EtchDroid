@@ -591,7 +591,7 @@ fun SuccessView() {
                         Intent(Intent.ACTION_VIEW, Uri.parse("https://etchdroid.depau.eu/donate/"))
                     )
                 }) {
-                    Text(stringResource(R.string.donate))
+                    Text(stringResource(R.string.support_the_project))
                 }
             }
         }
