@@ -34,6 +34,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
@@ -205,7 +207,7 @@ class ProgressActivity : ComponentActivity() {
             mViewModel.refreshSettings(this)
         }
         refreshNotificationsPermission()
-        mViewModel.updateFromIntent(intent, this)
+        mViewModel.updateFromIntent(intent)
 
         setContent {
             MainView(mViewModel) {
@@ -530,6 +532,7 @@ fun JobInProgressView(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SuccessView() {
     ConstraintLayout(
@@ -569,7 +572,7 @@ fun SuccessView() {
             val activity = LocalContext.current.activity
             val reviewHelper = remember { activity?.let { WriteReviewHelper(it) } }
 
-            Row(
+            FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
             ) {

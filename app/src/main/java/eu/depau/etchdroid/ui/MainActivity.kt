@@ -1208,6 +1208,7 @@ fun WhatCanIWriteBottomSheet(onDismissRequest: () -> Unit, darkTheme: Boolean = 
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AboutView(viewModel: MainActivityViewModel) {
     ConstraintLayout(
@@ -1334,8 +1335,7 @@ fun AboutView(viewModel: MainActivityViewModel) {
                         }
                 })
 
-            // 3 buttons: Website, Donate, Review
-            Row(
+            FlowRow(
                 modifier = Modifier
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
