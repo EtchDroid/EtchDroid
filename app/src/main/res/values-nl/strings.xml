@@ -115,4 +115,5 @@
     <string name="the_device_is_not_responding">Het apparaat reageert niet</string>
     <string name="missing_permission_to_access_the_usb_device">Geen toegang tot usb-apparaat verleend</string>
     <string name="the_image_is_is_larger_than_the_device">De schijfkopie (%1$s) is groter dan de omvang van het apparaat (%2$s)</string>
+    <string name="support_the_project">Financiële ondersteuning</string>
 </resources>
