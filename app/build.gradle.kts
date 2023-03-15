@@ -91,22 +91,12 @@ dependencies {
     implementation("com.airbnb.android:lottie-compose:6.0.0")
     implementation("io.coil-kt:coil-compose:2.2.2")
     implementation("io.coil-kt:coil-gif:2.1.0")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
 
     // Core dependencies
-//    implementation("me.jahnen.libaums:core:0.9.1")
-//    implementation("me.jahnen.libaums:libusbcommunication:0.2.2")
-    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
-    implementation("androidx.compose.ui:ui-graphics")
-
-    // TODO: Remove this once libaums is updated
-    implementation(
-        files("/home/depau/StudioProjects/libaums/libaums/build/outputs/aar/libaums-release.aar")
-    )
-    implementation(
-        files(
-            "/home/depau/StudioProjects/libaums/libusbcommunication/build/outputs/aar/libusbcommunication-release.aar"
-        )
-    )
+    implementation("me.jahnen.libaums:core:0.10.0")
+    implementation("me.jahnen.libaums:libusbcommunication:0.3.0")
 
     // Google Play
     "gplayImplementation"("com.google.android.play:review:2.0.1")
