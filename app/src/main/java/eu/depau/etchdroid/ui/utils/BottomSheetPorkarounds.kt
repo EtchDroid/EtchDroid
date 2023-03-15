@@ -3,7 +3,7 @@ package eu.depau.etchdroid.ui.utils
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SheetState
 import androidx.compose.material3.SheetValue
-import androidx.compose.material3.rememberSheetState
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.delay
@@ -19,11 +19,11 @@ import kotlinx.coroutines.launch
 @ExperimentalMaterial3Api
 fun rememberPorkedAroundSheetState(
     onDismissRequest: () -> Unit,
-    skipHalfExpanded: Boolean = false,
+    skipPartiallyExpanded: Boolean = false,
     confirmValueChange: (SheetValue) -> Boolean = { true },
 ): SheetState {
     val scope = rememberCoroutineScope()
-    return rememberSheetState(skipHalfExpanded = skipHalfExpanded, confirmValueChange = { value ->
+    return rememberModalBottomSheetState(skipPartiallyExpanded = skipPartiallyExpanded, confirmValueChange = { value ->
         val upstreamResult = confirmValueChange(value)
         if (upstreamResult && value == SheetValue.Hidden) {
             scope.launch {

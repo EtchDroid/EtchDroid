@@ -148,7 +148,7 @@ class ProgressActivity : ComponentActivity() {
         }
 
     private val mBroadcastReceiver = broadcastReceiver { intent ->
-        mViewModel.updateFromIntent(intent, this@ProgressActivity)
+        mViewModel.updateFromIntent(intent)
     }
 
     override fun onResume() {

@@ -215,7 +215,7 @@ class ProgressActivityViewModel : ViewModel(), SettingChangeListener,
         _state.update { state }
     }
 
-    fun updateFromIntent(intent: Intent, context: Context) {
+    fun updateFromIntent(intent: Intent) {
         val sourceUri = intent.safeParcelableExtra<Uri>("sourceUri")!!
         val status = intent.safeParcelableExtra<JobStatusInfo>("status")!!
 

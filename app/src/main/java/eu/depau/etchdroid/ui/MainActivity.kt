@@ -524,7 +524,7 @@ fun UsbDevicePickerBottomSheet(
     skipHalfExpanded: Boolean = true,
 ) {
     val bottomSheetState =
-        rememberPorkedAroundSheetState(onDismissRequest, skipHalfExpanded = skipHalfExpanded)
+        rememberPorkedAroundSheetState(onDismissRequest, skipPartiallyExpanded = skipHalfExpanded)
     val scope = rememberCoroutineScope()
     val anyDeviceAvailable by remember(availableDevices) {
         derivedStateOf { availableDevices().isNotEmpty() }
@@ -561,8 +561,8 @@ fun UsbDevicePickerBottomSheet(
                                 onSelectAnimationComplete()
                             }
                         },
-                        headlineText = { Text(device.name) },
-                        supportingText = { Text(device.vidpid, fontStyle = FontStyle.Italic) },
+                        headlineContent = { Text(device.name) },
+                        supportingContent = { Text(device.vidpid, fontStyle = FontStyle.Italic) },
                         leadingContent = {
                             Icon(
                                 imageVector = ImageVector.vectorResource(
@@ -832,7 +832,7 @@ fun LayFlatOnTableBottomSheet(
     val sensorManager =
         remember { context.getSystemService(Context.SENSOR_SERVICE) as SensorManager }
     val sensor = remember(sensorManager) { sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY) }
-    val sheetState = rememberPorkedAroundSheetState(onDismissRequest, skipHalfExpanded = true)
+    val sheetState = rememberPorkedAroundSheetState(onDismissRequest, skipPartiallyExpanded = true)
 
     ModalBottomSheet(onDismissRequest = onDismissRequest, sheetState = sheetState) {
         if (sensor == null || !useGravitySensor) {

@@ -13,7 +13,7 @@ import java.io.File
 fun Uri.getFileSize(context: Context): Long {
     when (this.scheme) {
         ContentResolver.SCHEME_FILE -> {
-            val f = File(this.path)
+            val f = File(this.getFilePath(context)!!)
             return f.length()
         }
 
