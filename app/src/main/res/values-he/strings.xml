@@ -115,4 +115,6 @@
     <string name="disk_images">דמויות כונן</string>
     <string name="plug_in_the_same_usb">יש לחבר את אותו התקן ה־USB בו השתמשת קודם לכן!</string>
     <string name="usb_drives_are_unreliable">כונני USB אינם אמינים, ומערכת Android לא מעניקה מספיק הרשאות לשחזור אוטומטי. עלינו להסתפק במה שיש!</string>
+    <string name="support_the_project">תרומה</string>
+    <string name="write_another_image">כתיבת דמות נוספת</string>
 </resources>
