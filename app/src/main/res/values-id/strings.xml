@@ -9,4 +9,22 @@
     <string name="write_finished">Penulisan selesai</string>
     <string name="cancel">Batal</string>
     <string name="unknown_filename">Nama file tidak diketahui</string>
+    <string name="notification_verify_progress_title">Memverifikasi image…</string>
+    <string name="notification_verify_no_notifications_text">Aktifkan notifikasi untuk kemajuan - Memverifikasi %1$s terhadap %2$s</string>
+    <string name="notification_write_no_notifications_text">Aktifkan pemberitahuan untuk kemajuan - Menulis %1$s ke %2$s</string>
+    <string name="notification_write_tap_for_progress_text">Ketuk untuk kemajuan - Menulis %1$s ke %2$s</string>
+    <string name="notification_write_progress_content">%1$s ke %2$s</string>
+    <string name="notification_verify_progress_content">%1$s terhadap %2$s</string>
+    <string name="permission_denied_for_usb_device">Izin ditolak untuk perangkat USB %1$s</string>
+    <string name="usb_device_was_unplugged">Perangkat USB dicabut</string>
+    <string name="write_an_image">Menulis image</string>
+    <string name="whats_supported">Apa saja yang didukung\?</string>
+    <string name="style">Gaya</string>
+    <string name="device_setting">Pengaturan perangkat</string>
+    <string name="light">Terang</string>
+    <string name="dark">Gelap</string>
+    <string name="dynamic_colors">Warna dinamis</string>
+    <string name="about">Tentang</string>
+    <string name="action_required">Tindakan diperlukan</string>
+    <string name="notification_write_progress_title">Menulis image…</string>
 </resources>
