@@ -9,4 +9,7 @@
     <string name="notif_channel_job_progress_name">Progreso</string>
     <string name="notif_channel_job_result_name">Resultado</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Se usa para mostrar el resultado de un trabajo terminado</string>
+    <string name="notification_write_progress_title">Escribiendo Imagen…</string>
+    <string name="notification_verify_progress_title">Verificando imagen…</string>
+    <string name="notification_write_progress_content">"%1$s a  %2$s"</string>
 </resources>
