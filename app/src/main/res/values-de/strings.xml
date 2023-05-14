@@ -12,4 +12,9 @@
     <string name="notif_channel_job_result_name">Aufgabenergebnis</string>
     <string name="notif_channel_job_progress_name">Aufgabenfortschritt</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Zeigt Fortschritt der aktuellen Aufgabe</string>
+    <string name="supported">Unterstützt</string>
+    <string name="maybe_supported">Vielleicht unterstützt</string>
+    <string name="not_supported">Nicht unterstützt</string>
+    <string name="supported_devices_and_images">Unterstützte Geräte und Bilder</string>
+    <string name="devices">Geräte</string>
 </resources>
