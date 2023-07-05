@@ -9,4 +9,35 @@
     <string name="notif_channel_job_progress_name">Progresso da operação</string>
     <string name="notif_channel_job_result_name">Resultado da operação</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Usado para mostrar uma operação completa</string>
+    <string name="notification_verify_no_notifications_text">Habilitar notificações de progresso • Verificando %1$s contra %2$s</string>
+    <string name="notification_write_no_notifications_text">Habilitar notificações de progresso • Gravando %1$s em %2$s</string>
+    <string name="dynamic_colors">Cores dinâmicas</string>
+    <string name="about">Sobre</string>
+    <string name="action_required">Ação necessária</string>
+    <string name="notification_write_progress_title">Gravando imagem…</string>
+    <string name="notification_verify_progress_title">Verificando imagem…</string>
+    <string name="notification_write_tap_for_progress_text">Toque para ver o progresso • Gravando %1$s em %2$s</string>
+    <string name="notification_write_progress_content">%1$s em %2$s</string>
+    <string name="notification_verify_progress_content">%1$s contra %2$s</string>
+    <string name="permission_denied_for_usb_device">Permissão negada para dispositivo USB %1$s</string>
+    <string name="usb_device_was_unplugged">O dispositivo USB foi desconectado</string>
+    <string name="write_an_image">Escrever uma imagem</string>
+    <string name="whats_supported">O que é suportado\?</string>
+    <string name="style">Estilo</string>
+    <string name="device_setting">Configuração do dispositivo</string>
+    <string name="light">Claro</string>
+    <string name="dark">Escuro</string>
+    <string name="is_this_a_windows_iso">Isso é um ISO do Windows\?</string>
+    <string name="skip">Ignorar</string>
+    <string name="supported">Suportado</string>
+    <string name="maybe_supported">Talvez suportado</string>
+    <string name="not_supported">Não suportado</string>
+    <string name="supported_devices_and_images">Dispositivos e imagens compatíveis</string>
+    <string name="devices">Dispositivos</string>
+    <string name="usb_flash_drives">Pen drives USB</string>
+    <string name="memory_cards_using_a_usb_adapter">Cartões de memória, usando um adaptador USB</string>
+    <string name="usb_hard_drives_ssds_some_might_work">Discos rígidos USB / SSDs (alguns podem funcionar)</string>
+    <string name="memory_cards_using_the_internal_slot">Cartões de memória, usando o slot interno</string>
+    <string name="optical_disk_drives">Unidades de disco óptico</string>
+    <string name="floppy_disk_drives">Unidades de disquete</string>
 </resources>
