@@ -4,9 +4,12 @@
     <string name="cancel">Annuler</string>
     <string name="write_finished">Écriture terminée</string>
     <string name="success_notif_content_text">%1$s a été écrit sur %2$s avec succès</string>
-    <string name="write_failed">Écriture échouée</string>
+    <string name="write_failed">Échec de l\'écriture</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Utilisé pour afficher le résultat d’une tâche terminée</string>
     <string name="notif_channel_job_result_name">Résultat de la tâche</string>
     <string name="notif_channel_job_progress_name">Progression de la tâche</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Utilisé pour afficher la progression de la tâche courante</string>
+    <string name="action_required">Action requise</string>
+    <string name="notification_write_progress_title">Écriture de l\'image…</string>
+    <string name="notification_verify_progress_title">Vérification de l\'image…</string>
 </resources>
