@@ -1,0 +1,16 @@
+EtchDroid, USB disklərə faylları yazmağınıza kömək edən kopileftləşdirilmiş pulsuz GPLv3+ proqramıdır.
+Laptopunuz açılmazsa və heç bir yerin ortasında olduğunuzda, yüklənə bilən GNU/Linux USB sürücüsü yaratmaq üçün ondan istifadə edin.
+
+Xüsusiyyətləri:
+• Raw disk fayllarını və əksər GNU/Linux paylama İSO-larını dəstəkləyir
+• Raspberry Pi fayllarını dəstəkləyir (əvvəlcə ZIP faylını çıxarın; SD-USB adapterindən istifadə edin, daxili SD yuvası dəstəklənmir)
+• Əksər DMG disk fayllarını dəstəkləyir (beta)
+• Root yoxdur - hər şey Android API sərhədləri daxilində edilir
+• Azadlıqda olduğu kimi azaddır
+
+Planlaşdırılan:
+• Ümumi GNU/Linux distro-nu cihazda saxlamadan İnternetdən axınla yazın
+• Windows quraşdırma ISO dəstəyi (ehtimal ki, root tələb edəcək)
+• Unetbootin üslubunda təsvirin yanıb-sönməsinə dəstək
+
+Mənbə kodu GitHub-dadır: https://github.com/Depau/EtchDroid

@@ -1,0 +1,1 @@
+• Android 6.0-da hər hansı düyməni basarkən proqramın sıradan çıxmasına səbəb olan səhv düzəldildi.

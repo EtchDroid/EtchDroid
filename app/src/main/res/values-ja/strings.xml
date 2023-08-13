@@ -8,4 +8,10 @@
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">現在のジョブの進行状況を表示するために使用されます</string>
     <string name="notif_channel_job_progress_name">ジョブの進捗状況</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">完了したジョブの結果を表示するために使用されます</string>
+    <string name="notification_verify_progress_title">イメージを確認しています…</string>
+    <string name="notification_write_no_notifications_text">進行状況の通知を有効にする • %1$s から %2$s への書き込み</string>
+    <string name="notification_verify_no_notifications_text">進行状況の通知を有効にする • %2$s に対する %1$s の検証</string>
+    <string name="notif_channel_job_result_name">仕事の成果</string>
+    <string name="action_required">アクションが必要</string>
+    <string name="notification_write_progress_title">イメージを書き込んでいます…</string>
 </resources>

@@ -1,0 +1,2 @@
+• EtchDroid indi başlıq altında libusb istifadə edir. Bu, daha çox sabitlik gətirməlidir.
+• Gecə rejimi keçidi Pie və ya daha yeni versiyada qeyri-aktiv edilib, çünki bu, bir çox insan üçün problem yarada bilər. Zəhmət olmasa, geri qaytarmaq istəsəniz mənə bildirin.

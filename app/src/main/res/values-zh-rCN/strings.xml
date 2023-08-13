@@ -12,4 +12,30 @@
     <string name="notif_channel_job_progress_name">处理进度</string>
     <string name="notif_channel_job_result_name">处理结果</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">用于显示处理完成的结果</string>
+    <string name="notification_verify_progress_title">校验镜像中...…</string>
+    <string name="about">关于</string>
+    <string name="is_this_a_windows_iso">这是 Windows ISO 镜像吗？</string>
+    <string name="a_regular_windows_iso_won_t_work">常见的 Windows ISO 镜像不能被 Etchdroid 使用，除非它是为与 Etcher、dd 或 Etchdroid 使用专门准备的。</string>
+    <string name="select_a_usb_drive">选择一个 USB 驱动器</string>
+    <string name="connect_a_usb_drive">连接 USB 驱动器</string>
+    <string name="looking_for_usb_drives">寻找 USB 驱动器</string>
+    <string name="confirm_operation">确认操作</string>
+    <string name="disk_image">磁盘映像</string>
+    <string name="image_to_write">将被写入的镜像</string>
+    <string name="usb_drive">USB驱动器</string>
+    <string name="grant_access">授予权限</string>
+    <string name="notification_write_progress_title">写入镜像中……</string>
+    <string name="notification_write_tap_for_progress_text">点击获取进度 • 将 %1$s 写入 %2$s</string>
+    <string name="notification_write_progress_content">%1$s 到 %2$s</string>
+    <string name="permission_denied_for_usb_device">USB 设备的权限被拒绝 %1$s</string>
+    <string name="usb_device_was_unplugged">USB 设备已拔出</string>
+    <string name="write_an_image">写入镜像</string>
+    <string name="style">样式</string>
+    <string name="light">浅色</string>
+    <string name="dark">深色</string>
+    <string name="dynamic_colors">动态色彩</string>
+    <string name="continue_anyway">仍然继续</string>
+    <string name="destination_usb_device">目标 USB 设备</string>
+    <string name="unknown_device">未知设备</string>
+    <string name="permission_granted">权限已授予</string>
 </resources>
