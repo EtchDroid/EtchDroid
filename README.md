@@ -2,8 +2,6 @@ This project is no longer being actively maintained.
 
 If you'd like to adopt it and keep the development going you can get started by sending pull requests, implementing features and resolving issues.
 
-https://blog.depau.eu/2021/09/10/etchdroid-no-longer-maintained/
-
 ----
 
 # EtchDroid
