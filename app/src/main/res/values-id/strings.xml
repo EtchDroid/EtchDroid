@@ -27,4 +27,23 @@
     <string name="about">Tentang</string>
     <string name="action_required">Tindakan diperlukan</string>
     <string name="notification_write_progress_title">Menulis image…</string>
+    <string name="continue_">Lanjutkan</string>
+    <string name="is_this_a_windows_iso">Apakah ini Windows ISO\?</string>
+    <string name="select_a_usb_drive">Pilih drive USB</string>
+    <string name="a_regular_windows_iso_won_t_work">ISO Windows biasa tidak akan berfungsi dengan EtchDroid, kecuali jika ISO tersebut secara khusus disiapkan untuk digunakan dengan Etcher, dd atau EtchDroid.</string>
+    <string name="disk_image">Disk image</string>
+    <string name="write_image">Tulis image</string>
+    <string name="destination_usb_device">Tujuan perangkat USB</string>
+    <string name="confirm_operation">Konfirmasikan operasi</string>
+    <string name="grant_access">Berikan akses</string>
+    <string name="usb_drive">Drive USB</string>
+    <string name="be_careful">Hati-hati!</string>
+    <string name="looking_for_usb_drives">Mencari drive USB</string>
+    <string name="lay_your_device_flat_no_accel">Letakkan perangkat Anda di atas meja sebelum melanjutkan.</string>
+    <string name="image_to_write">Image untuk ditulis</string>
+    <string name="unknown_device">Perangkat tidak dikenal</string>
+    <string name="continue_anyway">Lanjutkan saja</string>
+    <string name="permission_granted">Izin diberikan</string>
+    <string name="writing_the_image_will_erase">Menulis image akan menghapus semua data pada drive yang dipilih</string>
+    <string name="connect_a_usb_drive">Hubungkan drive USB</string>
 </resources>
