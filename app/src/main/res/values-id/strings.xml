@@ -46,4 +46,15 @@
     <string name="permission_granted">Izin diberikan</string>
     <string name="writing_the_image_will_erase">Menulis image akan menghapus semua data pada drive yang dipilih</string>
     <string name="connect_a_usb_drive">Hubungkan drive USB</string>
+    <string name="not_supported">Tidak didukung</string>
+    <string name="usb_flash_drives">Flashdisk</string>
+    <string name="usb_hard_drives_ssds_some_might_work">Harddisk USB / SSD (beberapa mungkin bekerja)</string>
+    <string name="supported_devices_and_images">Perangkat dan gambar yang didukung</string>
+    <string name="memory_cards_using_a_usb_adapter">Kartu memori, menggunakan adaptor USB</string>
+    <string name="skip">Lewati</string>
+    <string name="memory_cards_using_the_internal_slot">Kartu memori, menggunakan slot internal</string>
+    <string name="supported">Didukung</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues">USB docks dan hub (memiliki masalah daya)</string>
+    <string name="maybe_supported">Mungkin didukung</string>
+    <string name="devices">Perangkat</string>
 </resources>
