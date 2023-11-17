@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <application
         android:allowBackup="true"
@@ -84,7 +85,16 @@
 
         <service
             android:name=".service.WorkerService"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="This service interacts with a connected USB device to perform data
+                 transfers. One would think the `connectedDevice` service type should apply, but it
+                 can't be used since it requires me to declare completely unrelated permissions
+                 relating to NFC, UWB, Bluetooth, Wi-Fi, and no proper way to use it for USB
+                 devices is provided." />
+        </service>
     </application>
 
 </manifest>

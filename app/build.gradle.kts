@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "eu.depau.etchdroid"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "eu.depau.etchdroid"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 20
         versionName = "2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -49,9 +49,14 @@ android {
             dimension = "store"
         }
     }
-    packagingOptions {
+    packaging {
         resources {
+            excludes += "META-INF/AL2.0"
+            excludes += "META-INF/LGPL2.1"
+            excludes += "META-INF/licenses/ASM"
             excludes += "META-INF/libaums_release.kotlin_module"
+            excludes += "win32-x86/attach_hotspot_windows.dll"
+            excludes += "win32-x86-64/attach_hotspot_windows.dll"
         }
     }
     compileOptions {
@@ -66,33 +71,33 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
+        kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
     }
 }
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${rootProject.extra["kotlin_version"]}")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("com.google.android.material:material:1.9.0-alpha02")
-    implementation("androidx.lifecycle:lifecycle-service:2.6.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("com.google.android.material:material:1.10.0")
+    implementation("androidx.lifecycle:lifecycle-service:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Compose
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
-    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.activity:activity-compose:1.8.1")
     implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
-    implementation("androidx.compose.material3:material3:1.1.0-alpha08")
-    implementation("com.google.accompanist:accompanist-navigation-animation:0.29.1-alpha")
-    implementation("com.google.accompanist:accompanist-permissions:0.29.1-alpha")
-    implementation("androidx.compose.material:material-icons-extended:1.4.0-rc01")
+    implementation("androidx.compose.material3:material3:1.1.2")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.32.0")
+    implementation("com.google.accompanist:accompanist-permissions:0.32.0")
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-    implementation("com.airbnb.android:lottie-compose:6.0.0")
-    implementation("io.coil-kt:coil-compose:2.2.2")
-    implementation("io.coil-kt:coil-gif:2.1.0")
+    implementation("com.airbnb.android:lottie-compose:6.1.0")
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("io.coil-kt:coil-gif:2.5.0")
     implementation("androidx.compose.ui:ui-graphics")
-    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
+    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
 
     // Core dependencies
     implementation("me.jahnen.libaums:core:0.10.0")
@@ -107,19 +112,14 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.5.0")
-    testImplementation("org.mockito:mockito-core:5.1.1")
+    testImplementation("org.mockito:mockito-core:5.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.7.3")
     androidTestImplementation(
         "androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}"
     )
-    androidTestImplementation(platform("androidx.compose:compose-bom:2022.10.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
     debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
     debugImplementation(
         "androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}"
     )
-
-    constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
-            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
-        }
-    }
 }
