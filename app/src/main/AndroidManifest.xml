@@ -21,11 +21,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="UnusedAttribute">
+
+        <activity
+            android:name=".ui.AboutActivity"
+            android:exported="false"
+            android:label="@string/about"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.ConfirmOperationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_confirm_operation"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.ProgressActivity"
             android:exported="false"
-            android:label="culo"
-            android:theme="@style/AppTheme" />
+            android:label="@string/writing_image"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
@@ -91,11 +108,7 @@
             android:foregroundServiceType="specialUse">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="This service interacts with a connected USB device to perform data
-                 transfers. One would think the `connectedDevice` service type should apply, but it
-                 can't be used since it requires me to declare completely unrelated permissions
-                 relating to NFC, UWB, Bluetooth, Wi-Fi, and no proper way to use it for USB
-                 devices is provided." />
+                android:value="This service interacts with a connected USB device to perform data                  transfers. One would think the `connectedDevice` service type should apply, but it                  can&apos;t be used since it requires me to declare completely unrelated permissions                  relating to NFC, UWB, Bluetooth, Wi-Fi, and no proper way to use it for USB                  devices is provided." />
         </service>
     </application>
 

@@ -7,12 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import eu.depau.etchdroid.ui.ThemeViewModel
+import eu.depau.etchdroid.ui.IThemeViewModel
 import eu.depau.etchdroid.ui.theme.EtchDroidTheme
 
 
 @Composable
-fun MainView(viewModel: ThemeViewModel<*>, content: @Composable () -> Unit) {
+fun MainView(viewModel: IThemeViewModel<*>, content: @Composable () -> Unit) {
     val uiState by viewModel.state.collectAsState()
     val darkMode by viewModel.darkMode
 

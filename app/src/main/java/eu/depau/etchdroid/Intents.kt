@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Parcelable
 import eu.depau.etchdroid.massstorage.UsbMassStorageDeviceDescriptor
 import eu.depau.etchdroid.utils.exception.base.EtchDroidException
-import eu.depau.etchdroid.utils.ktexts.broadcastLocally
 import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
@@ -42,6 +41,20 @@ private fun mkIntent(
     packageContext: Context? = null, cls: Class<*>? = null,
 ) = if (packageContext != null && cls != null) Intent(packageContext, cls)
 else Intent()
+
+fun getConfirmOperationActivityIntent(
+    sourceUri: Uri,
+    destDevice: UsbMassStorageDeviceDescriptor,
+    packageContext: Context? = null,
+    cls: Class<*>? = null,
+): Intent {
+    return mkIntent(packageContext, cls).apply {
+        data = sourceUri
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        putExtra("sourceUri", sourceUri)
+        putExtra("destDevice", destDevice)
+    }
+}
 
 fun getStartJobIntent(
     sourceUri: Uri,

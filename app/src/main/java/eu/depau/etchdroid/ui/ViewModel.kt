@@ -1,9 +1,7 @@
 package eu.depau.etchdroid.ui
 
-import android.content.Context
 import android.content.Intent
 import android.hardware.usb.UsbDevice
-import android.hardware.usb.UsbManager
 import android.net.Uri
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
@@ -38,7 +36,7 @@ interface IViewModel<T> {
     val state: StateFlow<T>
 }
 
-interface ThemeViewModel<T> : IViewModel<T> where T : IThemeState {
+interface IThemeViewModel<T> : IViewModel<T> where T : IThemeState {
     val darkMode: State<Boolean>
         @Composable get() {
             val stateValue by state.collectAsState()
@@ -55,14 +53,35 @@ interface ThemeViewModel<T> : IViewModel<T> where T : IThemeState {
         }
 }
 
+data class ThemeState(
+    override val dynamicColors: Boolean = false,
+    override val themeMode: ThemeMode = ThemeMode.SYSTEM,
+) : IThemeState {
+    companion object {
+        val Empty: ThemeState
+            get() = ThemeState()
+    }
+}
+
+class ThemeViewModel : ViewModel(), SettingChangeListener, IThemeViewModel<ThemeState> {
+    private val _state = MutableStateFlow(ThemeState.Empty)
+    override val state: StateFlow<ThemeState> = _state.asStateFlow()
+
+    override fun refreshSettings(settings: AppSettings) {
+        _state.update {
+            it.copy(
+                dynamicColors = settings.dynamicColors, themeMode = settings.themeMode
+            )
+        }
+    }
+}
+
 data class MainActivityState(
     override val dynamicColors: Boolean = false,
     override val themeMode: ThemeMode = ThemeMode.SYSTEM,
     val showWindowsAlertForUri: Uri? = null,
     val openedImage: Uri? = null,
     val massStorageDevices: Set<UsbMassStorageDeviceDescriptor> = emptySet(),
-    val selectedDevice: UsbMassStorageDeviceDescriptor? = null,
-    val hasUsbPermission: Boolean = false,
 ) : IThemeState {
     companion object {
         val Empty: MainActivityState
@@ -71,7 +90,7 @@ data class MainActivityState(
 }
 
 class MainActivityViewModel : ViewModel(), SettingChangeListener,
-    ThemeViewModel<MainActivityState> {
+    IThemeViewModel<MainActivityState> {
     private val _state = MutableStateFlow(MainActivityState.Empty)
     override val state: StateFlow<MainActivityState> = _state.asStateFlow()
 
@@ -99,16 +118,6 @@ class MainActivityViewModel : ViewModel(), SettingChangeListener,
         }
     }
 
-    fun selectDevice(context: Context, device: UsbMassStorageDeviceDescriptor?) {
-        val usbManager = context.getSystemService(Context.USB_SERVICE) as UsbManager
-        val hasPermission = device?.usbDevice?.let { usbManager.hasPermission(it) } ?: false
-        _state.update {
-            val new = if (it.selectedDevice == device) it
-            else it.copy(selectedDevice = device, hasUsbPermission = hasPermission)
-            // println("selectDevice: $new")
-            new
-        }
-    }
 
     fun usbDeviceAttached(device: UsbDevice) {
         _state.update {
@@ -122,51 +131,71 @@ class MainActivityViewModel : ViewModel(), SettingChangeListener,
 
     fun usbDeviceDetached(device: UsbDevice) {
         _state.update { state ->
-            val newUsbDevices = state.massStorageDevices.filter { it.usbDevice != device }.toSet()
-            val new = if (state.selectedDevice?.usbDevice == device) state.copy(
-                massStorageDevices = newUsbDevices, selectedDevice = newUsbDevices.firstOrNull(),
-                hasUsbPermission = false
+            state.copy(
+                massStorageDevices = state.massStorageDevices.filter { it.usbDevice != device }
+                    .toSet()
             )
-            else state.copy(massStorageDevices = newUsbDevices)
-            // println("usbDeviceDetached: $new")
-            new
         }
     }
 
-    fun usbPermissionGranted(device: UsbDevice) {
-        _state.update {
-            val new = if (it.selectedDevice?.usbDevice == device) {
-                println("Permission granted for selected device")
-                it.copy(hasUsbPermission = true)
-            } else if (device.massStorageDevices.size == 1) {
-                it.copy(
-                    selectedDevice = device.massStorageDevices.first(), hasUsbPermission = true
-                )
-            } else {
-                it.copy(hasUsbPermission = false)
-            }
-            // println("usbPermissionGranted: $new")
-            new
-        }
-    }
 
     fun replaceUsbDevices(devices: Collection<UsbDevice>) {
-        _state.update { oldState ->
-            val newDevices = devices.flatMap { it.massStorageDevices }.toSet()
-            val new = if (oldState.selectedDevice?.usbDevice in devices) {
-                oldState.copy(massStorageDevices = newDevices)
-            } else {
-                oldState.copy(
-                    massStorageDevices = newDevices, selectedDevice = newDevices.firstOrNull()
-                )
-            }
-            // println("replaceUsbDevices: $new")
-            new
+        _state.update { state ->
+            state.copy(
+                massStorageDevices = devices.flatMap { it.massStorageDevices }.toSet()
+            )
         }
     }
 
     override fun toString(): String {
         return "MainActivityViewModel(state=${_state.value})"
+    }
+}
+
+data class ConfirmOperationActivityState(
+    override val dynamicColors: Boolean = false,
+    override val themeMode: ThemeMode = ThemeMode.SYSTEM,
+    val openedImage: Uri? = null,
+    val selectedDevice: UsbMassStorageDeviceDescriptor? = null,
+    val hasUsbPermission: Boolean = false,
+) : IThemeState {
+    companion object {
+        val Empty: ConfirmOperationActivityState
+            get() = ConfirmOperationActivityState()
+    }
+}
+
+
+class ConfirmOperationActivityViewModel : ViewModel(), SettingChangeListener,
+    IThemeViewModel<ConfirmOperationActivityState> {
+    private val _state = MutableStateFlow(ConfirmOperationActivityState.Empty)
+    override val state: StateFlow<ConfirmOperationActivityState> = _state.asStateFlow()
+
+    override fun refreshSettings(settings: AppSettings) {
+        _state.update {
+            it.copy(
+                dynamicColors = settings.dynamicColors, themeMode = settings.themeMode
+            )
+        }
+    }
+
+    fun setState(state: ConfirmOperationActivityState) {
+        _state.update { state }
+    }
+
+    fun init(openedImage: Uri?, selectedDevice: UsbMassStorageDeviceDescriptor?) =
+        _state.update {
+            it.copy(
+                openedImage = openedImage,
+                selectedDevice = selectedDevice,
+                hasUsbPermission = false,
+            )
+        }
+
+    fun setPermission(permission: Boolean) {
+        _state.update {
+            it.copy(hasUsbPermission = permission)
+        }
     }
 }
 
@@ -198,7 +227,7 @@ data class ProgressActivityState(
 }
 
 class ProgressActivityViewModel : ViewModel(), SettingChangeListener,
-    ThemeViewModel<ProgressActivityState> {
+    IThemeViewModel<ProgressActivityState> {
     private val _state = MutableStateFlow(ProgressActivityState.Empty)
     override val state: StateFlow<ProgressActivityState> = _state.asStateFlow()
 

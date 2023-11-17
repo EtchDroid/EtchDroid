@@ -1,5 +1,6 @@
 package eu.depau.etchdroid.utils.ktexts
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
@@ -26,5 +27,29 @@ fun Context.startForegroundServiceCompat(intent: Intent) {
         startForegroundService(intent)
     } else {
         startService(intent)
+    }
+}
+
+@SuppressLint("UnspecifiedRegisterReceiverFlag")
+fun Context.registerExportedReceiver(
+    receiver: android.content.BroadcastReceiver,
+    intentFilter: android.content.IntentFilter,
+) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        registerReceiver(receiver, intentFilter, Context.RECEIVER_EXPORTED)
+    } else {
+        registerReceiver(receiver, intentFilter)
+    }
+}
+
+@SuppressLint("UnspecifiedRegisterReceiverFlag")
+fun Context.registerUnexportedReceiver(
+    receiver: android.content.BroadcastReceiver,
+    intentFilter: android.content.IntentFilter,
+) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        registerReceiver(receiver, intentFilter, Context.RECEIVER_NOT_EXPORTED)
+    } else {
+        registerReceiver(receiver, intentFilter)
     }
 }

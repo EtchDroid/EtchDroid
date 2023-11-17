@@ -88,7 +88,7 @@
     <string name="is_this_a_windows_iso">Is this a Windows ISO?</string>
 
     <!-- Dialog message; the dialog alerts the user that Windows images are not supported -->
-    <string name="a_regular_windows_iso_won_t_work">A regular Windows ISO won\'t work with EtchDroid, unless it has specifically been prepared for use with Etcher, dd or EtchDroid.</string>
+    <string name="a_regular_windows_iso_won_t_work">A regular Windows ISO won\'t work with EtchDroid, unless it has specifically been prepared for use with EtchDroid, Etcher or dd.</string>
 
     <!-- Dialog button text: if the user clicks it, the app ignores the warning and continues -->
     <string name="continue_anyway">Continue anyway</string>
@@ -339,4 +339,8 @@
 
     <!-- Displayed in the successful write page, when clicked the app goes back to the initial page -->
     <string name="write_another_image">Write another image</string>
+
+    <string name="title_activity_confirm_operation">Confirm operation</string>
+    <string name="no_image_uri_provided">No image URI provided</string>
+    <string name="no_destination_device_selected">No destination device selected</string>
 </resources>

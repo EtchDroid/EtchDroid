@@ -102,6 +102,8 @@ dependencies {
     // Core dependencies
     implementation("me.jahnen.libaums:core:0.10.0")
     implementation("me.jahnen.libaums:libusbcommunication:0.3.0")
+    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
 
     // Google Play
     "gplayImplementation"("com.google.android.play:review:2.0.1")
