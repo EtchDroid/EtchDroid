@@ -1,13 +1,20 @@
+@file:OptIn(ExperimentalCoroutinesApi::class)
+
 package eu.depau.etchdroid
 
+import eu.depau.etchdroid.massstorage.BlockDeviceChannelOutputStream
 import eu.depau.etchdroid.massstorage.BlockDeviceInputStream
 import eu.depau.etchdroid.massstorage.BlockDeviceOutputStream
+import eu.depau.etchdroid.utils.TimedMutex
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.debug.DebugProbes
 import kotlinx.coroutines.runBlocking
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import me.jahnen.libaums.core.driver.file.FileBlockDeviceDriver
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 import java.io.File
 import java.io.IOException
@@ -281,6 +288,11 @@ fun createPseudoRandomTestFile(size: Int, seed: Long): File {
 open class BlockDeviceOutputStreamTest {
     open val coroutineScope: CoroutineScope? = null
 
+    @Before
+    fun setUp() {
+        TimedMutex.defaultTimeout = 1000L
+    }
+
     @Test
     fun testWithCommonParams() {
         runWriteTest(
@@ -340,12 +352,14 @@ open class BlockDeviceOutputStreamTest {
 
 
     private fun runWriteTest(testDevSize: Long, testBlockSize: Int, testBufferBlocks: Int) = runBlocking {
+        DebugProbes.install()
+
         val testFile = createTestFile(testDevSize.toInt())
 
         try {
             val testDev = createTestBlockDevice(testFile, testBlockSize)
             val outputStream =
-                BlockDeviceOutputStream(testDev, bufferBlocks = testBufferBlocks, coroutineScope)
+                BlockDeviceChannelOutputStream(testDev, bufferBlocks = testBufferBlocks, coroutineScope = coroutineScope!!)
 
             val deviceRandomAccessFile: RandomAccessFile = testDev::class.java
                 .getDeclaredField("file")
@@ -458,18 +472,21 @@ open class BlockDeviceOutputStreamTest {
         }
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     private fun runPseudoRandomWriteTest(
         testDevSize: Long,
         testBlockSize: Int,
         testBufferBlocks: Int,
     ) = runBlocking {
+        DebugProbes.install()
+
         val seed = System.currentTimeMillis()
         val testFile = createPseudoRandomTestFile(testDevSize.toInt(), seed)
 
         try {
             val testDev = createTestBlockDevice(testFile, testBlockSize)
             val outputStream =
-                BlockDeviceOutputStream(testDev, bufferBlocks = testBufferBlocks, coroutineScope)
+                BlockDeviceChannelOutputStream(testDev, bufferBlocks = testBufferBlocks, coroutineScope = coroutineScope!!)
 
             val deviceRandomAccessFile: RandomAccessFile = testDev::class.java
                 .getDeclaredField("file")
@@ -497,11 +514,14 @@ open class BlockDeviceOutputStreamTest {
         }
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     private fun runPseudoRandomSmallWritesTest(
         testDevSize: Long,
         testBlockSize: Int,
         testBufferBlocks: Int,
     ) = runBlocking {
+        DebugProbes.install()
+
         // Same as above, but instead of writing the entire buffer in one go, write it in small chunks of testBlockSize * testBufferBlocks
         val seed = System.currentTimeMillis()
         val testFile = createPseudoRandomTestFile(testDevSize.toInt(), seed)
@@ -509,7 +529,7 @@ open class BlockDeviceOutputStreamTest {
         try {
             val testDev = createTestBlockDevice(testFile, testBlockSize)
             val outputStream =
-                BlockDeviceOutputStream(testDev, bufferBlocks = testBufferBlocks, coroutineScope)
+                BlockDeviceChannelOutputStream(testDev, bufferBlocks = testBufferBlocks, coroutineScope = coroutineScope!!)
 
             val deviceRandomAccessFile: RandomAccessFile = testDev::class.java
                 .getDeclaredField("file")
