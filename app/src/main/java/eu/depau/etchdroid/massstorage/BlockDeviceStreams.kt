@@ -41,10 +41,10 @@ class BlockDeviceOutputStream(
         get() = currentBlockOffset * blockDev.blockSize + byteBuffer.position()
 
     private val sizeBytes: Long
-        get() = blockDev.numBlocks * blockDev.blockSize
+        get() = blockDev.blocks * blockDev.blockSize
 
     private val bytesUntilEOF: Long
-        get() = blockDev.numBlocks * blockDev.blockSize - currentByteOffset
+        get() = blockDev.blocks * blockDev.blockSize - currentByteOffset
 
     private var _ioThreadException: Exception? = null
     private suspend inline fun launchInIoThread(crossinline block: suspend () -> Unit) {
@@ -140,9 +140,9 @@ class BlockDeviceOutputStream(
         currentBlockOffset += oldByteBuffer.position() / blockDev.blockSize
         byteBuffer = ByteBuffer.allocate(byteBuffer.capacity()).apply {
             position(0)
-            if (currentBlockOffset >= blockDev.numBlocks - bufferBlocks)
+            if (currentBlockOffset >= blockDev.blocks - bufferBlocks)
                 limit(
-                    blockDev.blockSize * (blockDev.numBlocks - currentBlockOffset).toInt()
+                    blockDev.blockSize * (blockDev.blocks - currentBlockOffset).toInt()
                 )
             else
                 limit(capacity())
@@ -210,9 +210,9 @@ class BlockDeviceOutputStream(
         }
 
         // Ensure the buffer is limited on EOF
-        if (blockDev.numBlocks - currentBlockOffset < bufferBlocks)
+        if (blockDev.blocks - currentBlockOffset < bufferBlocks)
             byteBuffer.limit(
-                (blockDev.numBlocks - currentBlockOffset).toInt() * blockDev.blockSize
+                (blockDev.blocks - currentBlockOffset).toInt() * blockDev.blockSize
             )
 
         currentBlockOffset += fullBlocks
@@ -274,12 +274,12 @@ class BlockDeviceInputStream(
     private var markedBufferPosition: Int = 0
 
     private val sizeBytes: Long
-        get() = blockDev.numBlocks * blockDev.blockSize
+        get() = blockDev.blocks * blockDev.blockSize
 
     private fun isNextByteAfterEOF(): Boolean {
         if (byteBuffer.hasRemaining())
             return false
-        return currentBlockOffset + 1 >= blockDev.numBlocks
+        return currentBlockOffset + 1 >= blockDev.blocks
     }
 
     private inline fun launchInIoThread(crossinline block: () -> Unit) {
@@ -320,9 +320,9 @@ class BlockDeviceInputStream(
         byteBuffer.clear()
 
         // Ensure the buffer is limited on EOF
-        if (blockDev.numBlocks - currentBlockOffset < prefetchBlocks)
+        if (blockDev.blocks - currentBlockOffset < prefetchBlocks)
             byteBuffer.limit(
-                (blockDev.numBlocks - currentBlockOffset).toInt() * blockDev.blockSize
+                (blockDev.blocks - currentBlockOffset).toInt() * blockDev.blockSize
             )
 
         blockDev.read(currentBlockOffset, byteBuffer)
@@ -350,7 +350,7 @@ class BlockDeviceInputStream(
         if (byteBuffer.hasRemaining())
             return
         val newOffset = currentBlockOffset + byteBuffer.position() / blockDev.blockSize
-        if (newOffset >= blockDev.numBlocks) {
+        if (newOffset >= blockDev.blocks) {
             currentBlockOffset = newOffset
             return
         }
