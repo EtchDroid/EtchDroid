@@ -1,6 +1,6 @@
 package eu.depau.etchdroid.utils
 
-class DeferredInit<T> {
+class DeferredInit<T>(val mutable: Boolean = false) {
     private var _value: T? = null
 
     operator fun getValue(thisRef: Any?, property: kotlin.reflect.KProperty<*>): T {
@@ -10,7 +10,7 @@ class DeferredInit<T> {
     }
 
     operator fun setValue(thisRef: Any?, property: kotlin.reflect.KProperty<*>, value: T) {
-        if (this._value != null)
+        if (this._value != null && !mutable)
             throw IllegalStateException("Property ${property.name} has already been initialized")
         this._value = value
     }
@@ -22,4 +22,4 @@ class DeferredInit<T> {
         get() = _value!!
 }
 
-inline fun <reified T> lateInit(): DeferredInit<T> = DeferredInit()
+inline fun <reified T> lateInit(mutable: Boolean = false): DeferredInit<T> = DeferredInit(mutable)
