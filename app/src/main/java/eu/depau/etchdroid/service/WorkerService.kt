@@ -25,8 +25,9 @@ import eu.depau.etchdroid.massstorage.BlockDeviceInputStream
 import eu.depau.etchdroid.massstorage.BlockDeviceOutputStream
 import eu.depau.etchdroid.massstorage.EtchDroidUsbMassStorageDevice
 import eu.depau.etchdroid.massstorage.UsbMassStorageDeviceDescriptor
-import eu.depau.etchdroid.massstorage.numBlocks
 import eu.depau.etchdroid.massstorage.setUpLibUSB
+import eu.depau.etchdroid.service.WorkerServiceFlowImpl.verifyImage
+import eu.depau.etchdroid.service.WorkerServiceFlowImpl.writeImage
 import eu.depau.etchdroid.ui.ProgressActivity
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.exception.InitException
@@ -43,6 +44,7 @@ import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.getFilePath
 import eu.depau.etchdroid.utils.ktexts.getFileSize
 import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
+import eu.depau.etchdroid.utils.ktexts.startForegroundSpecialUse
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.lateInit
 import kotlinx.coroutines.CoroutineScope
@@ -62,7 +64,7 @@ private const val JOB_PROGRESS_CHANNEL = "eu.depau.etchdroid.notifications.JOB_P
 
 private const val WAKELOCK_TIMEOUT = 10 * 60 * 1000L
 private const val PROGRESS_UPDATE_INTERVAL = 1000L
-private const val BUFFER_BLOCKS_SIZE = 2048
+const val BUFFER_BLOCKS_SIZE = 2048
 
 class WorkerService : LifecycleService() {
     private var mLoggedNotificationWarning = false
@@ -70,7 +72,7 @@ class WorkerService : LifecycleService() {
     private val mProgressNotificationId = Random().nextInt()
     private lateinit var mSourceUri: Uri
     private lateinit var mDestDevice: UsbMassStorageDeviceDescriptor
-    private var mJobId by lateInit<Int>()
+    private var mJobId by lateInit<Int>(mutable = true)
     private var mWakelockAcquireTime = -1L
     private var mWakeLock: PowerManager.WakeLock? = null
     private var mVerificationCancelled = false
@@ -286,7 +288,7 @@ class WorkerService : LifecycleService() {
             }' -> '${mDestDevice.name}' (offset: ${offset.toHRSize(false)})"
         )
 
-        startForeground(mProgressNotificationId, basicForegroundNotification)
+        startForegroundSpecialUse(mProgressNotificationId, basicForegroundNotification)
 
         lifecycleScope.launch(Dispatchers.IO) {
             Log.d(
@@ -318,7 +320,7 @@ class WorkerService : LifecycleService() {
                 // Resume a few blocks earlier in case things went haywire earlier
                 currentOffset = max(currentOffset - blockDev.blockSize * 10, 0L)
 
-                val devSize = blockDev.numBlocks * blockDev.blockSize
+                val devSize = blockDev.blocks * blockDev.blockSize
                 Log.d(
                     TAG, "Device size: ${
                         devSize.toHRSize(
@@ -328,7 +330,7 @@ class WorkerService : LifecycleService() {
                         blockDev.blockSize.toHRSize(
                             false
                         )
-                    }, " + "num blocks: ${blockDev.numBlocks})"
+                    }, " + "num blocks: ${blockDev.blocks})"
                 )
                 imageSize = mSourceUri.getFileSize(this@WorkerService)
 
@@ -346,7 +348,6 @@ class WorkerService : LifecycleService() {
 
                 // Write image
                 if (!verifyOnly) {
-                    val buffer = ByteArray(bufferSize)
                     try {
                         rawSourceStream = contentResolver.openInputStream(mSourceUri)!!
                     } catch (e: Exception) {
@@ -354,28 +355,10 @@ class WorkerService : LifecycleService() {
                         throw OpenFileException("Failed to open image file", e)
                     }
 
-                    val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
-                    val dst = BlockDeviceOutputStream(blockDev, BUFFER_BLOCKS_SIZE, coroScope)
-
-                    src.skip(currentOffset)
-                    dst.seekAsync(currentOffset)
-
-                    while (currentOffset < imageSize) {
-                        ensureWakelock()
-
-                        val read = src.read(buffer)
-                        if (read == -1) break
-                        try {
-                            dst.writeAsync(buffer)
-                        } catch (e: Exception) {
-                            Log.e(TAG, "Failed to write to USB drive", e)
-                            throw UsbCommunicationException(e)
-                        }
-                        currentOffset += read
-
-                        sendProgressUpdate(read, currentOffset, imageSize, isVerifying = false)
-                    }
-                    dst.flushAsync()
+                    writeImage(
+                        rawSourceStream, blockDev, imageSize, bufferSize, currentOffset, coroScope,
+                        ::ensureWakelock, ::sendProgressUpdate
+                    )
                 }
 
                 // Verify written image
@@ -386,50 +369,13 @@ class WorkerService : LifecycleService() {
                     throw OpenFileException("Failed to open image file", e)
                 }
 
-                val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
-                val dst = BlockDeviceInputStream(blockDev, BUFFER_BLOCKS_SIZE, lifecycleScope)
+                // Always verify the whole image, not just the part that was written
+                currentOffset = 0
 
-                // If we're only verifying, the offset might be > 0 due to a previous error that
-                // failed mid-verify. Otherwise we're verifying after a successful write, so we
-                // start from the beginning.
-                if (!verifyOnly) currentOffset = 0L
-
-                src.skip(currentOffset)
-                dst.skip(currentOffset)
-
-                val fileBuffer = ByteArray(bufferSize)
-                val deviceBuffer = ByteArray(bufferSize)
-
-                while (!mVerificationCancelled) {
-                    ensureWakelock()
-
-                    val read = src.read(fileBuffer)
-                    if (read == -1) break
-
-                    try {
-                        val deviceRead = dst.read(deviceBuffer, 0, read)
-                        require(
-                            deviceRead >= read
-                        ) { "Device read $deviceRead < file read $read" }
-                    } catch (e: Exception) {
-                        Log.e(TAG, "Failed to read from USB drive", e)
-                        throw UsbCommunicationException(e)
-                    }
-
-                    if (!fileBuffer.contentEquals(deviceBuffer)) {
-                        Log.e(TAG, "Verification failed")
-                        if (Build.VERSION.SDK_INT > 999999) {
-                            // Prevent the compiler from optimizing out the buffers, for debugging
-                            // purposes
-                            print(deviceBuffer)
-                            print(fileBuffer)
-                        }
-                        throw VerificationFailedException()
-                    }
-                    currentOffset += read
-
-                    sendProgressUpdate(read, currentOffset, imageSize, isVerifying = true)
-                }
+                verifyImage(
+                    rawSourceStream, blockDev, imageSize, bufferSize, coroScope,
+                    ::sendProgressUpdate, { mVerificationCancelled }, ::ensureWakelock
+                )
 
                 getFinishedIntent(mSourceUri, mDestDevice, imageSize).broadcastLocallySync(
                     this@WorkerService
@@ -541,6 +487,111 @@ class WorkerService : LifecycleService() {
                 Log.w(TAG, "Could not register notification channels", e)
                 mLoggedNotificationWarning = true
             }
+        }
+    }
+}
+
+object WorkerServiceFlowImpl {
+    suspend fun writeImage(
+        rawSourceStream: InputStream,
+        blockDev: BlockDeviceDriver,
+        imageSize: Long,
+        bufferSize: Int,
+        initialOffset: Long,
+        coroScope: CoroutineScope,
+        grabWakeLock: () -> Unit,
+        sendProgressUpdate: (
+            lastWrittenBytes: Int,
+            processedBytes: Long,
+            imageSize: Long,
+            isVerifying: Boolean,
+        ) -> Unit,
+    ) {
+        val buffer = ByteArray(bufferSize)
+        var currentOffset = initialOffset
+
+        val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
+        val dst = BlockDeviceOutputStream(blockDev, BUFFER_BLOCKS_SIZE, coroScope)
+
+        src.skip(currentOffset)
+        dst.seekAsync(currentOffset)
+
+        while (currentOffset < imageSize) {
+            grabWakeLock()
+
+            val read = src.read(buffer)
+            if (read == -1) break
+            try {
+                dst.writeAsync(buffer)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to write to USB drive", e)
+                throw UsbCommunicationException(e)
+            }
+            currentOffset += read
+
+            sendProgressUpdate(read, currentOffset, imageSize, false)
+        }
+        dst.flushAsync()
+    }
+
+    fun verifyImage(
+        rawSourceStream: InputStream,
+        blockDev: BlockDeviceDriver,
+        imageSize: Long,
+        bufferSize: Int,
+        lifecycleScope: CoroutineScope,
+        sendProgressUpdate: (
+            lastWrittenBytes: Int,
+            processedBytes: Long,
+            imageSize: Long,
+            isVerifying: Boolean,
+        ) -> Unit,
+        isVerificationCanceled: () -> Boolean,
+        grabWakeLock: () -> Unit,
+    ) {
+
+        val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
+        val dst = BlockDeviceInputStream(blockDev, BUFFER_BLOCKS_SIZE, lifecycleScope)
+        var currentOffset = 0L
+
+        src.skip(currentOffset)
+        dst.skip(currentOffset)
+
+//    val fileBuffer = ByteArray(bufferSize)
+//    val deviceBuffer = ByteArray(bufferSize)
+
+        val fileBuffer = ByteArray(1024)
+        val deviceBuffer = ByteArray(1024)
+
+        while (!isVerificationCanceled()) {
+            grabWakeLock()
+
+            val read = src.read(fileBuffer)
+            if (read == -1) break
+
+            try {
+                val deviceRead = dst.read(deviceBuffer, 0, read)
+                require(
+                    deviceRead >= read
+                ) { "Device read $deviceRead < file read $read" }
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to read from USB drive", e)
+                throw UsbCommunicationException(e)
+            }
+
+            if (!fileBuffer.contentEquals(deviceBuffer)) {
+                Log.e(TAG, "Verification failed")
+                if (Build.VERSION.SDK_INT > 999999) {
+                    // Prevent the compiler from optimizing out the buffers, for debugging
+                    // purposes
+                    print(deviceBuffer)
+                    print(fileBuffer)
+                }
+                throw VerificationFailedException()
+            }
+            currentOffset += read
+
+            sendProgressUpdate(read, currentOffset, imageSize, true)
         }
     }
 }
