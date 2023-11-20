@@ -629,7 +629,7 @@ fun SuccessView() {
                 val annotatedString = buildAnnotatedString {
                     val learnMoreStr = stringResource(R.string.learn_what_it_means)
                     val str =
-                        stringResource(R.string.it_s_safe_to_ignore)
+                        stringResource(R.string.it_s_safe_to_ignore, learnMoreStr)
                     val startIndex = str.indexOf(learnMoreStr)
                     val endIndex = startIndex + learnMoreStr.length
                     append(str)
