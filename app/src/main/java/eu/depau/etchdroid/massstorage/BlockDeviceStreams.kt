@@ -148,6 +148,8 @@ class BlockDeviceOutputStream(
                 limit(capacity())
         }
 
+        oldByteBuffer.flip()
+
         val synchronizationMutex = Mutex(locked = true)
         launchInIoThread {
             deviceMutex.withLock {
