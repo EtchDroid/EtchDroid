@@ -118,4 +118,6 @@
     <string name="support_the_project">תרומה</string>
     <string name="write_another_image">כתיבת דמות נוספת</string>
     <string name="title_activity_confirm_operation">אישור פעולה</string>
+    <string name="no_image_uri_provided">לא סופקה כתובת תמונה מלאה</string>
+    <string name="no_destination_device_selected">לא נבחר התקן יעד</string>
 </resources>
