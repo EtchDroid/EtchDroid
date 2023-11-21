@@ -117,4 +117,5 @@
     <string name="usb_drives_are_unreliable">כונני USB אינם אמינים, ומערכת Android לא מעניקה מספיק הרשאות לשחזור אוטומטי. עלינו להסתפק במה שיש!</string>
     <string name="support_the_project">תרומה</string>
     <string name="write_another_image">כתיבת דמות נוספת</string>
+    <string name="title_activity_confirm_operation">אישור פעולה</string>
 </resources>
