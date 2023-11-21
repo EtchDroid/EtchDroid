@@ -52,8 +52,8 @@ class AboutActivity : ComponentActivity() {
     private val mViewModel: ThemeViewModel by viewModels()
     private lateinit var mSettings: AppSettings
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         mSettings = AppSettings(this).apply {
             addListener(mViewModel)
