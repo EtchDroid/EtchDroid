@@ -14,7 +14,7 @@
     <string name="dark">Koyu</string>
     <string name="dynamic_colors">Değişken renkler</string>
     <string name="devices">Aygıtlar</string>
-    <string name="a_regular_windows_iso_won_t_work">Normal bir Windows ISO dosyası Etcher, dd veya EtchDroid ile kullanılmak için özel olarak hazırlanmadığı sürece EtchDroid ile çalışmaz.</string>
+    <string name="a_regular_windows_iso_won_t_work">Normal bir Windows ISO dosyası EtchDroid, Etcher veya dd ile kullanılmak için özel olarak hazırlanmadığı sürece EtchDroid ile çalışmaz.</string>
     <string name="skip">Atla</string>
     <string name="writing_the_image_will_erase">Kalıp yazıldığında seçilen bellekteki tüm veriler silinecektir</string>
     <string name="any_thunderbolt_only_device">Yalnızca Thunderbolt kullanan herhangi bir aygıt</string>
@@ -117,4 +117,7 @@
     <string name="the_usb_drive_stopped_responding">USB bellek yanıt vermeyi durdurdu</string>
     <string name="support_the_project">Parasal olarak destekle</string>
     <string name="write_another_image">Başka bir kalıp yaz</string>
+    <string name="title_activity_confirm_operation">İşlemi onaylayın</string>
+    <string name="no_image_uri_provided">Kalıp URI\'si belirtilmedi</string>
+    <string name="no_destination_device_selected">Hedef aygıt seçilmedi</string>
 </resources>
