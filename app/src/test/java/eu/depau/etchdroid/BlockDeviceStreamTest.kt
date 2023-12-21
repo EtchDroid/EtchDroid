@@ -20,8 +20,8 @@ import java.lang.Math.min
 import java.nio.ByteBuffer
 
 @ExperimentalCoroutinesApi
-open class BlockDeviceInputStreamTest {
-    open val coroutineScope: CoroutineScope? = null
+class BlockDeviceInputStreamTest {
+    private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     @Test
     fun testWithCommonParams() {
@@ -65,155 +65,175 @@ open class BlockDeviceInputStreamTest {
         )
     }
 
-    private fun runReadTest(testDevSize: Long, testBlockSize: Int, testPrefetchBlocks: Int) {
-        val testDev = MemoryBufferBlockDeviceDriver(testDevSize.toInt(), testBlockSize).apply {
-            fillWithGrowingSequence()
+    private fun runReadTest(testDevSize: Long, testBlockSize: Int, testPrefetchBlocks: Int) =
+        runBlocking {
+            val testDev = MemoryBufferBlockDeviceDriver(testDevSize.toInt(), testBlockSize).apply {
+                fillWithGrowingSequence()
+            }
+            val slots = if (testPrefetchBlocks == 1) 1 else 4
+            val bufferBlocks = testPrefetchBlocks / slots
+
+            val inputStream =
+                BlockDeviceInputStream(
+                    testDev,
+                    coroutineScope,
+                    bufferBlocks = bufferBlocks,
+                    prefetchBuffers = slots
+                )
+
+            // Ensure seek(0) works
+            assertEquals(0L, inputStream.seekAsync(0L))
+
+            // Ensure that read(byteArray) fetches
+            val byteArray0 = ByteArray(4)
+            assertEquals(4, inputStream.readAsync(byteArray0))
+            assertArrayEquals(
+                byteArrayOf(0, 1, 2, 3),
+                byteArray0
+            )
+            assertEquals(4, inputStream.readAsync(byteArray0))
+            assertArrayEquals(
+                byteArrayOf(4, 5, 6, 7),
+                byteArray0
+            )
+            inputStream.skipAsync(-8)
+
+            // Read one block
+            val byteArray1 = ByteArray(testBlockSize)
+            assertEquals(testBlockSize, inputStream.readAsync(byteArray1))
+            assertArrayEquals(
+                (0 until testBlockSize).map { (it % 0xFF).toByte() }.toByteArray(),
+                byteArray1
+            )
+
+            // Read another block
+            assertEquals(testBlockSize, inputStream.readAsync(byteArray1))
+            assertArrayEquals(
+                (testBlockSize until testBlockSize * 2).map { (it % 0xFF).toByte() }.toByteArray(),
+                byteArray1
+            )
+
+            // Rewind
+            inputStream.skipAsync((-2 * testBlockSize).toLong())
+
+            // Read first bytes
+            assertEquals(0, inputStream.readAsync())
+            assertEquals(1, inputStream.readAsync())
+            assertEquals(2, inputStream.readAsync())
+            assertEquals(3, inputStream.readAsync())
+
+            // Seek within prefetched buffer
+            val skipBytes1: Long = 2L * 0xFF - 4
+            assertEquals(skipBytes1, inputStream.skipAsync(skipBytes1))
+
+            assertEquals(0, inputStream.readAsync())
+            assertEquals(1, inputStream.readAsync())
+            assertEquals(2, inputStream.readAsync())
+            assertEquals(3, inputStream.readAsync())
+
+            // Seek outside prefetched buffer
+            val skipBytes2 = 5L * 0xFF * testPrefetchBlocks - 4 + 100
+            assertEquals(skipBytes2, inputStream.skipAsync(skipBytes2))
+
+            assertEquals(100 and 0xFF, inputStream.readAsync())
+            assertEquals(101 and 0xFF, inputStream.readAsync())
+            assertEquals(102 and 0xFF, inputStream.readAsync())
+            assertEquals(103 and 0xFF, inputStream.readAsync())
+
+            // Mark stream to get back here later
+            // Implementation ignores readlimit so anything works
+            inputStream.markAsync(0)
+
+            // Seek to EOF
+            val remainingBytes = testDevSize - (4 + skipBytes1 + 4 + skipBytes2 + 4)
+            assertEquals(remainingBytes, inputStream.skipAsync(remainingBytes * 20))
+
+            // Ensure EOF
+            assertEquals(-1, inputStream.readAsync())
+
+            // Seek to last byte (previous byte)
+            assertEquals(-1, inputStream.skipAsync(-1))
+            assertEquals((testDevSize - 1).toInt() % 0xFF, inputStream.readAsync())
+
+            // Go back to marked position
+            inputStream.resetAsync()
+            assertEquals(104 and 0xFF, inputStream.readAsync())
+            assertEquals(105 and 0xFF, inputStream.readAsync())
+            assertEquals(106 and 0xFF, inputStream.readAsync())
+            assertEquals(107 and 0xFF, inputStream.readAsync())
+
+            // Go back to beginning
+            inputStream.skipAsync(-testDevSize)
+
+            // Read to array
+            var byteArray = ByteArray(8)
+            assertEquals(byteArray.size, inputStream.readAsync(byteArray))
+
+            assertArrayEquals(
+                byteArrayOf(0, 1, 2, 3, 4, 5, 6, 7),
+                byteArray
+            )
+
+            // Read to array with offset + length
+            byteArray = byteArrayOf(0, 0, 0, 0, 0, 0, 0, 0)
+            assertEquals(4, inputStream.readAsync(byteArray, 4, 4))
+            assertArrayEquals(
+                byteArrayOf(0, 0, 0, 0, 8, 9, 10, 11),
+                byteArray
+            )
+
+            // Read to array with length > array size
+            assertEquals(4, inputStream.readAsync(byteArray, 4, 200))
+            assertArrayEquals(
+                byteArrayOf(0, 0, 0, 0, 12, 13, 14, 15),
+                byteArray
+            )
+
+            // Read to array with offset outside of array
+            assertEquals(0, inputStream.readAsync(byteArray, 10, 4))
+
+            // Go to end of prefetched blocks
+            inputStream.skipAsync(-testDevSize)
+            inputStream.skipAsync((testPrefetchBlocks * testBlockSize - 4).toLong())
+
+            // Read to array, second half needs to be fetched
+            assertEquals(byteArray.size, inputStream.readAsync(byteArray))
+
+            val currentPos = testPrefetchBlocks * testBlockSize - 4
+
+            assertArrayEquals(
+                byteArrayOf(
+                    ((currentPos + 0) % 0xFF).toByte(),
+                    ((currentPos + 1) % 0xFF).toByte(),
+                    ((currentPos + 2) % 0xFF).toByte(),
+                    ((currentPos + 3) % 0xFF).toByte(),
+                    ((currentPos + 4) % 0xFF).toByte(),
+                    ((currentPos + 5) % 0xFF).toByte(),
+                    ((currentPos + 6) % 0xFF).toByte(),
+                    ((currentPos + 7) % 0xFF).toByte()
+                ),
+                byteArray
+            )
         }
-        val inputStream =
-            BlockDeviceInputStream(testDev, prefetchBlocks = testPrefetchBlocks, coroutineScope)
-
-        // Ensure that read(byteArray) fetches
-        val byteArray0 = ByteArray(4)
-        assertEquals(4, inputStream.read(byteArray0))
-        assertArrayEquals(
-            byteArrayOf(0, 1, 2, 3),
-            byteArray0
-        )
-        assertEquals(4, inputStream.read(byteArray0))
-        assertArrayEquals(
-            byteArrayOf(4, 5, 6, 7),
-            byteArray0
-        )
-        inputStream.skip(-8)
-
-        // Read one block
-        val byteArray1 = ByteArray(testBlockSize)
-        assertEquals(testBlockSize, inputStream.read(byteArray1))
-        assertArrayEquals(
-            (0 until testBlockSize).map { (it % 0xFF).toByte() }.toByteArray(),
-            byteArray1
-        )
-
-        // Read another block
-        assertEquals(testBlockSize, inputStream.read(byteArray1))
-        assertArrayEquals(
-            (testBlockSize until testBlockSize * 2).map { (it % 0xFF).toByte() }.toByteArray(),
-            byteArray1
-        )
-
-        // Rewind
-        inputStream.skip((-2 * testBlockSize).toLong())
-
-        // Read first bytes
-        assertEquals(0, inputStream.read())
-        assertEquals(1, inputStream.read())
-        assertEquals(2, inputStream.read())
-        assertEquals(3, inputStream.read())
-
-        // Seek within prefetched buffer
-        val skipBytes1: Long = 2L * 0xFF - 4
-        assertEquals(skipBytes1, inputStream.skip(skipBytes1))
-
-        assertEquals(0, inputStream.read())
-        assertEquals(1, inputStream.read())
-        assertEquals(2, inputStream.read())
-        assertEquals(3, inputStream.read())
-
-        // Seek outside prefetched buffer
-        val skipBytes2 = 5L * 0xFF * testPrefetchBlocks - 4 + 100
-        assertEquals(skipBytes2, inputStream.skip(skipBytes2))
-
-        assertEquals(100 and 0xFF, inputStream.read())
-        assertEquals(101 and 0xFF, inputStream.read())
-        assertEquals(102 and 0xFF, inputStream.read())
-        assertEquals(103 and 0xFF, inputStream.read())
-
-        // Mark stream to get back here later
-        // Implementation ignores readlimit so anything works
-        inputStream.mark(0)
-
-        // Seek to EOF
-        val remainingBytes = testDevSize - (4 + skipBytes1 + 4 + skipBytes2 + 4)
-        assertEquals(remainingBytes, inputStream.skip(remainingBytes * 20))
-
-        // Ensure EOF
-        assertEquals(-1, inputStream.read())
-
-        // Seek to last byte (previous byte)
-        @Suppress("KotlinConstantConditions")
-        assertEquals(-1, inputStream.skip(-1))
-        assertEquals((testDevSize - 1).toInt() % 0xFF, inputStream.read())
-
-        // Go back to marked position
-        inputStream.reset()
-        assertEquals(104 and 0xFF, inputStream.read())
-        assertEquals(105 and 0xFF, inputStream.read())
-        assertEquals(106 and 0xFF, inputStream.read())
-        assertEquals(107 and 0xFF, inputStream.read())
-
-        // Go back to beginning
-        inputStream.skip(-testDevSize)
-
-        // Read to array
-        var byteArray = ByteArray(8)
-        assertEquals(byteArray.size, inputStream.read(byteArray))
-
-        assertArrayEquals(
-            byteArrayOf(0, 1, 2, 3, 4, 5, 6, 7),
-            byteArray
-        )
-
-        // Read to array with offset + length
-        byteArray = byteArrayOf(0, 0, 0, 0, 0, 0, 0, 0)
-        assertEquals(4, inputStream.read(byteArray, 4, 4))
-        assertArrayEquals(
-            byteArrayOf(0, 0, 0, 0, 8, 9, 10, 11),
-            byteArray
-        )
-
-        // Read to array with length > array size
-        assertEquals(4, inputStream.read(byteArray, 4, 200))
-        assertArrayEquals(
-            byteArrayOf(0, 0, 0, 0, 12, 13, 14, 15),
-            byteArray
-        )
-
-        // Read to array with offset outside of array
-        assertEquals(0, inputStream.read(byteArray, 10, 4))
-
-        // Go to end of prefetched blocks
-        inputStream.skip(-testDevSize)
-        inputStream.skip((testPrefetchBlocks * testBlockSize - 4).toLong())
-
-        // Read to array, second half needs to be fetched
-        assertEquals(byteArray.size, inputStream.read(byteArray))
-
-        val currentPos = testPrefetchBlocks * testBlockSize - 4
-
-        assertArrayEquals(
-            byteArrayOf(
-                ((currentPos + 0) % 0xFF).toByte(),
-                ((currentPos + 1) % 0xFF).toByte(),
-                ((currentPos + 2) % 0xFF).toByte(),
-                ((currentPos + 3) % 0xFF).toByte(),
-                ((currentPos + 4) % 0xFF).toByte(),
-                ((currentPos + 5) % 0xFF).toByte(),
-                ((currentPos + 6) % 0xFF).toByte(),
-                ((currentPos + 7) % 0xFF).toByte()
-            ),
-            byteArray
-        )
-    }
 
     private fun runPseudoRandomReadTest(
         testDevSize: Int,
         testBlockSize: Int,
         testPrefetchBlocks: Int,
-    ) {
+    ) = runBlocking {
         val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
             fillWithRandom()
         }
-        val inputStream = BlockDeviceInputStream(testDev, testPrefetchBlocks, coroutineScope)
+        val slots = if (testPrefetchBlocks == 1) 1 else 4
+        val bufferBlocks = testPrefetchBlocks / slots
+
+        val inputStream =
+            BlockDeviceInputStream(
+                testDev,
+                coroutineScope,
+                bufferBlocks = bufferBlocks,
+                prefetchBuffers = slots
+            )
 
         val byteBuffer = ByteBuffer.allocate(testDevSize)
         testDev.backingBuffer.copyInto(byteBuffer.array())
@@ -225,7 +245,7 @@ open class BlockDeviceInputStreamTest {
 
         val byteArray = ByteArray(testBlockSize * testPrefetchBlocks)
         while (byteBuffer.hasRemaining()) {
-            val readBytes = inputStream.read(byteArray)
+            val readBytes = inputStream.readAsync(byteArray)
             @Suppress("ReplaceJavaStaticMethodWithKotlinAnalog")
             assertEquals(
                 min(byteBuffer.remaining(), byteArray.size),
@@ -241,13 +261,13 @@ open class BlockDeviceInputStreamTest {
     companion object {
         @JvmStatic
         @BeforeAll
-        fun setUp(): Unit {
+        fun setUp() {
             DebugProbes.install()
         }
 
         @JvmStatic
         @AfterAll
-        fun tearDown(): Unit {
+        fun tearDown() {
             DebugProbes.uninstall()
         }
     }
@@ -255,8 +275,8 @@ open class BlockDeviceInputStreamTest {
 
 @Suppress("BlockingMethodInNonBlockingContext")
 @ExperimentalCoroutinesApi
-open class BlockDeviceOutputStreamTest {
-    open val coroutineScope: CoroutineScope? = null
+class BlockDeviceOutputStreamTest {
+    private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     @Test
     fun testWithCommonParams() {
@@ -321,10 +341,18 @@ open class BlockDeviceOutputStreamTest {
             val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
                 fillWithReverseGrowingSequence()
             }
+
+            val queueSlots = if (testBufferBlocks == 1) 1 else 4
+            val bufferBlocks = testBufferBlocks / queueSlots
+
             val outputStream =
                 BlockDeviceOutputStream(
-                    testDev, bufferBlocks = testBufferBlocks, coroutineScope = coroutineScope
+                    testDev, coroutineScope = coroutineScope, bufferBlocks = bufferBlocks,
+                    queueSize = queueSlots
                 )
+
+            // Ensure seek(0) works
+            assertEquals(0L, outputStream.seekAsync(0L))
 
             // Write some bytes
             outputStream.apply {
@@ -401,6 +429,7 @@ open class BlockDeviceOutputStreamTest {
 
             // Go to end of file - 4 bytes
             val remainingBytes = testDevSize - (fullBufferOffset + 8)
+
             byteArray = ByteArray(remainingBytes - 4)
             outputStream.writeAsync(byteArray)
 
@@ -418,7 +447,6 @@ open class BlockDeviceOutputStreamTest {
 
         }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     private fun runPseudoRandomWriteTest(
         testDevSize: Int,
         testBlockSize: Int,
@@ -427,10 +455,16 @@ open class BlockDeviceOutputStreamTest {
         val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
             fillWithRandom()
         }
+
+        val queueSlots = if (testBufferBlocks == 1) 1 else 4
+        val bufferBlocks = testBufferBlocks / queueSlots
+
         val outputStream =
             BlockDeviceOutputStream(
-                testDev, bufferBlocks = testBufferBlocks, coroutineScope = coroutineScope
+                testDev, coroutineScope = coroutineScope, bufferBlocks = bufferBlocks,
+                queueSize = queueSlots
             )
+
 
         val byteBuffer = ByteBuffer.allocate(testDevSize)
         testDev.backingBuffer.copyInto(byteBuffer.array())
@@ -445,7 +479,6 @@ open class BlockDeviceOutputStreamTest {
         assertArrayEquals(byteBuffer.array(), byteArray2)
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     private fun runPseudoRandomSmallWritesTest(
         testDevSize: Int,
         testBlockSize: Int,
@@ -455,9 +488,14 @@ open class BlockDeviceOutputStreamTest {
         val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
             fillWithRandom()
         }
+
+        val queueSlots = if (testBufferBlocks == 1) 1 else 4
+        val bufferBlocks = testBufferBlocks / queueSlots
+
         val outputStream =
             BlockDeviceOutputStream(
-                testDev, bufferBlocks = testBufferBlocks, coroutineScope = coroutineScope
+                testDev, coroutineScope = coroutineScope, bufferBlocks = bufferBlocks,
+                queueSize = queueSlots
             )
 
         val byteBuffer = ByteBuffer.allocate(testDevSize)
@@ -467,7 +505,7 @@ open class BlockDeviceOutputStreamTest {
 
         while (byteBuffer.hasRemaining()) {
             val byteArray =
-                ByteArray(min(testBlockSize * testBufferBlocks, byteBuffer.remaining()))
+                ByteArray((testBlockSize * testBufferBlocks).coerceAtMost(byteBuffer.remaining()))
             byteBuffer.get(byteArray)
             outputStream.writeAsync(byteArray)
         }
@@ -481,22 +519,14 @@ open class BlockDeviceOutputStreamTest {
     companion object {
         @JvmStatic
         @BeforeAll
-        fun setUp(): Unit {
+        fun setUp() {
             DebugProbes.install()
         }
 
         @JvmStatic
         @AfterAll
-        fun tearDown(): Unit {
+        fun tearDown() {
             DebugProbes.uninstall()
         }
     }
-}
-
-class BlockDeviceInputStreamAsyncTest : BlockDeviceInputStreamTest() {
-    override val coroutineScope = CoroutineScope(Dispatchers.IO)
-}
-
-class BlockDeviceOutputStreamAsyncTest : BlockDeviceOutputStreamTest() {
-    override val coroutineScope = CoroutineScope(Dispatchers.IO)
 }

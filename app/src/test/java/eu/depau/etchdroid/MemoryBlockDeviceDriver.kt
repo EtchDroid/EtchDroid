@@ -20,6 +20,11 @@ class MemoryBufferBlockDeviceDriver(
     override val blocks: Long
         get() = (backingBuffer.size / blockSize).toLong()
 
+    // Used to simulate errors
+    var exceptionToThrow: Throwable? = null
+        @Synchronized get
+        @Synchronized set
+
     init {
         init()
     }
@@ -34,6 +39,11 @@ class MemoryBufferBlockDeviceDriver(
 
     @Throws(IOException::class)
     override fun read(deviceOffset: Long, buffer: ByteBuffer) {
+        if (exceptionToThrow != null) {
+            exceptionToThrow = null
+            throw exceptionToThrow!!
+        }
+
         val start = (deviceOffset * blockSize).toInt()
         val end = start + buffer.remaining()
 
@@ -46,6 +56,11 @@ class MemoryBufferBlockDeviceDriver(
 
     @Throws(IOException::class)
     override fun write(deviceOffset: Long, buffer: ByteBuffer) {
+        if (exceptionToThrow != null) {
+            exceptionToThrow = null
+            throw exceptionToThrow!!
+        }
+
         val start = (deviceOffset * blockSize).toInt()
         val end = start + buffer.remaining()
 

@@ -511,30 +511,35 @@ object WorkerServiceFlowImpl {
         var currentOffset = initialOffset
 
         val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
-        val dst = BlockDeviceOutputStream(blockDev, BUFFER_BLOCKS_SIZE, coroScope)
+        val dst = BlockDeviceOutputStream(blockDev, coroScope, BUFFER_BLOCKS_SIZE)
 
-        src.skip(currentOffset)
-        dst.seekAsync(currentOffset)
+        try {
+            src.skip(currentOffset)
+            dst.seekAsync(currentOffset)
 
-        while (currentOffset < imageSize) {
-            grabWakeLock()
+            while (currentOffset < imageSize) {
+                grabWakeLock()
 
-            val read = src.read(buffer)
-            if (read == -1) break
-            try {
-                dst.writeAsync(buffer)
-            } catch (e: Exception) {
-                Log.e(TAG, "Failed to write to USB drive", e)
-                throw UsbCommunicationException(e)
+                val read = src.read(buffer)
+                if (read == -1) break
+                try {
+                    dst.writeAsync(buffer)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to write to USB drive", e)
+                    throw UsbCommunicationException(e)
+                }
+                currentOffset += read
+
+                sendProgressUpdate(read, currentOffset, imageSize, false)
             }
-            currentOffset += read
-
-            sendProgressUpdate(read, currentOffset, imageSize, false)
+            dst.flushAsync()
+        } finally {
+            src.close()
+            dst.close()
         }
-        dst.flushAsync()
     }
 
-    fun verifyImage(
+    suspend fun verifyImage(
         rawSourceStream: InputStream,
         blockDev: BlockDeviceDriver,
         imageSize: Long,
@@ -551,47 +556,57 @@ object WorkerServiceFlowImpl {
     ) {
 
         val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
-        val dst = BlockDeviceInputStream(blockDev, BUFFER_BLOCKS_SIZE, lifecycleScope)
-        var currentOffset = 0L
+        val dst = BlockDeviceInputStream(
+            blockDev,
+            coroutineScope = lifecycleScope,
+            BUFFER_BLOCKS_SIZE / 4
+        )
 
-        src.skip(currentOffset)
-        dst.skip(currentOffset)
+        try {
+            var currentOffset = 0L
+
+            src.skip(currentOffset)
+            dst.skipAsync(currentOffset)
 
 //    val fileBuffer = ByteArray(bufferSize)
 //    val deviceBuffer = ByteArray(bufferSize)
 
-        val fileBuffer = ByteArray(1024)
-        val deviceBuffer = ByteArray(1024)
+            val fileBuffer = ByteArray(1024)
+            val deviceBuffer = ByteArray(1024)
 
-        while (!isVerificationCanceled()) {
-            grabWakeLock()
+            while (!isVerificationCanceled()) {
+                grabWakeLock()
 
-            val read = src.read(fileBuffer)
-            if (read == -1) break
+                val read = src.read(fileBuffer)
+                if (read == -1) break
 
-            try {
-                val deviceRead = dst.read(deviceBuffer, 0, read)
-                require(
-                    deviceRead >= read
-                ) { "Device read $deviceRead < file read $read" }
-            } catch (e: Exception) {
-                Log.e(TAG, "Failed to read from USB drive", e)
-                throw UsbCommunicationException(e)
-            }
-
-            if (!fileBuffer.contentEquals(deviceBuffer)) {
-                Log.e(TAG, "Verification failed")
-                if (Build.VERSION.SDK_INT > 999999) {
-                    // Prevent the compiler from optimizing out the buffers, for debugging
-                    // purposes
-                    print(deviceBuffer)
-                    print(fileBuffer)
+                try {
+                    val deviceRead = dst.readAsync(deviceBuffer, 0, read)
+                    require(
+                        deviceRead >= read
+                    ) { "Device read $deviceRead < file read $read" }
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to read from USB drive", e)
+                    throw UsbCommunicationException(e)
                 }
-                throw VerificationFailedException()
-            }
-            currentOffset += read
 
-            sendProgressUpdate(read, currentOffset, imageSize, true)
+                if (!fileBuffer.contentEquals(deviceBuffer)) {
+                    Log.e(TAG, "Verification failed")
+                    if (Build.VERSION.SDK_INT > 999999) {
+                        // Prevent the compiler from optimizing out the buffers, for debugging
+                        // purposes
+                        print(deviceBuffer)
+                        print(fileBuffer)
+                    }
+                    throw VerificationFailedException()
+                }
+                currentOffset += read
+
+                sendProgressUpdate(read, currentOffset, imageSize, true)
+            }
+        } finally {
+            src.close()
+            dst.close()
         }
     }
 }
