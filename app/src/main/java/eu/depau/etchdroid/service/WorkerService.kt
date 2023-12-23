@@ -250,6 +250,7 @@ class WorkerService : LifecycleService() {
 
     private fun releaseWakelock() {
         mWakeLock?.release()
+        mWakeLock = null
         mWakelockAcquireTime = -1L
     }
 
