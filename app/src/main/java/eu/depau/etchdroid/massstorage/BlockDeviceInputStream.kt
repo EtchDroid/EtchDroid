@@ -14,7 +14,6 @@ import java.io.IOException
 import java.nio.ByteBuffer
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicLong
-import kotlin.math.min
 
 private const val TAG = "BlockDeviceInputStream"
 
@@ -96,14 +95,13 @@ class BlockDeviceInputStream(
 
                 while (true) {
                     val blockNumber = mReadNextBlockNumber.getAndIncrement()
-                    if (blockNumber >= blockDev.blocks) break
+                    if (blockNumber !in 0 until blockDev.blocks) break
 
                     try {
                         val buffer = ByteBuffer.allocate(
-                            min(
-                                blockDev.blockSize * bufferBlocks,
-                                (sizeBytes - blockNumber * blockDev.blockSize).toInt()
-                            )
+                            (sizeBytes - (blockNumber * blockDev.blockSize))
+                                .coerceAtMost(blockDev.blockSize.toLong() * bufferBlocks)
+                                .toInt()
                         )
                         blockDev.read(blockNumber, buffer)
                         buffer.flip()
@@ -149,8 +147,7 @@ class BlockDeviceInputStream(
         // See if the new offset is within the current buffer
         if (::mReadBuffer.isInitialized) {
             if (newBlockOffset in mCurrentBlockOffset until mCurrentBlockOffset + bufferBlocks) {
-                val bufferByteOffset =
-                    (newBlockOffset - mCurrentBlockOffset) * blockDev.blockSize + newByteOffset
+                val bufferByteOffset = (newBlockOffset - mCurrentBlockOffset) * blockDev.blockSize + newByteOffset
                 mReadBuffer.position(bufferByteOffset.toInt())
                 return
             }
@@ -186,8 +183,7 @@ class BlockDeviceInputStream(
     }
 
     override suspend fun seekAsync(offset: Long): Long {
-        if (offset == 0L)
-            return 0L
+        if (offset == 0L) return 0L
 
         val actualSkipDistance = when {
             mCurrentOffset + offset > sizeBytes -> sizeBytes - mCurrentOffset
@@ -225,23 +221,23 @@ class BlockDeviceInputStream(
 
         ensureBuffer()
 
-        val bytesToRead = minOf(len, (sizeBytes - mCurrentByteOffset).toInt(), b.size - off)
-        var bytesRead = 0
+        val bytesToRead = minOf(len.toLong(), sizeBytes - mCurrentByteOffset, b.size.toLong() - off)
+        var bytesRead = 0L
 
         while (bytesRead < bytesToRead) {
             if (isEOF) break
 
             val bytesRemaining = bytesToRead - bytesRead
-            val bytesInBuffer = mReadBuffer.remaining()
-            val bytesToCopy = minOf(bytesRemaining, bytesInBuffer)
+            val bytesInBuffer = mReadBuffer.remaining().toLong()
+            val bytesToCopy = minOf(bytesRemaining, bytesInBuffer).toInt()
 
-            mReadBuffer.get(b, off + bytesRead, bytesToCopy)
+            mReadBuffer.get(b, (off + bytesRead).toInt(), bytesToCopy)
             bytesRead += bytesToCopy
 
             if (bytesRead < bytesToRead) loadNextBuffer()
         }
 
-        return bytesRead
+        return bytesRead.toInt()
     }
 
     override suspend fun readAsync(b: ByteArray): Int = readAsync(b, 0, b.size)
