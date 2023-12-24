@@ -22,3 +22,4 @@
 
 -dontobfuscate
 -keep class java.lang.ClassValue
+-dontwarn reactor.blockhound.integration.BlockHoundIntegration

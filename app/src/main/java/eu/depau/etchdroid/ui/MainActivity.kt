@@ -229,7 +229,6 @@ class MainActivity : ComponentActivity() {
                         onConfirm = { openUri(uiState.showWindowsAlertForUri!!, true) })
                 }
                 if (uiState.openedImage != null) {
-                    val context = LocalContext.current
                     UsbDevicePickerBottomSheet(
                         onDismissRequest = {
                             mViewModel.setOpenedImage(null)
@@ -466,7 +465,6 @@ fun UsbDevicePickerBottomSheet(
 ) {
     val bottomSheetState =
         rememberPorkedAroundSheetState(onDismissRequest, skipPartiallyExpanded = skipHalfExpanded)
-    val scope = rememberCoroutineScope()
     val anyDeviceAvailable by remember(availableDevices) {
         derivedStateOf { availableDevices().isNotEmpty() }
     }
