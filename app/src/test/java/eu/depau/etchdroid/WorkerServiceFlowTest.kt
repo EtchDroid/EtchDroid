@@ -30,6 +30,7 @@ class WorkerServiceFlowTest {
 
         val blockDev = MemoryBufferBlockDeviceDriver(devSize.toLong(), blockSize)
 
+        var currentOffset = 0L
         assertDoesNotThrow {
             WorkerServiceFlowImpl.writeImage(
                 image.inputStream(),
@@ -37,24 +38,29 @@ class WorkerServiceFlowTest {
                 image.size.toLong(),
                 BUFFER_BLOCKS * blockSize,
                 0L,
+                { currentOffset = it },
                 coroutineScope,
                 grabWakeLock = {},
                 sendProgressUpdate = { _, _, _, _ -> }
             )
         }
+        assert(currentOffset == image.size.toLong())
 
+        currentOffset = 0L
         assertDoesNotThrow {
             WorkerServiceFlowImpl.verifyImage(
                 image.inputStream(),
                 blockDev,
                 image.size.toLong(),
                 BUFFER_BLOCKS * blockSize,
+                { currentOffset = it },
                 coroutineScope,
                 sendProgressUpdate = { _, _, _, _ -> },
                 isVerificationCanceled = { false },
                 grabWakeLock = {}
             )
         }
+        assert(currentOffset == image.size.toLong())
     }
 
     @Test
@@ -84,6 +90,7 @@ class WorkerServiceFlowTest {
                     image.size.toLong(),
                     BUFFER_BLOCKS * 512,
                     0L,
+                    {},
                     coroutineScope,
                     grabWakeLock = {},
                     sendProgressUpdate = { _, _, _, _ -> }
@@ -120,6 +127,7 @@ class WorkerServiceFlowTest {
                     image.size.toLong(),
                     BUFFER_BLOCKS * 512,
                     0L,
+                    {},
                     coroutineScope,
                     grabWakeLock = {},
                     sendProgressUpdate = { _, _, _, _ -> }
@@ -148,6 +156,7 @@ class WorkerServiceFlowTest {
                 image.size.toLong(),
                 BUFFER_BLOCKS * 512,
                 0L,
+                {},
                 coroutineScope,
                 grabWakeLock = {},
                 sendProgressUpdate = { _, _, _, _ -> }
@@ -170,6 +179,7 @@ class WorkerServiceFlowTest {
                     blockDev,
                     image.size.toLong(),
                     BUFFER_BLOCKS * 512,
+                    {},
                     coroutineScope,
                     sendProgressUpdate = { _, _, _, _ -> },
                     isVerificationCanceled = { false },

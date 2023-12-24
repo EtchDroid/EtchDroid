@@ -66,6 +66,7 @@ private const val JOB_PROGRESS_CHANNEL = "eu.depau.etchdroid.notifications.JOB_P
 private const val WAKELOCK_TIMEOUT = 10 * 60 * 1000L
 private const val PROGRESS_UPDATE_INTERVAL = 1000L
 const val BUFFER_BLOCKS = 2048L
+const val QUEUE_SIZE = 4
 const val IO_TIMEOUT = 10 * 1000L
 
 class WorkerService : LifecycleService() {
@@ -313,7 +314,7 @@ class WorkerService : LifecycleService() {
                 currentOffset = offset - (offset % blockDev.blockSize)
 
                 // Resume a few blocks earlier in case things went haywire earlier
-                currentOffset = max(currentOffset - blockDev.blockSize * 10, 0L)
+                currentOffset = max(currentOffset - blockDev.blockSize * BUFFER_BLOCKS * 2, 0L)
 
                 val devSize = blockDev.blocks * blockDev.blockSize
                 Log.d(
@@ -350,9 +351,8 @@ class WorkerService : LifecycleService() {
                     }
 
                     writeImage(
-                        rawSourceStream, blockDev, imageSize, bufferSize, currentOffset, coroScope,
-                        ::ensureWakelock,
-                        ::sendProgressUpdate
+                        rawSourceStream, blockDev, imageSize, bufferSize, currentOffset, { currentOffset = it },
+                        coroScope, ::ensureWakelock, ::sendProgressUpdate
                     )
                 }
 
@@ -367,9 +367,8 @@ class WorkerService : LifecycleService() {
                 // Always verify the whole image, not just the part that was written
                 currentOffset = 0
 
-                verifyImage(
-                    rawSourceStream, blockDev, imageSize, bufferSize, coroScope, ::sendProgressUpdate,
-                    { mVerificationCancelled }, ::ensureWakelock
+                verifyImage(rawSourceStream, blockDev, imageSize, bufferSize, { currentOffset = it }, coroScope,
+                    ::sendProgressUpdate, { mVerificationCancelled }, ::ensureWakelock
                 )
 
                 getFinishedIntent(mSourceUri, mDestDevice, imageSize).broadcastLocallySync(
@@ -491,6 +490,7 @@ object WorkerServiceFlowImpl {
         imageSize: Long,
         bufferSize: Long,
         initialOffset: Long,
+        notifyCurrentOffset: (offset: Long) -> Unit,
         coroScope: CoroutineScope,
         grabWakeLock: () -> Unit,
         sendProgressUpdate: (
@@ -504,7 +504,7 @@ object WorkerServiceFlowImpl {
         var currentOffset = initialOffset
 
         val src = BufferedInputStream(rawSourceStream, (bufferSize * 4).toInt())
-        val dst = BlockDeviceOutputStream(blockDev, coroScope, BUFFER_BLOCKS)
+        val dst = BlockDeviceOutputStream(blockDev, coroScope, BUFFER_BLOCKS / QUEUE_SIZE, QUEUE_SIZE)
 
         try {
             src.skip(currentOffset)
@@ -524,6 +524,7 @@ object WorkerServiceFlowImpl {
                     throw UsbCommunicationException(e)
                 }
                 currentOffset += read
+                notifyCurrentOffset(currentOffset)
 
                 sendProgressUpdate(read, currentOffset, imageSize, false)
             }
@@ -546,6 +547,7 @@ object WorkerServiceFlowImpl {
         blockDev: BlockDeviceDriver,
         imageSize: Long,
         bufferSize: Long,
+        notifyCurrentOffset: (offset: Long) -> Unit,
         lifecycleScope: CoroutineScope,
         sendProgressUpdate: (
             lastWrittenBytes: Int,
@@ -559,7 +561,7 @@ object WorkerServiceFlowImpl {
 
         val src = BufferedInputStream(rawSourceStream, (bufferSize * 4).toInt())
         val dst = BlockDeviceInputStream(
-            blockDev, coroutineScope = lifecycleScope, BUFFER_BLOCKS / 4
+            blockDev, coroutineScope = lifecycleScope, BUFFER_BLOCKS / QUEUE_SIZE, QUEUE_SIZE
         )
 
         try {
@@ -603,6 +605,7 @@ object WorkerServiceFlowImpl {
                     throw VerificationFailedException()
                 }
                 currentOffset += read
+                notifyCurrentOffset(currentOffset)
 
                 sendProgressUpdate(read, currentOffset, imageSize, true)
             }
