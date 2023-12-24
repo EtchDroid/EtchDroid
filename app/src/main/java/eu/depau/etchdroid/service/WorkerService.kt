@@ -100,13 +100,12 @@ class WorkerService : LifecycleService() {
         super.onCreate()
         println("WorkerService created")
 
-        LocalBroadcastManager.getInstance(this)
-            .registerReceiver(mBroadcastReceiver, IntentFilter().apply {
-                addAction(Intents.SKIP_VERIFY)
-                addAction(Intents.JOB_PROGRESS)
-                addAction(Intents.ERROR)
-                addAction(Intents.FINISHED)
-            })
+        LocalBroadcastManager.getInstance(this).registerReceiver(mBroadcastReceiver, IntentFilter().apply {
+            addAction(Intents.SKIP_VERIFY)
+            addAction(Intents.JOB_PROGRESS)
+            addAction(Intents.ERROR)
+            addAction(Intents.FINISHED)
+        })
 
         trySetupNotifications()
     }
@@ -138,12 +137,11 @@ class WorkerService : LifecycleService() {
 
             Intents.JOB_PROGRESS -> {
                 if (!notificationsAllowed) return@broadcastReceiver
-                val status: JobStatusInfo =
-                    intent.safeParcelableExtra("status") ?: return@broadcastReceiver
+                val status: JobStatusInfo = intent.safeParcelableExtra("status") ?: return@broadcastReceiver
 
                 mNotificationManager.notify(
-                    mProgressNotificationId,
-                    NotificationCompat.Builder(this@WorkerService, JOB_PROGRESS_CHANNEL)
+                    mProgressNotificationId, NotificationCompat
+                        .Builder(this@WorkerService, JOB_PROGRESS_CHANNEL)
                         .setSmallIcon(R.drawable.ic_write_to_usb_anim)
                         .setContentTitle(
                             getString(
@@ -153,20 +151,16 @@ class WorkerService : LifecycleService() {
                         )
                         .setContentText(
                             if (status.isVerifying) getString(
-                                R.string.notification_verify_progress_content, mDestDevice.name,
-                                filenameStr
+                                R.string.notification_verify_progress_content, mDestDevice.name, filenameStr
                             )
                             else getString(
-                                R.string.notification_write_progress_content, filenameStr,
-                                mDestDevice.name
+                                R.string.notification_write_progress_content, filenameStr, mDestDevice.name
                             )
                         )
                         .setContentIntent(
                             getProgressUpdateIntent(
-                                mSourceUri, mDestDevice, mJobId, status.speed,
-                                status.processedBytes, status.totalBytes,
-                                isVerifying = status.isVerifying,
-                                packageContext = this@WorkerService,
+                                mSourceUri, mDestDevice, mJobId, status.speed, status.processedBytes, status.totalBytes,
+                                isVerifying = status.isVerifying, packageContext = this@WorkerService,
                                 cls = ProgressActivity::class.java
                             ).getProgressActivityPendingIntent(this@WorkerService)
                         )
@@ -181,13 +175,13 @@ class WorkerService : LifecycleService() {
 
             Intents.ERROR -> {
                 if (!notificationsAllowed) return@broadcastReceiver
-                val status: JobStatusInfo =
-                    intent.safeParcelableExtra("status") ?: return@broadcastReceiver
+                val status: JobStatusInfo = intent.safeParcelableExtra("status") ?: return@broadcastReceiver
 
                 status.exception!!
 
                 mNotificationManager.notify(
-                    mJobId, NotificationCompat.Builder(this@WorkerService, JOB_RESULT_CHANNEL)
+                    mJobId, NotificationCompat
+                        .Builder(this@WorkerService, JOB_RESULT_CHANNEL)
                         .setSmallIcon(R.drawable.ic_write_to_usb_failed)
                         .setContentTitle(
                             getString(
@@ -198,9 +192,8 @@ class WorkerService : LifecycleService() {
                         .setContentText(status.exception.getUiMessage(this@WorkerService))
                         .setContentIntent(
                             getErrorIntent(
-                                mSourceUri, mDestDevice, mJobId, status.processedBytes,
-                                status.totalBytes, status.exception,
-                                packageContext = this@WorkerService,
+                                mSourceUri, mDestDevice, mJobId, status.processedBytes, status.totalBytes,
+                                status.exception, packageContext = this@WorkerService,
                                 cls = ProgressActivity::class.java
                             ).getProgressActivityPendingIntent(this@WorkerService)
                         )
@@ -211,11 +204,11 @@ class WorkerService : LifecycleService() {
 
             Intents.FINISHED -> {
                 if (!notificationsAllowed) return@broadcastReceiver
-                val status: JobStatusInfo =
-                    intent.safeParcelableExtra("status") ?: return@broadcastReceiver
+                val status: JobStatusInfo = intent.safeParcelableExtra("status") ?: return@broadcastReceiver
 
                 mNotificationManager.notify(
-                    mJobId, NotificationCompat.Builder(this@WorkerService, JOB_RESULT_CHANNEL)
+                    mJobId, NotificationCompat
+                        .Builder(this@WorkerService, JOB_RESULT_CHANNEL)
                         .setSmallIcon(R.drawable.ic_written_to_usb)
                         .setContentTitle(getString(R.string.write_finished))
                         .setContentText(
@@ -225,8 +218,7 @@ class WorkerService : LifecycleService() {
                         )
                         .setContentIntent(
                             getFinishedIntent(
-                                mSourceUri, mDestDevice, status.totalBytes,
-                                packageContext = this@WorkerService,
+                                mSourceUri, mDestDevice, status.totalBytes, packageContext = this@WorkerService,
                                 cls = ProgressActivity::class.java
                             ).getProgressActivityPendingIntent(this@WorkerService)
                         )
@@ -272,8 +264,7 @@ class WorkerService : LifecycleService() {
         val verifyOnly = intent.getBooleanExtra("verifyOnly", false)
 
         if (mNotificationsSetUp) {
-            val notificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             try {
                 notificationManager.cancel(mJobId)
             } catch (e: Exception) {
@@ -295,8 +286,7 @@ class WorkerService : LifecycleService() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             Log.d(
-                TAG,
-                "Job coroutine scope started; thread ${Thread.currentThread().name} (${Thread.currentThread().id})"
+                TAG, "Job coroutine scope started; thread ${Thread.currentThread().name} (${Thread.currentThread().id})"
             )
 
             var massStorageDev by lateInit<EtchDroidUsbMassStorageDevice>()
@@ -343,8 +333,7 @@ class WorkerService : LifecycleService() {
                 }
 
                 getProgressUpdateIntent(
-                    mSourceUri, mDestDevice, mJobId, 0f, currentOffset, imageSize,
-                    isVerifying = verifyOnly
+                    mSourceUri, mDestDevice, mJobId, 0f, currentOffset, imageSize, isVerifying = verifyOnly
                 ).broadcastLocallySync(this@WorkerService)
 
                 val bufferSize = BUFFER_BLOCKS * blockDev.blockSize
@@ -359,8 +348,8 @@ class WorkerService : LifecycleService() {
                     }
 
                     writeImage(
-                        rawSourceStream, blockDev, imageSize, bufferSize, currentOffset, coroScope,
-                        ::ensureWakelock, ::sendProgressUpdate
+                        rawSourceStream, blockDev, imageSize, bufferSize, currentOffset, coroScope, ::ensureWakelock,
+                        ::sendProgressUpdate
                     )
                 }
 
@@ -376,8 +365,8 @@ class WorkerService : LifecycleService() {
                 currentOffset = 0
 
                 verifyImage(
-                    rawSourceStream, blockDev, imageSize, bufferSize, coroScope,
-                    ::sendProgressUpdate, { mVerificationCancelled }, ::ensureWakelock
+                    rawSourceStream, blockDev, imageSize, bufferSize, coroScope, ::sendProgressUpdate,
+                    { mVerificationCancelled }, ::ensureWakelock
                 )
 
                 getFinishedIntent(mSourceUri, mDestDevice, imageSize).broadcastLocallySync(
@@ -389,8 +378,7 @@ class WorkerService : LifecycleService() {
                 val downstreamException = if (exception is EtchDroidException) exception
                 else UnknownException(exception)
                 getErrorIntent(
-                    mSourceUri, mDestDevice, mJobId, currentOffset, imageSize,
-                    exception = downstreamException
+                    mSourceUri, mDestDevice, mJobId, currentOffset, imageSize, exception = downstreamException
                 ).broadcastLocallySync(this@WorkerService)
             } finally {
                 finish()
@@ -440,8 +428,7 @@ class WorkerService : LifecycleService() {
         val newSpeed = mLast5Speeds.mapIndexed { index, f -> f * (index + 1) }.sum() / 15
 
         getProgressUpdateIntent(
-            mSourceUri, mDestDevice, mJobId, newSpeed, processedBytes, imageSize,
-            isVerifying = isVerifying
+            mSourceUri, mDestDevice, mJobId, newSpeed, processedBytes, imageSize, isVerifying = isVerifying
         ).broadcastLocally(this@WorkerService)
 
         mLastProgressUpdate = newTime
@@ -453,14 +440,14 @@ class WorkerService : LifecycleService() {
     }
 
     private val basicForegroundNotification: Notification
-        get() = NotificationCompat.Builder(this, JOB_PROGRESS_CHANNEL)
+        get() = NotificationCompat
+            .Builder(this, JOB_PROGRESS_CHANNEL)
             .setSmallIcon(R.drawable.ic_write_to_usb_anim)
             .setContentTitle(getString(R.string.notification_write_progress_title))
             .setContentText(
                 getString(
                     if (notificationsAllowed) R.string.notification_write_tap_for_progress_text
-                    else R.string.notification_write_no_notifications_text, filenameStr,
-                    mDestDevice.name
+                    else R.string.notification_write_no_notifications_text, filenameStr, mDestDevice.name
                 )
             )
             .setProgress(100, 0, true)
