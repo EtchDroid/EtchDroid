@@ -2,12 +2,13 @@
 
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) ![Build and test](https://github.com/EtchDroid/EtchDroid/workflows/Build%20and%20test/badge.svg) [![Translation status](https://hosted.weblate.org/widgets/etchdroid/-/svg-badge.svg)](https://hosted.weblate.org/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social)
 
-![EtchDroid](https://etchdroid.depau.eu/assets/img/playstore_banner.png)
-
-<p style="text-aling: center; max-height: 80px;">
-<a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_fdroid.svg" alt="F-Droid"></a> <a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_googleplay.svg" alt="Google Play"></a> <a href="https://github.com/EtchDroid/EtchDroid/releases" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_github.svg" alt="GitHub"></a>
+<p align="center">
+<img alt="EtchDroid" src="https://etchdroid.depau.eu/assets/img/playstore_banner.png" height="250" width="512" />
 </p>
 
+<p align="center">
+<a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img height="53" width="178" src="https://etchdroid.depau.eu/assets/img/get_on_fdroid.svg" alt="F-Droid"></a> <a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_googleplay.svg" alt="Google Play"></a> <a href="https://github.com/EtchDroid/EtchDroid/releases" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_github.svg" alt="GitHub"></a>
+</p>
 
 EtchDroid is an open-source application that helps you write images to USB drives.
 Use it to make a bootable operating system USB drive when your laptop is dead.
