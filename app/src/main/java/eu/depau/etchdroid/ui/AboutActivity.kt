@@ -1,9 +1,9 @@
 package eu.depau.etchdroid.ui
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -33,6 +34,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Devices
@@ -87,11 +89,28 @@ fun AboutView(viewModel: ThemeViewModel) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(48.dp)
         ) {
-            Text(
-                text = "${stringResource(R.string.app_name)} v${BuildConfig.VERSION_NAME}",
-                style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
-                textAlign = TextAlign.Center,
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = "${stringResource(R.string.app_name)} v${BuildConfig.VERSION_NAME}",
+                    style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
+                    textAlign = TextAlign.Center,
+                )
+                SelectionContainer {
+                    Text(
+                        text = "${BuildConfig.APPLICATION_ID}\n v${BuildConfig.VERSION_NAME}+${BuildConfig.VERSION_CODE}, ${BuildConfig.FLAVOR}+${BuildConfig.BUILD_TYPE}",
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            fontSize = 16.sp,
+                            fontFamily = FontFamily(Typeface.MONOSPACE)
+                        ),
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
             val darkMode by viewModel.darkMode
             val iconBackgroundColor = MaterialTheme.colorScheme.onSurfaceVariant
             Row(
