@@ -84,6 +84,8 @@ class BlockDeviceInputStream(
         val rendezvous = Channel<Unit>()
 
         coroutineScope.launch(Dispatchers.IO) {
+            Thread.currentThread().name = "BlockDeviceInputStream I/O thread"
+
             try {
                 if (!mIoThreadRunning.compareAndSet(false, true)) {
                     rendezvous.send(Unit)
