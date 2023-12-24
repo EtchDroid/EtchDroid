@@ -605,7 +605,12 @@ object WorkerServiceFlowImpl {
             }
         } finally {
             src.close()
-            dst.close()
+            try {
+                dst.closeAsync()
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to read from USB drive", e)
+                throw UsbCommunicationException(e)
+            }
         }
     }
 }
