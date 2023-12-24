@@ -72,7 +72,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
+        kotlinCompilerExtensionVersion = rootProject.extra["composeVersion"] as String
     }
     testOptions {
         unitTests.all {
@@ -83,24 +83,24 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${rootProject.extra["kotlin_version"]}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${rootProject.extra["kotlinVersion"]}")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("com.google.android.material:material:1.10.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.lifecycle:lifecycle-service:2.6.2")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Compose
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.1")
-    implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.compose.ui:ui:${rootProject.extra["composeVersion"]}")
+    implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["composeVersion"]}")
     implementation("androidx.compose.material3:material3:1.1.2")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.32.0")
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
     implementation("androidx.compose.material:material-icons-extended:1.5.4")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-    implementation("com.airbnb.android:lottie-compose:6.1.0")
+    implementation("com.airbnb.android:lottie-compose:6.2.0")
     implementation("io.coil-kt:coil-compose:2.5.0")
     implementation("io.coil-kt:coil-gif:2.5.0")
     implementation("androidx.compose.ui:ui-graphics")
@@ -109,8 +109,8 @@ dependencies {
     // Core dependencies
     implementation("me.jahnen.libaums:core:0.10.0")
     implementation("me.jahnen.libaums:libusbcommunication:0.3.0")
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
 
     // Google Play
     "gplayImplementation"("com.google.android.play:review:2.0.1")
@@ -119,16 +119,16 @@ dependencies {
     // Test dependencies
     androidTestImplementation("androidx.test:runner:1.5.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
     testImplementation("androidx.test:core:1.5.0")
-    testImplementation("org.mockito:mockito-core:5.7.0")
+    testImplementation("org.mockito:mockito-core:5.8.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.7.3")
     androidTestImplementation(
-        "androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}"
+        "androidx.compose.ui:ui-test-junit4:1.5.4"
     )
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
-    debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
+    debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["composeVersion"]}")
     debugImplementation(
-        "androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}"
+        "androidx.compose.ui:ui-test-manifest:${rootProject.extra["composeVersion"]}"
     )
 }
