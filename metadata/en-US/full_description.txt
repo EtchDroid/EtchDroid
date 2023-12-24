@@ -17,7 +17,7 @@ Use it to make a bootable operating system USB drive when your laptop is dead.
 ✅ Modern GNU/Linux operating system images, including Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS and many more
 ✅ Raspberry PI SD card images (but you must unzip them first!)
 ❌ Official Microsoft Windows ISOs
-⚠️ Community-built Windows images, made for EtchDrod (be careful: they may contain viruses!)
+⚠️ Community-built Windows images, made for EtchDroid (be careful: they may contain viruses!)
 ❌ Apple DMG disk images
 ❌ Older GNU/Linux OS images < 2010 such as Damn Small Linux and Puppy Linux
 
