@@ -120,4 +120,6 @@
     <string name="title_activity_confirm_operation">İşlemi onaylayın</string>
     <string name="no_image_uri_provided">Kalıp URI\'si belirtilmedi</string>
     <string name="no_destination_device_selected">Hedef aygıt seçilmedi</string>
+    <string name="community_windows_images">EtchDroid için topluluk tarafından oluşturulan Windows kalıpları (kendi başınızasınız: virüs içerebilirler!)</string>
+    <string name="service_timeout_message">Yazma işlemi takılmış gibi görünüyor. Lütfen tekrar deneyin.</string>
 </resources>
