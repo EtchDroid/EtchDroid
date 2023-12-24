@@ -328,14 +328,14 @@ fun JobInProgressView(
                         }
                     }
 
-                    val anchorTransition = rememberInfiniteTransition()
+                    val anchorTransition = rememberInfiniteTransition(label = "anchorTransition")
                     val anchor by anchorTransition.animateValue(
                         initialValue = if (uiState.isVerifying) 100.dp else (100 + repeatWidth).dp,
                         targetValue = if (uiState.isVerifying) (100 + repeatWidth).dp else 100.dp,
                         typeConverter = TwoWayConverter(convertToVector = { AnimationVector1D(it.value) },
                             convertFromVector = { it.value.dp }), animationSpec = infiniteRepeatable(
                             animation = tween(2000, easing = LinearEasing), repeatMode = RepeatMode.Restart
-                        )
+                        ), label = "anchor"
                     )
 
                     Row(modifier = Modifier
