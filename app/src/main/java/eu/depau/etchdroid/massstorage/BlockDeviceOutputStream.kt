@@ -3,7 +3,9 @@ package eu.depau.etchdroid.massstorage
 import android.util.Log
 import eu.depau.etchdroid.utils.AsyncOutputStream
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.launch
@@ -34,7 +36,7 @@ class BlockDeviceOutputStream(
     private val blockDev: BlockDeviceDriver,
     private val coroutineScope: CoroutineScope,
     private val bufferBlocks: Long = 512,
-    private val queueSize: Int = 4,
+    queueSize: Int = 4,
 ) : AsyncOutputStream(), ISeekableStream {
 
     private var mCurrentBlockOffset: Long = 0
@@ -50,18 +52,36 @@ class BlockDeviceOutputStream(
     private val isEOF: Boolean
         get() = mCurrentOffset >= mSizeBytes
 
-    private var mBlockChannel = Channel<Pair<Long, ByteBuffer>>(queueSize)
+    private val mChannelMutex = Mutex()
 
-    private var mFlushRendezvous = Channel<Unit>()
+    private val mBlockChannel = Channel<Pair<Long, ByteBuffer>>(queueSize)
+
+    private val mFlushRendezvous = Channel<Unit>()
 
     private val blockDeviceMutex = Mutex()
 
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
 
+    private val closed = AtomicBoolean(false)
+
+    @OptIn(DelicateCoroutinesApi::class, ExperimentalCoroutinesApi::class)
     private suspend fun ensureIoThread() {
         if (mIoThreadRunning.get()) return
 
         val rendezvous = Channel<Unit>()
+
+        mChannelMutex.withLock {
+            mBlockChannel.let {
+                if (it.isClosedForReceive) {
+                    // Try to fetch the exception
+                    while (!it.isEmpty) it.receive()
+                    throw IllegalStateException("Channel closed for receive")
+                } else if (it.isClosedForSend) {
+                    it.send(Pair(BARRIER_TAG, ByteBuffer.allocate(0)))
+                    throw IllegalStateException("Channel closed for send")
+                }
+            }
+        }
 
         coroutineScope.launch(Dispatchers.IO) {
             Thread.currentThread().name = "BlockDeviceOutputStream I/O thread"
@@ -71,18 +91,18 @@ class BlockDeviceOutputStream(
                 return@launch
             }
 
-            mBlockChannel = Channel(queueSize)
-            mFlushRendezvous = Channel()
-
             // ensureIoThread() will return at this point
             rendezvous.send(Unit)
 
+            val blockChannel = mChannelMutex.withLock { mBlockChannel }
+            val flushRendezvous = mChannelMutex.withLock { mFlushRendezvous }
+
             try {
                 while (true) {
-                    val (blockNumber, buffer) = mBlockChannel.receive()
+                    val (blockNumber, buffer) = blockChannel.receive()
 
                     if (blockNumber == BARRIER_TAG) {
-                        mFlushRendezvous.send(Unit)
+                        flushRendezvous.send(Unit)
                         continue
                     }
 
@@ -117,12 +137,18 @@ class BlockDeviceOutputStream(
             } catch (e: ClosedReceiveChannelException) {
                 // Channel closed, stop
             } catch (e: Exception) {
+                closed.set(true)
+
                 Log.e(TAG, "Exception in I/O thread", e)
-                mBlockChannel.close(e)
-                mFlushRendezvous.close(e)
-            } finally {
-                mIoThreadRunning.set(false)
+                // Try to empty the channel to unblock any send() calls already in progress
+                while (!blockChannel.isEmpty) blockChannel.tryReceive()
+
+                blockChannel.close(e)
+                flushRendezvous.close(e)
             }
+
+            // Only set the flag to false if no exception was thrown; exceptions are not recoverable
+            mIoThreadRunning.set(false)
         }
 
         rendezvous.receive()
@@ -149,8 +175,8 @@ class BlockDeviceOutputStream(
         }
 
         ensureIoThread()
-        mBlockChannel.send(Pair(mCurrentBlockOffset, oldBuffer))
-
+        val channel = mChannelMutex.withLock { mBlockChannel }
+        channel.send(Pair(mCurrentBlockOffset, oldBuffer))
         mByteBuffer = newBuffer
         mCurrentBlockOffset += oldBuffer.limit() / blockDev.blockSize
     }
@@ -159,8 +185,10 @@ class BlockDeviceOutputStream(
     override suspend fun flushAsync() {
         commit()
         ensureIoThread()
-        mBlockChannel.send(Pair(BARRIER_TAG, ByteBuffer.allocate(0)))
-        mFlushRendezvous.receive()
+        val channel = mChannelMutex.withLock { mBlockChannel }
+        channel.send(Pair(BARRIER_TAG, ByteBuffer.allocate(0)))
+        val rendezvous = mChannelMutex.withLock { mFlushRendezvous }
+        rendezvous.receive()
     }
 
     override suspend fun seekAsync(offset: Long): Long {
@@ -241,8 +269,10 @@ class BlockDeviceOutputStream(
     }
 
     override suspend fun closeAsync() {
+        if (closed.getAndSet(true)) return
         flushAsync()
-        mBlockChannel.close()
+        val channel = mChannelMutex.withLock { mBlockChannel }
+        channel.close()
     }
 
 }

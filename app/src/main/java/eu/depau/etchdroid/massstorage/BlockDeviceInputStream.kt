@@ -47,6 +47,8 @@ class BlockDeviceInputStream(
 
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
 
+    private val mClosed = AtomicBoolean(false)
+
     private suspend fun waitAndGetBuffer(
         wantedBlockNumber: Long,
         timeoutMillis: Long = 5000L,
@@ -123,9 +125,10 @@ class BlockDeviceInputStream(
                 }
             } catch (e: Exception) {
                 mBlockChannel.close(e)
-            } finally {
-                mIoThreadRunning.set(false)
+                mClosed.set(true)
             }
+
+            mIoThreadRunning.set(false)
         }
 
         rendezvous.receive()
@@ -251,6 +254,7 @@ class BlockDeviceInputStream(
 
     override suspend fun closeAsync() {
         setPosition(sizeBytes) // Move to EOF
+        if (mClosed.getAndSet(true)) return
         mBlockChannel.close()
 
         try {

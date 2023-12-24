@@ -285,6 +285,8 @@ class WorkerService : LifecycleService() {
         startForegroundSpecialUse(mProgressNotificationId, basicForegroundNotification)
 
         lifecycleScope.launch(Dispatchers.IO) {
+            Thread.currentThread().name = "WorkerService coroutine scope"
+
             Log.d(
                 TAG, "Job coroutine scope started; thread ${Thread.currentThread().name} (${Thread.currentThread().id})"
             )
@@ -530,12 +532,12 @@ object WorkerServiceFlowImpl {
                     dst.flushAsync()
                 }
             } catch (e: Exception) {
-                Log.e(TAG, "Failed to write to USB drive", e)
+                Log.e(TAG, "Failed to flush USB drive", e)
                 throw UsbCommunicationException(e)
             }
         } finally {
             src.close()
-            dst.close()
+            dst.closeAsync()
         }
     }
 
