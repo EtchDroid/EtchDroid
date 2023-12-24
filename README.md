@@ -1,40 +1,36 @@
-This project is no longer being actively maintained.
-
-If you'd like to adopt it and keep the development going you can get started by sending pull requests, implementing features and resolving issues.
-
-----
-
 # EtchDroid
 
-# WINDOWS ISOs ARE \*\*NOT\*\* SUPPORTED! Do not report issues if you're flashing a Windows ISO.
-
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) ![Build and test](https://github.com/EtchDroid/EtchDroid/workflows/Build%20and%20test/badge.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6335c20d4e214b6fb4d31c1e178ad628)](https://www.codacy.com/app/EtchDroid/EtchDroid?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EtchDroid/EtchDroid&amp;utm_campaign=Badge_Grade) [![Translation status](https://hosted.weblate.org/widgets/etchdroid/-/svg-badge.svg)](https://hosted.weblate.org/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social) 
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) ![Build and test](https://github.com/EtchDroid/EtchDroid/workflows/Build%20and%20test/badge.svg) [![Translation status](https://hosted.weblate.org/widgets/etchdroid/-/svg-badge.svg)](https://hosted.weblate.org/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social) 
 
 ![EtchDroid](https://etchdroid.depau.eu/assets/img/playstore_banner.png)
 
-<p align="center">
-<a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get-from-fdroid-small.png" alt="F-Droid"></a> <a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get-from-googleplay-small.png" alt="Google Play"></a>
+<p style="text-aling: center; max-height: 80px;">
+<a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_fdroid.svg" alt="F-Droid"></a> <a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_googleplay.svg" alt="Google Play"></a> <a href="https://github.com/EtchDroid/EtchDroid/releases" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_github.svg" alt="GitHub"></a>
 </p>
 
 
-EtchDroid is an open-source application that helps you write images to USB drives, no root required.
+EtchDroid is an open-source application that helps you write images to USB drives.
+Use it to make a bootable operating system USB drive when your laptop is dead.
 
-You can use it to make a bootable GNU/Linux USB drive when your laptop is dead and you're in the middle of nowhere.
+### Supported devices
 
-Learn how to use EtchDroid with this [YouTube video](https://www.youtube.com/watch?v=6gM5SoNO0Fc):
+- ✅ USB flash drives
+- ✅ USB SD card adapters
+- ❌ USB hard drives / SSDs
+- ❌ USB docks and hubs
+- ❌ Internal SD card slot
+- ❌ Optical or floppy disk drives
+- ❌ Thunderbolt-only devices
 
-[![How to use EtchDroid](https://img.youtube.com/vi/6gM5SoNO0Fc/0.jpg)](https://www.youtube.com/watch?v=6gM5SoNO0Fc)
+### Supported disk image types
 
-## Features
-- Supports raw disk images and most GNU/Linux distributions ISOs
-- Supports most DMG disk images (beta)
-- No root - everything is done within the bounds of the Android API
-- Free as in freedom
+- ✅ Modern GNU/Linux operating system images, including Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS and many more
+- ✅ Raspberry PI SD card images (but you must unzip them first!)
+- ❌ Official Microsoft Windows ISOs from microsoft.com
+- ⚠️ Community-built Windows images, made for EtchDroid (be careful: they may contain viruses!)
+- ❌ Apple DMG disk images
+- ❌ Older GNU/Linux OS images < 2010 such as Damn Small Linux and Puppy Linux
 
-## Planned features
-- Write common GNU/Linux distro in streaming from the Internet without storing it on the device
-- Support for Windows installation ISO (will likely require root)
-- Support for Unetbootin-style image flashing
 
 ## Support the project
 
