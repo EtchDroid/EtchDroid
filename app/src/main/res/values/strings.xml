@@ -344,4 +344,7 @@
     <string name="no_image_uri_provided">No image URI provided</string>
     <string name="no_destination_device_selected">No destination device selected</string>
     <string name="service_timeout_message">The writing process seems to have gotten stuck. Please try again.</string>
+
+    <!-- "You're on your own" can be translated with something similar to "unsupported" or "be careful!" if it makes more sense in the target language -->
+    <string name="community_windows_images">Community-built Windows images, made for EtchDroid (you\'re on your own: they might contain viruses!)</string>
 </resources>

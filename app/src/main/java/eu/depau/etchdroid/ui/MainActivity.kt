@@ -660,8 +660,8 @@ fun WhatCanIWriteBottomSheet(onDismissRequest: () -> Unit, darkTheme: Boolean = 
             }
             item {
                 ItemSupportEntry(
-                    description = "Community-built Windows images, specifically made for EtchDroid",
-                    supportStatus = SupportStatus.SUPPORTED, darkTheme
+                    description = stringResource(R.string.community_windows_images),
+                    supportStatus = SupportStatus.MAYBE_SUPPORTED, darkTheme
                 )
             }
             item {
