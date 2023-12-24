@@ -38,8 +38,6 @@ class BlockDeviceOutputStream(
     private val queueSize: Int = 4,
 ) : AsyncOutputStream(), ISeekableStream {
 
-    private var mByteBuffer = ByteBuffer.allocate(blockDev.blockSize * bufferBlocks)
-
     private var mCurrentBlockOffset: Long = 0
 
     private val mCurrentOffset: Long
@@ -47,6 +45,8 @@ class BlockDeviceOutputStream(
 
     private val mSizeBytes: Long
         get() = blockDev.blocks * blockDev.blockSize
+
+    private var mByteBuffer = ByteBuffer.allocate(minOf(blockDev.blockSize * bufferBlocks, mSizeBytes.toInt()))
 
     private val isEOF: Boolean
         get() = mCurrentOffset >= mSizeBytes
@@ -100,8 +100,7 @@ class BlockDeviceOutputStream(
                             position(lastBlockOffset + lastBlockBlankOffset)
                             limit(lastBlockOffset + blockDev.blockSize)
                             put(
-                                partialData.array(), lastBlockBlankOffset,
-                                blockDev.blockSize - lastBlockBlankOffset
+                                partialData.array(), lastBlockBlankOffset, blockDev.blockSize - lastBlockBlankOffset
                             )
                             position(0)
                         }
@@ -112,7 +111,6 @@ class BlockDeviceOutputStream(
                     }
                 }
             } catch (e: ClosedReceiveChannelException) {
-                println("Channel closed")
                 // Channel closed, stop
             } catch (e: Exception) {
                 Log.e(TAG, "Exception in I/O thread", e)
@@ -129,7 +127,12 @@ class BlockDeviceOutputStream(
         if (mByteBuffer.position() == 0) return
 
         val oldBuffer = mByteBuffer.apply { flip() }
-        val newBuffer = ByteBuffer.allocate(blockDev.blockSize * bufferBlocks)
+
+        val newOffset = mCurrentOffset + oldBuffer.limit()
+        val capacity = minOf(
+            blockDev.blockSize.toLong() * bufferBlocks, mSizeBytes - newOffset
+        )
+        val newBuffer = ByteBuffer.allocate(capacity.toInt())
 
         if (oldBuffer.limit() % blockDev.blockSize != 0) {
             // Copy the unfinished block to the new buffer, without changing the position in the old buffer
