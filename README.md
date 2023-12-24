@@ -1,6 +1,8 @@
 # EtchDroid
 
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest) ![Build and test](https://github.com/EtchDroid/EtchDroid/workflows/Build%20and%20test/badge.svg) [![Translation status](https://hosted.weblate.org/widgets/etchdroid/-/svg-badge.svg)](https://hosted.weblate.org/engage/etchdroid/?utm_source=widget) ![License](https://img.shields.io/github/license/EtchDroid/EtchDroid.svg) ![GitHub stars](https://img.shields.io/github/stars/EtchDroid/EtchDroid.svg?style=social)
+<p align="center">
+<img alt="GitHub tag (latest SemVer)" src="https://img.shields.io/github/tag/EtchDroid/EtchDroid.svg?label=latest"/> <img alt="Build and test" src="https://github.com/EtchDroid/EtchDroid/workflows/Build%20and%20test/badge.svg"/> <a href="https://hosted.weblate.org/engage/etchdroid/?utm_source=widget"><img alt="Translation status" src="https://hosted.weblate.org/widgets/etchdroid/-/svg-badge.svg"/></a> <img alt="License" src="https://img.shields.io/github/license/EtchDroid/EtchDroid.svg"/>
+</p>
 
 <p align="center">
 <img alt="EtchDroid" src="https://etchdroid.depau.eu/assets/img/playstore_banner.png" height="250" width="512" />
@@ -11,6 +13,7 @@
 </p>
 
 EtchDroid is an open-source application that helps you write images to USB drives.
+
 Use it to make a bootable operating system USB drive when your laptop is dead.
 
 ### Supported devices
