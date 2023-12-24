@@ -125,6 +125,7 @@ import eu.depau.etchdroid.utils.exception.base.isUnplugged
 import eu.depau.etchdroid.utils.ktexts.activity
 import eu.depau.etchdroid.utils.ktexts.broadcastLocally
 import eu.depau.etchdroid.utils.ktexts.getFileName
+import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
 import eu.depau.etchdroid.utils.ktexts.startForegroundServiceCompat
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.ktexts.toast
@@ -155,12 +156,11 @@ class ProgressActivity : ComponentActivity() {
 
     override fun onResume() {
         super.onResume()
-        LocalBroadcastManager.getInstance(this)
-            .registerReceiver(mBroadcastReceiver, IntentFilter().apply {
-                addAction(Intents.JOB_PROGRESS)
-                addAction(Intents.ERROR)
-                addAction(Intents.FINISHED)
-            })
+        LocalBroadcastManager.getInstance(this).registerReceiver(mBroadcastReceiver, IntentFilter().apply {
+            addAction(Intents.JOB_PROGRESS)
+            addAction(Intents.ERROR)
+            addAction(Intents.FINISHED)
+        })
     }
 
     override fun onPause() {
@@ -231,9 +231,8 @@ class ProgressActivity : ComponentActivity() {
 
                     JobState.FATAL_ERROR -> {
                         FatalErrorView(
-                            exception = appState.exception!! as FatalException,
-                            imageUri = appState.sourceUri!!, jobId = appState.jobId,
-                            device = appState.destDevice!!
+                            exception = appState.exception!! as FatalException, imageUri = appState.sourceUri!!,
+                            jobId = appState.jobId, device = appState.destDevice!!
                         )
                     }
                 }
@@ -333,12 +332,9 @@ fun JobInProgressView(
                     val anchor by anchorTransition.animateValue(
                         initialValue = if (uiState.isVerifying) 100.dp else (100 + repeatWidth).dp,
                         targetValue = if (uiState.isVerifying) (100 + repeatWidth).dp else 100.dp,
-                        typeConverter = TwoWayConverter(
-                            convertToVector = { AnimationVector1D(it.value) },
-                            convertFromVector = { it.value.dp }),
-                        animationSpec = infiniteRepeatable(
-                            animation = tween(2000, easing = LinearEasing),
-                            repeatMode = RepeatMode.Restart
+                        typeConverter = TwoWayConverter(convertToVector = { AnimationVector1D(it.value) },
+                            convertFromVector = { it.value.dp }), animationSpec = infiniteRepeatable(
+                            animation = tween(2000, easing = LinearEasing), repeatMode = RepeatMode.Restart
                         )
                     )
 
@@ -381,8 +377,7 @@ fun JobInProgressView(
                                 ) else PaddingValues(start = 128.dp)
                             )
                             .drawBehind {
-                                drawRect(bgColor,
-                                    topLeft = with(density) { Offset(88.dp.toPx(), 22.dp.toPx()) },
+                                drawRect(bgColor, topLeft = with(density) { Offset(88.dp.toPx(), 22.dp.toPx()) },
                                     size = with(density) { DpSize(80.dp, 180.dp).toSize() })
                             }
                             .size(256.dp),
@@ -418,8 +413,7 @@ fun JobInProgressView(
                 Column(
                     modifier = Modifier
                         .padding(16.dp)
-                        .fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                        .fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Text(
                         text = stringResource(R.string.would_you_like_to_be_notified),
@@ -452,8 +446,9 @@ fun JobInProgressView(
                     modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = if (uiState.isVerifying) stringResource(R.string.verifying) else
-                            stringResource(R.string.copying)
+                        text = if (uiState.isVerifying) stringResource(R.string.verifying) else stringResource(
+                            R.string.copying
+                        )
                     )
                     Text(
                         text = " " + if (uiState.isVerifying) uiState.destDevice?.name
@@ -487,16 +482,14 @@ fun JobInProgressView(
                         .fillMaxWidth()
                         .padding(top = 8.dp),
                     text = if (uiState.percent >= 0) "${uiState.processedBytes.toHRSize()} / ${uiState.totalBytes.toHRSize()}" + " ${if (uiState.isVerifying) "verified" else "written"}, ${uiState.speed.toHRSize()}/s"
-                    else stringResource(R.string.getting_ready),
-                    style = MaterialTheme.typography.titleMedium,
+                    else stringResource(R.string.getting_ready), style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center
                 )
             }
 
             if (uiState.percent >= 0) {
                 LinearProgressIndicator(
-                    progress = uiState.percent / 100f,
-                    modifier = Modifier
+                    progress = uiState.percent / 100f, modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 32.dp),
                     color = MaterialTheme.colorScheme.primary
@@ -514,8 +507,7 @@ fun JobInProgressView(
                 OutlinedButton(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 32.dp),
-                    onClick = cancelVerification
+                        .padding(horizontal = 32.dp), onClick = cancelVerification
                 ) {
                     Text(text = stringResource(R.string.skip_verification))
                 }
@@ -525,8 +517,7 @@ fun JobInProgressView(
 
     if (uiState.jobState == JobState.RECOVERABLE_ERROR && uiState.exception != null && uiState.exception is RecoverableException) {
         AutoJobRestarter(
-            uiState.sourceUri!!, uiState.jobId, uiState.isVerifying, uiState.destDevice!!,
-            uiState.processedBytes
+            uiState.sourceUri!!, uiState.jobId, uiState.isVerifying, uiState.destDevice!!, uiState.processedBytes
         )
         ReconnectUsbDriveDialog(exception = uiState.exception as RecoverableException)
     }
@@ -616,8 +607,7 @@ fun SuccessView() {
             Column(
                 modifier = Modifier
                     .padding(16.dp)
-                    .fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                    .fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
                     text = stringResource(R.string.got_an_unsupported_drive_notification),
@@ -628,31 +618,27 @@ fun SuccessView() {
                 val uriHandler = LocalUriHandler.current
                 val annotatedString = buildAnnotatedString {
                     val learnMoreStr = stringResource(R.string.learn_what_it_means)
-                    val str =
-                        stringResource(R.string.it_s_safe_to_ignore, learnMoreStr)
+                    val str = stringResource(R.string.it_s_safe_to_ignore, learnMoreStr)
                     val startIndex = str.indexOf(learnMoreStr)
                     val endIndex = startIndex + learnMoreStr.length
                     append(str)
                     addStyle(
                         style = SpanStyle(
-                            color = MaterialTheme.colorScheme.primary,
-                            textDecoration = TextDecoration.Underline
+                            color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline
                         ), start = startIndex, end = endIndex
                     )
                     addStringAnnotation(
-                        tag = "URL", annotation = "https://etchdroid.depau.eu/broken_usb/",
-                        start = startIndex, end = endIndex
+                        tag = "URL", annotation = "https://etchdroid.depau.eu/broken_usb/", start = startIndex,
+                        end = endIndex
                     )
                 }
                 ClickableText(modifier = Modifier.fillMaxWidth(), text = annotatedString,
                     style = MaterialTheme.typography.labelMedium.copy(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     ), onClick = {
-                        annotatedString.getStringAnnotations("URL", it, it)
-                            .firstOrNull()
-                            ?.let { stringAnnotation ->
-                                uriHandler.openUri(stringAnnotation.item)
-                            }
+                        annotatedString.getStringAnnotations("URL", it, it).firstOrNull()?.let { stringAnnotation ->
+                            uriHandler.openUri(stringAnnotation.item)
+                        }
                     })
             }
         }
@@ -804,8 +790,7 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
                     textAlign = TextAlign.Center, style = MaterialTheme.typography.headlineSmall
                 )
                 Text(
-                    text = stringResource(R.string.to_recover_unplug),
-                    modifier = Modifier
+                    text = stringResource(R.string.to_recover_unplug), modifier = Modifier
                         .padding(bottom = 24.dp)
                         .align(Alignment.CenterHorizontally)
                         .weight(weight = 1f, fill = false), textAlign = TextAlign.Center,
@@ -813,13 +798,10 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
                 )
                 val vectorRes = ImageVector.vectorResource(R.drawable.unplug_reconnect_accept)
                 Image(
-                    imageVector = vectorRes,
-                    contentDescription = stringResource(
+                    imageVector = vectorRes, contentDescription = stringResource(
                         R.string.representation_of_the_required_steps
-                    ),
-                    contentScale = ContentScale.Fit,
-                    colorFilter = ColorFilter.tint(AlertDialogDefaults.iconContentColor),
-                    modifier = Modifier
+                    ), contentScale = ContentScale.Fit,
+                    colorFilter = ColorFilter.tint(AlertDialogDefaults.iconContentColor), modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(vectorRes.defaultWidth / vectorRes.defaultHeight)
                         .padding(horizontal = 32.dp)
@@ -895,15 +877,13 @@ fun AutoJobRestarter(
                     if (!granted) {
                         activity.toast(
                             context.getString(
-                                R.string.permission_denied_for_usb_device,
-                                usbDevice.deviceName
+                                R.string.permission_denied_for_usb_device, usbDevice.deviceName
                             )
                         )
                     } else {
                         activity.toast(context.getString(R.string.usb_device_reconnected_resuming))
                         val serviceIntent = getStartJobIntent(
-                            imageUri, msd, jobId, resumeOffset, isVerifying, activity,
-                            WorkerService::class.java
+                            imageUri, msd, jobId, resumeOffset, isVerifying, activity, WorkerService::class.java
                         )
                         Log.d(TAG, "Starting service with intent: $serviceIntent")
                         activity.startForegroundServiceCompat(serviceIntent)
@@ -942,8 +922,7 @@ fun ErrorViewPreview() {
     val viewModel = remember { ProgressActivityViewModel() }
     MainView(viewModel) {
         FatalErrorView(
-            exception = VerificationFailedException(), Uri.EMPTY, 1337,
-            UsbMassStorageDeviceDescriptor()
+            exception = VerificationFailedException(), Uri.EMPTY, 1337, UsbMassStorageDeviceDescriptor()
         )
     }
 }
@@ -956,8 +935,7 @@ fun ExceptionCardsPreview() {
         LazyColumn(
             modifier = Modifier
                 .padding(16.dp)
-                .fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+                .fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             item {
                 RecoverableExceptionExplanationCard(
@@ -1010,8 +988,8 @@ fun ProgressViewPreview() {
         viewModel.setState(
             viewModel.state.value.copy(
                 percent = ((progress * 100) % 100).toInt(),
-                processedBytes = ((progress * 1000000000) % 1000000000).toLong(),
-                totalBytes = 1000000000, speed = 10000000f, isVerifying = progress > 1
+                processedBytes = ((progress * 1000000000) % 1000000000).toLong(), totalBytes = 1000000000,
+                speed = 10000000f, isVerifying = progress > 1
             )
         )
     }
