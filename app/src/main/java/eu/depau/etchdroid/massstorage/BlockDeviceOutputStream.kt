@@ -53,7 +53,7 @@ class BlockDeviceOutputStream(
 
     private var mBlockChannel = Channel<Pair<Long, ByteBuffer>>(queueSize)
 
-    private val mFlushRendezvous = Channel<Unit>()
+    private var mFlushRendezvous = Channel<Unit>()
 
     private val blockDeviceMutex = Mutex()
 
@@ -73,6 +73,9 @@ class BlockDeviceOutputStream(
             }
 
             mBlockChannel = Channel(queueSize)
+            mFlushRendezvous = Channel()
+
+            // ensureIoThread() will return at this point
             rendezvous.send(Unit)
 
             try {
@@ -117,6 +120,7 @@ class BlockDeviceOutputStream(
             } catch (e: Exception) {
                 Log.e(TAG, "Exception in I/O thread", e)
                 mBlockChannel.close(e)
+                mFlushRendezvous.close(e)
             } finally {
                 mIoThreadRunning.set(false)
             }
@@ -156,13 +160,13 @@ class BlockDeviceOutputStream(
     @OptIn(ExperimentalCoroutinesApi::class)
     override suspend fun flushAsync() {
         commit()
+        ensureIoThread()
         mBlockChannel.send(Pair(BARRIER_TAG, ByteBuffer.allocate(0)))
         mFlushRendezvous.receive()
     }
 
     override suspend fun seekAsync(offset: Long): Long {
-        if (offset == 0L)
-            return 0L
+        if (offset == 0L) return 0L
 
         val actualSkipDistance = when {
             mCurrentOffset + offset > mSizeBytes -> mSizeBytes - mCurrentOffset
@@ -175,8 +179,7 @@ class BlockDeviceOutputStream(
 
         // Check if the new offset is within the written range of the current buffer
         if (newBlockOffset in mCurrentBlockOffset until mCurrentBlockOffset + mByteBuffer.position() / blockDev.blockSize) {
-            val bufferByteOffset =
-                (newBlockOffset - mCurrentBlockOffset) * blockDev.blockSize + newByteOffset
+            val bufferByteOffset = (newBlockOffset - mCurrentBlockOffset) * blockDev.blockSize + newByteOffset
             mByteBuffer.position(bufferByteOffset.toInt())
             return actualSkipDistance
         }
@@ -223,6 +226,8 @@ class BlockDeviceOutputStream(
         var toWrite = actualLen
 
         while (toWrite > 0) {
+            if (isEOF) throw IOException("No space left on device")
+
             val toWriteNow = toWrite.coerceAtMost(mByteBuffer.remaining())
             mByteBuffer.put(b, off + actualLen - toWrite, toWriteNow)
             toWrite -= toWriteNow

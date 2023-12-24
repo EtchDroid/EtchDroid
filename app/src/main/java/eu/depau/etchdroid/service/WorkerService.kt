@@ -51,6 +51,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeout
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import java.io.BufferedInputStream
 import java.io.InputStream
@@ -64,7 +65,8 @@ private const val JOB_PROGRESS_CHANNEL = "eu.depau.etchdroid.notifications.JOB_P
 
 private const val WAKELOCK_TIMEOUT = 10 * 60 * 1000L
 private const val PROGRESS_UPDATE_INTERVAL = 1000L
-const val BUFFER_BLOCKS_SIZE = 2048
+const val BUFFER_BLOCKS = 2048
+const val IO_TIMEOUT = 10 * 1000L
 
 class WorkerService : LifecycleService() {
     private var mLoggedNotificationWarning = false
@@ -345,7 +347,7 @@ class WorkerService : LifecycleService() {
                     isVerifying = verifyOnly
                 ).broadcastLocallySync(this@WorkerService)
 
-                val bufferSize = BUFFER_BLOCKS_SIZE * blockDev.blockSize
+                val bufferSize = BUFFER_BLOCKS * blockDev.blockSize
 
                 // Write image
                 if (!verifyOnly) {
@@ -512,7 +514,7 @@ object WorkerServiceFlowImpl {
         var currentOffset = initialOffset
 
         val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
-        val dst = BlockDeviceOutputStream(blockDev, coroScope, BUFFER_BLOCKS_SIZE)
+        val dst = BlockDeviceOutputStream(blockDev, coroScope, BUFFER_BLOCKS)
 
         try {
             src.skip(currentOffset)
@@ -524,7 +526,9 @@ object WorkerServiceFlowImpl {
                 val read = src.read(buffer)
                 if (read == -1) break
                 try {
-                    dst.writeAsync(buffer)
+                    withTimeout(IO_TIMEOUT) {
+                        dst.writeAsync(buffer, 0, read)
+                    }
                 } catch (e: Exception) {
                     Log.e(TAG, "Failed to write to USB drive", e)
                     throw UsbCommunicationException(e)
@@ -533,7 +537,14 @@ object WorkerServiceFlowImpl {
 
                 sendProgressUpdate(read, currentOffset, imageSize, false)
             }
-            dst.flushAsync()
+            try {
+                withTimeout(IO_TIMEOUT) {
+                    dst.flushAsync()
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to write to USB drive", e)
+                throw UsbCommunicationException(e)
+            }
         } finally {
             src.close()
             dst.close()
@@ -558,9 +569,7 @@ object WorkerServiceFlowImpl {
 
         val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
         val dst = BlockDeviceInputStream(
-            blockDev,
-            coroutineScope = lifecycleScope,
-            BUFFER_BLOCKS_SIZE / 4
+            blockDev, coroutineScope = lifecycleScope, BUFFER_BLOCKS / 4
         )
 
         try {
@@ -582,10 +591,12 @@ object WorkerServiceFlowImpl {
                 if (read == -1) break
 
                 try {
-                    val deviceRead = dst.readAsync(deviceBuffer, 0, read)
-                    require(
-                        deviceRead >= read
-                    ) { "Device read $deviceRead < file read $read" }
+                    withTimeout(IO_TIMEOUT) {
+                        val deviceRead = dst.readAsync(deviceBuffer, 0, read)
+                        require(
+                            deviceRead >= read
+                        ) { "Device read $deviceRead < file read $read" }
+                    }
                 } catch (e: Exception) {
                     Log.e(TAG, "Failed to read from USB drive", e)
                     throw UsbCommunicationException(e)
