@@ -131,6 +131,57 @@ class WorkerServiceFlowTest {
         }
     }
 
+    @Test
+    fun testUnplugMidVerify() = runBlocking {
+        val random = Random()
+
+        // Generate random image
+        val image = ByteArray(BUFFER_BLOCKS * 512 * 4)
+        random.nextBytes(image)
+
+        val blockDev = MemoryBufferBlockDeviceDriver(BUFFER_BLOCKS * 512 * 8, 512)
+
+        assertDoesNotThrow {
+            WorkerServiceFlowImpl.writeImage(
+                image.inputStream(),
+                blockDev,
+                image.size.toLong(),
+                BUFFER_BLOCKS * 512,
+                0L,
+                coroutineScope,
+                grabWakeLock = {},
+                sendProgressUpdate = { _, _, _, _ -> }
+            )
+        }
+
+        blockDev.apply {
+            throwAtBlockOffset = BUFFER_BLOCKS * 2L
+            exceptionToThrow = {
+                IOException(
+                    "MAX_RECOVERY_ATTEMPTS Exceeded while trying to transfer command to device, please reattach device and try again"
+                )
+            }
+        }
+
+        assertThrows<UsbCommunicationException> {
+            withTimeout(1000) {
+                WorkerServiceFlowImpl.verifyImage(
+                    image.inputStream(),
+                    blockDev,
+                    image.size.toLong(),
+                    BUFFER_BLOCKS * 512,
+                    coroutineScope,
+                    sendProgressUpdate = { _, _, _, _ -> },
+                    isVerificationCanceled = { false },
+                    grabWakeLock = {}
+                )
+            }
+        }.run {
+            assert(cause is IOException)
+            assert(cause!!.message!!.contains("MAX_RECOVERY_ATTEMPTS"))
+        }
+    }
+
     companion object {
         @JvmStatic
         @BeforeAll
