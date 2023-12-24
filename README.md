@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-<a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img height="53" width="178" src="https://etchdroid.depau.eu/assets/img/get_on_fdroid.svg" alt="F-Droid"></a> <a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_googleplay.svg" alt="Google Play"></a> <a href="https://github.com/EtchDroid/EtchDroid/releases" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_github.svg" alt="GitHub"></a>
+<a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_googleplay.svg" alt="Google Play"></a> <a href="https://github.com/EtchDroid/EtchDroid/releases" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_github.svg" alt="GitHub"> <a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img height="53" width="178" src="https://etchdroid.depau.eu/assets/img/get_on_fdroid.svg" alt="F-Droid"></a></a>
 </p>
 
 EtchDroid is an open-source application that helps you write images to USB drives.
@@ -50,6 +50,7 @@ If you want to say thanks, you can send a donation.
 
 ## Screenshots
 
+<p align="center">
 <!-- Exact dimensions are specified to avoid the images jumping as they load -->
 <!-- The "force inline" comment ensures the images stay inline, the fact that it's needed might be a GFM bug -->
 <img src="metadata/en-US/images/phoneScreenshots/0.png" width="100" height="216"> <!-- Force inline -->
@@ -57,4 +58,4 @@ If you want to say thanks, you can send a donation.
 <img src="metadata/en-US/images/phoneScreenshots/3.png" width="100" height="216"> <!-- Force inline -->
 <img src="metadata/en-US/images/phoneScreenshots/4.png" width="100" height="216"> <!-- Force inline -->
 <img src="metadata/en-US/images/phoneScreenshots/5.png" width="100" height="216"> <!-- Force inline -->
-
+</p>
