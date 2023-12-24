@@ -97,7 +97,7 @@
     <string name="write_an_image">Scrivi un\'immagine</string>
     <string name="notification_write_progress_content">%1$s su %2$s</string>
     <string name="disk_images">Immagini disco</string>
-    <string name="a_regular_windows_iso_won_t_work">Una normale ISO di Windows non funziona con EtchDroid, a meno che non sia stata appositamente preparata per essere scritta con Etcher, dd o EtchDroid.</string>
+    <string name="a_regular_windows_iso_won_t_work">Una normale ISO di Windows non funziona con EtchDroid, a meno che non sia stata appositamente preparata per essere scritta con EtchDroid, Etcher o dd.</string>
     <string name="connect_a_usb_drive">Collega un dispositivo USB</string>
     <string name="disk_image">Immagine disco</string>
     <string name="be_careful">Fai attenzione!</string>
@@ -116,5 +116,10 @@
     <string name="missing_permission_to_access_the_usb_device">Privilegi assenti per usare il dispositivo USB</string>
     <string name="the_usb_device_content_does_not_match_the_image">Il contenuto del dispositivo USB non corrisponde all\'immagine</string>
     <string name="write_another_image">Scrivi un\'altra immagine</string>
-    <string name="support_the_project">Supporta finanziariamente</string>
+    <string name="support_the_project">Dona</string>
+    <string name="community_windows_images">Immagini di Windows create per EtchDroid dalla comunità (attenzione: potrebbero contenere virus!)</string>
+    <string name="service_timeout_message">Il processo di scrittura sembra essersi bloccato. Riprova nuovamente.</string>
+    <string name="title_activity_confirm_operation">Conferma operazione</string>
+    <string name="no_image_uri_provided">Nessun URI immagine fornito</string>
+    <string name="no_destination_device_selected">Nessun dispositivo di destinazione selezionato</string>
 </resources>
