@@ -833,9 +833,13 @@ fun AutoJobRestarter(
         return
     }
     val usbManager = remember { context.getSystemService(Context.USB_SERVICE) as UsbManager }
-    val pendingIntentFlags =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) PendingIntent.FLAG_MUTABLE
-        else 0
+    val forceFlag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+        PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT
+    } else {
+        0
+    }
+    val pendingIntentFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) PendingIntent.FLAG_MUTABLE or forceFlag
+    else 0
     val pendingIntent = remember {
         PendingIntent.getBroadcast(
             activity, 0, Intent(Intents.USB_PERMISSION), pendingIntentFlags
@@ -896,8 +900,8 @@ fun AutoJobRestarter(
     DisposableEffect(Unit) {
         Log.d(TAG, "Registering broadcast receiver")
         activity.apply {
-            registerReceiver(broadcastReceiver, IntentFilter(Intents.USB_PERMISSION))
-            registerReceiver(broadcastReceiver, IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED))
+            registerExportedReceiver(broadcastReceiver, IntentFilter(Intents.USB_PERMISSION))
+            registerExportedReceiver(broadcastReceiver, IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED))
             for (usbDevice in usbManager.deviceList.values) onUsbAttached(usbDevice)
         }
         onDispose {
