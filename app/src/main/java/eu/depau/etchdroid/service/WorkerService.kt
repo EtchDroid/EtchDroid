@@ -65,7 +65,7 @@ private const val JOB_PROGRESS_CHANNEL = "eu.depau.etchdroid.notifications.JOB_P
 
 private const val WAKELOCK_TIMEOUT = 10 * 60 * 1000L
 private const val PROGRESS_UPDATE_INTERVAL = 1000L
-const val BUFFER_BLOCKS = 2048
+const val BUFFER_BLOCKS = 2048L
 const val IO_TIMEOUT = 10 * 1000L
 
 class WorkerService : LifecycleService() {
@@ -348,7 +348,8 @@ class WorkerService : LifecycleService() {
                     }
 
                     writeImage(
-                        rawSourceStream, blockDev, imageSize, bufferSize, currentOffset, coroScope, ::ensureWakelock,
+                        rawSourceStream, blockDev, imageSize, bufferSize, currentOffset, coroScope,
+                        ::ensureWakelock,
                         ::sendProgressUpdate
                     )
                 }
@@ -486,7 +487,7 @@ object WorkerServiceFlowImpl {
         rawSourceStream: InputStream,
         blockDev: BlockDeviceDriver,
         imageSize: Long,
-        bufferSize: Int,
+        bufferSize: Long,
         initialOffset: Long,
         coroScope: CoroutineScope,
         grabWakeLock: () -> Unit,
@@ -497,10 +498,10 @@ object WorkerServiceFlowImpl {
             isVerifying: Boolean,
         ) -> Unit,
     ) {
-        val buffer = ByteArray(bufferSize)
+        val buffer = ByteArray(bufferSize.toInt())
         var currentOffset = initialOffset
 
-        val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
+        val src = BufferedInputStream(rawSourceStream, (bufferSize * 4).toInt())
         val dst = BlockDeviceOutputStream(blockDev, coroScope, BUFFER_BLOCKS)
 
         try {
@@ -542,7 +543,7 @@ object WorkerServiceFlowImpl {
         rawSourceStream: InputStream,
         blockDev: BlockDeviceDriver,
         imageSize: Long,
-        bufferSize: Int,
+        bufferSize: Long,
         lifecycleScope: CoroutineScope,
         sendProgressUpdate: (
             lastWrittenBytes: Int,
@@ -554,7 +555,7 @@ object WorkerServiceFlowImpl {
         grabWakeLock: () -> Unit,
     ) {
 
-        val src = BufferedInputStream(rawSourceStream, bufferSize * 4)
+        val src = BufferedInputStream(rawSourceStream, (bufferSize * 4).toInt())
         val dst = BlockDeviceInputStream(
             blockDev, coroutineScope = lifecycleScope, BUFFER_BLOCKS / 4
         )

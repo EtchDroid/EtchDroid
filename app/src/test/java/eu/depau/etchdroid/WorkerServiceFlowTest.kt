@@ -28,7 +28,7 @@ class WorkerServiceFlowTest {
         val image = ByteArray(devSize / 2 + random.nextInt(devSize / 2))
         random.nextBytes(image)
 
-        val blockDev = MemoryBufferBlockDeviceDriver(devSize, blockSize)
+        val blockDev = MemoryBufferBlockDeviceDriver(devSize.toLong(), blockSize)
 
         assertDoesNotThrow {
             WorkerServiceFlowImpl.writeImage(
@@ -100,7 +100,7 @@ class WorkerServiceFlowTest {
         val random = Random()
 
         // Generate random image
-        val image = ByteArray(BUFFER_BLOCKS * 512 * 4)
+        val image = ByteArray((BUFFER_BLOCKS * 512 * 4).toInt())
         random.nextBytes(image)
 
         val blockDev = MemoryBufferBlockDeviceDriver(BUFFER_BLOCKS * 512 * 8, 512).apply {
@@ -136,7 +136,7 @@ class WorkerServiceFlowTest {
         val random = Random()
 
         // Generate random image
-        val image = ByteArray(BUFFER_BLOCKS * 512 * 4)
+        val image = ByteArray((BUFFER_BLOCKS * 512 * 4).toInt())
         random.nextBytes(image)
 
         val blockDev = MemoryBufferBlockDeviceDriver(BUFFER_BLOCKS * 512 * 8, 512)

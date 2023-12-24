@@ -65,12 +65,12 @@ class BlockDeviceInputStreamTest {
         )
     }
 
-    private fun runReadTest(testDevSize: Long, testBlockSize: Int, testPrefetchBlocks: Int) =
+    private fun runReadTest(testDevSize: Long, testBlockSize: Int, testPrefetchBlocks: Long) =
         runBlocking {
-            val testDev = MemoryBufferBlockDeviceDriver(testDevSize.toInt(), testBlockSize).apply {
+            val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
                 fillWithGrowingSequence()
             }
-            val slots = if (testPrefetchBlocks == 1) 1 else 4
+            val slots = if (testPrefetchBlocks == 1L) 1 else 4
             val bufferBlocks = testPrefetchBlocks / slots
 
             val inputStream =
@@ -194,7 +194,7 @@ class BlockDeviceInputStreamTest {
 
             // Go to end of prefetched blocks
             inputStream.skipAsync(-testDevSize)
-            inputStream.skipAsync((testPrefetchBlocks * testBlockSize - 4).toLong())
+            inputStream.skipAsync((testPrefetchBlocks * testBlockSize - 4))
 
             // Read to array, second half needs to be fetched
             assertEquals(byteArray.size, inputStream.readAsync(byteArray))
@@ -217,14 +217,14 @@ class BlockDeviceInputStreamTest {
         }
 
     private fun runPseudoRandomReadTest(
-        testDevSize: Int,
+        testDevSize: Long,
         testBlockSize: Int,
-        testPrefetchBlocks: Int,
+        testPrefetchBlocks: Long,
     ) = runBlocking {
         val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
             fillWithRandom()
         }
-        val slots = if (testPrefetchBlocks == 1) 1 else 4
+        val slots = if (testPrefetchBlocks == 1L) 1 else 4
         val bufferBlocks = testPrefetchBlocks / slots
 
         val inputStream =
@@ -235,7 +235,7 @@ class BlockDeviceInputStreamTest {
                 prefetchBuffers = slots
             )
 
-        val byteBuffer = ByteBuffer.allocate(testDevSize)
+        val byteBuffer = ByteBuffer.allocate(testDevSize.toInt())
         testDev.backingBuffer.copyInto(byteBuffer.array())
         byteBuffer.position(0)
         byteBuffer.limit(byteBuffer.capacity())
@@ -243,7 +243,7 @@ class BlockDeviceInputStreamTest {
         @Suppress("UNUSED_VARIABLE")
         val originalBuffer = byteBuffer.duplicate()
 
-        val byteArray = ByteArray(testBlockSize * testPrefetchBlocks)
+        val byteArray = ByteArray((testBlockSize * testPrefetchBlocks).toInt())
         while (byteBuffer.hasRemaining()) {
             val readBytes = inputStream.readAsync(byteArray)
             @Suppress("ReplaceJavaStaticMethodWithKotlinAnalog")
@@ -336,13 +336,13 @@ class BlockDeviceOutputStreamTest {
     }
 
 
-    private fun runWriteTest(testDevSize: Int, testBlockSize: Int, testBufferBlocks: Int) =
+    private fun runWriteTest(testDevSize: Long, testBlockSize: Int, testBufferBlocks: Long) =
         runBlocking {
             val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
                 fillWithReverseGrowingSequence()
             }
 
-            val queueSlots = if (testBufferBlocks == 1) 1 else 4
+            val queueSlots = if (testBufferBlocks == 1L) 1 else 4
             val bufferBlocks = testBufferBlocks / queueSlots
 
             val outputStream =
@@ -399,7 +399,7 @@ class BlockDeviceOutputStreamTest {
 
             // Fill the buffer except for the last 8 bytes
             // Note that flush successfully wrote one full block, so the block offset is now 1
-            byteArray = ByteArray(testBufferBlocks * testBlockSize - 8)
+            byteArray = ByteArray((testBufferBlocks * testBlockSize - 8).toInt())
             outputStream.writeAsync(byteArray)
 
             // Now do a write that goes out of the buffer
@@ -413,7 +413,7 @@ class BlockDeviceOutputStreamTest {
 
             val byteArray1 = ByteArray(20)
             testDev.backingBuffer.copyInto(
-                byteArray1, 0, fullBufferOffset - 8, fullBufferOffset + 12
+                byteArray1, 0, (fullBufferOffset - 8).toInt(), (fullBufferOffset + 12).toInt()
             )
 
             assertArrayEquals(
@@ -430,7 +430,7 @@ class BlockDeviceOutputStreamTest {
             // Go to end of file - 4 bytes
             val remainingBytes = testDevSize - (fullBufferOffset + 8)
 
-            byteArray = ByteArray(remainingBytes - 4)
+            byteArray = ByteArray((remainingBytes - 4).toInt())
             outputStream.writeAsync(byteArray)
 
             // This should work
@@ -448,15 +448,15 @@ class BlockDeviceOutputStreamTest {
         }
 
     private fun runPseudoRandomWriteTest(
-        testDevSize: Int,
+        testDevSize: Long,
         testBlockSize: Int,
-        testBufferBlocks: Int,
+        testBufferBlocks: Long,
     ) = runBlocking {
         val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
             fillWithRandom()
         }
 
-        val queueSlots = if (testBufferBlocks == 1) 1 else 4
+        val queueSlots = if (testBufferBlocks == 1L) 1 else 4
         val bufferBlocks = testBufferBlocks / queueSlots
 
         val outputStream =
@@ -466,7 +466,7 @@ class BlockDeviceOutputStreamTest {
             )
 
 
-        val byteBuffer = ByteBuffer.allocate(testDevSize)
+        val byteBuffer = ByteBuffer.allocate(testDevSize.toInt())
         testDev.backingBuffer.copyInto(byteBuffer.array())
         byteBuffer.position(0)
         byteBuffer.limit(byteBuffer.capacity())
@@ -474,22 +474,22 @@ class BlockDeviceOutputStreamTest {
         outputStream.writeAsync(byteBuffer.array())
         outputStream.flushAsync()
 
-        val byteArray2 = ByteArray(testDevSize)
+        val byteArray2 = ByteArray(testDevSize.toInt())
         testDev.backingBuffer.copyInto(byteArray2)
         assertArrayEquals(byteBuffer.array(), byteArray2)
     }
 
     private fun runPseudoRandomSmallWritesTest(
-        testDevSize: Int,
+        testDevSize: Long,
         testBlockSize: Int,
-        testBufferBlocks: Int,
+        testBufferBlocks: Long,
     ) = runBlocking {
         // Same as above, but instead of writing the entire buffer in one go, write it in small chunks of testBlockSize * testBufferBlocks
         val testDev = MemoryBufferBlockDeviceDriver(testDevSize, testBlockSize).apply {
             fillWithRandom()
         }
 
-        val queueSlots = if (testBufferBlocks == 1) 1 else 4
+        val queueSlots = if (testBufferBlocks == 1L) 1 else 4
         val bufferBlocks = testBufferBlocks / queueSlots
 
         val outputStream =
@@ -498,20 +498,20 @@ class BlockDeviceOutputStreamTest {
                 queueSize = queueSlots
             )
 
-        val byteBuffer = ByteBuffer.allocate(testDevSize)
+        val byteBuffer = ByteBuffer.allocate(testDevSize.toInt())
         testDev.backingBuffer.copyInto(byteBuffer.array())
         byteBuffer.position(0)
         byteBuffer.limit(byteBuffer.capacity())
 
         while (byteBuffer.hasRemaining()) {
             val byteArray =
-                ByteArray((testBlockSize * testBufferBlocks).coerceAtMost(byteBuffer.remaining()))
+                ByteArray((testBlockSize * testBufferBlocks).coerceAtMost(byteBuffer.remaining().toLong()).toInt())
             byteBuffer.get(byteArray)
             outputStream.writeAsync(byteArray)
         }
         outputStream.flushAsync()
 
-        val byteArray2 = ByteArray(testDevSize)
+        val byteArray2 = ByteArray(testDevSize.toInt())
         testDev.backingBuffer.copyInto(byteArray2)
         assertArrayEquals(byteBuffer.array(), byteArray2)
     }

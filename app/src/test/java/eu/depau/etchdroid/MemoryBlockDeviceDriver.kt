@@ -12,7 +12,7 @@ import java.util.Random
 
 
 class MemoryBufferBlockDeviceDriver(
-    private val size: Int,
+    private val size: Long,
     override val blockSize: Int,
 ) : BlockDeviceDriver {
 
@@ -35,10 +35,10 @@ class MemoryBufferBlockDeviceDriver(
 
     @Throws(IOException::class)
     override fun init() {
-        if (size % blockSize != 0) {
+        if (size % blockSize != 0L) {
             throw IOException("Memory buffer size must be a multiple of block size")
         }
-        backingBuffer = ByteArray(size)
+        backingBuffer = ByteArray(size.toInt())
     }
 
     @Throws(IOException::class)
@@ -79,12 +79,12 @@ class MemoryBufferBlockDeviceDriver(
 
     fun fillWithGrowingSequence() {
         for (i in 0 until size)
-            backingBuffer[i] = (i % 0xFF).toByte()
+            backingBuffer[i.toInt()] = (i % 0xFF).toByte()
     }
 
     fun fillWithReverseGrowingSequence() {
         for (i in 0 until size)
-            backingBuffer[i] = (0xFE - i % 0xFF).toByte()
+            backingBuffer[i.toInt()] = (0xFE - i % 0xFF).toByte()
     }
 
     fun fillWithRandom(seed: Long? = null) {
