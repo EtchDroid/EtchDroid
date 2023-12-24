@@ -1,16 +1,25 @@
-EtchDroid è un'app con licenza copyleft GPLv3+ che permette di scrivere immagini su chiavette USB.
-Usala per creare la chiavetta con su GNU/Linux che ti salva la vita quando il portatile è morto e tu sei in mezzo al nulla.
+EtchDroid è un'app open-source che consente di scrivere le immagini ISO su chiavette USB.
+Usalo per creare una chiavetta di installazione del sistema operativo quando il tuo computer non parte più.
 
-Funzionalità:
-• Supporta immagini disco 1:1 e le ISO della maggior parte delle distribuzioni GNU/Linux
-• Supporta le immagini per Raspberry Pi (estrai prima il file ZIP e usa un adattatore microSD-USB; lo slot SD interno non è supportato)
-• Supporta la maggior parte delle immagini DMG (beta)
-• Senza root - tutto viene fatto stando dentro i limiti delle API di Android
-• Software libero
+⭐️ Dispositivi supportati ⭐️
 
-In arrivo:
-• Scrittura delle ISO delle più famose distro GNU/Linux da Internet in streaming, senza memorizzarle sul dispositivo
-• Supporto per le ISO d'installazione di Windows (probabilmente richiederà root)
-• Supporto per la scrittura in modalità Unetbootin
+✅ Chiavette USB
+✅ Adattatori SD card USB
+❌ Hard disk o SSD USB
+❌ Dock e hub USB
+❌ Slot interno SD card
+❌ Lettori di dischi ottici e floppy
+❌ Dispositivi Thunderbolt
 
-Il codice sorgente è su GitHub: https://github.com/Depau/EtchDroid
+
+⭐️ Tipi di immagini supportate ⭐️
+
+✅ Immagini di sistemi operativi GNU/Linux moderni, inclusi (ma non solo) Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS
+✅ Immagini SD card per Raspberry Pi (a patto che le estrai prima dall'archivio!)
+❌ ISO di Microsoft Windows ufficiali
+⚠️ Immagini di Windows create dalla comunità specificamente per EtchDroid (attenzione: potrebbero contenere virus!)
+❌ Immagini disco Apple DMG
+❌ Immagini di sistemi operativi GNU/Linux vecchi < 2010, ad esempio Damn Small Linux e Puppy Linux
+
+
+Il codice sorgente è disponibile su GitHub: https://github.com/EtchDroid/EtchDroid

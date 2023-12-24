@@ -1,1 +1,1 @@
-Scrivi immagini ISO e DMG su chiavette USB, senza root
+Scrivi ISO del sistema operativo su chiavette USB, senza root

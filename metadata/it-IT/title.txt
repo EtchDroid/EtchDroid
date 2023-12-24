@@ -1,1 +1,1 @@
-EtchDroid
+EtchDroid - Scrivi ISO su USB

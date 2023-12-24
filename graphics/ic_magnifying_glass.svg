@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="34.98"
+   viewBox="0 0 17.49 17.49"
+   width="34.98"
+   fill="#ffffff"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="ic_magnifying_glass.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="6.4464514"
+     inkscape:cx="-14.038731"
+     inkscape:cy="9.3074463"
+     inkscape:window-width="3840"
+     inkscape:window-height="2091"
+     inkscape:window-x="1080"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <path
+     d="M 12.5,11 H 11.71 L 11.43,10.73 C 12.41,9.59 13,8.11 13,6.5 13,2.91 10.09,0 6.5,0 2.91,0 0,2.91 0,6.5 0,10.09 2.91,13 6.5,13 8.11,13 9.59,12.41 10.73,11.43 L 11,11.71 v 0.79 l 5,4.99 1.49,-1.49 z m -6,0 C 4.01,11 2,8.99 2,6.5 2,4.01 4.01,2 6.5,2 8.99,2 11,4.01 11,6.5 11,8.99 8.99,11 6.5,11 Z"
+     id="path4" />
+  <path
+     style="display:inline;opacity:0.3;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.49999;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+     id="path13469"
+     sodipodi:type="arc"
+     sodipodi:cx="6.6284752"
+     sodipodi:cy="6.4999552"
+     sodipodi:rx="5.0078979"
+     sodipodi:ry="5.0078979"
+     sodipodi:start="0"
+     sodipodi:end="6.2776792"
+     sodipodi:open="true"
+     sodipodi:arc-type="arc"
+     d="M 11.636373,6.4999552 A 5.0078979,5.0078979 0 0 1 6.6353687,11.507848 5.0078979,5.0078979 0 0 1 1.6205963,6.5137422 5.0078979,5.0078979 0 0 1 6.6077947,1.4921 5.0078979,5.0078979 0 0 1 11.636297,6.4723813" />
+</svg>

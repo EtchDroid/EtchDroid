@@ -1,1 +1,1 @@
-Write ISO and DMG images to USB drives, no root required
+Write operating system ISO images to USB drives, no root required
