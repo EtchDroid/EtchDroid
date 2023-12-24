@@ -168,7 +168,7 @@
     <string name="usb_hard_drives_ssds_some_might_work">USB hard drives / SSDs (some might work)</string>
 
     <!-- Device type -->
-    <string name="usb_docks_and_hubs_might_have_power_issues">USB docks and hubs (might have power issues)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues">USB docks and hubs (they might have power issues)</string>
 
     <!-- Device type -->
     <string name="memory_cards_using_the_internal_slot">Memory cards, using the internal slot</string>
