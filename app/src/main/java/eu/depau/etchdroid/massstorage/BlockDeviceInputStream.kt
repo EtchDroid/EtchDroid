@@ -20,7 +20,7 @@ private const val TAG = "BlockDeviceInputStream"
 class BlockDeviceInputStream(
     private val blockDev: BlockDeviceDriver,
     private val coroutineScope: CoroutineScope,
-    private val bufferBlocks: Int = 512,
+    private val bufferBlocks: Long = 512,
     private val prefetchBuffers: Int = 4,
 ) : AsyncInputStream(), ISeekableStream {
     private lateinit var mReadBuffer: ByteBuffer

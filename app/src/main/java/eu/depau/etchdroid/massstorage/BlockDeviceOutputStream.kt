@@ -4,7 +4,6 @@ import android.util.Log
 import eu.depau.etchdroid.utils.AsyncOutputStream
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.launch
@@ -34,7 +33,7 @@ interface ISeekableStream {
 class BlockDeviceOutputStream(
     private val blockDev: BlockDeviceDriver,
     private val coroutineScope: CoroutineScope,
-    private val bufferBlocks: Int = 512,
+    private val bufferBlocks: Long = 512,
     private val queueSize: Int = 4,
 ) : AsyncOutputStream(), ISeekableStream {
 
@@ -46,7 +45,7 @@ class BlockDeviceOutputStream(
     private val mSizeBytes: Long
         get() = blockDev.blocks * blockDev.blockSize
 
-    private var mByteBuffer = ByteBuffer.allocate(minOf(blockDev.blockSize * bufferBlocks, mSizeBytes.toInt()))
+    private var mByteBuffer = ByteBuffer.allocate(minOf(blockDev.blockSize * bufferBlocks, mSizeBytes).toInt())
 
     private val isEOF: Boolean
         get() = mCurrentOffset >= mSizeBytes
@@ -157,7 +156,6 @@ class BlockDeviceOutputStream(
     }
 
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     override suspend fun flushAsync() {
         commit()
         ensureIoThread()
