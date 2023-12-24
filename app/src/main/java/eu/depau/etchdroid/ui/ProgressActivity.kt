@@ -900,8 +900,8 @@ fun AutoJobRestarter(
     DisposableEffect(Unit) {
         Log.d(TAG, "Registering broadcast receiver")
         activity.apply {
-            registerReceiver(broadcastReceiver, IntentFilter(Intents.USB_PERMISSION))
-            registerReceiver(broadcastReceiver, IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED))
+            registerExportedReceiver(broadcastReceiver, IntentFilter(Intents.USB_PERMISSION))
+            registerExportedReceiver(broadcastReceiver, IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED))
             for (usbDevice in usbManager.deviceList.values) onUsbAttached(usbDevice)
         }
         onDispose {
