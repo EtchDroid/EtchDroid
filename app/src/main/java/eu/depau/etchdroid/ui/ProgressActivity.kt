@@ -131,10 +131,12 @@ import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.ktexts.toast
 import eu.depau.etchdroid.utils.ktexts.usbDevice
 import eu.depau.etchdroid.utils.reviews.WriteReviewHelper
+import kotlinx.coroutines.delay
 import me.jahnen.libaums.libusbcommunication.LibusbError
 import me.jahnen.libaums.libusbcommunication.LibusbException
 
 private const val TAG = "ProgressActivity"
+private const val LAST_NOTIFICATION_TIMEOUT = 10 * 1000L
 
 class ProgressActivity : ComponentActivity() {
     private lateinit var mSettings: AppSettings
@@ -212,6 +214,16 @@ class ProgressActivity : ComponentActivity() {
         setContent {
             MainView(mViewModel) {
                 val appState by mViewModel.state.collectAsState()
+
+                if (appState.jobState == JobState.IN_PROGRESS) {
+                    LaunchedEffect(key1 = appState.lastNotificationTime) {
+                        delay(LAST_NOTIFICATION_TIMEOUT)
+                        if (System.currentTimeMillis() - appState.lastNotificationTime >= LAST_NOTIFICATION_TIMEOUT) {
+                            mViewModel.setTimeoutError()
+                        }
+                    }
+                }
+
                 when (appState.jobState) {
                     JobState.IN_PROGRESS, JobState.RECOVERABLE_ERROR -> {
                         BackHandler { println("Ignoring back button") }

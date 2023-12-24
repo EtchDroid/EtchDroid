@@ -18,6 +18,7 @@ import eu.depau.etchdroid.SettingChangeListener
 import eu.depau.etchdroid.ThemeMode
 import eu.depau.etchdroid.massstorage.EtchDroidUsbMassStorageDevice.Companion.massStorageDevices
 import eu.depau.etchdroid.massstorage.UsbMassStorageDeviceDescriptor
+import eu.depau.etchdroid.utils.exception.ServiceTimeoutException
 import eu.depau.etchdroid.utils.exception.base.EtchDroidException
 import eu.depau.etchdroid.utils.exception.base.RecoverableException
 import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
@@ -89,8 +90,7 @@ data class MainActivityState(
     }
 }
 
-class MainActivityViewModel : ViewModel(), SettingChangeListener,
-    IThemeViewModel<MainActivityState> {
+class MainActivityViewModel : ViewModel(), SettingChangeListener, IThemeViewModel<MainActivityState> {
     private val _state = MutableStateFlow(MainActivityState.Empty)
     override val state: StateFlow<MainActivityState> = _state.asStateFlow()
 
@@ -131,10 +131,7 @@ class MainActivityViewModel : ViewModel(), SettingChangeListener,
 
     fun usbDeviceDetached(device: UsbDevice) {
         _state.update { state ->
-            state.copy(
-                massStorageDevices = state.massStorageDevices.filter { it.usbDevice != device }
-                    .toSet()
-            )
+            state.copy(massStorageDevices = state.massStorageDevices.filter { it.usbDevice != device }.toSet())
         }
     }
 
@@ -183,14 +180,13 @@ class ConfirmOperationActivityViewModel : ViewModel(), SettingChangeListener,
         _state.update { state }
     }
 
-    fun init(openedImage: Uri?, selectedDevice: UsbMassStorageDeviceDescriptor?) =
-        _state.update {
-            it.copy(
-                openedImage = openedImage,
-                selectedDevice = selectedDevice,
-                hasUsbPermission = false,
-            )
-        }
+    fun init(openedImage: Uri?, selectedDevice: UsbMassStorageDeviceDescriptor?) = _state.update {
+        it.copy(
+            openedImage = openedImage,
+            selectedDevice = selectedDevice,
+            hasUsbPermission = false,
+        )
+    }
 
     fun setPermission(permission: Boolean) {
         _state.update {
@@ -219,6 +215,7 @@ data class ProgressActivityState(
     val recoverableError: Boolean = false,
     val notificationsPermission: Boolean = false,
     val showNotificationsBanner: Boolean = true,
+    val lastNotificationTime: Long = System.currentTimeMillis(),
 ) : IThemeState {
     companion object {
         val Empty: ProgressActivityState
@@ -226,8 +223,7 @@ data class ProgressActivityState(
     }
 }
 
-class ProgressActivityViewModel : ViewModel(), SettingChangeListener,
-    IThemeViewModel<ProgressActivityState> {
+class ProgressActivityViewModel : ViewModel(), SettingChangeListener, IThemeViewModel<ProgressActivityState> {
     private val _state = MutableStateFlow(ProgressActivityState.Empty)
     override val state: StateFlow<ProgressActivityState> = _state.asStateFlow()
 
@@ -262,6 +258,7 @@ class ProgressActivityViewModel : ViewModel(), SettingChangeListener,
                         sourceUri = sourceUri,
                         destDevice = status.destDevice,
                         exception = null,
+                        lastNotificationTime = System.currentTimeMillis(),
                     )
                 }
             }
@@ -275,6 +272,7 @@ class ProgressActivityViewModel : ViewModel(), SettingChangeListener,
                         destDevice = status.destDevice,
                         totalBytes = status.totalBytes,
                         percent = 100,
+                        lastNotificationTime = System.currentTimeMillis(),
                     )
                 }
             }
@@ -290,9 +288,19 @@ class ProgressActivityViewModel : ViewModel(), SettingChangeListener,
                         processedBytes = status.processedBytes,
                         totalBytes = status.totalBytes,
                         percent = status.percent,
+                        lastNotificationTime = System.currentTimeMillis(),
                     )
                 }
             }
+        }
+    }
+
+    fun setTimeoutError() {
+        _state.update {
+            it.copy(
+                jobState = JobState.FATAL_ERROR,
+                exception = ServiceTimeoutException(),
+            )
         }
     }
 
