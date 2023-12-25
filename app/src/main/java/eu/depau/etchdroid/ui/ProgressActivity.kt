@@ -591,7 +591,7 @@ fun SuccessView() {
                 }
                 OutlinedButton(onClick = {
                     activity?.startActivity(
-                        Intent(Intent.ACTION_VIEW, Uri.parse("https://etchdroid.depau.eu/donate/"))
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://etchdroid.app/donate/"))
                     )
                 }) {
                     Text(stringResource(R.string.support_the_project))
@@ -640,7 +640,7 @@ fun SuccessView() {
                         ), start = startIndex, end = endIndex
                     )
                     addStringAnnotation(
-                        tag = "URL", annotation = "https://etchdroid.depau.eu/broken_usb/", start = startIndex,
+                        tag = "URL", annotation = "https://etchdroid.app/broken_usb/", start = startIndex,
                         end = endIndex
                     )
                 }

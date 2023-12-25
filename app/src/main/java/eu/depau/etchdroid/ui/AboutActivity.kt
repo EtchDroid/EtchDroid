@@ -223,7 +223,7 @@ fun AboutView(viewModel: ThemeViewModel) {
                         activity?.startActivity(
                             Intent(
                                 Intent.ACTION_VIEW,
-                                Uri.parse("https://etchdroid.depau.eu")
+                                Uri.parse("https://etchdroid.app")
                             )
                         )
                     }
@@ -235,7 +235,7 @@ fun AboutView(viewModel: ThemeViewModel) {
                         activity?.startActivity(
                             Intent(
                                 Intent.ACTION_VIEW,
-                                Uri.parse("https://etchdroid.depau.eu/donate")
+                                Uri.parse("https://etchdroid.app/donate")
                             )
                         )
                     }

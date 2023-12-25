@@ -5,11 +5,11 @@
 </p>
 
 <p align="center">
-<img alt="EtchDroid" src="https://etchdroid.depau.eu/assets/img/playstore_banner.png" height="250" width="512" />
+<img alt="EtchDroid" src="https://etchdroid.app/assets/img/playstore_banner.png" height="250" width="512" />
 </p>
 
 <p align="center">
-<a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_googleplay.svg" alt="Google Play"></a> <a href="https://github.com/EtchDroid/EtchDroid/releases" rel="noopener"><img src="https://etchdroid.depau.eu/assets/img/get_on_github.svg" alt="GitHub"> <a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img height="53" width="178" src="https://etchdroid.depau.eu/assets/img/get_on_fdroid.svg" alt="F-Droid"></a></a>
+<a href="https://play.google.com/store/apps/details?id=eu.depau.etchdroid" rel="noopener"><img src="https://etchdroid.app/assets/img/get_on_googleplay.svg" alt="Google Play"></a> <a href="https://github.com/EtchDroid/EtchDroid/releases" rel="noopener"><img src="https://etchdroid.app/assets/img/get_on_github.svg" alt="GitHub"> <a href="https://f-droid.org/packages/eu.depau.etchdroid/" rel="noopener"><img height="53" width="178" src="https://etchdroid.app/assets/img/get_on_fdroid.svg" alt="F-Droid"></a></a>
 </p>
 
 EtchDroid is an open-source application that helps you write images to USB drives.
@@ -42,7 +42,7 @@ If you want to say thanks, you can send a donation.
 
 - Patreon: https://www.patreon.com/depau
 - GitHub Sponsors: https://github.com/sponsors/depau
-- One-time options on the website: https://etchdroid.depau.eu/donate/
+- One-time options on the website: https://etchdroid.app/donate/
 
 ## Help out translating EtchDroid
 
