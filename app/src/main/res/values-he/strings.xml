@@ -86,7 +86,7 @@
     <string name="usb_flash_drives">החסני הבזק USB</string>
     <string name="memory_cards_using_a_usb_adapter">כרטיסי זיכרון, באמצעות מתאם USB</string>
     <string name="usb_hard_drives_ssds_some_might_work">כוננים קשיחים/SSD דרך USB (חלקם עובדים)</string>
-    <string name="usb_docks_and_hubs_might_have_power_issues">מעגני ומפצלי USB (יכולות להיות בעיות חשמל)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues">מעגני ומפצלי USB (עלולות להתרחש בעיות חשמל)</string>
     <string name="memory_cards_using_the_internal_slot">כרטיסי זיכרון, דרך החריץ המובנה</string>
     <string name="optical_disk_drives">כוננים אופטיים</string>
     <string name="floppy_disk_drives">כונני דיסקטים</string>
