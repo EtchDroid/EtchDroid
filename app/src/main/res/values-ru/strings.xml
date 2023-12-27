@@ -50,7 +50,7 @@
     <string name="devices">Устройства</string>
     <string name="usb_flash_drives">USB-флеш-накопители</string>
     <string name="usb_hard_drives_ssds_some_might_work">Жёсткие диски USB / SSD (некоторые могут работать)</string>
-    <string name="usb_docks_and_hubs_might_have_power_issues">USB-док-станции и концентраторы (могут быть проблемы с питанием)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues">USB-док-станции и HUB-ы (могут быть проблемы с питанием)</string>
     <string name="memory_cards_using_the_internal_slot">Карты памяти, через внутренний слот</string>
     <string name="optical_disk_drives">Оптические дисководы</string>
     <string name="floppy_disk_drives">Дисководы для дискет</string>
@@ -117,4 +117,9 @@
     <string name="the_image_is_is_larger_than_the_device">Образ (%1$s) больше, чем устройство (%2$s)</string>
     <string name="support_the_project">Поддержать деньгами</string>
     <string name="write_another_image">Записать другой образ</string>
+    <string name="community_windows_images">Созданные сообществом образы Windows для EtchDroid (вам решашь: они могут содержать вирусы!)</string>
+    <string name="service_timeout_message">Кажется, процесс записи застопорился. Пожалуйста, попробуйте еще раз.</string>
+    <string name="title_activity_confirm_operation">Подтвердить операцию</string>
+    <string name="no_image_uri_provided">Образ не выбран</string>
+    <string name="no_destination_device_selected">Целевое устройство не выбрано</string>
 </resources>
