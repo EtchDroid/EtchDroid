@@ -15,7 +15,7 @@
     <string name="notification_verify_progress_title">校验镜像中...…</string>
     <string name="about">关于</string>
     <string name="is_this_a_windows_iso">这是 Windows ISO 镜像吗？</string>
-    <string name="a_regular_windows_iso_won_t_work">常见的 Windows ISO 镜像不能被 Etchdroid 使用，除非它是为与 Etcher、dd 或 Etchdroid 使用专门准备的。</string>
+    <string name="a_regular_windows_iso_won_t_work">常见的 Windows ISO 镜像不能被 Etchdroid 使用，除非它是为与 Etchdroid、Etcher或 dd 使用专门准备的。</string>
     <string name="select_a_usb_drive">选择一个 USB 驱动器</string>
     <string name="connect_a_usb_drive">连接 USB 驱动器</string>
     <string name="looking_for_usb_drives">寻找 USB 驱动器</string>
