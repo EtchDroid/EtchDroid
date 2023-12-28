@@ -1,1 +1,1 @@
-EtchDroid USB 写入器
+EtchDroid 镜像写入器（适用 U 盘）
