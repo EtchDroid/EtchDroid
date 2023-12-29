@@ -41,4 +41,13 @@
     <string name="whats_supported">此工具支持什么？</string>
     <string name="action_required">需要的操作</string>
     <string name="device_setting">设备设置</string>
+    <string name="continue_">继续</string>
+    <string name="usb_flash_drives">U盘</string>
+    <string name="write_image">写入镜像</string>
+    <string name="supported_devices_and_images">支持的设备和图像</string>
+    <string name="skip">跳过</string>
+    <string name="be_careful">请当心！</string>
+    <string name="lay_your_device_flat_no_accel">继续操作之前，请将设备平放在桌子上。</string>
+    <string name="lay_your_device_flat">将您的设备平放在桌子上，不要触摸它</string>
+    <string name="writing_the_image_will_erase">写入映像将擦除所选驱动器上的所有数据</string>
 </resources>
