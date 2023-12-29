@@ -38,4 +38,7 @@
     <string name="destination_usb_device">目标 USB 设备</string>
     <string name="unknown_device">未知设备</string>
     <string name="permission_granted">权限已授予</string>
+    <string name="whats_supported">此工具支持什么？</string>
+    <string name="action_required">需要的操作</string>
+    <string name="device_setting">设备设置</string>
 </resources>
