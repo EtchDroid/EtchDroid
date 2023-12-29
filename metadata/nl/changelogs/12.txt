@@ -1,3 +1,2 @@
-• Updates en foutoplossingen aan libaums voor verbeterde betrouwbaarheid bij 'eigenwijze' usb-schijven en Android-apparaten
-
-• Bijgewerkte vertalingen
+• Updates en foutoplossingen aan libaums voor verbeterde betrouwbaarheid bij 'eigenwijze' usb-schijven en Android-apparaten;
+• Bijgewerkte vertalingen.

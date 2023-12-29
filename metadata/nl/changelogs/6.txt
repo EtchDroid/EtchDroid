@@ -1,1 +1,1 @@
-• Fout opgelost die de app deed crashen na het drukken op een knop (Android 6.0)
+• Fout opgelost die de app deed crashen na het drukken op een knop (Android 6.0).

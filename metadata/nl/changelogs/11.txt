@@ -1,3 +1,2 @@
 • EtchDroid ondersteunt voortaan libusb, waardoor de stabiliteit sterk verbetert.
-
 • Ondersteuning voor het donkere thema is uitgeschakeld op Pie en hoger omdat het te veel problemen veroorzaakte. Stuur me een bericht als je wilt dat de functie terugkeert.
