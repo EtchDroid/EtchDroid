@@ -17,4 +17,5 @@
     <string name="not_supported">Nicht unterstützt</string>
     <string name="supported_devices_and_images">Unterstützte Geräte und Bilder</string>
     <string name="devices">Geräte</string>
+    <string name="action_required">Aktion erforderlich</string>
 </resources>
