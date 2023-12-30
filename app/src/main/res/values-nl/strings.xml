@@ -117,4 +117,9 @@
     <string name="the_image_is_is_larger_than_the_device">De schijfkopie (%1$s) is groter dan de omvang van het apparaat (%2$s)</string>
     <string name="support_the_project">Financiële ondersteuning</string>
     <string name="write_another_image">Nog een schijfkopie wegschrijven</string>
+    <string name="community_windows_images">Door de gemeenschap geleverde Windows-schijfkopieën, speciaal voor EtchDroid (eigen risico: ze kunnen mogelijk virussen bevatten!)</string>
+    <string name="service_timeout_message">Het wegschrijfproces lijkt te zijn vastgelopen. Probeer het opnieuw.</string>
+    <string name="title_activity_confirm_operation">Actie bevestigen</string>
+    <string name="no_image_uri_provided">Geen schijfkopie-uri opgegeven</string>
+    <string name="no_destination_device_selected">Geen doelapparaat gekozen</string>
 </resources>
