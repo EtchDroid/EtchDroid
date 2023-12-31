@@ -50,4 +50,5 @@
     <string name="lay_your_device_flat_no_accel">继续操作之前，请将设备平放在桌子上。</string>
     <string name="lay_your_device_flat">将您的设备平放在桌子上，不要触摸它</string>
     <string name="writing_the_image_will_erase">写入映像将擦除所选驱动器上的所有数据</string>
+    <string name="notification_write_no_notifications_text">启用进程通知 • 正在写入%1$s到%2$s</string>
 </resources>
