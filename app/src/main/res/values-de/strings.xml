@@ -18,4 +18,11 @@
     <string name="supported_devices_and_images">Unterstützte Geräte und Bilder</string>
     <string name="devices">Geräte</string>
     <string name="action_required">Aktion erforderlich</string>
+    <string name="whats_supported">Was wird unterstützt?</string>
+    <string name="usb_device_was_unplugged">USB Stick wurde abgenommen</string>
+    <string name="notification_verify_progress_title">Verifiziere Abbild…</string>
+    <string name="notification_write_progress_title">Schreibe Abbild…</string>
+    <string name="style">Stil</string>
+    <string name="permission_denied_for_usb_device">Zugriff verweigert für USB Stick</string>
+    <string name="write_an_image">Schreibe Abbild</string>
 </resources>
