@@ -1,16 +1,21 @@
 EtchDroid is een vrije GPLv3+-app waarmee je schijfkopieën kunt wegschrijven naar usb-schijven.
 Zo kun je bijv. een opstartbare GNU/Linux usb-schijf maken voor als je laptop de geest geeft terwijl je in de middle of nowhere bent.
 
-Kenmerken:
-• Ondersteunt schijfkopieën en de meeste GNU/Linux-distributies (iso)
-• Ondersteunt Raspberry Pi-schijfkopieën (pak het zip-bestand vooraf uit en gebruik een sd-naar-usb-adapter - de interne schijf kan niet worden gebruikt)
-• Ondersteunt de meeste dmg-schijfkopieën (bèta)
-• Geen root benodigd - alles wordt aangestuurd door de standaard Android-api's
-• Gratis en vrij
+⭐️ Ondersteunde apparaten: ⭐️
+✅ Usb-sticks;
+✅ Usb-sd-kaartadapters;
+❌ Usb-schijven/-ssd's;
+❌ Usb-docks en -hubs;
+❌ Intern sd-kaartslot;
+❌ Optische of floppylezers;
+❌ Thunderbolt-apparaten.
 
-Toekomstige mogelijkheden:
-• Ondersteuning voor het wegschrijven van GNU/Linux-distributies door ze te streamen van het internet
-• Ondersteuning voor Windows-installatie-iso's (mogelijk is daar wél root voor benodigd)
-• Ondersteuning voor wegschrijven in Unetbootin-stijl
+⭐️ Ondersteunde schijfkopieën/bestanden: ⭐️
+✅ Moderne GNU/Linux-distributies (iso), waaronder Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS en vele anderen;
+✅ Raspberry PI-schijfkopieën (na uitpakken!);
+❌ Officiële Microsoft Windows-iso's;
+⚠️ Windows-schijfkopieën van de gemeenschap, speciaal voor EtchDroid (let op: ze kunnen mogelijk virussen bevatten!);
+❌ Apple dmg-schijfkopieën;
+❌ Oudere GNU/Linux-iso's (vóór 2010), zoals Damn Small Linux en Puppy Linux.
 
-De broncode is beschikbaar op GitHub: https://github.com/Depau/EtchDroid
+De broncode is beschikbaar op GitHub: https://github.com/EtchDroid/EtchDroid

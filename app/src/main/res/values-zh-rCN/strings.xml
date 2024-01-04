@@ -15,7 +15,7 @@
     <string name="notification_verify_progress_title">校验镜像中...…</string>
     <string name="about">关于</string>
     <string name="is_this_a_windows_iso">这是 Windows ISO 镜像吗？</string>
-    <string name="a_regular_windows_iso_won_t_work">常见的 Windows ISO 镜像不能被 Etchdroid 使用，除非它是为与 Etcher、dd 或 Etchdroid 使用专门准备的。</string>
+    <string name="a_regular_windows_iso_won_t_work">常见的 Windows ISO 镜像不能被 Etchdroid 使用，除非它是为与 Etchdroid、Etcher或 dd 使用专门准备的。</string>
     <string name="select_a_usb_drive">选择一个 USB 驱动器</string>
     <string name="connect_a_usb_drive">连接 USB 驱动器</string>
     <string name="looking_for_usb_drives">寻找 USB 驱动器</string>
@@ -38,4 +38,17 @@
     <string name="destination_usb_device">目标 USB 设备</string>
     <string name="unknown_device">未知设备</string>
     <string name="permission_granted">权限已授予</string>
+    <string name="whats_supported">此工具支持什么？</string>
+    <string name="action_required">需要进行操作</string>
+    <string name="device_setting">设备设置</string>
+    <string name="continue_">继续</string>
+    <string name="usb_flash_drives">U盘</string>
+    <string name="write_image">写入镜像</string>
+    <string name="supported_devices_and_images">支持的设备和图像</string>
+    <string name="skip">跳过</string>
+    <string name="be_careful">请当心！</string>
+    <string name="lay_your_device_flat_no_accel">继续操作之前，请将设备平放在桌子上。</string>
+    <string name="lay_your_device_flat">将您的设备平放在桌子上，不要触摸它</string>
+    <string name="writing_the_image_will_erase">写入映像将擦除所选驱动器上的所有数据</string>
+    <string name="notification_write_no_notifications_text">启用进程通知 • 正在写入%1$s到%2$s</string>
 </resources>
