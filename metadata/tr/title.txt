@@ -1,1 +1,1 @@
-EtchDroid USB yazıcı
+EtchDroid ISO yazıcı
