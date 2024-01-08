@@ -1,1 +1,1 @@
-Gravador de USB EtchDroid
+EtchDroid Gravador de ISO-USB
