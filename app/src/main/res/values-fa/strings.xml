@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="about">درباره</string>
+    <string name="cancel">لغو</string>
+    <string name="unknown_filename">نام فایل ناشناخته</string>
+    <string name="whats_supported">چه چیز پشتیبانی میکند؟</string>
+    <string name="style">طرح</string>
+    <string name="device_setting">تنظیمات دستگاه</string>
+    <string name="light">روشن</string>
+    <string name="dark">تاریک</string>
+    <string name="continue_anyway">ادامه دادن به هرطریق</string>
+    <string name="notification_write_progress_content">%1$s به %2$s</string>
+    <string name="permission_denied_for_usb_device">دسترسی به فلش %1$s امکان پذیر نیست</string>
+    <string name="select_a_usb_drive">انتخاب یک فلش</string>
+</resources>
