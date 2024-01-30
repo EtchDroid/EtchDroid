@@ -55,4 +55,6 @@
     <string name="microsoft_windows_isos_any_version">Microsoft Windows ISOs (jede Version)</string>
     <string name="apple_dmg_disk_images">Apple DMG Festplattenabbilder</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, usw.</string>
+    <string name="notification_write_no_notifications_text">Aktiviere Benachrichtigungen für Abschluss
+\nSchreibe %1$s zu %2$s</string>
 </resources>
