@@ -1,0 +1,25 @@
+EtchDroid ist eine Open-Source-Anwendung, mit der Sie Bilder auf USB-Laufwerke schreiben können.
+ Verwenden Sie es, um ein bootfähiges Betriebssystem-USB-Laufwerk zu erstellen, wenn Ihr Laptop nicht mehr funktioniert.
+
+ ⭐️ Unterstützte Geräte ⭐️
+
+ ✅ USB-Sticks
+ ✅ USB-SD-Kartenadapter
+ ❌ USB-Festplatten/SSDs
+ ❌ USB-Docks und -Hubs
+ ❌ Interner SD-Kartensteckplatz
+ ❌ Optische oder Diskettenlaufwerke
+ ❌ Reine Thunderbolt-Geräte
+
+
+ ⭐️ Unterstützte Disk-Image-Typen ⭐️
+
+ ✅ Moderne GNU/Linux-Betriebssystem-Images, einschließlich Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS und viele mehr
+ ✅ Raspberry PI SD-Karten-Images (Sie müssen sie jedoch zuerst entpacken!)
+ ❌ Offizielle Microsoft Windows-ISOs
+ ⚠️ Von der Community erstellte Windows-Images, erstellt für EtchDroid (Vorsicht: Sie können Viren enthalten!)
+ ❌ Apple DMG-Disk-Images
+ ❌ Ältere GNU/Linux-Betriebssystem-Images < 2010 wie Damn Small Linux und Puppy Linux
+
+
+ Der Quellcode ist auf GitHub: https://github.com/EtchDroid/EtchDroid
