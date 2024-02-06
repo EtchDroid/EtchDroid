@@ -1,0 +1,2 @@
+• Updates und Fehlerbehebungen für Libaums sorgen für eine verbesserte Zuverlässigkeit bei „wählerischen“ USB-Laufwerken und Android-Geräten.
+ • Übersetzungsaktualisierungen.
