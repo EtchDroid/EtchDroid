@@ -71,5 +71,13 @@
     <string name="supported">Támogatott</string>
     <string name="website">Weboldal</string>
     <string name="support_the_project">Támogatás</string>
-    <string name="review">Ismertető</string>
+    <string name="review">Értékelés</string>
+    <string name="verifying_image">Lemezkép ellenőrzése</string>
+    <string name="writing_image">Lemezkép írása</string>
+    <string name="please_avoid_using_your_device">Kérjük ne használd az eszközt</string>
+    <string name="would_you_like_to_be_notified">Szeretne értesítést kapni, ha végeztünk?</string>
+    <string name="sure">Persze</string>
+    <string name="getting_ready">Előkészülés…</string>
+    <string name="skip_verification">Ellenőrzés kihagyása</string>
+    <string name="image_written_successfully">Lemezkép sikeresen kiírva!</string>
 </resources>
