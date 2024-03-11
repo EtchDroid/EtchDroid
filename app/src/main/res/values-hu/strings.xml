@@ -86,4 +86,7 @@
     <string name="got_an_unsupported_drive_notification">\"A csatlakoztatott USB eszköz nem támogatott\" értesítést kaptál?</string>
     <string name="it_s_safe_to_ignore">Hagyd figyelmen kívül! Csak húzd ki az eszközt és használd. %1$s és nézd meg, hogy formázhatod az eszközt később.</string>
     <string name="learn_what_it_means">Tudd meg mit jelent</string>
+    <string name="there_was_an_error">Hiba történt</string>
+    <string name="error">Hiba</string>
+    <string name="start_over">Elölről kezdeni</string>
 </resources>
