@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_required">Beavatkozás szükséges</string>
+    <string name="notif_channel_job_progress_name">Előrehaladás</string>
+    <string name="notif_channel_job_result_name">Eredmény</string>
+    <string name="notification_write_progress_title">Lemezkép írása…</string>
+    <string name="notification_verify_progress_title">Lemezkép ellenőrzése…</string>
+    <string name="notification_write_progress_content">%1$s erre %2$s</string>
+    <string name="notification_verify_progress_content">%1$s ezzel %2$s</string>
+    <string name="unknown_filename">Ismeretlen fájl</string>
+    <string name="permission_denied_for_usb_device">Engedély megtagadva a(z) %1$s USB eszköznek</string>
+    <string name="usb_device_was_unplugged">USB eszköz eltávolítva</string>
+    <string name="write_an_image">Lemezkép írása</string>
+    <string name="whats_supported">Mi támogatott?</string>
+    <string name="device_setting">Eszközbeállítás</string>
+    <string name="cancel">Vissza</string>
+    <string name="write_finished">Írás befejezve</string>
+    <string name="success_notif_content_text">%1$s sikeresen kiírva erre %2$s</string>
+    <string name="write_failed">Írás sikertelen</string>
+</resources>
