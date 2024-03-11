@@ -58,4 +58,16 @@
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD stb...</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Egyéb lemezképek, amelyek működnek Balena Etcherrel és dd-vel</string>
     <string name="support_for_dmg_images_was_removed">A DMG lemezképek támogatása az EtchDroid 2.0-ban megszűnt. Régebbi verziók innen tölthetők le %1$s.</string>
+    <string name="about">Rólunk</string>
+    <string name="unknown_device">Ismeretlen eszköz</string>
+    <string name="grant_access">Hozzáférés engedélyezése</string>
+    <string name="continue_">Folytatás</string>
+    <string name="skip">Kihagyás</string>
+    <string name="not_supported">Nem támogatott</string>
+    <string name="devices">Eszközök</string>
+    <string name="contributors">Közreműködők</string>
+    <string name="dark">Sötét</string>
+    <string name="permission_granted">Engedély megadva</string>
+    <string name="supported">Támogatott</string>
+    <string name="website">weboldal</string>
 </resources>
