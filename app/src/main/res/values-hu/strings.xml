@@ -121,4 +121,5 @@
     <string name="the_usb_device_content_does_not_match_the_image">Az USB eszköz tartalma nem egyezik meg a lemezképével</string>
     <string name="community_windows_images">Nem hivatalos Windows lemezképek, kifejezetten EtchDroidhoz készítve (Figyelem: Vírusokat tartalmazhatnak!)</string>
     <string name="plug_in_the_same_usb">Ugyanazt az USB eszközt csatlakoztassa!</string>
+    <string name="try_again">Próbálja újra</string>
 </resources>
