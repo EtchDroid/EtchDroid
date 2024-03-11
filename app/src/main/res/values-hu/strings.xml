@@ -65,9 +65,10 @@
     <string name="skip">Kihagyás</string>
     <string name="not_supported">Nem támogatott</string>
     <string name="devices">Eszközök</string>
-    <string name="contributors">Közreműködők</string>
+    <string name="contributors">közreműködők</string>
     <string name="dark">Sötét</string>
     <string name="permission_granted">Engedély megadva</string>
     <string name="supported">Támogatott</string>
-    <string name="website">weboldal</string>
+    <string name="website">Weboldal</string>
+    <string name="support_the_project">Támogatás</string>
 </resources>
