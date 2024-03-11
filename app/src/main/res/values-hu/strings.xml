@@ -80,4 +80,7 @@
     <string name="getting_ready">Előkészülés…</string>
     <string name="skip_verification">Ellenőrzés kihagyása</string>
     <string name="image_written_successfully">Lemezkép sikeresen kiírva!</string>
+    <string name="no_thanks">Köszönöm, nem</string>
+    <string name="verifying">Ellenőrzés</string>
+    <string name="write_a_review">Írd meg a véleményed</string>
 </resources>
