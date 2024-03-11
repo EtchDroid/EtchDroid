@@ -17,4 +17,6 @@
     <string name="write_finished">Írás befejezve</string>
     <string name="success_notif_content_text">%1$s sikeresen kiírva erre %2$s</string>
     <string name="write_failed">Írás sikertelen</string>
+    <string name="style">Stílus</string>
+    <string name="light">Világos</string>
 </resources>
