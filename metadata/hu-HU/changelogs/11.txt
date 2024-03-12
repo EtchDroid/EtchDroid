@@ -1,0 +1,2 @@
+• Az EtchDroid most már a libusb könyvtárat használja a felszín alatt. Ez fokozott stabilitást eredményez.
+• Az éjszakai mód Android Pie és újabb verziók esetében, stabilitási okok miatt, le lett tilva. Szólj, ha mégis szeretnéd a funkciót használni.
