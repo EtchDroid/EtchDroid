@@ -1,1 +1,1 @@
-EtchDroid: USB에 ISO 파일 굽기
+EtchDroid: USB에 ISO 파일 쓰기
