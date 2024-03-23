@@ -1,0 +1,2 @@
+• EtchDroid bây giờ đuợc xây dựng dựa trên libusb. Việc này sẽ giúp tăng tính ổn định.
+• Chế độ tối được vô hiệu hóa cho Android Pie hoặc mới hơn do có lỗi trong nhiều trường hợp. Vui lòng liên hệ nếu cần sử dụng.
