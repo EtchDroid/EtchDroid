@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_required">Aksie nodig</string>
+    <string name="cancel">Kanselleer</string>
+    <string name="write_finished">Skrywing voltooi</string>
+    <string name="success_notif_content_text">%1$sSuksesfol geskryf aan%2$s</string>
+    <string name="write_failed">Skrywing onsuksesvol</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Gebruik om die vordering van die huidige werk aan te toon</string>
+    <string name="notif_channel_job_progress_name">Werk vordering</string>
+</resources>
