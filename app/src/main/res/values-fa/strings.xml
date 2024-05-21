@@ -12,4 +12,14 @@
     <string name="notification_write_progress_content">%1$s به %2$s</string>
     <string name="permission_denied_for_usb_device">دسترسی به فلش %1$s امکان پذیر نیست</string>
     <string name="select_a_usb_drive">انتخاب یک فلش</string>
+    <string name="notif_channel_job_progress_name">پیشرفت کارایش</string>
+    <string name="notification_write_progress_title">درحال نوشتن فایل..</string>
+    <string name="notification_verify_progress_title">درحال اعتبارسازی فایل…</string>
+    <string name="notification_verify_no_notifications_text">فعال کردن اعلان‌ها برای پیشرفت • تأیید %1$s در برابر %2$s</string>
+    <string name="write_finished">با موفقیت رایت شد.</string>
+    <string name="success_notif_content_text">%1$s با موفقیت در %2$s رایت شد</string>
+    <string name="write_failed">نوشتن ناموفق بود</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">برای نشان دادن درصد عملیات کار فعلی استفاده می شود</string>
+    <string name="action_required">نیازمند به دسترسی</string>
+    <string name="notif_channel_job_result_name">نتیجه عملیات</string>
 </resources>

@@ -1,0 +1,25 @@
+EtchDroid는 USB 드라이브에 이미지를 쓰는 것을 도와주는 오픈 소스 앱입니다.
+노트북이 고장났을 때 운영 체제 설치 USB를 만들 때 사용하세요.
+
+⭐️ 지원하는 장치 ⭐️
+
+✅ USB 플래시 드라이브
+✅ USB SD 카드 어댑터
+❌ USB 하드 드라이브
+❌ USB 도크와 허브
+❌ 내장 SD 카드 슬롯
+❌ 광 디스크와 플로피 디스크 드라이브
+❌ Thunderbolt (썬더볼트) 전용 장치
+
+
+⭐️ 지원되는 디스크 이미지 형식 ⭐️
+
+✅ 최신 GNU/Linux 운영체제 이미지 (아치 리눅스, 데비안, 페도라, Pop!_OS, 리눅스 민트, FreeBSD, BlissOS 등)
+✅ Raspberry PI SD 카드 이미지 (먼저 직접 압축해제를 해야 합니다!)
+❌ 공식 Microsoft Windows ISO 이미지
+⚠️ EtchDroid 전용 비공식 Windows 이미지 (바이러스를 포함할 수 있으니 조심하세요!)
+❌ 애플 DMG 디스크 이미지
+❌ 이전 GNU/Linux 이미지 < 2010, Damn Small Linux와 Puppy Linux 등
+
+
+GitHub에 소스 코드가 공개되어 있습니다: https://github.com/EtchDroid/EtchDroid

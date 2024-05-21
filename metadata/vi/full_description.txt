@@ -1,0 +1,25 @@
+EtchDroid là ứng dụng mã nguồn mở giúp ghi các file ảnh đĩa vào thiết bị USB.
+Sử dụng để ghi file ảnh khởi động hệ điều hành vào thiết bị USB khi máy tính của bạn gặp sự cố.
+
+⭐️ Các thiết bị được hỗ trợ ⭐️
+
+✅ Ổ đĩa USB
+✅ Thẻ nhớ qua adapter USB
+❌ Ổ cứng / SSD rời USB
+❌ Dock và Hub USB
+❌ Khe thẻ nhớ tích hợp
+❌ Đĩa quang hoặc đĩa mềm
+❌ Các thiết bị chỉ có Thunderbolt
+
+
+⭐️ Các file ảnh đĩa được hỗ trợ ⭐️
+
+✅ Các bản phân phối GNU/Linux và BSD như Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS và hơn thế
+✅ File ảnh thẻ SD cho Raspberry PI (cần giải nén trước!)
+❌ File ISO chính thức của Microsoft Windows
+⚠️ File ảnh Windows được xây dựng bởi cộng đồng cho EtchDroid (cẩn thận: chúng có thể chứa virus!)
+❌ File ảnh DMG của Apple
+❌ Các bản phân phối GNU/Linux cũ < 2010 như Damn Small Linux và Puppy Linux
+
+
+Mã nguồn ứng dụng trên GitHub: https://github.com/EtchDroid/EtchDroid

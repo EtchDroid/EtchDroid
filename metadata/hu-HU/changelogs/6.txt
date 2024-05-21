@@ -1,0 +1,1 @@
+• Egy hiba javításra került, mely akármelyik gomb megnyomása esetén az app összeomlását okozta Android 6.0 rendszeren.
