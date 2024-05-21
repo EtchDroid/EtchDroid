@@ -183,6 +183,11 @@
             avatar="https://avatars3.githubusercontent.com/u/30341059"
             locales="zh"
             login="yzqzss" />
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Marcel Grummet"
+            avatar="https://avatars.githubusercontent.com/u/50751553"
+            locales="de"
+            login="marcel2789" />
 
 
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
