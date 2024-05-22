@@ -55,7 +55,7 @@
     <string name="microsoft_windows_isos_any_version">Microsoft Windows ISOs (jede Version)</string>
     <string name="apple_dmg_disk_images">Apple DMG Festplattenabbilder</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, usw.</string>
-    <string name="notification_write_no_notifications_text">Aktiviere Benachrichtigungen für Abschluss
+    <string name="notification_write_no_notifications_text">Aktiviere Benachrichtigungen für Fortschritt
 \nSchreibe %1$s zu %2$s</string>
     <string name="notification_verify_no_notifications_text">Benachrichtigungen für Fortschritt aktivieren • Verifiziert %1$s gegen %2$s</string>
     <string name="notification_write_tap_for_progress_text">Antippen für Fortschritt • Schreibt %1$s zu %2$s</string>
@@ -112,7 +112,7 @@
     <string name="write_another_image">Ein anderes Datenträgerabbild schreiben</string>
     <string name="support_the_project">Finanziell unterstützen</string>
     <string name="review">Bewerten</string>
-    <string name="perhaps_your_usb_port_is_dirty">Möglicherweise ist ihr USB-Anschluss verschmutzt, ihr Adapter ist defekt oder ihr Gerät kann nicht genug Strom versorgen. Versuchen sie einen anderen Adapter oder ein anderes Gerät.</string>
+    <string name="perhaps_your_usb_port_is_dirty">Möglicherweise ist Ihr USB-Anschluss verschmutzt, Ihr Adapter ist defekt oder ihr Gerät kann nicht genug Strom versorgen. Erwägen Sie, einen anderen Adapter oder ein anderes Gerät auszuprobieren.</string>
     <string name="usb_drives_are_unreliable">USB-Datenträger sind unzuverlässig und Android erlaubt nicht genügend Berechtigungen um das Gerät automatisch wiederherzustellen. Wir müssen mit dem arbeiten was wir haben!</string>
     <string name="verifying">Verifiziert</string>
     <string name="title_activity_confirm_operation">Vorgang bestätigen</string>
@@ -120,4 +120,5 @@
     <string name="no_destination_device_selected">Kein Zielgerät ausgewählt</string>
     <string name="service_timeout_message">Der Schreibprozess scheint stecken geblieben zu sein. Bitte versuchen sie es erneut.</string>
     <string name="community_windows_images">Windows Datenträgerabbilder, welche von der Community für EtchDroid gemacht wurden (Sie sind auf sich allein gestellt: Sie könnten Viren enthalten!)</string>
+    <string name="would_you_like_to_be_notified">Möchten Sie benachrichtigt werden, wenn der Vorgang abgeschlossen ist? Nur Fortschrittsaktualisierungen, kein Spam oder Werbung.</string>
 </resources>
