@@ -120,4 +120,6 @@
     <string name="permission_granted">Permissão concedida</string>
     <string name="writing_the_image_will_erase">Escrever a imagem apagará todos os dados na unidade selecionada</string>
     <string name="connect_a_usb_drive">Conecte uma unidade USB</string>
+    <string name="service_timeout_message">O processo de escrita parece que congelou. Por favor, tente novamente.</string>
+    <string name="community_windows_images">Versões do Windows criadas pela comunidade, feitas para o EtchDroid (tenha cuidado: elas podem conter vírus!)</string>
 </resources>
