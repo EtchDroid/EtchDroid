@@ -104,7 +104,7 @@
             android:foregroundServiceType="specialUse">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="This service interacts with a connected USB device to perform data                  transfers. One would think the `connectedDevice` service type should apply, but it                  can&apos;t be used since it requires me to declare completely unrelated permissions                  relating to NFC, UWB, Bluetooth, Wi-Fi, and no proper way to use it for USB                  devices is provided." />
+                android:value="This service interacts with a connected USB device to perform data transfers. One would think the `connectedDevice` service type should apply, but it can&apos;t be used since it requires me to declare completely unrelated permissions relating to NFC, UWB, Bluetooth, Wi-Fi, and no proper way to use it for USB devices is provided." />
         </service>
     </application>
 
