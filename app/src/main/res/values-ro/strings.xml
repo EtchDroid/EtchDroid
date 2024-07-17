@@ -4,9 +4,15 @@
     <string name="notif_channel_job_result_name">Rezultat de acțiune</string>
     <string name="notif_channel_job_progress_name">Acțiune progres</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Folosit pentru afișare progres la curent acțiune</string>
-    <string name="unknown_filename">Nume de fișier neconosciut</string>
+    <string name="unknown_filename">nume de fișier necunoscut</string>
     <string name="write_failed">Scriere a eșuat</string>
     <string name="success_notif_content_text">%1$s scris cu succes pe %2$s</string>
     <string name="write_finished">Operațiune de scriere terminat</string>
     <string name="cancel">Anulare</string>
+    <string name="notification_write_no_notifications_text">Activați notificările pentru continuare • Scriind %1$s to %2$s</string>
+    <string name="action_required">Actiune ceruta</string>
+    <string name="notification_write_tap_for_progress_text">Atingeți pentru progres • Writing %1$s to %2$s</string>
+    <string name="notification_write_progress_content">%1$s la %2$s</string>
+    <string name="device_setting">Setări dispozitiv</string>
+    <string name="light">Luminos</string>
 </resources>
