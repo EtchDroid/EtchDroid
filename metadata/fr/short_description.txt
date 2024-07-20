@@ -1,1 +1,1 @@
-Écrire des images ISO et DMG sur des clés USB, aucune racine requise
+Écrire des images ISO sur des clés USB, aucun root requis

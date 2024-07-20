@@ -1,12 +1,14 @@
-EtchDroid est une application libre GPLv3 + copylefted qui vous aide à écrire des images sur des clés USB.
-Utilisez-le pour créer une clé USB amorçable GNU / Linux lorsque votre ordinateur portable est mort et que vous êtes au milieu de nulle part.
+EtchDroid est une application open source qui vous aide à écrire des images sur des clés USB.
+Utilisez-le pour créer une clé USB amorçable lorsque votre ordinateur portable ne marche plus.
 
-Fonctionnalités :
-• Prend en charge les images de disque brutes et la plupart des ISO des distributions GNU / Linux
-• Prend en charge les images Raspberry Pi (extrayez d'abord le fichier ZIP ; utilisez un adaptateur SD vers USB, l'emplacement SD interne n'est pas pris en charge)
-• Prend en charge la plupart des images disque DMG (version bêta)
-• Pas de racine – tout est fait dans les limites de l'API Android
-• Logiciel libre
+Appareils pris en charge: 
+✅ Clé USB
+✅ Adaptateur carte SD USB
+❌ Disques durs USB/SSD 
+❌ Hubs USB
+❌ Carte micro SD interne
+❌ CD/DVD/Disquettes
+❌ Appareils thunderbolt
 
 Prévu :
 • Écrire une distribution GNU / Linux commune en streaming depuis Internet sans la stocker sur l'appareil
