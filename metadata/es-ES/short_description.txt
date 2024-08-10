@@ -1,0 +1,1 @@
+Graba imágenes ISO del sistema operativo en unidades USB, sin necesidad de root
