@@ -1,0 +1,2 @@
+• EtchDroid ahora utiliza libusb en segundo plano. Esto debería mejorar mucho la estabilidad.
+• El modo nocturno está desactivado en la versión Pie o posterior, ya que causaría problemas a muchas personas. Avísame si quieres recuperarlo.
