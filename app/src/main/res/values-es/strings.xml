@@ -11,10 +11,12 @@
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Se usa para mostrar el resultado de un trabajo terminado</string>
     <string name="notification_write_progress_title">Escribiendo Imagen…</string>
     <string name="notification_verify_progress_title">Verificando imagen…</string>
-    <string name="notification_write_progress_content">"%1$s a  %2$s"</string>
+    <string name="notification_write_progress_content">%1$s a %2$s</string>
     <string name="title_activity_confirm_operation">Confirmar la operación</string>
     <string name="no_destination_device_selected">No se ha seleccionado ningún dispositivo de destino</string>
     <string name="community_windows_images">Imágenes de Windows creadas por la comunidad para EtchDroid (tu responsabilidad: ¡pueden contener virus!)</string>
     <string name="no_image_uri_provided">No se proporcionó ninguna URL de una imagen</string>
     <string name="service_timeout_message">Parece que el proceso de escritura se ha atascado. Por favor, inténtelo de nuevo.</string>
+    <string name="notification_verify_progress_content">%1$s against %2$s</string>
+    <string name="action_required">Action required</string>
 </resources>
