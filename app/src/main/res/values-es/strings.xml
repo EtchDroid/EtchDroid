@@ -17,6 +17,6 @@
     <string name="community_windows_images">Imágenes de Windows creadas por la comunidad para EtchDroid (tu responsabilidad: ¡pueden contener virus!)</string>
     <string name="no_image_uri_provided">No se proporcionó ninguna URL de una imagen</string>
     <string name="service_timeout_message">Parece que el proceso de escritura se ha atascado. Por favor, inténtelo de nuevo.</string>
-    <string name="notification_verify_progress_content">%1$s against %2$s</string>
-    <string name="action_required">Action required</string>
+    <string name="notification_verify_progress_content">%1$s frente a %2$s</string>
+    <string name="action_required">Acción obligatoria</string>
 </resources>
