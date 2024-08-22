@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unknown_filename">Nombre del archivo desconocido</string>
-    <string name="cancel">Cancelar</string>
+    <string name="cancel">accep</string>
     <string name="write_finished">Escritura finalizada</string>
     <string name="success_notif_content_text">%1$s escrito con éxito a %2$s</string>
     <string name="write_failed">Escritura fallida</string>
