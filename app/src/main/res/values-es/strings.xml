@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unknown_filename">Nombre del archivo desconocido</string>
-    <string name="cancel">accep</string>
+    <string name="cancel">Cancelar</string>
     <string name="write_finished">Escritura finalizada</string>
     <string name="success_notif_content_text">%1$s escrito con éxito a %2$s</string>
     <string name="write_failed">Escritura fallida</string>
@@ -18,7 +18,7 @@
     <string name="no_image_uri_provided">No se proporcionó ninguna URL de una imagen</string>
     <string name="service_timeout_message">Parece que el proceso de escritura se ha atascado. Por favor, inténtelo de nuevo.</string>
     <string name="notification_verify_progress_content">%1$s frente a %2$s</string>
-    <string name="action_required">Se requiere intervención</string>
+    <string name="action_required">Acción requerida</string>
     <string name="a_regular_windows_iso_won_t_work">Una ISO normal de Windows no funcionará con EtchDroid, a menos que haya sido preparada específicamente para su uso con EtchDroid, Etcher o dd.</string>
     <string name="writing_the_image_will_erase">Al escribir la imagen se borrarán todos los datos de la unidad seleccionada</string>
     <string name="maybe_supported">Quizás sea compatible</string>
