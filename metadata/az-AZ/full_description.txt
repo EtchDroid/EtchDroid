@@ -1,5 +1,5 @@
-EtchDroid, USB disklərə faylları yazmağınıza kömək edən kopileftləşdirilmiş pulsuz GPLv3+ proqramıdır.
-Laptopunuz açılmazsa və heç bir yerin ortasında olduğunuzda, yüklənə bilən GNU/Linux USB sürücüsü yaratmaq üçün ondan istifadə edin.
+EtchDroid USB disklərə fayl yazmağa kömək edən açıq mənbəli fGPLv3+ proqramıdır.
+Əgər noutbukunuz işə düşmürsə və heç bir yerin ortasındasınızsa, onu yüklənə bilən əməliyyat sistemi USB sürücüsü yaratmaq üçün istifadə edin.
 
 Xüsusiyyətləri:
 • Raw disk fayllarını və əksər GNU/Linux paylama İSO-larını dəstəkləyir

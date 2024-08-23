@@ -1,1 +1,1 @@
-ISO və DMG fayllarını USB sürücülərinə yazın, root tələb olunmur
+Əməliyyat sistemi ISO şəkillərini USB sürücülərinə yazın, kök tələb olunmur
