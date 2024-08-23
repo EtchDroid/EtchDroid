@@ -117,4 +117,9 @@
     <string name="the_usb_drive_stopped_responding">USB sürücüsü cavab vermədi</string>
     <string name="missing_permission_to_access_the_usb_device">USB cihazına daxil olmaq üçün icazə yoxdur</string>
     <string name="an_unknown_error_occurred">Naməlum xəta baş verdi: %1$s</string>
+    <string name="title_activity_confirm_operation">Əməliyyatı təsdiqləyin</string>
+    <string name="no_image_uri_provided">Şəkil URI təmin edilməyib</string>
+    <string name="no_destination_device_selected">Heç bir təyinat cihazı seçilməyib</string>
+    <string name="service_timeout_message">Deyəsən yazı prosesi ilişib qalıb. Yenidən cəhd edin.</string>
+    <string name="community_windows_images">EtchDroid üçün hazırlanmış icma tərəfindən yaradılmış Windows şəkilləri (Ehtiyatlı olun: onların tərkibində virus ola bilər!)</string>
 </resources>
