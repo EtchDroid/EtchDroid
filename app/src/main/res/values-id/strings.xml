@@ -59,4 +59,22 @@
     <string name="devices">Perangkat</string>
     <string name="lay_your_device_flat">Letakkan perangkat Anda di atas meja dan jangan menyentuhnya</string>
     <string name="optical_disk_drives">Drive disk optik</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first">Image kartu SD Raspberry Pi (buka zip terlebih dahulu!)</string>
+    <string name="support_for_dmg_images_was_removed">Dukungan untuk Image DMG telah dihapus di EtchDroid 2.0. Versi yang lebih lama dapat diunduh dari %1$s.</string>
+    <string name="contributors">kontributor</string>
+    <string name="developed_by">Dikembangkan oleh %1$s dan %2$s lainnya. 
+\nKode sumber tersedia di %3$s. 
+\nDilisensikan di bawah lisensi GNU GPLv3.</string>
+    <string name="floppy_disk_drives">Drive floppy disk</string>
+    <string name="any_thunderbolt_only_device">Semua perangkat khusus Thunderbolt</string>
+    <string name="disk_images">Image disk</string>
+    <string name="microsoft_windows_isos_any_version">ISO Microsoft Windows (versi apa pun)</string>
+    <string name="apple_dmg_disk_images">Image disk DMG Apple</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD dll.</string>
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">ISO live distribusi GNU/Linux dan BSD modern lainnya</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd">Image lainnya yang dapat digunakan dengan Balena Etcher atau dd</string>
+    <string name="older_gnu_linux_distributions_isos_2010">ISO distribusi GNU/Linux yang lebih lama (&lt; 2010)</string>
+    <string name="website">Situs web</string>
+    <string name="review">Ulasan</string>
+    <string name="support_the_project">Mendukung secara finansial</string>
 </resources>
