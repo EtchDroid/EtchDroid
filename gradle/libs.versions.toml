@@ -1,0 +1,53 @@
+[versions]
+accompanist = "0.32.0"
+android-gradle-plugin = "8.7.0"
+coil = "2.5.0"
+compose = "1.5.15"
+compose-bom = "2024.09.03"
+gplay = "2.0.1"
+junit = "5.10.1"
+kotlin = "1.9.25"
+libaums = "0.10.0"
+lifecycle = "2.8.6"
+lottie = "6.2.0"
+mockito = "5.8.0"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+android-junit5 = { id = "de.mannodermaus.android-junit5", version = "1.10.0.0" }
+android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-parcelize = { id = "kotlin-parcelize" }
+
+[libraries]
+accompanist-navigation-animation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanist" }
+accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.9.2" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "compose" }
+compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose" }
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
+constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.1" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.13.1" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.6.1" }
+gplay-review = { group = "com.google.android.play", name = "review", version.ref = "gplay" }
+gplay-review-ktx = { group = "com.google.android.play", name = "review-ktx", version.ref = "gplay" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
+kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlinx-coroutines-debug = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-debug", version = "1.7.3" }
+libaums-core = { group = "me.jahnen.libaums", name = "core", version.ref = "libaums" }
+libaums-libusbcommunication = { group = "me.jahnen.libaums", name = "libusbcommunication", version = "0.3.0" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle-service = { group = "androidx.lifecycle", name = "lifecycle-service", version.ref = "lifecycle" }
+lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
+material = { group = "com.google.android.material", name = "material", version = "1.12.0" }
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version = "1.7.3" }
+material3 = { group = "androidx.compose.material3", name = "material3", version = "1.3.0" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+test-core = { group = "androidx.test", name = "core", version = "1.6.1" }
+test-runner = { group = "androidx.test", name = "runner", version = "1.6.2" }
