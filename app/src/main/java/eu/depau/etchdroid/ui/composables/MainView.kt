@@ -1,6 +1,8 @@
 package eu.depau.etchdroid.ui.composables
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -22,7 +24,10 @@ fun MainView(viewModel: IThemeViewModel<*>, content: @Composable () -> Unit) {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background,
-            content = content
-        )
+        ) {
+            Box(Modifier.safeDrawingPadding()) {
+                content()
+            }
+        }
     }
 }
