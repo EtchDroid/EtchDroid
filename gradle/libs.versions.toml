@@ -2,7 +2,7 @@
 accompanist = "0.32.0"
 android-gradle-plugin = "8.7.0"
 coil = "2.5.0"
-compose = "1.5.15"
+compose = "1.7.3"
 compose-bom = "2024.09.03"
 gplay = "2.0.1"
 junit = "5.10.1"
