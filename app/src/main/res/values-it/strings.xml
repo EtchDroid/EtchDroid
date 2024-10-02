@@ -68,7 +68,7 @@
     <string name="image_written_successfully">Immagine scritta con successo!</string>
     <string name="write_a_review">Scrivi una recensione</string>
     <string name="star_on_github">Metti una stellina su GitHub</string>
-    <string name="got_an_unsupported_drive_notification">Ti è arrivata una notifica simile a \"Dispositivo non supportato\"\?</string>
+    <string name="got_an_unsupported_drive_notification">Ti è arrivata una notifica simile a \"Dispositivo non supportato\"?</string>
     <string name="it_s_safe_to_ignore">Puoi ignorarla! Stacca stacca semplicemente il dispositivo USB e usalo normalmente. %1$s e come formattarlo quando hai finito.</string>
     <string name="learn_what_it_means">Scopri cosa significa</string>
     <string name="there_was_an_error">Si è verificato un errore</string>
