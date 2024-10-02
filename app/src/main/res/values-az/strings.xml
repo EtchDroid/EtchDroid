@@ -69,7 +69,7 @@
     <string name="skip_verification">Doğrulamanı keçin</string>
     <string name="image_written_successfully">İmaj uğurla yazılıb!</string>
     <string name="star_on_github">GitHub-da ulduz verin</string>
-    <string name="got_an_unsupported_drive_notification">\"Dəstəklənməyən sürücü\" bildirişi aldınız\?</string>
+    <string name="got_an_unsupported_drive_notification">\"Dəstəklənməyən sürücü\" bildirişi aldınız?</string>
     <string name="there_was_an_error">Bir xəta baş verdi</string>
     <string name="error">Xəta</string>
     <string name="start_over">Yenidən başlamaq</string>
