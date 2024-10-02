@@ -6,7 +6,7 @@ compose = "1.5.15"
 compose-bom = "2024.09.03"
 gplay = "2.0.1"
 junit = "5.10.1"
-kotlin = "1.9.25"
+kotlin = "2.0.0"
 libaums = "0.10.0"
 lifecycle = "2.8.6"
 lottie = "6.2.0"
@@ -16,6 +16,7 @@ mockito = "5.8.0"
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 android-junit5 = { id = "de.mannodermaus.android-junit5", version = "1.10.0.0" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-parcelize = { id = "kotlin-parcelize" }
 
