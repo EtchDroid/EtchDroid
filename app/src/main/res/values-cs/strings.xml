@@ -5,4 +5,14 @@
     <string name="write_finished">Zápis dokončen</string>
     <string name="cancel">Zrušit</string>
     <string name="unknown_filename">Neznámý název souboru</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Užíváno pro zobrazení aktuální práce</string>
+    <string name="notif_channel_job_progress_name">Průběh práce</string>
+    <string name="notif_channel_job_result_name">Výsledek práce</string>
+    <string name="notification_write_progress_title">Zapisování obrazu…</string>
+    <string name="notification_verify_progress_title">Ověřování obrazu…</string>
+    <string name="notification_verify_no_notifications_text">Zapněte oznámení pro průběh • Ověřování %1$s proti %2$s</string>
+    <string name="action_required">Akce vyžadována</string>
+    <string name="notif_channel_job_result_desc">Užíváno pro zobrazení výsledků dokončené práce</string>
+    <string name="notification_write_no_notifications_text">Zapněte oznámení pro průběh • Zapisování %1$s do %2$s</string>
+    <string name="notification_write_tap_for_progress_text">Klepněte pro průběh • Zapisování %1$s na %2$s</string>
 </resources>
