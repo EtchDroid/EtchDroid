@@ -86,7 +86,7 @@
     <string name="error">Błąd</string>
     <string name="to">Do</string>
     <string name="skip_verification">Pomiń weryfikację</string>
-    <string name="got_an_unsupported_drive_notification">Otrzymałeś powiadomienie „Nieobsługiwany dysk”\?</string>
+    <string name="got_an_unsupported_drive_notification">Otrzymałeś powiadomienie „Nieobsługiwany dysk”?</string>
     <string name="it_s_safe_to_ignore">Można bezpiecznie zignorować! Odłącz dysk i używaj go normalnie. %1$s i zobacz, później, jak sformatować dysk.</string>
     <string name="there_was_an_error">Wystąpił błąd</string>
     <string name="try_again">Spróbuj ponownie</string>
