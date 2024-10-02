@@ -9,14 +9,14 @@ plugins {
 
 android {
     namespace = "eu.depau.etchdroid"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "eu.depau.etchdroid"
         minSdk = 21
-        targetSdk = 34
-        versionCode = 21
-        versionName = "1.9.rc1"
+        targetSdk = 35
+        versionCode = 22
+        versionName = "1.9.rc2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
