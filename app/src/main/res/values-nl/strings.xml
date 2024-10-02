@@ -70,7 +70,7 @@
     <string name="image_written_successfully">De schijfkopie is weggeschreven!</string>
     <string name="write_a_review">Beoordelen</string>
     <string name="star_on_github">Toev. als favoriet op GitHub</string>
-    <string name="got_an_unsupported_drive_notification">Ontving je de melding “Niet-ondersteunde schijf”\?</string>
+    <string name="got_an_unsupported_drive_notification">Ontving je de melding “Niet-ondersteunde schijf”?</string>
     <string name="learn_what_it_means">Druk hier</string>
     <string name="error">Foutmelding</string>
     <string name="start_over">Opnieuw beginnen</string>
