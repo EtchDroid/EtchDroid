@@ -269,13 +269,13 @@
     <!-- Displayed in a button on the success page -->
     <string name="star_on_github">Star on GitHub</string>
 
-    <!-- Title of the card that teaches the user about any "Unsupported drive" notifications -->
-    <string name="got_an_unsupported_drive_notification">Got an \"Unsupported drive\" notification?</string>
+    <!-- Title of the card that teaches the user about any "Issues with this drive" notifications -->
+    <string name="got_an_unsupported_drive_notification">Got an \"Issues with this drive\" notification?</string>
 
-    <!-- Message of the card that teaches the user about any "Unsupported drive" notifications; the parameter will be replaced with the translation of "Learn what it means" -->
+    <!-- Message of the card that teaches the user about any "Issues with this drive" notifications; the parameter will be replaced with the translation of "Learn what it means" -->
     <string name="it_s_safe_to_ignore">It\'s safe to ignore! Just unplug your drive and use it normally. %1$s and see how to format your drive later.</string>
 
-    <!-- Part of the message of the card that teaches the user about any "Unsupported drive" notifications; the full sentence is "Learn what it means and see how to format your drive later" -->
+    <!-- Part of the message of the card that teaches the user about any "Issues with this drive" notifications; the full sentence is "Learn what it means and see how to format your drive later" -->
     <string name="learn_what_it_means">Learn what it means</string>
 
     <!-- Title of the non-recoverable error page -->
