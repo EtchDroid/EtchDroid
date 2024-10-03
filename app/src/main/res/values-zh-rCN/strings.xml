@@ -108,7 +108,7 @@
     <string name="would_you_like_to_be_notified">您希望在完成后收到通知吗？只有进度更新，没有垃圾邮件或广告。</string>
     <string name="to">到</string>
     <string name="getting_ready">准备就绪…</string>
-    <string name="got_an_unsupported_drive_notification">收到 \"不支持的硬盘 \"通知？</string>
+    <string name="got_an_unsupported_drive_notification">收到 \"此驱动器有问题 \"通知？</string>
     <string name="support_the_project">经济支持</string>
     <string name="title_activity_confirm_operation">确认操作</string>
     <string name="no_destination_device_selected">未选择目标设备</string>
