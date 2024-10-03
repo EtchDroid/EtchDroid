@@ -104,7 +104,7 @@
     <string name="website">אתר</string>
     <string name="review">סקירה</string>
     <string name="verifying_image">התמונה מאומתת</string>
-    <string name="got_an_unsupported_drive_notification">קיבלת התראת „כונן לא נתמך”?</string>
+    <string name="got_an_unsupported_drive_notification">קיבלת התראת „כונן עם בעיות”?</string>
     <string name="it_s_safe_to_ignore">אפשר פשוט להתעלם ממנה! צריך רק לנתק את הכונן ולהשתמש בו כרגיל. אפשר %1$s ולראות איך לפרמט את הכונן שלך בהמשך.</string>
     <string name="perhaps_your_usb_port_is_dirty">כנראה שחיבור ה־USB שלך מלוכלך, המתאם שלך פגום או שההתקן שלך לא יכול לספק מספיק חשמל. כדאי לנסות מתאם או התקן אחר.</string>
     <string name="usb_device_reconnected_resuming">התקן ה־USB חובר מחדש, התהליך ממשיך</string>
