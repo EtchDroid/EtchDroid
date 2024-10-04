@@ -98,7 +98,7 @@
     <string name="image_written_successfully">¡Tu imagen ha sido creada exitosamente!</string>
     <string name="write_a_review">Escribe una reseña</string>
     <string name="star_on_github">Pon una estrella en GitHub</string>
-    <string name="got_an_unsupported_drive_notification">¿Recibiste una notificación de \"Unidad no compatible\"?</string>
+    <string name="got_an_unsupported_drive_notification">¿Recibiste una notificación \"Problemas con esta unidad\"?</string>
     <string name="it_s_safe_to_ignore">¡Es seguro ignorarlo! Simplemente desconecta la unidad y úsala normalmente. %1$s y verás cómo formatear tu unidad más tarde.</string>
     <string name="learn_what_it_means">Descubre lo que significa</string>
     <string name="there_was_an_error">Hubo un error</string>
