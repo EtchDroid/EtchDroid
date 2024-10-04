@@ -94,7 +94,7 @@
     <string name="to">ile</string>
     <string name="write_a_review">Bir değerlendirme yazın</string>
     <string name="star_on_github">GitHub\'da yıldız verin</string>
-    <string name="got_an_unsupported_drive_notification">\"Desteklenmeyen bellek\" bildirimi mi aldınız?</string>
+    <string name="got_an_unsupported_drive_notification">\"Bu sürücüyle ilgili sorunlar\" bildirimi mi aldınız?</string>
     <string name="it_s_safe_to_ignore">Görmezden gelebilirsiniz! Belleğinizi çıkarın ve normal şekilde kullanın. %1$s ve belleğinizi nasıl biçimlendireceğinize bakın.</string>
     <string name="learn_what_it_means">Ne anlama geldiğini öğrenin</string>
     <string name="there_was_an_error">Bir hata oluştu</string>
