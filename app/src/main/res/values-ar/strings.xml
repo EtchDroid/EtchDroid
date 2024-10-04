@@ -102,7 +102,7 @@
     <string name="image_written_successfully">تمت كتابة الصورة بنجاح!</string>
     <string name="write_a_review">أكتب مراجعة</string>
     <string name="star_on_github">نجمة على جيثب</string>
-    <string name="got_an_unsupported_drive_notification">هل تلقيت إشعار \"محرك أقراص غير مدعوم\"؟</string>
+    <string name="got_an_unsupported_drive_notification">هل تلقيت إشعار \"مشكلات متعلقة بمحرك الأقراص هذا\"؟</string>
     <string name="learn_what_it_means">تعرف على ما تعنيه</string>
     <string name="try_again">أعد المحاولة</string>
     <string name="i_did_not_unplug_it">أنا لم أفصله!</string>
