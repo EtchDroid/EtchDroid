@@ -408,7 +408,7 @@ class WorkerService : LifecycleService() {
 
     private var mLastProgressUpdate = -1L
     private var mBytesSinceLastUpdate: Double = 0.0
-    private var mLast5Speeds = mutableListOf(0f, 0f, 0f, 0f, 0f)
+    private var mLast10Speeds = mutableListOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
 
     private fun sendProgressUpdate(
         lastWrittenBytes: Int,
@@ -424,10 +424,11 @@ class WorkerService : LifecycleService() {
         val interval = newTime - mLastProgressUpdate
         val speed =
             (mBytesSinceLastUpdate / (if (interval > 0) interval else PROGRESS_UPDATE_INTERVAL) * 1000).toFloat()
-        mLast5Speeds.add(speed)
-        if (mLast5Speeds.size > 5) mLast5Speeds.removeAt(0)
-        // Calculate average with weights: 1, 2, 3, 4, 5
-        val newSpeed = mLast5Speeds.mapIndexed { index, f -> f * (index + 1) }.sum() / 15
+        mLast10Speeds.add(speed)
+        if (mLast10Speeds.size > 10) mLast10Speeds.removeAt(0)
+        // Calculate average with weights: 1, 2, 3, ..., 10
+        val newSpeed = mLast10Speeds.mapIndexed { index, f -> f * (index + 1) }
+            .sum() / (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10)
 
         getProgressUpdateIntent(
             mSourceUri, mDestDevice, mJobId, newSpeed, processedBytes, imageSize, isVerifying = isVerifying
