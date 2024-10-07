@@ -65,8 +65,8 @@ private const val JOB_PROGRESS_CHANNEL = "eu.depau.etchdroid.notifications.JOB_P
 
 private const val WAKELOCK_TIMEOUT = 10 * 60 * 1000L
 private const val PROGRESS_UPDATE_INTERVAL = 1000L
-const val BUFFER_BLOCKS = 2048L
-const val QUEUE_SIZE = 4
+const val BUFFER_BLOCKS = 4096L
+const val QUEUE_SIZE = 2
 const val IO_TIMEOUT = 10 * 1000L
 
 class WorkerService : LifecycleService() {
