@@ -22,6 +22,13 @@ private const val TAG = "BlockDeviceOutputStream"
 
 private const val BARRIER_TAG = -0xBA881E8L
 
+private const val TRACE_IO = false
+
+@JvmStatic
+private fun BlockDeviceOutputStream.traceIo(msg: String) {
+    if (TRACE_IO) println("OSTREAM: ${Thread.currentThread().name} time ${System.nanoTime()} pos $mCurrentOffset $msg")
+}
+
 interface ISeekableStream {
     fun seek(offset: Long): Long {
         return runBlocking { seekAsync(offset) }
@@ -41,7 +48,7 @@ class BlockDeviceOutputStream(
 
     private var mCurrentBlockOffset: Long = 0
 
-    private val mCurrentOffset: Long
+    internal val mCurrentOffset: Long
         get() = mCurrentBlockOffset * blockDev.blockSize + mByteBuffer.position()
 
     private val mSizeBytes: Long
@@ -94,6 +101,8 @@ class BlockDeviceOutputStream(
             // ensureIoThread() will return at this point
             rendezvous.send(Unit)
 
+            traceIo("start")
+
             val blockChannel = mChannelMutex.withLock { mBlockChannel }
             val flushRendezvous = mChannelMutex.withLock { mFlushRendezvous }
 
@@ -102,15 +111,18 @@ class BlockDeviceOutputStream(
                     val (blockNumber, buffer) = blockChannel.receive()
 
                     if (blockNumber == BARRIER_TAG) {
+                        traceIo("pop BARRIER")
                         flushRendezvous.send(Unit)
                         continue
                     }
+                    traceIo("block $blockNumber pop size ${buffer.limit()}")
 
                     require(buffer.position() == 0) { "Buffer position must be 0" }
                     if (buffer.limit() == 0) continue
 
                     // Partial block write
                     if ((buffer.limit() % blockDev.blockSize) != 0) {
+                        traceIo("block $blockNumber partial write")
                         val lastBlockNumber = blockNumber + buffer.limit() / blockDev.blockSize
                         val lastBlockOffset = buffer.limit() - buffer.limit() % blockDev.blockSize
                         val lastBlockBlankOffset = buffer.limit() % blockDev.blockSize
@@ -128,11 +140,14 @@ class BlockDeviceOutputStream(
                             )
                             position(0)
                         }
+                        traceIo("block $blockNumber partial write done")
                     }
 
+                    traceIo("block $blockNumber write")
                     blockDeviceMutex.withLock {
                         blockDev.write(blockNumber, buffer)
                     }
+                    traceIo("block $blockNumber write done")
                 }
             } catch (e: ClosedReceiveChannelException) {
                 // Channel closed, stop
@@ -146,6 +161,8 @@ class BlockDeviceOutputStream(
                 blockChannel.close(e)
                 flushRendezvous.close(e)
             }
+
+            traceIo("end")
 
             // Only set the flag to false if no exception was thrown; exceptions are not recoverable
             mIoThreadRunning.set(false)
@@ -176,7 +193,9 @@ class BlockDeviceOutputStream(
 
         ensureIoThread()
         val channel = mChannelMutex.withLock { mBlockChannel }
+        traceIo("block $mCurrentBlockOffset push size ${oldBuffer.limit()}")
         channel.send(Pair(mCurrentBlockOffset, oldBuffer))
+        traceIo("block $mCurrentBlockOffset push done")
         mByteBuffer = newBuffer
         mCurrentBlockOffset += oldBuffer.limit() / blockDev.blockSize
     }
@@ -274,5 +293,4 @@ class BlockDeviceOutputStream(
         val channel = mChannelMutex.withLock { mBlockChannel }
         channel.close()
     }
-
 }
