@@ -4,6 +4,7 @@ import android.util.Log
 import eu.depau.etchdroid.utils.AsyncInputStream
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.channels.ClosedSendChannelException
@@ -112,11 +113,6 @@ class BlockDeviceInputStream(
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
 
     /**
-     * Whether the stream is closed.
-     */
-    private val mClosed = AtomicBoolean(false)
-
-    /**
      * Waits until the wanted block is available in the block channel and returns it. Note that the
      * returned data may not necessarily *start* at the wanted block, but it will contain it.
      *
@@ -180,7 +176,23 @@ class BlockDeviceInputStream(
                     return@launch
                 }
 
-                mBlockChannel = Channel(prefetchBuffers)
+                if (!::mBlockChannel.isInitialized) {
+                    mBlockChannel = Channel(prefetchBuffers)
+                } else {
+                    // Consume any exceptions from the previous channel
+                    val oldChannel = mBlockChannel
+                    mBlockChannel = Channel(prefetchBuffers)
+
+                    oldChannel.close()
+                    try {
+                        while (true) {
+                            oldChannel.receive()
+                        }
+                    } catch (_: ClosedReceiveChannelException) {
+                        // Ignore
+                    }
+                }
+
                 rendezvous.send(Unit)
 
                 traceIo("start")
@@ -217,9 +229,7 @@ class BlockDeviceInputStream(
                     }
                 }
             } catch (e: Exception) {
-                println("Exception in I/O thread: $e")
                 mBlockChannel.close(e)
-                mClosed.set(true)
             }
 
             traceIo("end")
@@ -422,7 +432,6 @@ class BlockDeviceInputStream(
      */
     override suspend fun closeAsync() {
         setPosition(sizeBytes) // Move to EOF
-        if (mClosed.getAndSet(true)) return
         mBlockChannel.close()
 
         try {
