@@ -103,6 +103,11 @@ class BlockDeviceInputStream(
     private val mReadNextBlockNumber: AtomicLong = AtomicLong(0)
 
     /**
+     * The block number that is currently being read.
+     */
+    private val mInFlightBlockNumber: AtomicLong = AtomicLong(-1)
+
+    /**
      * Whether the worker thread is running.
      */
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
@@ -151,9 +156,9 @@ class BlockDeviceInputStream(
             val result = mBlockChannel.tryReceive()
             if (result.isSuccess) {
                 val (blockNumber, buffer) = result.getOrThrow()
-                if (wantedBlockNumber in blockNumber until blockNumber + bufferBlocks) return Pair(
-                    blockNumber, buffer
-                )
+                if (wantedBlockNumber in blockNumber until blockNumber + bufferBlocks) {
+                    return Pair(blockNumber, buffer)
+                }
             } else {
                 return null
             }
@@ -186,6 +191,8 @@ class BlockDeviceInputStream(
                 while (true) {
                     val blockNumber = mReadNextBlockNumber.getAndAdd(bufferBlocks)
                     if (blockNumber !in 0 until blockDev.blocks) break
+                    mInFlightBlockNumber.set(blockNumber)
+
                     traceIo("read $blockNumber buffer $bufferBlocks blocks start")
 
                     try {
@@ -198,7 +205,7 @@ class BlockDeviceInputStream(
                         buffer.flip()
                         mBlockChannel.send(Pair(blockNumber, buffer))
 
-                    } catch (e: ClosedSendChannelException) {
+                    } catch (_: ClosedSendChannelException) {
                         // Channel closed, stop
                         break
                     } catch (e: Exception) {
@@ -217,10 +224,20 @@ class BlockDeviceInputStream(
                 mClosed.set(true)
             }
 
+            traceIo("end")
+
+            mInFlightBlockNumber.set(-1)
             mIoThreadRunning.set(false)
         }
 
         rendezvous.receive()
+    }
+
+    private fun isInFlight(blockNumber: Long): Boolean {
+        val inFlightBlockNumber = mInFlightBlockNumber.get()
+        if (inFlightBlockNumber < 0)
+            return false
+        return blockNumber in inFlightBlockNumber until inFlightBlockNumber + bufferBlocks
     }
 
     /**
@@ -259,7 +276,12 @@ class BlockDeviceInputStream(
 
         // If it's not there, request it explicitly
         if (blockResult == null) {
-            mReadNextBlockNumber.set(newBlockOffset)
+            if (!isInFlight(newBlockOffset)) {
+                traceIo("request $newBlockOffset not prefetched, requesting")
+                mReadNextBlockNumber.set(newBlockOffset)
+            } else {
+                traceIo("request $newBlockOffset not prefetched, in flight")
+            }
             ensureIoThread()
             blockResult = waitAndGetBuffer(newBlockOffset)
         } else {
