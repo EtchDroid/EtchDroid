@@ -8,7 +8,6 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.channels.ClosedSendChannelException
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeout
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import java.io.IOException
 import java.nio.ByteBuffer
@@ -127,15 +126,13 @@ class BlockDeviceInputStream(
      */
     private suspend fun waitAndGetBuffer(
         wantedBlockNumber: Long,
-        timeoutMillis: Long = 5000L,
-    ): Pair<Long, ByteBuffer> = withTimeout(timeoutMillis) {
+    ): Pair<Long, ByteBuffer> {
         if (!::mBlockChannel.isInitialized) throw IllegalStateException("Channel not initialized")
 
         while (true) {
             val (blockNumber, buffer) = mBlockChannel.receive()
-            if (wantedBlockNumber in blockNumber until blockNumber + bufferBlocks) return@withTimeout Pair(
-                blockNumber, buffer
-            )
+            if (wantedBlockNumber in blockNumber until blockNumber + bufferBlocks)
+                return Pair(blockNumber, buffer)
         }
 
         @Suppress("UNREACHABLE_CODE") throw IllegalStateException("Unreachable")
@@ -220,6 +217,7 @@ class BlockDeviceInputStream(
                     }
                 }
             } catch (e: Exception) {
+                println("Exception in I/O thread: $e")
                 mBlockChannel.close(e)
                 mClosed.set(true)
             }
