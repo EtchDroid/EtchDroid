@@ -184,7 +184,7 @@ class BlockDeviceInputStream(
                 traceIo("start")
 
                 while (true) {
-                    val blockNumber = mReadNextBlockNumber.getAndIncrement()
+                    val blockNumber = mReadNextBlockNumber.getAndAdd(bufferBlocks)
                     if (blockNumber !in 0 until blockDev.blocks) break
                     traceIo("read $blockNumber buffer $bufferBlocks blocks start")
 
