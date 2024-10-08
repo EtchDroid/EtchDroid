@@ -366,6 +366,7 @@ class WorkerService : LifecycleService() {
 
                 // Always verify the whole image, not just the part that was written
                 currentOffset = 0
+                mLast10Speeds.clear()
 
                 verifyImage(rawSourceStream, blockDev, imageSize, bufferSize, { currentOffset = it }, coroScope,
                     ::sendProgressUpdate, { mVerificationCancelled }, ::ensureWakelock
@@ -408,7 +409,7 @@ class WorkerService : LifecycleService() {
 
     private var mLastProgressUpdate = -1L
     private var mBytesSinceLastUpdate: Double = 0.0
-    private var mLast10Speeds = mutableListOf(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f)
+    private var mLast10Speeds = mutableListOf<Float>()
 
     private fun sendProgressUpdate(
         lastWrittenBytes: Int,
@@ -426,9 +427,10 @@ class WorkerService : LifecycleService() {
             (mBytesSinceLastUpdate / (if (interval > 0) interval else PROGRESS_UPDATE_INTERVAL) * 1000).toFloat()
         mLast10Speeds.add(speed)
         if (mLast10Speeds.size > 10) mLast10Speeds.removeAt(0)
-        // Calculate average with weights: 1, 2, 3, ..., 10
+
+        // Calculate average with weights: 1, 2, 3, ..., mLast10Speeds.size
         val newSpeed = mLast10Speeds.mapIndexed { index, f -> f * (index + 1) }
-            .sum() / (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10)
+            .sum() / (1..mLast10Speeds.size).sum().toFloat()
 
         getProgressUpdateIntent(
             mSourceUri, mDestDevice, mJobId, newSpeed, processedBytes, imageSize, isVerifying = isVerifying
