@@ -47,11 +47,11 @@ import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
 import eu.depau.etchdroid.utils.ktexts.startForegroundSpecialUse
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.lateInit
+import eu.depau.etchdroid.utils.timeoutWatchdog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeout
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import java.io.BufferedInputStream
 import java.io.InputStream
@@ -510,34 +510,40 @@ object WorkerServiceFlowImpl {
         val dst = BlockDeviceOutputStream(blockDev, coroScope, BUFFER_BLOCKS / QUEUE_SIZE, QUEUE_SIZE)
 
         try {
-            src.skip(currentOffset)
-            dst.seekAsync(currentOffset)
+            timeoutWatchdog(IO_TIMEOUT) { watchdog ->
+                Thread.currentThread().name = "writeImage coroutine scope"
 
-            while (currentOffset < imageSize) {
-                grabWakeLock()
+                src.skip(currentOffset)
+                dst.seekAsync(currentOffset)
 
-                val read = src.read(buffer)
-                if (read == -1) break
-                try {
-                    withTimeout(IO_TIMEOUT) {
+                while (currentOffset < imageSize) {
+                    grabWakeLock()
+                    watchdog.bump()
+
+                    val read = src.read(buffer)
+                    if (read == -1) break
+
+                    watchdog.bump()
+                    try {
                         dst.writeAsync(buffer, 0, read)
+                        watchdog.bump()
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Failed to write to USB drive", e)
+                        throw UsbCommunicationException(e)
                     }
+                    currentOffset += read
+                    notifyCurrentOffset(currentOffset)
+
+                    sendProgressUpdate(read, currentOffset, imageSize, false)
+                }
+                watchdog.bump()
+                try {
+                    dst.flushAsync()
+                    watchdog.bump()
                 } catch (e: Exception) {
-                    Log.e(TAG, "Failed to write to USB drive", e)
+                    Log.e(TAG, "Failed to flush USB drive", e)
                     throw UsbCommunicationException(e)
                 }
-                currentOffset += read
-                notifyCurrentOffset(currentOffset)
-
-                sendProgressUpdate(read, currentOffset, imageSize, false)
-            }
-            try {
-                withTimeout(IO_TIMEOUT) {
-                    dst.flushAsync()
-                }
-            } catch (e: Exception) {
-                Log.e(TAG, "Failed to flush USB drive", e)
-                throw UsbCommunicationException(e)
             }
         } finally {
             src.close()
@@ -568,49 +574,53 @@ object WorkerServiceFlowImpl {
         )
 
         try {
-            var currentOffset = 0L
+            timeoutWatchdog(IO_TIMEOUT) { watchdog ->
+                Thread.currentThread().name = "verifyImage coroutine scope"
 
-            src.skip(currentOffset)
-            dst.skipAsync(currentOffset)
+                var currentOffset = 0L
 
-//    val fileBuffer = ByteArray(bufferSize)
-//    val deviceBuffer = ByteArray(bufferSize)
+                src.skip(currentOffset)
+                dst.skipAsync(currentOffset)
 
-            val fileBuffer = ByteArray(1024)
-            val deviceBuffer = ByteArray(1024)
+                watchdog.bump()
 
-            while (!isVerificationCanceled()) {
-                grabWakeLock()
+                val fileBuffer = ByteArray(1024)
+                val deviceBuffer = ByteArray(1024)
 
-                val read = src.read(fileBuffer)
-                if (read == -1) break
+                while (!isVerificationCanceled()) {
+                    grabWakeLock()
+                    watchdog.bump()
 
-                try {
-                    withTimeout(IO_TIMEOUT) {
+                    val read = src.read(fileBuffer)
+                    if (read == -1) break
+
+                    watchdog.bump()
+                    try {
                         val deviceRead = dst.readAsync(deviceBuffer, 0, read)
                         require(
-                            deviceRead >= read
+                                deviceRead >= read
                         ) { "Device read $deviceRead < file read $read" }
+                        watchdog.bump()
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Failed to read from USB drive", e)
+                        throw UsbCommunicationException(e)
                     }
-                } catch (e: Exception) {
-                    Log.e(TAG, "Failed to read from USB drive", e)
-                    throw UsbCommunicationException(e)
-                }
 
-                if (!fileBuffer.contentEquals(deviceBuffer)) {
-                    Log.e(TAG, "Verification failed")
-                    if (Build.VERSION.SDK_INT > 999999) {
-                        // Prevent the compiler from optimizing out the buffers, for debugging
-                        // purposes
-                        print(deviceBuffer)
-                        print(fileBuffer)
+                    if (!fileBuffer.contentEquals(deviceBuffer)) {
+                        Log.e(TAG, "Verification failed")
+                        if (Build.VERSION.SDK_INT > 999999) {
+                            // Prevent the compiler from optimizing out the buffers, for debugging
+                            // purposes
+                            print(deviceBuffer)
+                            print(fileBuffer)
+                        }
+                        throw VerificationFailedException()
                     }
-                    throw VerificationFailedException()
-                }
-                currentOffset += read
-                notifyCurrentOffset(currentOffset)
+                    currentOffset += read
+                    notifyCurrentOffset(currentOffset)
 
-                sendProgressUpdate(read, currentOffset, imageSize, true)
+                    sendProgressUpdate(read, currentOffset, imageSize, true)
+                }
             }
         } finally {
             src.close()
