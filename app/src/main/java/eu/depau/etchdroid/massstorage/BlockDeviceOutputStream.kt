@@ -23,12 +23,39 @@ private const val BARRIER_TAG = -0xBA881E8L
 
 private const val TRACE_IO = false
 
+/**
+ * Helper function to trace I/O operations.
+ *
+ * @param msg The message to print if tracing is enabled.
+ */
 @JvmStatic
 private fun BlockDeviceOutputStream.traceIo(msg: String) {
     if (TRACE_IO) println("OSTREAM: ${Thread.currentThread().name} time ${System.nanoTime()} pos $mCurrentOffset $msg")
 }
 
-
+/**
+ * A buffered [AsyncOutputStream] that writes to a [BlockDeviceDriver].
+ *
+ * The stream uses a background worker thread to write the data to the block device while buffering
+ * data coming from the API methods.
+ *
+ * The typical workflow is:
+ * - write() appends data to the buffer
+ * - When the buffer is full, a commit() operation is triggered, which places the buffer in a queue
+ * - The background worker pops the buffer from the queue and writes it to the block device
+ *
+ * flush() can be used to force the buffer to be committed and written to the block device. This can
+ * cause additional latency, since the non-written parts of the data buffer will have to be read
+ * from the block device before the new data can be written. The flush() operation blocks until the
+ * queue is empty.
+ *
+ * The stream is seekable. The seek() operation will flush(), then jump to the desired offset.
+ *
+ * @param blockDev The block device to write to.
+ * @param coroutineScope The coroutine scope to use for the background worker thread.
+ * @param bufferBlocks The number of blocks to buffer in memory before writing to the block device.
+ * @param queueSize The size of the queue used to send write requests to the I/O thread.
+ */
 class BlockDeviceOutputStream(
     private val blockDev: BlockDeviceDriver,
     private val coroutineScope: CoroutineScope,
@@ -36,31 +63,69 @@ class BlockDeviceOutputStream(
     queueSize: Int = 4,
 ) : AsyncOutputStream(), ISeekableStream {
 
+    /**
+     * The current block number from the start of the block device.
+     */
     private var mCurrentBlockOffset: Long = 0
 
+    /**
+     * The current byte from the start of the block device.
+     */
     internal val mCurrentOffset: Long
         get() = mCurrentBlockOffset * blockDev.blockSize + mByteBuffer.position()
 
+    /**
+     * The total size of the block device in bytes.
+     */
     private val mSizeBytes: Long
         get() = blockDev.blocks * blockDev.blockSize
 
+    /**
+     * The buffer used to store the data before it is written to the block device.
+     */
     private var mByteBuffer = ByteBuffer.allocate(minOf(blockDev.blockSize * bufferBlocks, mSizeBytes).toInt())
 
+    /**
+     * Whether the stream position is at or past the end of the block device.
+     */
     private val isEOF: Boolean
         get() = mCurrentOffset >= mSizeBytes
 
+    /**
+     * Mutex that protects the mBlockChannel and mFlushRendezvous channels.
+     */
     private val mChannelMutex = Mutex()
 
+    /**
+     * The channel (queue) used to send write requests to the I/O thread.
+     */
     private val mBlockChannel = Channel<Pair<Long, ByteBuffer>>(queueSize)
 
+    /**
+     * The channel used by the I/O thread to signal that the queue is empty in order to unblock an
+     * ongoing flush() operation.
+     */
     private val mFlushRendezvous = Channel<Unit>()
 
+    /**
+     * Mutex that protects accesses to the underlying block device object.
+     */
     private val blockDeviceMutex = Mutex()
 
+    /**
+     * Atomic flag that indicates whether the I/O thread is running.
+     */
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
 
+    /**
+     * Atomic flag that indicates whether the stream has been closed.
+     */
     private val closed = AtomicBoolean(false)
 
+    /**
+     * Makes sure the I/O thread is running, starting it if necessary. It is guaranteed that only
+     * one instance of the I/O thread is running at any given time (if this isn't true, it's a bug).
+     */
     @OptIn(DelicateCoroutinesApi::class, ExperimentalCoroutinesApi::class)
     private suspend fun ensureIoThread() {
         if (mIoThreadRunning.get()) return
@@ -161,6 +226,10 @@ class BlockDeviceOutputStream(
         rendezvous.receive()
     }
 
+    /**
+     * Sends the current buffer to the I/O thread for writing to the block device. It does not wait
+     * for the write to complete or for the queue to be empty.
+     */
     private suspend fun commit() {
         if (mByteBuffer.position() == 0) return
 
@@ -190,7 +259,10 @@ class BlockDeviceOutputStream(
         mCurrentBlockOffset += oldBuffer.limit() / blockDev.blockSize
     }
 
-
+    /**
+     * Ensures that all unwritten data is written to the block device. This method blocks until the
+     * I/O thread has written all the data to the block device, and the write queue is empty.
+     */
     override suspend fun flushAsync() {
         commit()
         ensureIoThread()
@@ -200,6 +272,13 @@ class BlockDeviceOutputStream(
         rendezvous.receive()
     }
 
+    /**
+     * Seeks to the given offset. This method may flush the buffer and block until the I/O thread
+     * has written all the data to the block device, therefore expect delays when seeking.
+     *
+     * @param offset The offset to seek to.
+     * @return The skipped distance.
+     */
     override suspend fun seekAsync(offset: Long): Long {
         if (offset == 0L) return 0L
 
@@ -245,6 +324,11 @@ class BlockDeviceOutputStream(
         return actualSkipDistance
     }
 
+    /**
+     * Writes a single byte to the stream.
+     *
+     * @param b The byte to write.
+     */
     override suspend fun writeAsync(b: Int) {
         if (isEOF) throw IOException("No space left on device")
 
@@ -252,6 +336,13 @@ class BlockDeviceOutputStream(
         if (!mByteBuffer.hasRemaining()) commit()
     }
 
+    /**
+     * Writes a portion of a byte array to the stream.
+     *
+     * @param b The byte array to write.
+     * @param off The offset in the array to start writing from.
+     * @param len The number of bytes to write.
+     */
     override suspend fun writeAsync(b: ByteArray, off: Int, len: Int) {
         if (len <= 0 || off > b.size) return
 
@@ -273,10 +364,18 @@ class BlockDeviceOutputStream(
         if (!mByteBuffer.hasRemaining()) commit()
     }
 
+    /**
+     * Writes a byte array to the stream.
+     *
+     * @param b The byte array to write.
+     */
     override suspend fun writeAsync(b: ByteArray) {
         writeAsync(b, 0, b.size)
     }
 
+    /**
+     * Closes the stream, blocking until all the data has been written to the block device.
+     */
     override suspend fun closeAsync() {
         if (closed.getAndSet(true)) return
         flushAsync()

@@ -17,6 +17,27 @@ import java.util.concurrent.atomic.AtomicLong
 
 private const val TAG = "BlockDeviceInputStream"
 
+/**
+ * An input stream that reads from a block device.
+ *
+ * A background thread asynchronously reads blocks from the block device starting at a given offset.
+ * The blocks are then submitted to a channel, which the main thread reads from.
+ *
+ * The general idea is that, since this is an InputStream, API users will want to perform sequential
+ * reads. Therefore, once a read() call tells us where to start reading, it is most likely
+ * beneficial if the worker thread reads the next blocks in advance.
+ *
+ * The stream is seekable; seeking to a new position introduces a delay while the worker thread
+ * finishes any ongoing reads and starts reading the new blocks.
+ *
+ * Marking and resetting is supported, but only one mark is kept; resetting to a marked position
+ * causes the same delay as seeking.
+ *
+ * @param blockDev The block device to read from.
+ * @param coroutineScope The coroutine scope to use for the I/O thread.
+ * @param bufferBlocks The number of blocks to read at once.
+ * @param prefetchBuffers The number of subsequent buffers to prefetch.
+ */
 class BlockDeviceInputStream(
     private val blockDev: BlockDeviceDriver,
     private val coroutineScope: CoroutineScope,
@@ -25,30 +46,68 @@ class BlockDeviceInputStream(
 ) : AsyncInputStream(), ISeekableStream {
     private lateinit var mReadBuffer: ByteBuffer
 
+    /**
+     * The current block number from the start of the block device.
+     */
     private var mCurrentBlockOffset: Long = 0
 
+    /**
+     * The current byte offset within the current block.
+     */
     private val mCurrentByteOffset: Int
         get() = if (::mReadBuffer.isInitialized) mReadBuffer.position() else 0
 
-    private val mCurrentOffset: Long
+    /**
+     * The current byte offset from the start of the block device.
+     */
+    internal val mCurrentOffset: Long
         get() = mCurrentBlockOffset * blockDev.blockSize + mCurrentByteOffset
 
+    /**
+     * The size of the block device in bytes.
+     */
     private val sizeBytes: Long
         get() = blockDev.blocks * blockDev.blockSize
 
+    /**
+     * Whether the stream is at or past the end of the block device.
+     */
     private val isEOF: Boolean
         get() = mCurrentOffset >= sizeBytes
 
+    /**
+     * The channel where the worker thread submits read blocks.
+     */
     private lateinit var mBlockChannel: Channel<Pair<Long, ByteBuffer>>
 
+    /**
+     * The marked position.
+     */
     private var markedPosition: Long? = null
 
+    /**
+     * The block number the worker thread should read next.
+     */
     private val mReadNextBlockNumber: AtomicLong = AtomicLong(0)
 
+    /**
+     * Whether the worker thread is running.
+     */
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
 
+    /**
+     * Whether the stream is closed.
+     */
     private val mClosed = AtomicBoolean(false)
 
+    /**
+     * Waits until the wanted block is available in the block channel and returns it. Note that the
+     * returned data may not necessarily *start* at the wanted block, but it will contain it.
+     *
+     * @param wantedBlockNumber The block number to wait for.
+     * @param timeoutMillis The timeout in milliseconds.
+     * @return The starting block number and the data buffer.
+     */
     private suspend fun waitAndGetBuffer(
         wantedBlockNumber: Long,
         timeoutMillis: Long = 5000L,
@@ -65,6 +124,15 @@ class BlockDeviceInputStream(
         @Suppress("UNREACHABLE_CODE") throw IllegalStateException("Unreachable")
     }
 
+    /**
+     * Tries to get a buffer from the block channel without blocking. If the block channel is empty,
+     * null is returned.
+     * Note that the returned data may not necessarily *start* at the wanted block, but it will
+     * contain it.
+     *
+     * @param wantedBlockNumber The block number to look for.
+     * @return The starting block number and the data buffer, or null if the block is not available.
+     */
     private fun tryGetBufferNonBlocking(wantedBlockNumber: Long): Pair<Long, ByteBuffer>? {
         if (!::mBlockChannel.isInitialized) return null
         while (true) {
@@ -80,6 +148,10 @@ class BlockDeviceInputStream(
         }
     }
 
+    /**
+     * Makes sure the I/O thread is running, starting it if necessary. It is guaranteed that only
+     * one instance of the I/O thread is running at any given time (if this isn't true, it's a bug).
+     */
     private suspend fun ensureIoThread() {
         if (mIoThreadRunning.get()) return
 
@@ -134,6 +206,11 @@ class BlockDeviceInputStream(
         rendezvous.receive()
     }
 
+    /**
+     * Seeks to the given position.
+     *
+     * @param position The absolute position to seek to.
+     */
     private suspend fun setPosition(position: Long) {
         require(position >= 0) { "Position must be >= 0" }
 
@@ -178,15 +255,27 @@ class BlockDeviceInputStream(
         mReadBuffer = buffer
     }
 
+    /**
+     * Makes sure the read buffer is initialized and that there is data to read.
+     */
     private suspend fun ensureBuffer() {
         if (!::mReadBuffer.isInitialized) setPosition(mCurrentOffset)
         if (!isEOF && mReadBuffer.remaining() == 0) loadNextBuffer()
     }
 
+    /**
+     * Loads the next buffer from the block device.
+     */
     private suspend fun loadNextBuffer() {
         setPosition((mCurrentBlockOffset + bufferBlocks) * blockDev.blockSize)
     }
 
+    /**
+     * Seeks to the given offset.
+     *
+     * @param offset The offset to seek to.
+     * @return The skipped distance.
+     */
     override suspend fun seekAsync(offset: Long): Long {
         if (offset == 0L) return 0L
 
@@ -206,8 +295,20 @@ class BlockDeviceInputStream(
         return actualSkipDistance
     }
 
+    /**
+     * Skips the given number of bytes.
+     *
+     * @param n The number of bytes to skip.
+     * @return The number of bytes actually skipped.
+     */
     override suspend fun skipAsync(n: Long): Long = seekAsync(n)
 
+    /**
+     * Reads a single byte.
+     *
+     * @return The byte read, or -1 if EOF.
+     * @throws IOException If an I/O error occurs.
+     */
     override suspend fun readAsync(): Int {
         if (isEOF) return -1
 
@@ -220,6 +321,15 @@ class BlockDeviceInputStream(
         return result
     }
 
+    /**
+     * Reads up to len bytes into the given buffer.
+     *
+     * @param b The buffer to read into.
+     * @param off The offset in the buffer to start writing.
+     * @param len The maximum number of bytes to read.
+     * @return The number of bytes read, or -1 if EOF.
+     * @throws IOException If an I/O error occurs.
+     */
     override suspend fun readAsync(b: ByteArray, off: Int, len: Int): Int {
         if (len == 0) return 0
         if (isEOF) return -1
@@ -245,13 +355,28 @@ class BlockDeviceInputStream(
         return bytesRead.toInt()
     }
 
+    /**
+     * Reads up to b.size bytes into the given buffer.
+     *
+     * @param b The buffer to read into.
+     * @return The number of bytes read, or -1 if EOF.
+     * @throws IOException If an I/O error occurs.
+     */
     override suspend fun readAsync(b: ByteArray): Int = readAsync(b, 0, b.size)
 
+    /**
+     * Returns the number of bytes available for reading without blocking.
+     *
+     * @return The number of bytes available.
+     */
     override fun available(): Int {
         if (!::mReadBuffer.isInitialized) return 0
         return mReadBuffer.remaining()
     }
 
+    /**
+     * Closes the stream, shutting down the I/O thread.
+     */
     override suspend fun closeAsync() {
         setPosition(sizeBytes) // Move to EOF
         if (mClosed.getAndSet(true)) return
@@ -266,10 +391,20 @@ class BlockDeviceInputStream(
         }
     }
 
+    /**
+     * Marks the current position in the stream.
+     *
+     * @param readlimit Ignored.
+     */
     override fun mark(readlimit: Int) {
         markedPosition = mCurrentOffset
     }
 
+    /**
+     * Resets the stream to the marked position.
+     *
+     * @throws IOException If the stream is not marked.
+     */
     override suspend fun resetAsync() = markedPosition.let {
         if (it == null) throw IOException("Stream not marked")
         setPosition(it)
