@@ -9,7 +9,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -29,15 +28,6 @@ private fun BlockDeviceOutputStream.traceIo(msg: String) {
     if (TRACE_IO) println("OSTREAM: ${Thread.currentThread().name} time ${System.nanoTime()} pos $mCurrentOffset $msg")
 }
 
-interface ISeekableStream {
-    fun seek(offset: Long): Long {
-        return runBlocking { seekAsync(offset) }
-    }
-
-    suspend fun seekAsync(offset: Long): Long {
-        return seek(offset)
-    }
-}
 
 class BlockDeviceOutputStream(
     private val blockDev: BlockDeviceDriver,
