@@ -17,6 +17,18 @@ import java.util.concurrent.atomic.AtomicLong
 
 private const val TAG = "BlockDeviceInputStream"
 
+private const val TRACE_IO = false
+
+/**
+ * Helper function to trace I/O operations.
+ *
+ * @param msg The message to print if tracing is enabled.
+ */
+@JvmStatic
+private fun BlockDeviceInputStream.traceIo(msg: String) {
+    if (TRACE_IO) println("ISTREAM: ${Thread.currentThread().name} time ${System.nanoTime()} pos $mCurrentOffset $msg")
+}
+
 /**
  * An input stream that reads from a block device.
  *
@@ -169,9 +181,12 @@ class BlockDeviceInputStream(
                 mBlockChannel = Channel(prefetchBuffers)
                 rendezvous.send(Unit)
 
+                traceIo("start")
+
                 while (true) {
                     val blockNumber = mReadNextBlockNumber.getAndIncrement()
                     if (blockNumber !in 0 until blockDev.blocks) break
+                    traceIo("read $blockNumber buffer $bufferBlocks blocks start")
 
                     try {
                         val buffer = ByteBuffer.allocate(
@@ -193,6 +208,8 @@ class BlockDeviceInputStream(
                             e
                         )
                         throw e
+                    } finally {
+                        traceIo("read $blockNumber buffer $bufferBlocks blocks end")
                     }
                 }
             } catch (e: Exception) {
@@ -235,6 +252,8 @@ class BlockDeviceInputStream(
             }
         }
 
+        traceIo("request $newBlockOffset start")
+
         // Try finding the desired block in the channel
         var blockResult = tryGetBufferNonBlocking(newBlockOffset)
 
@@ -243,9 +262,13 @@ class BlockDeviceInputStream(
             mReadNextBlockNumber.set(newBlockOffset)
             ensureIoThread()
             blockResult = waitAndGetBuffer(newBlockOffset)
+        } else {
+            traceIo("request $newBlockOffset prefetched")
         }
 
         val (blockNumber, buffer) = blockResult
+
+        traceIo("request $newBlockOffset end got $blockNumber size ${buffer.remaining()}")
 
         // Recompute the byte offset and set it as the buffer position
         val bufferByteOffset = (newBlockOffset - blockNumber) * blockDev.blockSize + newByteOffset
