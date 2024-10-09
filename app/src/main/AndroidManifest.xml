@@ -26,33 +26,25 @@
             android:name=".ui.AboutActivity"
             android:exported="false"
             android:label="@string/about"
-            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.ConfirmOperationActivity"
             android:exported="false"
             android:label="@string/title_activity_confirm_operation"
-            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.ProgressActivity"
             android:exported="false"
             android:label="@string/writing_image"
-            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
