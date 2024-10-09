@@ -65,6 +65,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -644,7 +645,7 @@ fun LayFlatOnTableBottomSheet(
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes
 @Composable
 fun ConfirmationViewPreview() {
     val viewModel = remember {

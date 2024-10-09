@@ -82,6 +82,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -747,7 +748,7 @@ fun WhatCanIWriteBottomSheet(onDismissRequest: () -> Unit, darkTheme: Boolean = 
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes()
 @Composable
 fun StartViewPreview() {
     val viewModel = remember { MainActivityViewModel() }
@@ -775,7 +776,7 @@ fun StartViewPreview() {
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes()
 @Composable
 fun WindowsAlertDialogPreview() {
     val viewModel = remember { MainActivityViewModel() }
@@ -786,7 +787,7 @@ fun WindowsAlertDialogPreview() {
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes()
 @Composable
 fun UsbDevicePickerBottomSheetPreview() {
     val viewModel = remember { MainActivityViewModel() }
@@ -822,7 +823,7 @@ fun UsbDevicePickerBottomSheetPreview() {
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes()
 @Composable
 fun EmptyUsbDevicePickerBottomSheetPreview() {
     val viewModel = remember { MainActivityViewModel() }

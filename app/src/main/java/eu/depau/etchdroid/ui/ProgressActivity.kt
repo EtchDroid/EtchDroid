@@ -91,6 +91,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
@@ -927,7 +928,7 @@ fun AutoJobRestarter(
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes
 @Composable
 fun SuccessViewPreview() {
     val viewModel = remember { ProgressActivityViewModel() }
@@ -936,7 +937,7 @@ fun SuccessViewPreview() {
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes
 @Composable
 fun ErrorViewPreview() {
     val viewModel = remember { ProgressActivityViewModel() }
@@ -947,7 +948,7 @@ fun ErrorViewPreview() {
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4)
+@PreviewScreenSizes
 @Composable
 fun ExceptionCardsPreview() {
     val viewModel = remember { ProgressActivityViewModel() }
@@ -983,7 +984,7 @@ fun ExceptionCardsPreview() {
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes
 @Composable
 fun ReconnectUsbDriveDialogPreview() {
     val viewModel = remember { ProgressActivityViewModel() }
@@ -994,7 +995,7 @@ fun ReconnectUsbDriveDialogPreview() {
     }
 }
 
-@Preview(showBackground = true, device = Devices.PIXEL_4, showSystemUi = true)
+@PreviewScreenSizes
 @Composable
 fun ProgressViewPreview() {
     val viewModel = remember { ProgressActivityViewModel() }
