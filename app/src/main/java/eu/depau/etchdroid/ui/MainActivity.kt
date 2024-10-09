@@ -89,6 +89,7 @@ import eu.depau.etchdroid.AppSettings
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.ThemeMode
 import eu.depau.etchdroid.getConfirmOperationActivityIntent
+import eu.depau.etchdroid.massstorage.IUsbMassStorageDeviceDescriptor
 import eu.depau.etchdroid.massstorage.UsbMassStorageDeviceDescriptor
 import eu.depau.etchdroid.ui.composables.MainView
 import eu.depau.etchdroid.ui.composables.coloredShadow
@@ -238,7 +239,7 @@ class MainActivity : ComponentActivity() {
                         },
                         selectDevice = {
                             launchConfirmationActivity(
-                                it,
+                                it as UsbMassStorageDeviceDescriptor,
                                 mViewModel.state.value.openedImage!!,
                             )
                         },
@@ -462,8 +463,8 @@ fun WindowsImageAlertDialog(
 @Composable
 fun UsbDevicePickerBottomSheet(
     onDismissRequest: () -> Unit,
-    selectDevice: (UsbMassStorageDeviceDescriptor) -> Unit,
-    availableDevices: () -> Set<UsbMassStorageDeviceDescriptor>,
+    selectDevice: (IUsbMassStorageDeviceDescriptor) -> Unit,
+    availableDevices: () -> Set<IUsbMassStorageDeviceDescriptor>,
     skipHalfExpanded: Boolean = true,
 ) {
     val bottomSheetState =
@@ -789,7 +790,13 @@ fun WindowsAlertDialogPreview() {
 @Composable
 fun UsbDevicePickerBottomSheetPreview() {
     val viewModel = remember { MainActivityViewModel() }
-    var openBottomSheet by rememberSaveable { mutableStateOf(false) }
+    var openBottomSheet by rememberSaveable { mutableStateOf(true) }
+    val availableDevices = setOf(
+            object : IUsbMassStorageDeviceDescriptor {
+                override val name: String = "USB Drive"
+                override val vidpid: String = "1234:5678"
+            }
+    )
 
     MainView(viewModel) {
         Row(
@@ -809,7 +816,7 @@ fun UsbDevicePickerBottomSheetPreview() {
             UsbDevicePickerBottomSheet(
                 onDismissRequest = { openBottomSheet = false },
                 selectDevice = { },
-                availableDevices = { viewModel.state.value.massStorageDevices }
+                availableDevices = { availableDevices }
             )
         }
     }
@@ -819,7 +826,7 @@ fun UsbDevicePickerBottomSheetPreview() {
 @Composable
 fun EmptyUsbDevicePickerBottomSheetPreview() {
     val viewModel = remember { MainActivityViewModel() }
-    var openBottomSheet by remember { mutableStateOf(false) }
+    var openBottomSheet by remember { mutableStateOf(true) }
 
     MainView(viewModel) {
         Row(

@@ -103,6 +103,11 @@ data class PreviewUsbDevice(
     val vidpid: String,
 ) : Parcelable
 
+interface IUsbMassStorageDeviceDescriptor {
+    val name: String
+    val vidpid: String
+}
+
 @Parcelize
 data class UsbMassStorageDeviceDescriptor(
     private val maybeUsbDevice: UsbDevice? = null,
@@ -110,7 +115,7 @@ data class UsbMassStorageDeviceDescriptor(
     val inEndpoint: UsbEndpoint? = null,
     val outEndpoint: UsbEndpoint? = null,
     private val previewUsbDevice: PreviewUsbDevice? = null,
-) : Parcelable {
+) : Parcelable, IUsbMassStorageDeviceDescriptor {
     val usbDevice
         get() = maybeUsbDevice!!
 
@@ -127,10 +132,10 @@ data class UsbMassStorageDeviceDescriptor(
         )
     }
 
-    val name: String
+    override val name: String
         get() = maybeUsbDevice?.name ?: previewUsbDevice!!.name
 
-    val vidpid: String
+    override val vidpid: String
         get() = maybeUsbDevice?.vidpid ?: previewUsbDevice!!.vidpid
 
     infix fun matches(other: UsbMassStorageDeviceDescriptor): Boolean {
