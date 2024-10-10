@@ -38,8 +38,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -74,175 +72,214 @@ class AboutActivity : ComponentActivity() {
     }
 }
 
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun AboutViewLayout(
+    modifier: Modifier = Modifier,
+    appTitle: @Composable () -> Unit,
+    versionInfo: @Composable () -> Unit,
+    logo: @Composable () -> Unit,
+    contributorsInfo: @Composable () -> Unit,
+    actionButtons: @Composable () -> Unit,
+    content: @Composable () -> Unit = {},
+) {
+    ConstraintLayout(
+            modifier = Modifier
+                .padding(32.dp)
+                .then(modifier)
+    ) {
+        val boxRef = createRef()
+
+        Column(
+                modifier = Modifier
+                    .constrainAs(boxRef) {
+                        centerTo(parent)
+                    }
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(48.dp)
+        ) {
+            Column(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                appTitle()
+                versionInfo()
+            }
+            Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(32.dp),
+                    horizontalArrangement = Arrangement.Center
+            ) {
+                logo()
+            }
+
+            contributorsInfo()
+
+            FlowRow(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
+            ) {
+                actionButtons()
+            }
+
+        }
+
+        content()
+    }
+}
+
+
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun AboutView(viewModel: ThemeViewModel) {
-    ConstraintLayout(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(32.dp)
-    ) {
-        val box = createRef()
-
-        Column(
-            modifier = Modifier
-                .constrainAs(box) {
-                    centerTo(parent)
-                }
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(48.dp)
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
+    AboutViewLayout(
+            modifier = Modifier.fillMaxSize(),
+            appTitle = {
                 Text(
-                    text = "${stringResource(R.string.app_name)} v${BuildConfig.VERSION_NAME}",
-                    style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
-                    textAlign = TextAlign.Center,
+                        text = "${stringResource(R.string.app_name)} v${BuildConfig.VERSION_NAME}",
+                        style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
+                        textAlign = TextAlign.Center,
                 )
+            },
+            versionInfo = {
                 SelectionContainer {
                     Text(
-                        text = "${BuildConfig.APPLICATION_ID}\n v${BuildConfig.VERSION_NAME}+${BuildConfig.VERSION_CODE}, ${BuildConfig.FLAVOR}+${BuildConfig.BUILD_TYPE}",
-                        style = MaterialTheme.typography.bodyMedium.copy(
-                            fontSize = 16.sp,
-                            fontFamily = FontFamily(Typeface.MONOSPACE)
-                        ),
-                        textAlign = TextAlign.Center,
+                            text = "${BuildConfig.APPLICATION_ID}\n v${BuildConfig.VERSION_NAME}+${BuildConfig.VERSION_CODE}, ${BuildConfig.FLAVOR}+${BuildConfig.BUILD_TYPE}",
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                    fontSize = 16.sp,
+                                    fontFamily = FontFamily(Typeface.MONOSPACE)
+                            ),
+                            textAlign = TextAlign.Center,
                     )
                 }
-            }
-            val darkMode by viewModel.darkMode
-            val iconBackgroundColor = MaterialTheme.colorScheme.onSurfaceVariant
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(32.dp),
-                horizontalArrangement = Arrangement.Center
-            ) {
+            },
+            logo = {
+                val darkMode by viewModel.darkMode
+                val iconBackgroundColor = MaterialTheme.colorScheme.onSurfaceVariant
                 Icon(
-                    modifier = Modifier
-                        .size(128.dp)
-                        .run {
-                            if (darkMode) {
-                                coloredShadow(
-                                    MaterialTheme.colorScheme.onSecondaryContainer,
-                                    borderRadius = 64.dp, shadowRadius = 128.dp, alpha = 0.5f
-                                )
-                            } else {
-                                drawBehind {
-                                    drawCircle(
-                                        color = iconBackgroundColor, radius = 96.dp.toPx()
+                        modifier = Modifier
+                            .size(128.dp)
+                            .run {
+                                if (darkMode) {
+                                    coloredShadow(
+                                            MaterialTheme.colorScheme.onSecondaryContainer,
+                                            borderRadius = 64.dp, shadowRadius = 128.dp, alpha = 0.5f
                                     )
+                                } else {
+                                    drawBehind {
+                                        drawCircle(
+                                                color = iconBackgroundColor, radius = 96.dp.toPx()
+                                        )
+                                    }
                                 }
-                            }
-                        }, imageVector = getEtchDroidIcon(
+                            }, imageVector = getEtchDroidIcon(
                         headColor = if (darkMode) MaterialTheme.colorScheme.primary.toArgb()
                             .toLong() else MaterialTheme.colorScheme.primaryContainer.toArgb()
                             .toLong(),
-                    ), contentDescription = "EtchDroid", tint = Color.Unspecified
+                ), contentDescription = "EtchDroid", tint = Color.Unspecified
                 )
-            }
+            },
+            contributorsInfo = {
+                val annotatedText = buildAnnotatedString {
+                    val name = "Davide Depau"
+                    val contributors = stringResource(R.string.contributors)
+                    val github = "GitHub"
+                    val str = stringResource(R.string.developed_by, name, contributors, github)
+                    val nameStart = str.indexOf(name)
+                    val nameEnd = nameStart + name.length
+                    val contributorsStart = str.indexOf(contributors)
+                    val contributorsEnd = contributorsStart + contributors.length
+                    val githubStart = str.indexOf(github)
+                    val githubEnd = githubStart + github.length
+                    append(str)
 
-            val annotatedText = buildAnnotatedString {
-                val name = "Davide Depau"
-                val contributors = stringResource(R.string.contributors)
-                val github = "GitHub"
-                val str = stringResource(R.string.developed_by, name, contributors, github)
-                val nameStart = str.indexOf(name)
-                val nameEnd = nameStart + name.length
-                val contributorsStart = str.indexOf(contributors)
-                val contributorsEnd = contributorsStart + contributors.length
-                val githubStart = str.indexOf(github)
-                val githubEnd = githubStart + github.length
-                append(str)
+                    for ((start, end) in listOf(
+                            nameStart to nameEnd,
+                            contributorsStart to contributorsEnd,
+                            githubStart to githubEnd
+                    )) {
+                        addStyle(
+                                style = SpanStyle(
+                                        color = MaterialTheme.colorScheme.primary,
+                                        textDecoration = TextDecoration.Underline
+                                ),
+                                start = start,
+                                end = end
+                        )
+                    }
 
-                for ((start, end) in listOf(
-                    nameStart to nameEnd,
-                    contributorsStart to contributorsEnd,
-                    githubStart to githubEnd
-                )) {
-                    addStyle(
-                        style = SpanStyle(
-                            color = MaterialTheme.colorScheme.primary,
-                            textDecoration = TextDecoration.Underline
-                        ),
-                        start = start,
-                        end = end
+                    addStringAnnotation(
+                            tag = "URL",
+                            annotation = "https://depau.eu",
+                            start = nameStart,
+                            end = nameEnd
+                    )
+                    addStringAnnotation(
+                            tag = "URL",
+                            annotation = "https://github.com/EtchDroid/EtchDroid/graphs/contributors",
+                            start = contributorsStart,
+                            end = contributorsEnd
+                    )
+                    addStringAnnotation(
+                            tag = "URL",
+                            annotation = "https://github.com/EtchDroid/EtchDroid",
+                            start = githubStart,
+                            end = githubEnd
                     )
                 }
 
-                addStringAnnotation(
-                    tag = "URL",
-                    annotation = "https://depau.eu",
-                    start = nameStart,
-                    end = nameEnd
-                )
-                addStringAnnotation(
-                    tag = "URL",
-                    annotation = "https://github.com/EtchDroid/EtchDroid/graphs/contributors",
-                    start = contributorsStart,
-                    end = contributorsEnd
-                )
-                addStringAnnotation(
-                    tag = "URL",
-                    annotation = "https://github.com/EtchDroid/EtchDroid",
-                    start = githubStart,
-                    end = githubEnd
-                )
-            }
+                val activity = LocalContext.current.activity
+                ClickableText(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        text = annotatedText,
+                        style = MaterialTheme.typography.bodyLarge.copy(
+                                color = MaterialTheme.colorScheme.onBackground,
+                                textAlign = TextAlign.Center
+                        ),
+                        onClick = {
+                            annotatedText
+                                .getStringAnnotations("URL", it, it)
+                                .firstOrNull()?.let { stringAnnotation ->
+                                    activity?.startActivity(
+                                            Intent(
+                                                    Intent.ACTION_VIEW,
+                                                    Uri.parse(stringAnnotation.item)
+                                            )
+                                    )
+                                }
+                        })
 
-            val activity = LocalContext.current.activity
-            ClickableText(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = annotatedText,
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    color = MaterialTheme.colorScheme.onBackground,
-                    textAlign = TextAlign.Center
-                ),
-                onClick = {
-                    annotatedText
-                        .getStringAnnotations("URL", it, it)
-                        .firstOrNull()?.let { stringAnnotation ->
+            },
+            actionButtons = {
+                val activity = LocalContext.current.activity
+                OutlinedButton(
+                        onClick = {
                             activity?.startActivity(
-                                Intent(
-                                    Intent.ACTION_VIEW,
-                                    Uri.parse(stringAnnotation.item)
-                                )
+                                    Intent(
+                                            Intent.ACTION_VIEW,
+                                            Uri.parse("https://etchdroid.app")
+                                    )
                             )
                         }
-                })
-
-            FlowRow(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
-            ) {
-                OutlinedButton(
-                    onClick = {
-                        activity?.startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("https://etchdroid.app")
-                            )
-                        )
-                    }
                 ) {
                     Text(stringResource(R.string.website))
                 }
                 OutlinedButton(
-                    onClick = {
-                        activity?.startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("https://etchdroid.app/donate")
+                        onClick = {
+                            activity?.startActivity(
+                                    Intent(
+                                            Intent.ACTION_VIEW,
+                                            Uri.parse("https://etchdroid.app/donate")
+                                    )
                             )
-                        )
-                    }
+                        }
                 ) {
                     Text(stringResource(R.string.support_the_project))
                 }
@@ -250,16 +287,15 @@ fun AboutView(viewModel: ThemeViewModel) {
                 if (reviewHelper != null) {
                     OutlinedButton(onClick = { reviewHelper.launchReviewFlow() }) {
                         Text(
-                            text = if (reviewHelper.isGPlayFlavor) stringResource(
-                                R.string.write_a_review
-                            )
-                            else stringResource(R.string.star_on_github)
+                                text = if (reviewHelper.isGPlayFlavor) stringResource(
+                                        R.string.write_a_review
+                                )
+                                else stringResource(R.string.star_on_github)
                         )
                     }
                 }
-            }
-        }
-    }
+            },
+    )
 }
 
 
