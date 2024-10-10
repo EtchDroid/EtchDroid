@@ -1,6 +1,5 @@
 package eu.depau.etchdroid.ui
 
-import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.hardware.usb.UsbManager
@@ -39,11 +38,11 @@ import androidx.compose.material.icons.twotone.Clear
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.Divider
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -61,7 +60,6 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -70,7 +68,6 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -80,8 +77,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -152,7 +147,7 @@ class MainActivity : ComponentActivity() {
         registerExportedReceiver(mUsbDevicesReceiver, usbAttachedFilter)
         registerExportedReceiver(mUsbDevicesReceiver, usbDetachedFilter)
 
-        val usbManager = getSystemService(Context.USB_SERVICE) as UsbManager
+        val usbManager = getSystemService(USB_SERVICE) as UsbManager
         mViewModel.replaceUsbDevices(usbManager.deviceList.values)
     }
 
@@ -263,6 +258,70 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun StartViewLayout(
+    modifier: Modifier = Modifier,
+    title: @Composable () -> Unit,
+    logo: @Composable () -> Unit,
+    mainButton: @Composable () -> Unit,
+    bottomButton: @Composable () -> Unit,
+    menuButton: @Composable () -> Unit,
+    dropdownMenu: @Composable () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    ConstraintLayout(
+            modifier = modifier
+    ) {
+        val (titleRef, centerBoxRef, bottomButtonRef, menuButtonRef, dropdownRef) = createRefs()
+        Box(
+                modifier = Modifier.constrainAs(titleRef) {
+                    top.linkTo(parent.top, 24.dp)
+                    start.linkTo(parent.start, 16.dp)
+                    end.linkTo(parent.end, 16.dp)
+                }
+        ) {
+            title()
+        }
+
+        Column(
+                modifier = Modifier.constrainAs(centerBoxRef) {
+                    top.linkTo(parent.top, 16.dp)
+                    bottom.linkTo(parent.bottom, 16.dp)
+                    start.linkTo(parent.start, 16.dp)
+                    end.linkTo(parent.end, 16.dp)
+                }, horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(64.dp)
+        ) {
+            logo()
+            mainButton()
+        }
+
+        Box(modifier = Modifier.constrainAs(bottomButtonRef) {
+            bottom.linkTo(parent.bottom, 16.dp)
+            start.linkTo(parent.start, 16.dp)
+            end.linkTo(parent.end, 16.dp)
+        }) {
+            bottomButton()
+        }
+
+        Box(modifier = Modifier.constrainAs(menuButtonRef) {
+            bottom.linkTo(parent.bottom, 16.dp)
+            end.linkTo(parent.end, 16.dp)
+        }) {
+            menuButton()
+        }
+
+        Box(modifier = Modifier.constrainAs(dropdownRef) {
+            bottom.linkTo(menuButtonRef.top)
+            end.linkTo(parent.end, 16.dp)
+        }) {
+            dropdownMenu()
+        }
+
+        content()
+    }
+}
+
+@Composable
 fun StartView(
     viewModel: MainActivityViewModel,
     setThemeMode: (ThemeMode) -> Unit = {},
@@ -270,159 +329,141 @@ fun StartView(
     onCTAClick: () -> Unit = {},
     openAboutView: () -> Unit = {},
 ) {
-    ConstraintLayout(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        val uiState by viewModel.state.collectAsState()
-        var menuOpen by remember { mutableStateOf(false) }
-        var whatCanIWriteOpen by remember { mutableStateOf(false) }
+    val uiState by viewModel.state.collectAsState()
+    var menuOpen by remember { mutableStateOf(false) }
+    var whatCanIWriteOpen by remember { mutableStateOf(false) }
 
-        val iconBackgroundColor = MaterialTheme.colorScheme.onSurfaceVariant
-        val systemInDarkMode = isSystemInDarkTheme()
-        val darkMode by remember {
-            derivedStateOf {
-                when (uiState.themeMode) {
-                    ThemeMode.SYSTEM -> systemInDarkMode
-                    ThemeMode.DARK -> true
-                    else -> false
-                }
+    val iconBackgroundColor = MaterialTheme.colorScheme.onSurfaceVariant
+    val systemInDarkMode = isSystemInDarkTheme()
+    val darkMode by remember {
+        derivedStateOf {
+            when (uiState.themeMode) {
+                ThemeMode.SYSTEM -> systemInDarkMode
+                ThemeMode.DARK -> true
+                else -> false
             }
         }
+    }
 
-        val (title, centerBox, bottomButton, menuButton, dropdown) = createRefs()
-        Text(
-            modifier = Modifier.constrainAs(title) {
-                top.linkTo(parent.top, 24.dp)
-                start.linkTo(parent.start, 16.dp)
-                end.linkTo(parent.end, 16.dp)
-            },
-            text = "EtchDroid",
-            style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
-        )
-
-        Column(
-            modifier = Modifier.constrainAs(centerBox) {
-                top.linkTo(parent.top, 16.dp)
-                bottom.linkTo(parent.bottom, 16.dp)
-                start.linkTo(parent.start, 16.dp)
-                end.linkTo(parent.end, 16.dp)
-            }, horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(64.dp)
-        ) {
-
-
-            Icon(
-                modifier = Modifier
-                    .size(128.dp)
-                    .run {
-                        if (darkMode) {
-                            coloredShadow(
-                                MaterialTheme.colorScheme.onSecondaryContainer,
-                                borderRadius = 64.dp, shadowRadius = 128.dp, alpha = 0.5f
-                            )
-                        } else {
-                            drawBehind {
-                                drawCircle(
-                                    color = iconBackgroundColor, radius = 96.dp.toPx()
-                                )
-                            }
-                        }
-                    }, imageVector = getEtchDroidIcon(
-                    headColor = if (darkMode) MaterialTheme.colorScheme.primary.toArgb()
-                        .toLong() else MaterialTheme.colorScheme.primaryContainer.toArgb().toLong(),
-                ), contentDescription = "EtchDroid", tint = Color.Unspecified
-            )
-            ExtendedFloatingActionButton(
-                onClick = onCTAClick,
-                text = { Text(stringResource(R.string.write_an_image)) },
-                icon = {
-                    Icon(
-                        imageVector = ImageVector.vectorResource(
-                            id = R.drawable.ic_write_to_usb
-                        ), contentDescription = null
-                    )
-                },
-            )
-        }
-
-        OutlinedButton(
-            modifier = Modifier.constrainAs(bottomButton) {
-                bottom.linkTo(parent.bottom, 16.dp)
-                start.linkTo(parent.start, 16.dp)
-                end.linkTo(parent.end, 16.dp)
-            },
-            onClick = { whatCanIWriteOpen = true },
-        ) {
-            Text(stringResource(R.string.whats_supported))
-        }
-
-        IconButton(modifier = Modifier.constrainAs(menuButton) {
-            bottom.linkTo(parent.bottom, 16.dp)
-            end.linkTo(parent.end, 16.dp)
-        }, onClick = { menuOpen = true }) {
-            Icon(
-                modifier = Modifier.size(20.dp),
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_menu),
-                contentDescription = "Menu"
-            )
-        }
-
-        Box(modifier = Modifier.constrainAs(dropdown) {
-            bottom.linkTo(menuButton.top)
-            end.linkTo(parent.end, 16.dp)
-        }) {
-            DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+    StartViewLayout(
+            modifier = Modifier.fillMaxSize(),
+            title = {
                 Text(
-                    stringResource(R.string.style), style = MaterialTheme.typography.labelMedium,
-                    modifier = Modifier.padding(12.dp, 0.dp)
+                        text = "EtchDroid",
+                        style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
                 )
-
-                // Radio buttons for theme modes SYSTEM, LIGHT, DARK
-                DropdownMenuItem(onClick = { setThemeMode(ThemeMode.SYSTEM) },
-                    text = { Text(stringResource(R.string.device_setting)) }, leadingIcon = {
-                        RadioButton(modifier = Modifier.size(20.dp),
-                            selected = uiState.themeMode == ThemeMode.SYSTEM,
-                            onClick = { setThemeMode(ThemeMode.SYSTEM) })
-                    })
-                DropdownMenuItem(onClick = { setThemeMode(ThemeMode.LIGHT) },
-                    text = { Text(stringResource(R.string.light)) }, leadingIcon = {
-                        RadioButton(modifier = Modifier.size(20.dp),
-                            selected = uiState.themeMode == ThemeMode.LIGHT,
-                            onClick = { setThemeMode(ThemeMode.LIGHT) })
-                    })
-                DropdownMenuItem(onClick = { setThemeMode(ThemeMode.DARK) },
-                    text = { Text(stringResource(R.string.dark)) }, leadingIcon = {
-                        RadioButton(modifier = Modifier.size(20.dp),
-                            selected = uiState.themeMode == ThemeMode.DARK,
-                            onClick = { setThemeMode(ThemeMode.DARK) })
-                    })
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    DropdownMenuItem(onClick = { setDynamicTheme(!uiState.dynamicColors) },
-                        text = { Text(stringResource(R.string.dynamic_colors)) }, leadingIcon = {
-                            Checkbox(modifier = Modifier.size(20.dp),
-                                checked = uiState.dynamicColors,
-                                onCheckedChange = { setDynamicTheme(!uiState.dynamicColors) })
-                        })
+            },
+            logo = {
+                Icon(
+                        modifier = Modifier
+                            .size(128.dp)
+                            .run {
+                                if (darkMode) {
+                                    coloredShadow(
+                                            MaterialTheme.colorScheme.onSecondaryContainer,
+                                            borderRadius = 64.dp,
+                                            shadowRadius = 128.dp,
+                                            alpha = 0.5f
+                                    )
+                                } else {
+                                    drawBehind {
+                                        drawCircle(
+                                                color = iconBackgroundColor, radius = 96.dp.toPx()
+                                        )
+                                    }
+                                }
+                            }, imageVector = getEtchDroidIcon(
+                        headColor = if (darkMode) MaterialTheme.colorScheme.primary.toArgb()
+                            .toLong() else MaterialTheme.colorScheme.primaryContainer.toArgb()
+                            .toLong(),
+                ), contentDescription = "EtchDroid", tint = Color.Unspecified
+                )
+            },
+            mainButton = {
+                ExtendedFloatingActionButton(
+                        onClick = onCTAClick,
+                        text = { Text(stringResource(R.string.write_an_image)) },
+                        icon = {
+                            Icon(
+                                    imageVector = ImageVector.vectorResource(
+                                            id = R.drawable.ic_write_to_usb
+                                    ), contentDescription = null
+                            )
+                        },
+                )
+            },
+            bottomButton = {
+                OutlinedButton(onClick = { whatCanIWriteOpen = true }) {
+                    Text(stringResource(R.string.whats_supported))
                 }
+            },
+            menuButton = {
+                IconButton(onClick = { menuOpen = true }) {
+                    Icon(
+                            modifier = Modifier.size(20.dp),
+                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_menu),
+                            contentDescription = "Menu"
+                    )
+                }
+            },
+            dropdownMenu = {
+                DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                    Text(
+                            stringResource(R.string.style),
+                            style = MaterialTheme.typography.labelMedium,
+                            modifier = Modifier.padding(12.dp, 0.dp)
+                    )
 
-                Divider()
+                    // Radio buttons for theme modes SYSTEM, LIGHT, DARK
+                    DropdownMenuItem(
+                            onClick = { setThemeMode(ThemeMode.SYSTEM) },
+                            text = { Text(stringResource(R.string.device_setting)) },
+                            leadingIcon = {
+                        RadioButton(modifier = Modifier.size(20.dp),
+                                selected = uiState.themeMode == ThemeMode.SYSTEM,
+                                onClick = { setThemeMode(ThemeMode.SYSTEM) })
+                    })
+                    DropdownMenuItem(onClick = { setThemeMode(ThemeMode.LIGHT) },
+                            text = { Text(stringResource(R.string.light)) }, leadingIcon = {
+                        RadioButton(modifier = Modifier.size(20.dp),
+                                selected = uiState.themeMode == ThemeMode.LIGHT,
+                                onClick = { setThemeMode(ThemeMode.LIGHT) })
+                    })
+                    DropdownMenuItem(onClick = { setThemeMode(ThemeMode.DARK) },
+                            text = { Text(stringResource(R.string.dark)) }, leadingIcon = {
+                        RadioButton(modifier = Modifier.size(20.dp),
+                                selected = uiState.themeMode == ThemeMode.DARK,
+                                onClick = { setThemeMode(ThemeMode.DARK) })
+                    })
 
-                DropdownMenuItem(onClick = { openAboutView() },
-                    text = { Text(stringResource(R.string.about)) }, leadingIcon = {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                        DropdownMenuItem(
+                                onClick = { setDynamicTheme(!uiState.dynamicColors) },
+                                text = { Text(stringResource(R.string.dynamic_colors)) },
+                                leadingIcon = {
+                            Checkbox(modifier = Modifier.size(20.dp),
+                                    checked = uiState.dynamicColors,
+                                    onCheckedChange = { setDynamicTheme(!uiState.dynamicColors) })
+                        })
+                    }
+
+                    HorizontalDivider()
+
+                    DropdownMenuItem(onClick = { openAboutView() },
+                            text = { Text(stringResource(R.string.about)) }, leadingIcon = {
                         Icon(
-                            imageVector = Icons.TwoTone.Info,
-                            contentDescription = stringResource(R.string.about)
+                                imageVector = Icons.TwoTone.Info,
+                                contentDescription = stringResource(R.string.about)
                         )
                     })
-            }
-        }
-
+                }
+            },
+    ) {
         if (whatCanIWriteOpen) {
             WhatCanIWriteBottomSheet(
-                onDismissRequest = {
-                    whatCanIWriteOpen = false
-                }, darkTheme = darkMode
+                    onDismissRequest = {
+                        whatCanIWriteOpen = false
+                    }, darkTheme = darkMode
             )
         }
     }
@@ -554,8 +595,8 @@ fun ItemSupportEntry(
                 SupportStatus.MAYBE_SUPPORTED -> stringResource(R.string.maybe_supported)
                 SupportStatus.UNSUPPORTED -> stringResource(R.string.not_supported)
             }, modifier = Modifier
-                .size(20.dp)
-                .padding(0.dp, 4.dp, 0.dp, 0.dp),
+            .size(20.dp)
+            .padding(0.dp, 4.dp, 0.dp, 0.dp),
             tint = when (supportStatus) {
                 SupportStatus.SUPPORTED -> supportedGreen(darkTheme)
                 SupportStatus.MAYBE_SUPPORTED -> partiallySupportedYellow(darkTheme)
