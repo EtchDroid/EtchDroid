@@ -138,7 +138,7 @@ import me.jahnen.libaums.libusbcommunication.LibusbError
 import me.jahnen.libaums.libusbcommunication.LibusbException
 
 private const val TAG = "ProgressActivity"
-private const val LAST_NOTIFICATION_TIMEOUT = 10 * 1000L
+private const val LAST_NOTIFICATION_TIMEOUT = 11 * 1000L
 
 class ProgressActivity : ComponentActivity() {
     private lateinit var mSettings: AppSettings
