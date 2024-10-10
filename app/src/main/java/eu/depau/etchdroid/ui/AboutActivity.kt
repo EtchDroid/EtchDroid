@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -33,6 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
@@ -213,48 +213,32 @@ fun AboutView(viewModel: ThemeViewModel) {
                                 end = end
                         )
                     }
-
-                    addStringAnnotation(
-                            tag = "URL",
-                            annotation = "https://depau.eu",
-                            start = nameStart,
-                            end = nameEnd
+                    addLink(
+                            LinkAnnotation.Url("https://depau.eu"),
+                            nameStart,
+                            nameEnd
                     )
-                    addStringAnnotation(
-                            tag = "URL",
-                            annotation = "https://github.com/EtchDroid/EtchDroid/graphs/contributors",
-                            start = contributorsStart,
-                            end = contributorsEnd
+                    addLink(
+                            LinkAnnotation.Url("https://github.com/EtchDroid/EtchDroid/graphs/contributors"),
+                            contributorsStart,
+                            contributorsEnd
                     )
-                    addStringAnnotation(
-                            tag = "URL",
-                            annotation = "https://github.com/EtchDroid/EtchDroid",
-                            start = githubStart,
-                            end = githubEnd
+                    addLink(
+                            LinkAnnotation.Url("https://github.com/etchdroid/etchdroid"),
+                            githubStart,
+                            githubEnd
                     )
                 }
 
-                val activity = LocalContext.current.activity
-                ClickableText(
+                Text(
                         modifier = Modifier
                             .fillMaxWidth(),
                         text = annotatedText,
                         style = MaterialTheme.typography.bodyLarge.copy(
                                 color = MaterialTheme.colorScheme.onBackground,
                                 textAlign = TextAlign.Center
-                        ),
-                        onClick = {
-                            annotatedText
-                                .getStringAnnotations("URL", it, it)
-                                .firstOrNull()?.let { stringAnnotation ->
-                                    activity?.startActivity(
-                                            Intent(
-                                                    Intent.ACTION_VIEW,
-                                                    Uri.parse(stringAnnotation.item)
-                                            )
-                                    )
-                                }
-                        })
+                        )
+                )
 
             },
             actionButtons = {
