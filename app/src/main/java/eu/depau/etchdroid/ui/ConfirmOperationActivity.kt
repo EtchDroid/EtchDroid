@@ -21,6 +21,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -63,8 +64,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -273,225 +272,286 @@ class ConfirmOperationActivity : ComponentActivity() {
 }
 
 @Composable
+fun ConfirmationViewLayout(
+    modifier: Modifier = Modifier,
+    title: @Composable () -> Unit,
+    sourceCard: @Composable (Modifier) -> Unit,
+    destinationCard: @Composable (Modifier) -> Unit,
+    warningCard: @Composable () -> Unit,
+    cancelButton: @Composable () -> Unit,
+    confirmButton: @Composable () -> Unit,
+    content: @Composable () -> Unit = {},
+) {
+    ConstraintLayout(modifier = modifier) {
+        val (titleRef, cardsRef, warningCardRef, cancelButtonRef, confirmButtonRef) = createRefs()
+
+        Box(Modifier.constrainAs(titleRef) {
+            top.linkTo(parent.top, 24.dp)
+            start.linkTo(parent.start, 16.dp)
+            end.linkTo(parent.end, 16.dp)
+        }) {
+            title()
+        }
+
+        Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+                    .constrainAs(cardsRef) {
+                        top.linkTo(titleRef.bottom)
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                        bottom.linkTo(warningCardRef.top)
+                    }, verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            sourceCard(Modifier.fillMaxWidth())
+
+            Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center,
+            ) {
+                Icon(
+                        modifier = Modifier.size(48.dp), imageVector = Icons.TwoTone.ArrowDownward,
+                        contentDescription = null
+                )
+            }
+
+            destinationCard(Modifier.fillMaxWidth())
+        }
+
+        Box(modifier = Modifier.constrainAs(warningCardRef) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            bottom.linkTo(confirmButtonRef.top, 16.dp)
+        }) {
+            warningCard()
+        }
+
+        Box(modifier = Modifier.constrainAs(cancelButtonRef) {
+            bottom.linkTo(parent.bottom, 16.dp)
+            end.linkTo(confirmButtonRef.start, 8.dp)
+        }) {
+            cancelButton()
+        }
+
+        Box(modifier = Modifier.constrainAs(confirmButtonRef) {
+            bottom.linkTo(parent.bottom, 16.dp)
+            end.linkTo(parent.end, 16.dp)
+        }) {
+            confirmButton()
+        }
+
+        content()
+    }
+}
+
+@Composable
 fun ConfirmationView(
     viewModel: ConfirmOperationActivityViewModel,
     onCancel: () -> Unit,
     onConfirm: () -> Unit,
     askUsbPermission: () -> Unit,
 ) {
-    ConstraintLayout(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        val (title, cards, warningCard, cancelButton, confirmButton) = createRefs()
+    val uiState by viewModel.state.collectAsState()
 
-        val uiState by viewModel.state.collectAsState()
-        val sourceUri = uiState.openedImage
-        val context = LocalContext.current
-        val sourceFileName by remember {
-            derivedStateOf {
-                sourceUri?.getFileName(context) ?: sourceUri?.getFilePath(context)
-                    ?.split("/")
-                    ?.last() ?: context.getString(R.string.unknown_filename)
-            }
-        }
-        val sourceFileSize by remember {
-            derivedStateOf {
-                try {
-                    sourceUri!!.getFileSize(context).toHRSize()
-                } catch (e: Exception) {
-                    Log.w(TAG, "Failed to get file size", e)
-                    "Unknown file size"
-                }
-            }
-        }
-
-        Text(
-            modifier = Modifier.constrainAs(title) {
-                top.linkTo(parent.top, 24.dp)
-                start.linkTo(parent.start, 16.dp)
-                end.linkTo(parent.end, 16.dp)
-            },
-            text = stringResource(R.string.confirm_operation),
-            style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
-        )
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-                .constrainAs(cards) {
-                    top.linkTo(title.bottom)
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                    bottom.linkTo(warningCard.top)
-                }, verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            Card {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Start
-                ) {
-                    Icon(
-                        modifier = Modifier
-                            .size(128.dp)
-                            .padding(16.dp, 16.dp, 0.dp, 16.dp),
-                        imageVector = ImageVector.vectorResource(
-                            id = R.drawable.ic_disk_image_large
-                        ), contentDescription = stringResource(R.string.disk_image)
-                    )
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically)
-                    ) {
-                        Text(
-                            text = stringResource(R.string.image_to_write),
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
-                        )
-                        Column {
-                            Text(
-                                text = sourceFileName, style = MaterialTheme.typography.labelLarge,
-                                maxLines = 2, overflow = TextOverflow.Ellipsis
-                            )
-                            Text(
-                                text = sourceFileSize, style = MaterialTheme.typography.labelMedium,
-                                fontStyle = FontStyle.Italic, maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    }
-                }
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center,
-            ) {
-                Icon(
-                    modifier = Modifier.size(48.dp), imageVector = Icons.TwoTone.ArrowDownward,
-                    contentDescription = null
+    ConfirmationViewLayout(
+            modifier = Modifier.fillMaxSize(),
+            title = {
+                Text(
+                        text = stringResource(R.string.confirm_operation),
+                        style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
                 )
-            }
-
-            Card {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Start
-                ) {
-                    Icon(
-                        modifier = Modifier
-                            .size(128.dp)
-                            .padding(16.dp, 16.dp, 0.dp, 16.dp),
-                        imageVector = ImageVector.vectorResource(
-                            id = R.drawable.ic_usb_stick_large
-                        ), contentDescription = stringResource(R.string.usb_drive)
-                    )
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically)
+            },
+            sourceCard = { modifier ->
+                Card {
+                    Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .then(modifier),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Start
                     ) {
-                        Text(
-                            text = stringResource(R.string.destination_usb_device),
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.Bold,
+                        Icon(
+                                modifier = Modifier
+                                    .size(128.dp)
+                                    .padding(16.dp, 16.dp, 0.dp, 16.dp),
+                                imageVector = ImageVector.vectorResource(
+                                        id = R.drawable.ic_disk_image_large
+                                ), contentDescription = stringResource(R.string.disk_image)
                         )
-                        Column {
-                            Text(
-                                text = uiState.selectedDevice?.name ?: stringResource(
-                                    R.string.unknown_device
-                                ), style = MaterialTheme.typography.labelLarge, maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                            Text(
-                                text = uiState.selectedDevice?.vidpid ?: "Unknown VID:PID",
-                                style = MaterialTheme.typography.labelMedium,
-                                fontStyle = FontStyle.Italic, maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                        Button(
-                            onClick = askUsbPermission,
-                            enabled = !uiState.hasUsbPermission,
-                            contentPadding = if (!uiState.hasUsbPermission) PaddingValues(
-                                24.dp, 8.dp
-                            )
-                            else PaddingValues(24.dp, 8.dp, 16.dp, 8.dp),
+                        Column(
+                                modifier = Modifier.padding(16.dp),
+                                verticalArrangement = Arrangement.spacedBy(
+                                        8.dp,
+                                        Alignment.CenterVertically
+                                )
                         ) {
-                            Text(text = stringResource(R.string.grant_access))
-                            if (uiState.hasUsbPermission) {
-                                Icon(
-                                    modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp),
-                                    imageVector = Icons.TwoTone.Check,
-                                    contentDescription = stringResource(R.string.permission_granted)
+                            val sourceUri = uiState.openedImage
+                            val context = LocalContext.current
+                            val sourceFileName by remember {
+                                derivedStateOf {
+                                    sourceUri?.getFileName(context) ?: sourceUri?.getFilePath(
+                                            context
+                                    )
+                                        ?.split("/")
+                                        ?.last() ?: context.getString(R.string.unknown_filename)
+                                }
+                            }
+                            val sourceFileSize by remember {
+                                derivedStateOf {
+                                    try {
+                                        sourceUri!!.getFileSize(context).toHRSize()
+                                    } catch (e: Exception) {
+                                        Log.w(TAG, "Failed to get file size", e)
+                                        "Unknown file size"
+                                    }
+                                }
+                            }
+
+                            Text(
+                                    text = stringResource(R.string.image_to_write),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
+                            )
+
+                            Column {
+                                Text(
+                                        text = sourceFileName,
+                                        style = MaterialTheme.typography.labelLarge,
+                                        maxLines = 2,
+                                        overflow = TextOverflow.Ellipsis
+                                )
+                                Text(
+                                        text = sourceFileSize,
+                                        style = MaterialTheme.typography.labelMedium,
+                                        fontStyle = FontStyle.Italic,
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis
                                 )
                             }
                         }
                     }
                 }
-            }
-        }
-
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-                .constrainAs(warningCard) {
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                    bottom.linkTo(confirmButton.top, 16.dp)
-                }, colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.errorContainer,
-                contentColor = MaterialTheme.colorScheme.onErrorContainer
-            )
-        ) {
-            Row(
-                modifier = Modifier
-                    .padding(16.dp, 16.dp, 16.dp, 16.dp)
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.Start),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    modifier = Modifier.size(48.dp), imageVector = Icons.TwoTone.Warning,
-                    contentDescription = null
-                )
-                Column {
-                    Text(
-                        text = stringResource(R.string.be_careful),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onErrorContainer
-                    )
-                    Text(
-                        text = stringResource(
-                            R.string.writing_the_image_will_erase
-                        ), style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onErrorContainer
-                    )
+            },
+            destinationCard = { modifier ->
+                Card {
+                    Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .then(modifier),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Start
+                    ) {
+                        Icon(
+                                modifier = Modifier
+                                    .size(128.dp)
+                                    .padding(16.dp, 16.dp, 0.dp, 16.dp),
+                                imageVector = ImageVector.vectorResource(
+                                        id = R.drawable.ic_usb_stick_large
+                                ), contentDescription = stringResource(R.string.usb_drive)
+                        )
+                        Column(
+                                modifier = Modifier.padding(16.dp),
+                                verticalArrangement = Arrangement.spacedBy(
+                                        8.dp,
+                                        Alignment.CenterVertically
+                                )
+                        ) {
+                            Text(
+                                    text = stringResource(R.string.destination_usb_device),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    fontWeight = FontWeight.Bold,
+                            )
+                            Column {
+                                Text(
+                                        text = uiState.selectedDevice?.name ?: stringResource(
+                                                R.string.unknown_device
+                                        ),
+                                        style = MaterialTheme.typography.labelLarge,
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis
+                                )
+                                Text(
+                                        text = uiState.selectedDevice?.vidpid ?: "Unknown VID:PID",
+                                        style = MaterialTheme.typography.labelMedium,
+                                        fontStyle = FontStyle.Italic, maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                            Button(
+                                    onClick = askUsbPermission,
+                                    enabled = !uiState.hasUsbPermission,
+                                    contentPadding = if (!uiState.hasUsbPermission) PaddingValues(
+                                            24.dp, 8.dp
+                                    )
+                                    else PaddingValues(24.dp, 8.dp, 16.dp, 8.dp),
+                            ) {
+                                Text(text = stringResource(R.string.grant_access))
+                                if (uiState.hasUsbPermission) {
+                                    Icon(
+                                            modifier = Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp),
+                                            imageVector = Icons.TwoTone.Check,
+                                            contentDescription = stringResource(R.string.permission_granted)
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            warningCard = {
+                Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.errorContainer,
+                                contentColor = MaterialTheme.colorScheme.onErrorContainer
+                        )
+                ) {
+                    Row(
+                            modifier = Modifier
+                                .padding(16.dp, 16.dp, 16.dp, 16.dp)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.Start),
+                            verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                                modifier = Modifier.size(48.dp),
+                                imageVector = Icons.TwoTone.Warning,
+                                contentDescription = null
+                        )
+                        Column {
+                            Text(
+                                    text = stringResource(R.string.be_careful),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.onErrorContainer
+                            )
+                            Text(
+                                    text = stringResource(
+                                            R.string.writing_the_image_will_erase
+                                    ), style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.onErrorContainer
+                            )
+                        }
+                    }
+                }
+            },
+            cancelButton = {
+                OutlinedButton(onClick = onCancel) {
+                    Text(stringResource(R.string.cancel))
+                }
+            },
+            confirmButton = {
+                Button(
+                        onClick = onConfirm,
+                        enabled = uiState.selectedDevice != null && uiState.hasUsbPermission
+                ) {
+                    Text(text = stringResource(R.string.write_image))
                 }
             }
-        }
-
-        OutlinedButton(
-            modifier = Modifier.constrainAs(cancelButton) {
-                bottom.linkTo(parent.bottom, 16.dp)
-                end.linkTo(confirmButton.start, 8.dp)
-            }, onClick = onCancel
-        ) {
-            Text(stringResource(R.string.cancel))
-        }
-
-        Button(
-            modifier = Modifier.constrainAs(confirmButton) {
-                bottom.linkTo(parent.bottom, 16.dp)
-                end.linkTo(parent.end, 16.dp)
-            }, onClick = onConfirm,
-            enabled = uiState.selectedDevice != null && uiState.hasUsbPermission
-        ) {
-            Text(text = stringResource(R.string.write_image))
-        }
-    }
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
