@@ -113,6 +113,7 @@ import eu.depau.etchdroid.ui.composables.RecoverableExceptionExplanationCard
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.exception.InitException
 import eu.depau.etchdroid.utils.exception.MissingPermissionException
+import eu.depau.etchdroid.utils.exception.NotEnoughSpaceException
 import eu.depau.etchdroid.utils.exception.UsbCommunicationException
 import eu.depau.etchdroid.utils.exception.VerificationFailedException
 import eu.depau.etchdroid.utils.exception.base.FatalException
@@ -342,7 +343,8 @@ fun JobInProgressView(
                 var clickCount by remember { mutableStateOf(0) }
                 var easterEgg by remember { mutableStateOf(false) }
 
-                Column(modifier = Modifier.fillMaxWidth()
+                Column(modifier = Modifier
+                    .fillMaxWidth()
                     .clickable {
                         val now = System.currentTimeMillis()
                         if (now - clickLastTime < 500) {
@@ -713,6 +715,7 @@ fun SuccessView() {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun FatalErrorView(
     exception: FatalException,
@@ -743,6 +746,12 @@ fun FatalErrorView(
                 style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            Text(
+                    text = stringResource(R.string.please_report_fatal_issue),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
 
             Icon(
                 imageVector = ImageVector.vectorResource(
@@ -754,10 +763,22 @@ fun FatalErrorView(
 
             val activity = LocalContext.current.activity
 
-            Row(
+            FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
             ) {
+                val activity = LocalContext.current.activity
+                OutlinedButton(onClick = {
+                    activity?.startActivity(
+                            Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("https://github.com/EtchDroid/EtchDroid/issues")
+                            )
+                    )
+                }) {
+                    Text(text = stringResource(R.string.view_github_issues))
+                }
+
                 val btn: @Composable (onClick: () -> Unit, content: @Composable RowScope.() -> Unit) -> Unit =
                     { onClick, content ->
                         if (exception is VerificationFailedException) {
@@ -767,7 +788,7 @@ fun FatalErrorView(
                         }
                     }
 
-                btn({
+                Button({
                     context.startActivity(Intent(context, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     })
@@ -896,7 +917,18 @@ fun SuccessViewPreview() {
 
 @PreviewScreenSizes
 @Composable
-fun ErrorViewPreview() {
+fun WriteErrorViewPreview() {
+    val viewModel = remember { ProgressActivityViewModel() }
+    MainView(viewModel) {
+        FatalErrorView(
+                exception = NotEnoughSpaceException(1234, 5678), Uri.EMPTY, 1337, UsbMassStorageDeviceDescriptor()
+        )
+    }
+}
+
+@PreviewScreenSizes
+@Composable
+fun VerificationErrorViewPreview() {
     val viewModel = remember { ProgressActivityViewModel() }
     MainView(viewModel) {
         FatalErrorView(
