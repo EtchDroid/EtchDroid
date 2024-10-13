@@ -122,4 +122,7 @@
     <string name="title_activity_confirm_operation">Conferma operazione</string>
     <string name="no_image_uri_provided">Nessun URI immagine fornito</string>
     <string name="no_destination_device_selected">Nessun dispositivo di destinazione selezionato</string>
+    <string name="worker_null_device_error">È stato avviato un tentativo di scrittura ma purtroppo alcune informazioni non sono pervenute. Per favore, prova di nuovo.</string>
+    <string name="please_report_fatal_issue">Se possibile, segnala il problema su GitHub, includendo i passaggi intrapresi che hanno portato a questo errore.</string>
+    <string name="view_github_issues">Problemi su GitHub</string>
 </resources>
