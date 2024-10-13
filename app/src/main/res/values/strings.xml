@@ -364,6 +364,6 @@
     <!-- Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it -->
     <string name="please_report_fatal_issue">If you can, please report this issue on GitHub along with the steps that led to this error.</string>
 
-    <!-- Displayed in the fatal error screen. When pressed, the app opens the GitHub issues page -->
+    <!-- Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with "GitHub issues" if "View GitHub issues" is too long in your language. -->
     <string name="view_github_issues">View GitHub issues</string>
 </resources>
