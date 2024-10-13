@@ -347,4 +347,5 @@
 
     <!-- "You're on your own" can be translated with something similar to "unsupported" or "be careful!" if it makes more sense in the target language -->
     <string name="community_windows_images">Community-built Windows images, made for EtchDroid (you\'re on your own: they might contain viruses!)</string>
+    <string name="worker_null_device_error">A write attempt was started but unfortunately some info got lost along the way. Please try again.</string>
 </resources>

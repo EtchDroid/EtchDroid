@@ -31,6 +31,7 @@ import eu.depau.etchdroid.service.WorkerServiceFlowImpl.writeImage
 import eu.depau.etchdroid.ui.ProgressActivity
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.exception.InitException
+import eu.depau.etchdroid.utils.exception.MissingDeviceException
 import eu.depau.etchdroid.utils.exception.NotEnoughSpaceException
 import eu.depau.etchdroid.utils.exception.OpenFileException
 import eu.depau.etchdroid.utils.exception.UnknownException
@@ -252,38 +253,52 @@ class WorkerService : LifecycleService() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
 
-        if (intent?.action != Intents.START_JOB) {
-            Log.e(TAG, "Received invalid intent action: ${intent?.action}")
+        val offset: Long
+        val verifyOnly: Boolean
+
+        try {
+            if (intent?.action != Intents.START_JOB) {
+                Log.e(TAG, "Received invalid intent action: ${intent?.action}")
+                stopSelf()
+                return START_NOT_STICKY
+            }
+
+            mSourceUri = intent.data!!
+            mDestDevice = intent.safeParcelableExtra("destDevice") ?: throw MissingDeviceException()
+            mJobId = intent.getIntExtra("jobId", -1)
+            offset = intent.getLongExtra("offset", 0L)
+            verifyOnly = intent.getBooleanExtra("verifyOnly", false)
+
+            if (mNotificationsSetUp) {
+                val notificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                try {
+                    notificationManager.cancel(mJobId)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Failed to cancel notification", e)
+                }
+            }
+
+            require(mJobId != -1) { "Job ID not set" }
+
+            Log.i(
+                    TAG, "Starting worker service for job: '${
+                mSourceUri.getFilePath(
+                        this
+                ) ?: "Unknown file"
+            }' -> '${mDestDevice.name}' (offset: ${offset.toHRSize(false)})"
+            )
+
+            startForegroundSpecialUse(mProgressNotificationId, basicForegroundNotification)
+        } catch (exception: Exception) {
+            val downstreamException = if (exception is EtchDroidException) exception
+            else UnknownException(exception)
+            getErrorIntent(
+                    mSourceUri, mDestDevice, mJobId, 0, 0, exception = downstreamException
+            ).broadcastLocallySync(this@WorkerService)
             stopSelf()
             return START_NOT_STICKY
         }
-
-        mSourceUri = intent.data!!
-        mDestDevice = intent.safeParcelableExtra("destDevice")!!
-        mJobId = intent.getIntExtra("jobId", -1)
-        val offset = intent.getLongExtra("offset", 0L)
-        val verifyOnly = intent.getBooleanExtra("verifyOnly", false)
-
-        if (mNotificationsSetUp) {
-            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            try {
-                notificationManager.cancel(mJobId)
-            } catch (e: Exception) {
-                Log.e(TAG, "Failed to cancel notification", e)
-            }
-        }
-
-        require(mJobId != -1) { "Job ID not set" }
-
-        Log.i(
-            TAG, "Starting worker service for job: '${
-                mSourceUri.getFilePath(
-                    this
-                ) ?: "Unknown file"
-            }' -> '${mDestDevice.name}' (offset: ${offset.toHRSize(false)})"
-        )
-
-        startForegroundSpecialUse(mProgressNotificationId, basicForegroundNotification)
 
         lifecycleScope.launch(Dispatchers.IO) {
             Thread.currentThread().name = "WorkerService coroutine scope"
