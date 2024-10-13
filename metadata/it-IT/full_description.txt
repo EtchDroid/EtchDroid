@@ -19,7 +19,7 @@ Usalo per creare una chiavetta di installazione del sistema operativo quando il 
 ❌ ISO di Microsoft Windows ufficiali
 ⚠️ Immagini di Windows create dalla comunità specificamente per EtchDroid (attenzione: potrebbero contenere virus!)
 ❌ Immagini disco Apple DMG
-❌ Immagini di sistemi operativi GNU/Linux vecchi < 2010, ad esempio Damn Small Linux e Puppy Linux
+❌ Immagini di sistemi operativi GNU/Linux vecchi < 2010, ad esempio Damn Small Linux
 
 
 Il codice sorgente è disponibile su GitHub: https://github.com/EtchDroid/EtchDroid

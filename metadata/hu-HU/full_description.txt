@@ -19,7 +19,7 @@ Bootolható USB eszközök létrehozására is használható, ha a notebook felm
 ❌ Hivatalos Microsoft Windows ISOk
 ⚠️ Nem hivatalos Windows lemezképek, kifejezetten EtchDroidhoz készítve (Figyelem: Vírusokat tartalmazhatnak!)
 ❌ Apple DMG lemezképek
-❌ Régi, GNU/Linux operációs rendszerek lemezképei < 2010, mint például Damn Small Linux vagy Puppy Linux
+❌ Régi, GNU/Linux operációs rendszerek lemezképei < 2010, mint például Damn Small Linux
 
 
 Forráskód a GitHub-on: https://github.com/EtchDroid/EtchDroid

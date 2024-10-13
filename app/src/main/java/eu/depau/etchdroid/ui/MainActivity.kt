@@ -749,7 +749,7 @@ fun WhatCanIWriteBottomSheet(onDismissRequest: () -> Unit, darkTheme: Boolean = 
             }
             item {
                 ItemSupportEntry(
-                    description = "Damn Small Linux, Puppy Linux", SupportStatus.UNSUPPORTED,
+                    description = "Damn Small Linux", SupportStatus.UNSUPPORTED,
                     darkTheme
                 )
             }

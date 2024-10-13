@@ -19,7 +19,7 @@ Sử dụng để ghi file ảnh khởi động hệ điều hành vào thiết 
 ❌ File ISO chính thức của Microsoft Windows
 ⚠️ File ảnh Windows được xây dựng bởi cộng đồng cho EtchDroid (cẩn thận: chúng có thể chứa virus!)
 ❌ File ảnh DMG của Apple
-❌ Các bản phân phối GNU/Linux cũ < 2010 như Damn Small Linux và Puppy Linux
+❌ Các bản phân phối GNU/Linux cũ < 2010 như Damn Small Linux
 
 
 Mã nguồn ứng dụng trên GitHub: https://github.com/EtchDroid/EtchDroid

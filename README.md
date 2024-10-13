@@ -34,7 +34,7 @@ Use it to make a bootable operating system USB drive when your laptop is dead.
 - ❌ Official Microsoft Windows ISOs from microsoft.com
 - ⚠️ Community-built Windows images, made for EtchDroid (be careful: they may contain viruses!)
 - ❌ Apple DMG disk images
-- ❌ Older GNU/Linux OS images < 2010 such as Damn Small Linux and Puppy Linux
+- ❌ Older GNU/Linux OS images < 2010 such as Damn Small Linux
 
 ## Support the project
 

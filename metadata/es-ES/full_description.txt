@@ -19,7 +19,7 @@ EtchDroid es una aplicación de código abierto que te ayuda a escribir imágene
 ❌ Certificados ISO oficiales de Microsoft Windows
 ⚠️ Imágenes de Windows creadas por la comunidad, diseñadas para EtchDroid (¡cuidado: pueden contener virus!)
 ❌Imágenes de disco Apple DMG
-❌ Imágenes anteriores al 2010 del sistema operativo GNU/Linux , como Damn Small Linux y Puppy Linux
+❌ Imágenes anteriores al 2010 del sistema operativo GNU/Linux , como Damn Small Linux
 
 
 El código fuente está en GitHub: https://github.com/EtchDroid/EtchDroid

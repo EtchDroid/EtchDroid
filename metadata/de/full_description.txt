@@ -19,7 +19,7 @@ EtchDroid ist eine Open-Source-Anwendung, mit der Sie Bilder auf USB-Laufwerke s
  ❌ Offizielle Microsoft Windows-ISOs
  ⚠️ Von der Community erstellte Windows-Images, erstellt für EtchDroid (Vorsicht: Sie können Viren enthalten!)
  ❌ Apple DMG-Disk-Images
- ❌ Ältere GNU/Linux-Betriebssystem-Images < 2010 wie Damn Small Linux und Puppy Linux
+ ❌ Ältere GNU/Linux-Betriebssystem-Images < 2010 wie Damn Small Linux
 
 
  Der Quellcode ist auf GitHub: https://github.com/EtchDroid/EtchDroid

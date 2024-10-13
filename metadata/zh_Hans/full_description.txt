@@ -19,7 +19,7 @@ EtchDroid是一个开源的应用，能帮助你写入镜像到USB设备。
 ❌官方微软Windows ISO镜像
 ⚠️社区为EtchDroid构建的Windows镜像(请小心，他们可能会包含病毒)
 ❌苹果 DMG 磁盘镜像
-❌更老的 GNU/Linux 操作系统镜像，老于2010年像Damn Small Linux and Puppy Linux
+❌更老的 GNU/Linux 操作系统镜像，老于2010年像Damn Small Linux
 
 
 源代码托管在Github上: https://github.com/EtchDroid/EtchDroid

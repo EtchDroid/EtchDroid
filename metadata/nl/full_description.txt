@@ -16,6 +16,6 @@ Zo kun je bijv. een opstartbare GNU/Linux usb-schijf maken voor als je laptop de
 ❌ Officiële Microsoft Windows-iso's;
 ⚠️ Windows-schijfkopieën van de gemeenschap, speciaal voor EtchDroid (let op: ze kunnen mogelijk virussen bevatten!);
 ❌ Apple dmg-schijfkopieën;
-❌ Oudere GNU/Linux-iso's (vóór 2010), zoals Damn Small Linux en Puppy Linux.
+❌ Oudere GNU/Linux-iso's (vóór 2010), zoals Damn Small Linux.
 
 De broncode is beschikbaar op GitHub: https://github.com/EtchDroid/EtchDroid
