@@ -38,6 +38,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.FlowRowScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
@@ -593,63 +594,110 @@ fun JobInProgressView(
     }
 }
 
+
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun SuccessView() {
-    ConstraintLayout(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        val (stuffBox, card) = createRefs()
-        val composition by rememberLottieComposition(
-            LottieCompositionSpec.RawRes(R.raw.animated_check)
-        )
+fun SuccessViewLayout(
+    modifier: Modifier = Modifier,
+    title: @Composable () -> Unit,
+    animation: @Composable () -> Unit,
+    buttons: @Composable FlowRowScope.() -> Unit,
+    bottomCard: @Composable () -> Unit,
+) {
+    ConstraintLayout(modifier = modifier) {
+        val (stuffBoxRef, cardRef) = createRefs()
 
         Column(modifier = Modifier
-            .constrainAs(stuffBox) {
-                centerTo(parent)
-            }
+            .constrainAs(stuffBoxRef) { centerTo(parent) }
             .padding(32.dp), verticalArrangement = Arrangement.spacedBy(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(
-                text = stringResource(R.string.image_written_successfully),
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
-            )
-
-
-            val progress by animateLottieCompositionAsState(composition)
-            val lottieDynamicProperties = rememberLottieDynamicProperties(
-                rememberLottieDynamicProperty(
-                    property = LottieProperty.COLOR_FILTER, value = PorterDuffColorFilter(
-                        MaterialTheme.colorScheme.primary.toArgb(), PorterDuff.Mode.SRC_ATOP
-                    ), keyPath = arrayOf("**")
-                )
-            )
-            LottieAnimation(
-                composition, progress = { progress }, modifier = Modifier.size(256.dp),
-                dynamicProperties = lottieDynamicProperties
-            )
+                horizontalAlignment = Alignment.CenterHorizontally) {
+            title()
+            animation()
 
             val activity = LocalContext.current.activity
             val reviewHelper = remember { activity?.let { WriteReviewHelper(it) } }
 
             FlowRow(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
             ) {
+                buttons()
+            }
+        }
+
+        Box(modifier = Modifier.constrainAs(cardRef) {
+            bottom.linkTo(parent.bottom)
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+        }) {
+            bottomCard()
+        }
+    }
+}
+
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun SuccessView() {
+    SuccessViewLayout(
+            modifier = Modifier.fillMaxSize(),
+            title = {
+                Text(
+                        text = stringResource(R.string.image_written_successfully),
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
+                )
+            },
+            animation = {
+                val composition by rememberLottieComposition(
+                        LottieCompositionSpec.RawRes(R.raw.animated_check)
+                )
+
+                Column(
+                        modifier = Modifier.padding(32.dp),
+                        verticalArrangement = Arrangement.spacedBy(32.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+
+
+                    val progress by animateLottieCompositionAsState(composition)
+                    val lottieDynamicProperties = rememberLottieDynamicProperties(
+                            rememberLottieDynamicProperty(
+                                    property = LottieProperty.COLOR_FILTER,
+                                    value = PorterDuffColorFilter(
+                                            MaterialTheme.colorScheme.primary.toArgb(),
+                                            PorterDuff.Mode.SRC_ATOP
+                                    ),
+                                    keyPath = arrayOf("**")
+                            )
+                    )
+                    LottieAnimation(
+                            composition, progress = { progress }, modifier = Modifier.size(256.dp),
+                            dynamicProperties = lottieDynamicProperties
+                    )
+
+                }
+            },
+            buttons = {
+                val activity = LocalContext.current.activity
+                val reviewHelper = remember { activity?.let { WriteReviewHelper(it) } }
+
                 if (reviewHelper != null) {
                     OutlinedButton(onClick = { reviewHelper.launchReviewFlow() }) {
                         Text(
-                            text = if (reviewHelper.isGPlayFlavor) stringResource(
-                                R.string.write_a_review
-                            )
-                            else stringResource(R.string.star_on_github)
+                                text = if (reviewHelper.isGPlayFlavor) stringResource(
+                                        R.string.write_a_review
+                                )
+                                else stringResource(R.string.star_on_github)
                         )
                     }
                 }
                 OutlinedButton(onClick = {
                     activity?.startActivity(
-                        Intent(Intent.ACTION_VIEW, Uri.parse("https://etchdroid.app/donate/"))
+                            Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("https://etchdroid.app/donate/")
+                            )
                     )
                 }) {
                     Text(stringResource(R.string.support_the_project))
@@ -657,62 +705,64 @@ fun SuccessView() {
                 val context = LocalContext.current
                 OutlinedButton(onClick = {
                     context.startActivity(Intent(context, MainActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     })
                     activity?.finish()
                 }) {
                     Text(stringResource(R.string.write_another_image))
                 }
-            }
-        }
-        Card(
-            modifier = Modifier
-                .constrainAs(card) {
-                    bottom.linkTo(parent.bottom)
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                }
-                .padding(16.dp),
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.got_an_unsupported_drive_notification),
-                    style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center
-                )
+            },
+            bottomCard = {
+                Card(modifier = Modifier.padding(16.dp)) {
+                    Column(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Text(
+                                text = stringResource(R.string.got_an_unsupported_drive_notification),
+                                style = MaterialTheme.typography.labelLarge,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                textAlign = TextAlign.Center
+                        )
 
-                val uriHandler = LocalUriHandler.current
-                val annotatedString = buildAnnotatedString {
-                    val learnMoreStr = stringResource(R.string.learn_what_it_means)
-                    val str = stringResource(R.string.it_s_safe_to_ignore, learnMoreStr)
-                    val startIndex = str.indexOf(learnMoreStr)
-                    val endIndex = startIndex + learnMoreStr.length
-                    append(str)
-                    addStyle(
-                        style = SpanStyle(
-                            color = MaterialTheme.colorScheme.primary, textDecoration = TextDecoration.Underline
-                        ), start = startIndex, end = endIndex
-                    )
-                    addStringAnnotation(
-                        tag = "URL", annotation = "https://etchdroid.app/broken_usb/", start = startIndex,
-                        end = endIndex
-                    )
-                }
-                ClickableText(modifier = Modifier.fillMaxWidth(), text = annotatedString,
-                    style = MaterialTheme.typography.labelMedium.copy(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    ), onClick = {
-                        annotatedString.getStringAnnotations("URL", it, it).firstOrNull()?.let { stringAnnotation ->
-                            uriHandler.openUri(stringAnnotation.item)
+                        val uriHandler = LocalUriHandler.current
+                        val annotatedString = buildAnnotatedString {
+                            val learnMoreStr = stringResource(R.string.learn_what_it_means)
+                            val str = stringResource(R.string.it_s_safe_to_ignore, learnMoreStr)
+                            val startIndex = str.indexOf(learnMoreStr)
+                            val endIndex = startIndex + learnMoreStr.length
+                            append(str)
+                            addStyle(
+                                    style = SpanStyle(
+                                            color = MaterialTheme.colorScheme.primary,
+                                            textDecoration = TextDecoration.Underline
+                                    ), start = startIndex, end = endIndex
+                            )
+                            addStringAnnotation(
+                                    tag = "URL",
+                                    annotation = "https://etchdroid.app/broken_usb/",
+                                    start = startIndex,
+                                    end = endIndex
+                            )
                         }
-                    })
-            }
-        }
-    }
+                        ClickableText(modifier = Modifier.fillMaxWidth(), text = annotatedString,
+                                style = MaterialTheme.typography.labelMedium.copy(
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                ), onClick = {
+                            annotatedString.getStringAnnotations("URL", it, it)
+                                .firstOrNull()
+                                ?.let { stringAnnotation ->
+                                    uriHandler.openUri(stringAnnotation.item)
+                                }
+                        })
+                    }
+                }
+            },
+    )
 }
 
 @OptIn(ExperimentalLayoutApi::class)
