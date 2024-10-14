@@ -122,4 +122,7 @@
     <string name="title_activity_confirm_operation">Actie bevestigen</string>
     <string name="no_image_uri_provided">Geen schijfkopie-uri opgegeven</string>
     <string name="no_destination_device_selected">Geen doelapparaat gekozen</string>
+    <string name="worker_null_device_error">Er is een schrijfpoging gedaan, maar er is informatie verloren gegaan. Probeer het opnieuw.</string>
+    <string name="please_report_fatal_issue">Meld deze fout op GitHub, voorzien van stappen om de foutmelding in beeld te krijgen.</string>
+    <string name="view_github_issues">GitHub-problemen bekijken</string>
 </resources>
