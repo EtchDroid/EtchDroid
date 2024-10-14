@@ -122,4 +122,7 @@
     <string name="no_destination_device_selected">Hedef aygıt seçilmedi</string>
     <string name="community_windows_images">EtchDroid için topluluk tarafından oluşturulan Windows kalıpları (kendi başınızasınız: virüs içerebilirler!)</string>
     <string name="service_timeout_message">Yazma işlemi takılmış gibi görünüyor. Lütfen tekrar deneyin.</string>
+    <string name="worker_null_device_error">Bir yazma girişimi başlatıldı ancak ne yazık ki bazı bilgiler bu sırada kayboldu. Lütfen tekrar deneyin.</string>
+    <string name="view_github_issues">GitHub sorunlarını görüntüle</string>
+    <string name="please_report_fatal_issue">Lütfen bu sorunu, bu hataya yol açan adımlarla birlikte GitHub\'da bildirin.</string>
 </resources>
