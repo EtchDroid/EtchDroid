@@ -19,7 +19,7 @@ Laptop'un çalışmadığında önyüklenebilir bir işletim sistemi USB belleğ
 ❌ Resmî Microsoft Windows ISO'ları
 ⚠️ EtchDroid için yapılan topluluk yapımı Windows kalıpları (dikkatli olun: imajlar virüs içerebilir!)
 ❌ Apple DMG disk kalıpları
-❌ Eski GNU/Linux OS kalıpları < 2010 Damn Small Linux ve Puppy Linux gibi
+❌ Eski GNU/Linux OS kalıpları < 2010 Damn Small Linux gibi
 
 
 Kaynak koduna GitHub'dan ulaşılabilir: https://github.com/EtchDroid/EtchDroid
