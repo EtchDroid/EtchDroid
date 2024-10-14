@@ -125,4 +125,7 @@
     <string name="the_image_is_is_larger_than_the_device">镜像 (%1$s) 大于设备 (%2$s)</string>
     <string name="notification_verify_no_notifications_text">启用进度通知 • 验证 %1$s 是否与 %2$s相符</string>
     <string name="usb_drives_are_unreliable">USB 驱动器不可靠，安卓系统也没有授予足够的权限来自动恢复。我们只能将就！</string>
+    <string name="worker_null_device_error">启动了写入尝试，但某些信息在此过程中丢失了。请重试。</string>
+    <string name="please_report_fatal_issue">如果可以，请在 GitHub 上报告此问题，描述导致此错误的步骤。</string>
+    <string name="view_github_issues">查看 GitHub Issues</string>
 </resources>
