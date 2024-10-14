@@ -47,7 +47,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -77,6 +76,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -728,7 +728,6 @@ fun SuccessView() {
                                 textAlign = TextAlign.Center
                         )
 
-                        val uriHandler = LocalUriHandler.current
                         val annotatedString = buildAnnotatedString {
                             val learnMoreStr = stringResource(R.string.learn_what_it_means)
                             val str = stringResource(R.string.it_s_safe_to_ignore, learnMoreStr)
@@ -741,23 +740,19 @@ fun SuccessView() {
                                             textDecoration = TextDecoration.Underline
                                     ), start = startIndex, end = endIndex
                             )
-                            addStringAnnotation(
-                                    tag = "URL",
-                                    annotation = "https://etchdroid.app/broken_usb/",
-                                    start = startIndex,
-                                    end = endIndex
+                            addLink(
+                                    LinkAnnotation.Url("https://etchdroid.app/broken_usb/"),
+                                    startIndex,
+                                    endIndex
                             )
                         }
-                        ClickableText(modifier = Modifier.fillMaxWidth(), text = annotatedString,
+                        Text(
+                                modifier = Modifier.fillMaxWidth(),
+                                text = annotatedString,
                                 style = MaterialTheme.typography.labelMedium.copy(
                                         color = MaterialTheme.colorScheme.onSurfaceVariant
-                                ), onClick = {
-                            annotatedString.getStringAnnotations("URL", it, it)
-                                .firstOrNull()
-                                ?.let { stringAnnotation ->
-                                    uriHandler.openUri(stringAnnotation.item)
-                                }
-                        })
+                                )
+                        )
                     }
                 }
             },
