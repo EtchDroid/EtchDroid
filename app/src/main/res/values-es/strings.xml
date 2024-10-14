@@ -122,4 +122,7 @@
     <string name="the_usb_device_content_does_not_match_the_image">El contenido del dispositivo USB no coincide con la imagen</string>
     <string name="support_the_project">Donar</string>
     <string name="write_another_image">Escribir otra imagen</string>
+    <string name="please_report_fatal_issue">Si puedes, informa de este problema en GitHub junto con los pasos que condujeron a este error.</string>
+    <string name="view_github_issues">Ver las incidencias de GitHub</string>
+    <string name="worker_null_device_error">Se ha iniciado un intento de escritura pero desafortunadamente alguna información se perdió. Por favor, inténtelo de nuevo.</string>
 </resources>
