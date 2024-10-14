@@ -41,7 +41,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.FlowRowScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -765,6 +764,45 @@ fun SuccessView() {
     )
 }
 
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun FatalErrorViewLayout(
+    modifier: Modifier = Modifier,
+    title: @Composable () -> Unit,
+    message: @Composable () -> Unit,
+    suggestion: @Composable () -> Unit,
+    icon: @Composable () -> Unit,
+    buttons: @Composable FlowRowScope.() -> Unit,
+) {
+    ConstraintLayout(modifier = modifier) {
+        val stuffBoxRef = createRef()
+
+        Column(
+                modifier = Modifier
+                    .constrainAs(stuffBoxRef) {
+                        centerTo(parent)
+                    }
+                    .padding(32.dp),
+                verticalArrangement = Arrangement.spacedBy(32.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            val context = LocalContext.current
+            title()
+            message()
+            suggestion()
+            icon()
+
+            FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
+            ) {
+                buttons()
+            }
+        }
+    }
+}
+
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun FatalErrorView(
@@ -773,51 +811,44 @@ fun FatalErrorView(
     jobId: Int,
     device: UsbMassStorageDeviceDescriptor,
 ) {
-    ConstraintLayout(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        val stuffBox = createRef()
-
-        Column(modifier = Modifier
-            .constrainAs(stuffBox) {
-                centerTo(parent)
-            }
-            .padding(32.dp), verticalArrangement = Arrangement.spacedBy(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            val context = LocalContext.current
-            Text(
-                text = stringResource(R.string.there_was_an_error),
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
-            )
-            Text(
-                text = exception.getUiMessage(context),
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                    text = stringResource(R.string.please_report_fatal_issue),
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-
-            Icon(
-                imageVector = ImageVector.vectorResource(
-                    id = R.drawable.ic_write_to_usb_failed_large
-                ),
-                contentDescription = stringResource(R.string.error),
-                modifier = Modifier.size(256.dp),
-            )
-
-            val activity = LocalContext.current.activity
-
-            FlowRow(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally)
-            ) {
-                val activity = LocalContext.current.activity
+    FatalErrorViewLayout(
+            modifier = Modifier.fillMaxSize(),
+            title = {
+                Text(
+                        text = stringResource(R.string.there_was_an_error),
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
+                )
+            },
+            message = {
+                val context = LocalContext.current
+                Text(
+                        text = exception.getUiMessage(context),
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            },
+            suggestion = {
+                Text(
+                        text = stringResource(R.string.please_report_fatal_issue),
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            },
+            icon = {
+                Icon(
+                        imageVector = ImageVector.vectorResource(
+                                id = R.drawable.ic_write_to_usb_failed_large
+                        ),
+                        contentDescription = stringResource(R.string.error),
+                        modifier = Modifier.size(256.dp),
+                )
+            },
+            buttons = {
+                val context = LocalContext.current
+                val activity = context.activity
                 OutlinedButton(onClick = {
                     activity?.startActivity(
                             Intent(
@@ -829,14 +860,23 @@ fun FatalErrorView(
                     Text(text = stringResource(R.string.view_github_issues))
                 }
 
-                val btn: @Composable (onClick: () -> Unit, content: @Composable RowScope.() -> Unit) -> Unit =
-                    { onClick, content ->
-                        if (exception is VerificationFailedException) {
-                            OutlinedButton(onClick = onClick, content = content)
-                        } else {
-                            Button(onClick = onClick, content = content)
-                        }
+                if (exception is VerificationFailedException && activity != null) {
+                    Button(onClick = {
+                        val serviceIntent = getStartJobIntent(
+                                imageUri,
+                                device,
+                                jobId,
+                                0,
+                                false,
+                                activity,
+                                WorkerService::class.java
+                        )
+                        Log.d(TAG, "Starting service with intent: $serviceIntent")
+                        activity.startForegroundServiceCompat(serviceIntent)
+                    }) {
+                        Text(stringResource(R.string.try_again))
                     }
+                }
 
                 Button({
                     context.startActivity(Intent(context, MainActivity::class.java).apply {
@@ -846,22 +886,8 @@ fun FatalErrorView(
                 }) {
                     Text(text = stringResource(R.string.start_over))
                 }
-
-                if (exception is VerificationFailedException && activity != null) {
-                    Button(onClick = {
-                        val serviceIntent = getStartJobIntent(
-                            imageUri, device, jobId, 0, false, activity, WorkerService::class.java
-                        )
-                        Log.d(TAG, "Starting service with intent: $serviceIntent")
-                        activity.startForegroundServiceCompat(serviceIntent)
-                    }) {
-                        Text(stringResource(R.string.try_again))
-                    }
-                }
             }
-
-        }
-    }
+    )
 }
 
 @Composable
