@@ -122,4 +122,7 @@
     <string name="no_destination_device_selected">‬لم يتم تحديد جهاز الوجهة</string>
     <string name="service_timeout_message">يبدو أن عملية الكتابة قد تعثرت. حاول مرة اخرى.</string>
     <string name="usb_docks_and_hubs_might_have_power_issues">منافذ USB ولوحات الوصل (قد تواجه مشكلات في الطاقة)</string>
+    <string name="worker_null_device_error">حاول مرة أخرى.</string>
+    <string name="view_github_issues">عرض المشكلات على GitHub</string>
+    <string name="please_report_fatal_issue">إذا استطعت، يرجى الإبلاغ عن هذه المشكلة على GitHub مع الخطوات التي أدت إلى هذا الخطأ.</string>
 </resources>
