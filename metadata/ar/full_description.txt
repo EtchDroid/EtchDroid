@@ -19,7 +19,7 @@ EtchDroid هو تطبيق مفتوح المصدر يساعدك على كتابة
 ❌ شهادات Microsoft Windows ISO الرسمية
 ⚠️ صور Windows تم إنشاؤها بواسطة المجتمع، ومصممة لـ EtchDroid (كن حذرًا: قد تحتوي على فيروسات!)
 ❌صور قرص Apple DMG
-❌ صور نظام التشغيل GNU/Linux الأقدم <2010 مثل Damn Small Linux وPuppy Linux
+❌ صور نظام التشغيل GNU/Linux الأقدم <2010 مثل Damn Small Linux 
 
 
 كود المصدر موجود على GitHub: https://github.com/EtchDroid/EtchDroid
